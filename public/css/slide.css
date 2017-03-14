@@ -1,0 +1,228 @@
+/* Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+/*Мои стили для слайдов-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.index-carusel-container {
+    padding: 15px 0 30px;
+    text-align: center;
+}
+.slick-dots {
+    text-align: center;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+}
+.slick-dots li {
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    margin: 0 4px;
+}
+.slick-dots li button {
+    outline: none;
+    height: 15px;
+    font-size: 0px;
+    width: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    display: block;
+    color: #d3d3d3;
+    background: #d3d3d3;
+    border: 2px solid #d3d3d3;
+    border-radius: 50%;
+}
+.slick-dots li.slick-active button, .slick-dots li:hover button {
+    background: #818181;
+    color:#818181;
+    border: 2px solid #818181;
+}
+
+
+.slider-nav {
+    width: 16px;
+    height: 48px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -48px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.slider-prev {
+    background-image: url(../img/carusel-nav.png);
+    left: -55px;
+}
+.slider-prev:hover{
+    background-position: -48px 0;
+}
+.slider-next:hover{
+    background-position: -32px 0;
+}
+.slider-next {
+    background-image: url(../img/carusel-nav.png);
+    right: -55px;
+    background-position: -16px 0;
+}
+.reviews__item {
+    transition: all .2s ease-in-out;
+    display: block;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.reviews__item img {
+    border: 2px solid #e58a2a;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    display: block;
+}
+.reviews__item:hover{
+     transform: scale(1.1); 
+ }   
+.reviews__item:hover img{
+     border-color:#fff;
+
+}
+.slick-list {
+    padding: 40px 0;
+}
+
+.slide-text {
+    color: #fff;
+    font-size: 14px;
+}
+@media screen and (max-width: 1200px) {
+ 
+  .slick-slider {
+    padding: 0 25px;
+}
+  .slider-prev {
+        left: 0;
+    }
+    .slider-next {
+        right: 0;
+    }
+}
