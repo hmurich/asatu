@@ -2,8 +2,8 @@
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model{
-    protected $table = 'menu';
+class Customer extends Model{
+    protected $table = 'customers';
 
 
 }
