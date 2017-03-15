@@ -2,7 +2,7 @@
     <span class="modal_close"></span>
     <div class="modal-title">Войти в личный кабинет ?</div>
 
-    <form  action="/login" method="post" >
+    <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
         <div class="form-modal">
             <div class="modal-input__container ">
                 <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input ">
@@ -11,7 +11,7 @@
                 <input type="password" name="password" required="required" placeholder="Введите пароль..." class="modal-input ">
             </div>
             <div class="modal-input__container ">
-                <input type="re_password" name="re_password" required="required" placeholder="Подтвердите пароль..." class="modal-input ">
+                <input type="password" name="re_password" required="required" placeholder="Подтвердите пароль..." class="modal-input ">
             </div>
             <a href="#modal_forgot_pass" class="modal-link open_modal">
                 Забыли пароль?

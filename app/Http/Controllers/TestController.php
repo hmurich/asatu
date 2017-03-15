@@ -41,7 +41,7 @@ class TestController extends Controller{
     function getAdmin(){
 
         $user = new User();
-        $user->email = 'admin@mail.ru';
+        $user->email = 'hmurich@mail.ru';
         $user->password = Hash::make('346488');
         $user->type_id = 1;
         $user->save();
