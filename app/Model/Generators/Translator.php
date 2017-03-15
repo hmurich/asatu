@@ -2,6 +2,7 @@
 namespace App\Model\Generators;
 
 use App\Model\TransLib;
+use Cache;
 
 class Translator {
     private $ar_langs = array();
@@ -12,9 +13,9 @@ class Translator {
     private $def_name = 'Нет перевода';
 
     static function destroiArCache(){
-        foreach (SysDirectory::getLangAr() as $lang_id=>$lang_name) {
-            Cache::forget('ar_lang_'.$lang_id);
-        }
+        Cache::forget('ar_lang_ru');
+        Cache::forget('ar_lang_kz');
+        Cache::forget('ar_lang_en');
     }
 
     function __construct() {
@@ -30,23 +31,25 @@ class Translator {
         return $this->lang_id;
     }
 
-    function getTransNameByKey($key, $name = false){
+    function getTrans($key, $name = false){
         if ($this->lang_id == $this->def_lang_id && $name)
             return $name;
 
 
         if (!isset($this->ar_langs[$key]))
-            $this->getTransFromBD($key, $name);
+            $this->getTransFromBD($key);
 
         return $this->ar_langs[$key];
 	}
 
-    private function getTransFromBD($key, $name){
+    private function getTransFromBD($key){
+        $name = $this->def_name;
+
         $el = TransLib::where('key', $key)->first();
         if ($el){
-            if ($this->lang_id == 'kz')
+            if ($this->lang_id == 'kz' && $el->trans_kz)
                 $name = $el->trans_kz;
-            else if ($this->lang_id == 'en')
+            else if ($this->lang_id == 'en' && $el->trans_kz)
                 $name = $el->trans_en;
             else
                 $name = $el->trans_ru;
@@ -56,14 +59,14 @@ class Translator {
     }
 
      function getSessionLangId(){
-        if (!Session::has('lang_id'))
-			Session::put('lang_id', $this->def_lang_id);
+        if (!session()->has('lang_id'))
+			session()->put('lang_id', $this->def_lang_id);
 
-        return Session::get('lang_id');
+        return session()->get('lang_id');
     }
 
     function setSessionLangId($lang_id){
-        Session::put('lang_id', $lang_id);
+        session()->put('lang_id', $lang_id);
 
         $this->lang_id = $this->getSessionLangId();
         $this->ar_langs = $this->getArLangFromCache();
@@ -78,11 +81,11 @@ class Translator {
         return (array)json_decode(Cache::get('ar_lang_'.$this->lang_id), true);
     }
 
-    function putArLangToCache (){
+    private function putArLangToCache (){
         Cache::put('ar_lang_'.$this->lang_id, json_encode($this->ar_langs), $this->def_cache_time);
     }
 
-    function __destruct() {
+    function close() {
         $this->putArLangToCache();
     }
 

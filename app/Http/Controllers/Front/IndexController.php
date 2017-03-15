@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 
 class IndexController extends Controller{
     function getIndex (){
-        
         $ar = array();
         $ar['title'] = 'Главная';
 
