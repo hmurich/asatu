@@ -14,8 +14,15 @@
                 Eng
             </a>
         </div>
-        <a href="#modal_login" class="header-enter open_modal">
-            Войти / Зарегистрироваться
-        </a>
+        @if (Auth::guest())
+            <a href="#modal_login" class="header-enter open_modal">
+                Войти / Зарегистрироваться
+            </a>
+        @else
+            <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter">
+                Выйти
+            </a>
+        @endif
+
     </div>
 </div>

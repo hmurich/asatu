@@ -5,11 +5,13 @@ Route::get('/', 'Front\IndexController@getIndex');
 
 // Auth controllers
 Route::post('login', 'Auth\AuthController@postLogin');
-Route::controller('test', 'TestController');
+Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Admin Controllers
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
+    Route::controller('adminka/moderator', 'Admin\ModeratorController');
+
 });
 
 // Moderator Controllers
@@ -26,3 +28,6 @@ Route::group(['middleware' => ['auth.restoran']], function () {
 Route::group(['middleware' => ['auth.customer']], function () {
 
 });
+
+// Test Controllers
+Route::controller('test', 'TestController');

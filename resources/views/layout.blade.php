@@ -22,6 +22,8 @@
 
     @include('include.footer')
 
+    @include('include.message')
+
     @include('modals.login')
     @include('modals.forgot_pass')
 

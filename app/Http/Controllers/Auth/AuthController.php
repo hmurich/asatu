@@ -24,4 +24,10 @@ class AuthController extends Controller {
         abort(404);
     }
 
+    function getLogout () {
+        Auth::logout();
+
+        return redirect()->to('/');
+    }
+
 }

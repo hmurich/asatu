@@ -5,6 +5,8 @@
 <script type="text/javascript" src="{{ URL::asset('js/wow.min.js') }}" ></script>
 <script type="text/javascript" src="{{ URL::asset('js/tab.js') }}" ></script>
 
+<script type="text/javascript" src="{{ URL::asset('add/main.js') }}" ></script>
+
 <script>
     new WOW().init();
 </script>
