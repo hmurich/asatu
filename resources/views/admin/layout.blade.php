@@ -11,19 +11,25 @@
 
     @include('include.css_links')
 </head>
-<body>
-	<header class="header video-header">
+<body class="second-page">
+	<header class="header header-admin">
 		@include('include.top_panel')
         @section('top_block')
         @show
 	</header>
 
-    @yield('content')
+    <div class="container">
+		<div class="container-inner">
+			<div class="admin-content">
+				<div class="admin-content__top">
+					@include('admin.include.menu')
+				</div>
+                @yield('content')
+            </div>
+        </div>
+    </div>
 
     @include('include.footer')
-
-    @include('modals.login')
-    @include('modals.forgot_pass')
 
     @include('include.js_links')
 </body>

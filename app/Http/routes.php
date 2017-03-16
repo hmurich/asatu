@@ -24,5 +24,5 @@ Route::group(['middleware' => ['auth.restoran']], function () {
 
 // Customer Controllers
 Route::group(['middleware' => ['auth.customer']], function () {
-    
+
 });
