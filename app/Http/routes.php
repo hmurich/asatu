@@ -7,5 +7,22 @@ Route::get('/', 'Front\IndexController@getIndex');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::controller('test', 'TestController');
 
-// Admin Controller
-Route::get('adminka', 'Admin\IndexController@getIndex');
+// Admin Controllers
+Route::group(['middleware' => ['auth.admin']], function () {
+    Route::get('adminka', 'Admin\IndexController@getIndex');
+});
+
+// Moderator Controllers
+Route::group(['middleware' => ['auth.moderator']], function () {
+
+});
+
+// Restoran Controllers
+Route::group(['middleware' => ['auth.restoran']], function () {
+
+});
+
+// Customer Controllers
+Route::group(['middleware' => ['auth.customer']], function () {
+    
+});

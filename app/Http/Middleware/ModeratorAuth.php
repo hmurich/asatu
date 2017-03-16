@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class AdminAuth {
+class ModeratorAuth {
     protected $auth;
 
     function __construct(Guard $auth) {
@@ -16,7 +16,7 @@ class AdminAuth {
         if ($this->auth->guest())
             return redirect()->guest('/')->with('У Вас нет прав для просмотра');
 
-        if ($this->auth->user()->type_id != 1)
+        if ($this->auth->user()->type_id != 2)
             return redirect()->guest('/')->with('У Вас нет прав для просмотра');
 
         return $next($request);
