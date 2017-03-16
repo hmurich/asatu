@@ -7,16 +7,16 @@
 <div class="admin-content__body">
 	<form action="" method='get' class="admin-search-form">
 		<div class="admin-search-form__item input-search">
-            <input type='text' name='filter.email' value='{{ $request->input('filter.email') }}' placeholder="Email">
+            <input type='text' name='filter[email]' value='{{ $ar_input["filter"]["email"] or null }}' placeholder="Email">
 		</div>
         <div class="admin-search-form__item input-search">
-            <input type='text' name='filter.f_name' value='{{ $request->input('filter.f_name') }}' placeholder="Имя">
+            <input type='text' name='filter[s_name]' value='{{ $ar_input["filter"]["s_name"] or null }}' placeholder="Фамилия">
 		</div>
         <div class="admin-search-form__item input-search">
-            <input type='text' name='filter.s_name' value='{{ $request->input('filter.s_name') }}' placeholder="Фамилия">
+            <input type='text' name='filter[f_name]' value='{{ $ar_input["filter"]["f_name"] or null }}' placeholder="Имя">
 		</div>
         <div class="admin-search-form__item input-search">
-            <input type='text' name='filter.p_name' value='{{ $request->input('filter.p_name') }}' placeholder="Отчество">
+            <input type='text' name='filter[p_name]' value='{{ $ar_input["filter"]["p_name"] or null }}' placeholder="Отчество">
 		</div>
 		<div class="admin-search-form__item button-search">
 			<button class="button">приминить фильтр</button>
@@ -50,6 +50,9 @@
     			</td>
     	    </tr>
         @endforeach
+        <tr>
+            <td colspan=12>{!! $items->appends(Input::all())->render() !!}</td>
+        </tr>
     </table>
 </div>
 

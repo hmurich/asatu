@@ -22,10 +22,15 @@ class ModeratorController extends Controller{
         if ($request->has('filter.s_name'))
             $items = $items->where('s_name', 'like', '%'.$request->input('filter.s_name').'%');
 
+        if ($request->has('filter.p_name'))
+            $items = $items->where('p_name', 'like', '%'.$request->input('filter.p_name').'%');
+
         $ar = array();
         $ar['title'] = 'Модераторы';
-        $ar['request'] = $request;
-        $ar['items'] = $items->with('relUser')->orderBy('id', 'desc')->paginate(25);
+        $ar['ar_input'] = $request->all();
+        $ar['items'] = $items->with('relUser')->orderBy('id', 'desc')->paginate(1);
+
+        //echo '<pre>'; print_r($ar['ar_input']); echo '</pre>'; exit();
 
         return view('admin.moderator.index', $ar);
     }
