@@ -28,6 +28,7 @@
 	        <th>Email</th>
 	        <th>Ф.И.О.</th>
 	        <th>Телефон</th>
+            <th>Создан</th>
 	        <th>
                 <a href='{{ action("Admin\ModeratorController@getEdit") }}'>+</a>
             </th>
@@ -38,6 +39,7 @@
     	        <td>{{ $i->relUser->email }}</td>
     	        <td>{{ $i->total_name }}</td>
     	        <td>{{ $i->phone }}</td>
+                <td>{{ $i->created_at }}</td>
     	        <td>
                     <a href="{{ action("Admin\ModeratorController@getShow", $i->id) }}" class="table-item show show-icon">
                         show

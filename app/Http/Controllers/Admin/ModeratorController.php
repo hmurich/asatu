@@ -28,7 +28,7 @@ class ModeratorController extends Controller{
         $ar = array();
         $ar['title'] = 'Модераторы';
         $ar['ar_input'] = $request->all();
-        $ar['items'] = $items->with('relUser')->orderBy('id', 'desc')->paginate(1);
+        $ar['items'] = $items->with('relUser')->orderBy('id', 'desc')->paginate(25);
 
         //echo '<pre>'; print_r($ar['ar_input']); echo '</pre>'; exit();
 
