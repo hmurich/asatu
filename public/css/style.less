@@ -64,7 +64,7 @@ body{
     background-size: cover;
     border: 1px solid #eee;
 }
-.video-header {
+.header.video-header {
     /* background-image: url(../img/header-background.jpg); */
     background-position: center center;
     text-align: center;
@@ -78,6 +78,9 @@ body{
     width: 100%;
     position: relative;
         margin-bottom: 40px;
+}
+.video-header .header-top-line{
+    margin-bottom: 0;
 }
 .middle-icon.position-absolute {
     margin-bottom: 0;
@@ -96,18 +99,20 @@ body{
   width: @inner-width;
   margin: @inner-center;
 }
-.header-inner{
+.header-inner {
     position: relative;
     z-index: 1;
+    display: table-cell;
+    vertical-align: middle;
 }
 .header-top-line {
     background: #008aff;
     position: relative;
     border-bottom: 2px solid #89c9ff;
-    margin-bottom: 130px;
     padding: 5px 0 8px;
     position: relative;
     z-index: 1;
+    margin-bottom: 130px;
     &:after{
       content:"";
       width: 100%;
@@ -657,7 +662,7 @@ input:-ms-input-placeholder      {color:#000;}
 .restaurant-name {
     display: inline-block;
     position: relative;
-    margin-right: 65px;
+    padding-right: 65px;
     &:after {
         content: "";
         width: 58px;
@@ -665,7 +670,7 @@ input:-ms-input-placeholder      {color:#000;}
         background-image: url(../img/open-close.png);
         position: absolute;
         background-repeat: no-repeat;
-        right: -65px;
+        right: 0;
         top: 4px;
     }
     &.close:after {
@@ -1710,4 +1715,235 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
 }
 .js-button-otmena{
     margin-right: 15px;
+}
+.side-bar__show {
+    position: relative;
+    display: none;
+    &:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: 7px;
+        display: block;
+        background-image: url(../img/menu.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        top: 50%;
+        margin-top: -10px;
+    }
+}
+.admin-edit__left {
+    width: 40%;
+    float: left;
+}
+.admin-edit__right {
+    float: right;
+    width: 40%;
+}
+.admin-edit__item .admin-edit-card__item__right {
+    margin-left: 25%;
+    width: auto;
+    padding-right: 5px;
+
+}
+.admin-edit__bottom {
+    width: 100%;
+    clear: both;
+    .admin-edit-card__item{
+        width: 33%;
+        display: inline-block;
+    }
+}
+
+.admin-edit__item {
+    margin-bottom: 20px;
+}
+.admin-edit__bottom__right {
+    margin-left: 105px;
+    width: 80px;
+    input {
+        width: 100%;
+        height: 40px;
+        text-indent: 15px;
+        font-size: 14px;
+        border: 1px solid #eeeeee;
+        color: #727272;
+    }
+}
+.reviews-item__head span {
+    color: #008aff;
+}
+@media screen and (max-width: 1200px) {
+    .header-top-line__inner,.header-inner,.middle-icon__inner,.index-card-container__inner,.footer-inner,.container-inner{
+        width: auto;
+        padding: 0 15px;
+        
+    }
+    .index-card-container{
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .side-bar {
+        position: absolute;
+        display: block;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        width: 0;
+        background: #fff;
+        box-sizing: border-box;
+        transition-duration: 0.5s;
+    }
+    .side-bar.show {
+    width: 100%;
+}
+    .restaurants-box{
+        margin-left: 0;
+    }
+    .side-bar__show {
+        display: block;
+        width: 80%;
+        margin:0 auto 25px;
+    }
+}
+@media screen and (max-width: 850px) {
+    .index-card-list {
+        margin-right: -35px;
+    }
+    .index-card-item {
+        margin-right: 35px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .header-form {
+        display: block;
+        text-align: center;
+        &__item {
+            float: none;
+            margin-bottom: 15px;
+            &:last-child{
+                margin-bottom:0;
+            }
+        }
+    }
+    .icon-item {
+        width: 50%;
+        margin-bottom: 25px;
+        &:last-child{
+            margin-bottom:0;
+        }
+    }
+    .middle-icon.position-absolute {
+        position: relative;
+        bottom: auto;
+    }
+    .header.video-header {
+        height: auto;
+    }
+    .footer-nav {
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        position: relative;
+        top: auto;
+        color: #fff;
+        margin-bottom: 15px;
+        margin-top: 5px;
+            li {
+                &:last-child a{
+                    margin-right: 0;
+                }
+                a {
+                    color:#fff;
+                }
+            }
+    }
+    .footer-soc-seti {
+        right: auto;
+        left: 15px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .restaurant-item-box {
+        margin-left: 0;
+        width: 100%;
+    }
+    .restaurant-item__img {
+        float: none;
+        margin: 0 auto 25px;
+    }
+    .restaurant-item {
+        padding: 35px 15px 15px 15px;
+    }
+}
+@media screen and (max-width: 560px) {
+    .icon-item {
+        width: 100%;
+        text-align: left;
+    }
+    .index-card-list li {
+        width: 50%;
+    }
+    .header-slogan {
+        display: none;
+    }
+    .header-form__item {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 460px) {
+    .index-card-list li {
+        width: 100%;
+    }
+    .restaurant-item-box__top {
+        padding-right: 0;
+        padding-bottom: 18px;
+    }
+    .restaurant-name {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .restaurant-item-box__top-reiting {
+        top: -202px;
+    }
+    .restaurant-name:after {
+        right: 0;
+    }
+}
+@media screen and (max-width: 415px) {
+    .header-lang {
+        float:right;
+        margin-bottom: 7px;
+    }
+    .restaurant-item__img {
+        width: 100%;
+        overflow: hidden;
+    }
+    .delivery-time {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .restaurants-filtr__button {
+        float: none;
+    }
+}
+@media screen and (max-width: 320px) {
+    .footer-nav li {
+        width: 100%;
+        display: block;
+        a{
+            margin-right: 0;
+            
+        }
+    }
+    .footer-soc-seti {
+        top: -102px;
+        li {
+            display: block;
+        }
+    }
 }

@@ -15,6 +15,7 @@ abstract class Controller extends BaseController
     public $translator = false;
     function __construct(){
         $this->translator = new Translator();
+        view()->share('translator', $this->translator);
     }
 
     function __destruct(){

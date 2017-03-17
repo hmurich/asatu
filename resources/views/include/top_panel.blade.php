@@ -16,11 +16,11 @@
         </div>
         @if (Auth::guest())
             <a href="#modal_login" class="header-enter open_modal">
-                Войти / Зарегистрироваться
+                {{ $translator->getTrans('enter_registr') }}
             </a>
         @else
             <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter">
-                Выйти
+                {{ $translator->getTrans('logout') }}
             </a>
         @endif
 

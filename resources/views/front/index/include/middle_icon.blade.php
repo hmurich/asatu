@@ -3,21 +3,21 @@
         <div class="icon-item">
             <div class="icon-item__container tarelka">
                 <div class="icon-item__container--text">
-                    Выберите ресторан
+                    {{ $translator->getTrans('select_restoran') }}
                 </div>
             </div>
         </div>
         <div class="icon-item">
             <div class="icon-item__container wifi">
                 <div class="icon-item__container--text">
-                    Закажите еду
+                    {{ $translator->getTrans('reserve_meal') }}
                 </div>
             </div>
         </div>
         <div class="icon-item">
             <div class="icon-item__container dostavka">
                 <div class="icon-item__container--text">
-                    Ваша еда уже в пути!
+                    {{ $translator->getTrans('food_will_come') }}
                 </div>
             </div>
         </div>

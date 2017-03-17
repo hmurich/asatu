@@ -29,7 +29,11 @@ Array.prototype.forEach.call( inputs, function( input )
     });
 });
 
-
+var height_h = $('.video-header').height();
+var height_i = $('.position-absolute').height();
+var width_h = $('.header').width();
+var test = $('.js-header-inner ').height(height_h - height_i);
+$('.header-inner ').width(width_h);
 $('.js-checkout-form__item span').click(function(){
 	if($(".js-checkout-form__item-textarea").hasClass('active')){
 			$(".js-checkout-form__item-textarea").removeClass('active');
@@ -45,6 +49,15 @@ $('.js-button').click(function(){
 });
 $('.js-button-otmena').click(function(){
 			$(this).parents(".js-reviews-otevet").css('display', 'none');
+	
+});
+
+$('.side-bar__show').click(function(){
+			if($('.side-bar').hasClass('show')){
+				$('.side-bar').removeClass('show');
+			}else{
+				$('.side-bar').addClass('show');
+			}
 	
 });
 $(function(){
