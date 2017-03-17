@@ -11,10 +11,10 @@
 			</div>
             <div class="admin-edit-card__item">
 				<div class="admin-edit-card__item-left">
-					Системный код:
+					Альяс:
 				</div>
 				<div class="admin-edit-card__item__right">
-					<input type="text" name='sys_key' placeholder="Системный код" value='{{ isset($item) ? $item->sys_key : null }}' readonly="">
+					<input type="text" name='alias' placeholder="Системный код" value='{{ isset($item) ? $item->alias : null }}' readonly="">
 				</div>
 			</div>
 

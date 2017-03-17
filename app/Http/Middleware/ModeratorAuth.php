@@ -14,10 +14,10 @@ class ModeratorAuth {
 
     public function handle($request, Closure $next){
         if ($this->auth->guest())
-            return redirect()->guest('/')->with('У Вас нет прав для просмотра');
+            return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
 
         if ($this->auth->user()->type_id != 2)
-            return redirect()->guest('/')->with('У Вас нет прав для просмотра');
+            return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
 
         return $next($request);
     }

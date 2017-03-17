@@ -9,7 +9,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 class AuthController extends Controller {
     function postLogin(Request $request){
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
-            return back()->with('error', 'Не нашли пользователя');
+            return back()->with('error', 'Неверные данные для доступа');
 
         $user = Auth::user();
         if ($user->type_id == 1)

@@ -12,10 +12,27 @@
             <form action='{{ $action }}' method='post'>
                 <div class="admin-edit-card__item">
     				<div class="admin-edit-card__item-left">
-    					Системный код:
+    					Тип:
     				</div>
     				<div class="admin-edit-card__item__right">
-    					<input type="text" name='sys_key' placeholder="Системный код" value='{{ isset($item) ? $item->sys_key : null }}' required="">
+                        <select name="type_id">
+                            @foreach($ar_type as $id=>$name)
+                                @if (isset($item) &&  $item->type_id == $id)
+                                    <option value="{{ $id }}" selected="selected">{{ $name }}</option>
+                                @else
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endif
+                            @endforeach
+            			</select>
+    				</div>
+    			</div>
+
+                <div class="admin-edit-card__item">
+    				<div class="admin-edit-card__item-left">
+    					Альяс:
+    				</div>
+    				<div class="admin-edit-card__item__right">
+    					<input type="text" name='alias' placeholder="Системный код" value='{{ isset($item) ? $item->alias : null }}' >
     				</div>
     			</div>
 

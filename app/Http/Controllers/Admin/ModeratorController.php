@@ -54,7 +54,7 @@ class ModeratorController extends Controller{
 
     function postEdit(Request $request, $id = 0){
         if ($request->has('email') && User::where('email', $request->input('email'))->count())
-            return redirect()->back()->with('error', 'Сохранено');
+            return redirect()->back()->with('error', 'Email уже существует');
 
         DB::beginTransaction();
 
