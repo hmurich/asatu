@@ -13,17 +13,17 @@
         </ul>
         <ul class="footer-soc-seti">
             <li>
-                <a href="" >
+                <a href="{{ App\Model\SiteSetting::getNameByKey('vk') }}" >
                     <img src="/img/vk.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="" >
+                <a href="{{ App\Model\SiteSetting::getNameByKey('facebook') }}" >
                     <img src="/img/face.png" alt="">
                 </a>
             </li>
             <li>
-                <a href="" >
+                <a href="{{ App\Model\SiteSetting::getNameByKey('instagramm') }}" >
                     <img src="/img/insta.png" alt="">
                 </a>
             </li>

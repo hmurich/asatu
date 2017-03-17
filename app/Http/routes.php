@@ -38,5 +38,28 @@ Route::group(['middleware' => ['auth.customer']], function () {
 
 });
 
+// Change lang routes
+Route::get('ru', function(){
+    $translator = new App\Model\Generators\Translator();
+    $translator->setSessionLangId('ru');
+
+    return redirect()->back();
+});
+
+Route::get('kz', function(){
+    $translator = new App\Model\Generators\Translator();
+    $translator->setSessionLangId('kz');
+
+    return redirect()->back();
+});
+
+Route::get('en', function(){
+    $translator = new App\Model\Generators\Translator();
+    $translator->setSessionLangId('en');
+
+    return redirect()->back();
+});
+
+
 // Test Controllers
 Route::controller('test', 'TestController');
