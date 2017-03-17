@@ -6,6 +6,7 @@ use App\Model\SysDirectory;
 use Cache;
 use App\User;
 use Hash;
+use App\Model\SysDirectoryName;
 
 class TestController extends Controller{
 
@@ -45,6 +46,13 @@ class TestController extends Controller{
         $user->password = Hash::make('346488');
         $user->type_id = 1;
         $user->save();
+    }
+
+    function getGenerateTrans(){
+        $items = SysDirectoryName::all();
+        foreach ($items as $i) {
+            $i->createTransLib();
+        }
     }
 
 }
