@@ -2,13 +2,13 @@
     <div class="footer-inner">
         <ul class="footer-nav">
             <li>
-                <a href="">{{ $translator->getTrans('about') }}</a>
+                <a href="/page/about/">{{ $translator->getTrans('about') }}</a>
             </li>
             <li>
-                <a href="">{{ $translator->getTrans('how_we_work') }}</a>
+                <a href="/page/how-we-work/">{{ $translator->getTrans('how_we_work') }}</a>
             </li>
             <li>
-                <a href="">{{ $translator->getTrans('registr_restoran') }}</a>
+                <a href="/page/registr-restoran/">{{ $translator->getTrans('registr_restoran') }}</a>
             </li>
         </ul>
         <ul class="footer-soc-seti">
@@ -34,10 +34,10 @@
         <div class="footer-copyright">
             {{ $translator->getTrans('copyright') }}
         </div>
-        <a href="" class="footer-confidentiality">
+        <a href="/page/confidentiality/" class="footer-confidentiality">
             {{ $translator->getTrans('private_policy') }}
         </a>
-        <a href="" class="footer-agreement">
+        <a href="/page/agreement/" class="footer-agreement">
             {{ $translator->getTrans('user_agreement') }}
         </a>
     </div>
