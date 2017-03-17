@@ -39,6 +39,28 @@ $('.js-checkout-form__item span').click(function(){
 			
 		}
 });
+$('.js-button').click(function(){
+			$(this).siblings(".js-reviews-otevet").css('display', 'block');
+	
+});
+$('.js-button-otmena').click(function(){
+			$(this).parents(".js-reviews-otevet").css('display', 'none');
+	
+});
+$(function(){
+	
+	$('#rating_1').rating({
+		fx: 'full',
+        image: 'images/stars.png',
+        loader: 'images/ajax-loader.gif',
+        callback: function(responce){
+            
+            this.vote_success.fadeOut(2000);
+        }
+	});
+	
+	
+})
  $( function() {
     $( "#slider-range" ).slider({
       range: true,

@@ -74,9 +74,16 @@ body{
     box-sizing: border-box;
     overflow: hidden;
     padding-bottom: 0;
-    height: 100%;
+     height: 100%; 
     width: 100%;
     position: relative;
+        margin-bottom: 40px;
+}
+.middle-icon.position-absolute {
+    margin-bottom: 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 .page {
     width: 100%;
@@ -1535,14 +1542,23 @@ table {
 .checkbox {
     display: none;
 }
- input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#727272;opacity:1;transition: opacity 0.3s ease;}
-input::-moz-placeholder, textarea::-moz-placeholder{color:#727272;opacity:1;transition: opacity 0.3s ease;}        
-input:-moz-placeholder, textarea:-moz-placeholder{color:#727272;opacity:1;transition: opacity 0.3s ease;}        
-input:-ms-input-placeholder, textarea:-ms-input-placeholder{color:#727272;opacity:1;transition: opacity 0.3s ease;}
-input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder{opacity:0;transition: opacity 0.3s ease;}
-input:focus::-moz-placeholder, textarea:focus::-moz-placeholder{opacity:0;transition: opacity 0.3s ease;}
-input:focys:-moz-placeholder,textarea:focys:-moz-placeholder{opacity:0;transition: opacity 0.3s ease;}
-input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:0;transition: opacity 0.3s ease;}
+.stop {
+    background: #e01919;
+    &:hover{
+        background: #e01919;
+    }
+}
+.admin-edit-card.add-promo-kod input {
+    width: 40%;
+}
+ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#727272;opacity:1;}
+input::-moz-placeholder, textarea::-moz-placeholder{color:#727272;opacity:1;}        
+input:-moz-placeholder, textarea:-moz-placeholder{color:#727272;opacity:1;}        
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{color:#727272;opacity:1;}
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder{opacity:0;}
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder{opacity:0;}
+input:focys:-moz-placeholder,textarea:focys:-moz-placeholder{opacity:0;}
+input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:0;}
 .modal_div {
     width: 335px;
     background: #fff;
@@ -1636,4 +1652,62 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     button{
         width: 100%;
     }
+}
+.reviews-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    &:last-child{
+        margin-bottom:0;
+        border:none;
+    }
+    &__head {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+    &__date {
+        float: right;
+        color: #008aff;
+        font-weight: normal;
+    }
+    p {
+        color: #727272;
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+}
+.js-reviews-otevet {
+    margin-top: 15px;
+    padding: 0px 15px;
+    text-align: right;
+    display: none;
+}
+.reviews-item__container {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    li{
+        padding: 14px 14px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        background: #fff;
+    }
+}
+.reviews-otevet__text-area textarea {
+    width: 100%;
+    height: 150px;
+    text-align: left;
+    text-indent: 15px;
+    font-size: 14px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    box-sizing: border-box;
+    resize: none;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.js-button-otmena{
+    margin-right: 15px;
 }
