@@ -8,59 +8,45 @@ use App\Model\SiteSetting;
 
 class SiteSettingController extends Controller{
     function getIndex (Request $request){
-        $items = Page::where('id', '>', 0);
-
-        if ($request->has('filter.id'))
-            $items = $items->where('id', $request->input('filter.id'));
-
-        if ($request->has('filter.alias'))
-            $items = $items->where('alias', 'like', '%'.$request->input('filter.alias').'%');
-
-        if ($request->has('filter.title'))
-            $items = $items->where('title', 'like', '%'.$request->input('filter.title').'%');
-
-        if ($request->has('filter.type_id') && $request->input('filter.type_id'))
-            $items = $items->where('type_id', $request->input('filter.type_id'));
+        $ar_keys = SiteSetting::getKeyAr();
+        $ar_value = array();
+        foreach ($ar_keys as $key) {
+            $ar_value[$key] = SiteSetting::getNameByKey($key);
+        }
+        $ar_titles = SiteSetting::getKeyArName();
 
         $ar = array();
-        $ar['title'] = 'Cтраницы';
-        $ar['ar_input'] = $request->all();
-        $ar['items'] = $items->orderBy('id', 'desc')->paginate(25);
-        $ar['ar_type'] = Page::getTypeAr();
+		$ar['ar_value'] = $ar_value;
+        $ar['ar_titles'] = $ar_titles;
+        $ar['action'] = action('Admin\SiteSettingController@postIndex');
 
-
-        //echo '<pre>'; print_r($ar['ar_input']); echo '</pre>'; exit();
+		$ar['title'] = 'Настройки сайта';
 
         return view('admin.site_setting.index', $ar);
     }
 
-    function postEdit(Request $request, $id = 0){
-        $item = Page::find($id);
-        if (!$item)
-            $item = new Page();
+    function postIndex(Request $request){
+        $data = $request->all();
+        if (!isset($data['ar']))
+            abort(404);
 
-        $item->type_id =  $request->input('type_id');
-        $item->title =  $request->input('title');
-        $item->note =  $request->input('note');
-        $item->short_note =  $request->input('short_note');
-        $item->title_kz =  $request->input('title_kz');
-        $item->title_en = $request->input('title_en');
-        $item->short_note_kz = $request->input('short_note_kz');
-        $item->short_note_en = $request->input('short_note_en');
-        $item->note_kz = $request->input('note_kz');
-        $item->note_en = $request->input('note_en');
+        DB::beginTransaction();
 
-        if ($request->input('alias'))
-            $item->alias = $request->input('alias');
-        else
-            $item->alias = mb_strtolower(ModelSnipet::translitString($item->title));
+        $ar_keys = SiteSetting::getKeyAr();
+        foreach ($data['ar'] as $key => $name) {
+            if (!in_array($key, $ar_keys))
+                continue;
 
-        if (Page::where('alias', $item->alias)->where('id', '<>', $id)->count())
-            return redirect()->back()->with('error', 'Альяс уже есть');
+            $el = SiteSetting::where('key', $key)->first();
+            if (!$el){
+                $el = new SiteSetting();
+                $el->key = $key;
+            }
+            $el->name = $name;
+            $el->save();
+        }
 
-        $item->save();
-
-
+        DB::commit();
 
         return redirect()->back()->with('success', 'Сохранено');
     }

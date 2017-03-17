@@ -24,7 +24,10 @@ class SiteSetting extends Model{
     static function getKeyArName(){
         return array(
 			'main_phone' => 'Телефон приемной',
-            'email' => 'Email для связи'
+            'email' => 'Email для связи',
+            'vk' => 'Ссылка на ВК',
+            'facebook' => 'Ссылка на Facebook',
+            'instagramm' => 'Ссылка на Instagramm',
         );
     }
 }
