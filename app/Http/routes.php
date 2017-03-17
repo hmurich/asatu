@@ -15,6 +15,10 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::controller('adminka/page', 'Admin\PageController');
     Route::controller('adminka/site-setting', 'Admin\SiteSettingController');
     Route::controller('adminka/translator', 'Admin\TranslateController');
+    Route::controller('adminka/city', 'Admin\CityController');
+    Route::controller('adminka/kitchen', 'Admin\KitchenController');
+    Route::controller('adminka/menu-type', 'Admin\MenuTypeController');
+
 });
 
 // Moderator Controllers
