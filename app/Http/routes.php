@@ -14,6 +14,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::controller('adminka/static-page', 'Admin\StaticPageController');
     Route::controller('adminka/page', 'Admin\PageController');
     Route::controller('adminka/site-setting', 'Admin\SiteSettingController');
+    Route::controller('adminka/translator', 'Admin\TranslateController');
 });
 
 // Moderator Controllers

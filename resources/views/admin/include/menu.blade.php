@@ -9,5 +9,6 @@
     <li><a href="{{ action('Admin\PageController@getIndex') }}">Cтраницы</a></li>
     <li><a href="{{ action('Admin\StaticPageController@getIndex') }}">Стат. страницы</a></li>
     <li><a href="{{ action('Admin\ModeratorController@getIndex') }}">Модераторы</a></li>
+    <li><a href="{{ action('Admin\TranslateController@getIndex') }}">Переводы</a></li>
     <li><a href="{{ action('Admin\SiteSettingController@getIndex') }}">Настройки</a></li>
 </ul>
