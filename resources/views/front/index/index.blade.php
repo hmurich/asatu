@@ -14,82 +14,54 @@
 <div class="index-card-container">
     <div class="index-card-container__inner">
         <div class="title">
-            <h2 class="title-item">полезная информация</h2>
+            <h2 class="title-item">{{ $translator->getTrans('helpfull_info') }}</h2>
         </div>
         <ul class="index-card-list">
-            <li>
-                <div class="index-card-item">
-                    <div class="index-card-item__img">
-                        <img src="img/helpful.jpg" alt="">
+            @foreach ($help_article as $a)
+                <li>
+                    <div class="index-card-item">
+                        @if ($a->photo)
+                            <div class="index-card-item__img">
+                                <img src="{{ $a->photo }}" alt="" style='width: 100%;'>
+                            </div>
+                        @else
+                            <div class="index-card-item__img">
+                                <img src="/img/helpful.jpg" alt="">
+                            </div>
+                        @endif
+                        <a href="/show/{{ $a->alias }}" class="index-card-item__title">
+                            {{ $a->title_trans }}
+                        </a>
+                        {!! $a->short_note_trans !!}
                     </div>
-                    <a href="" class="index-card-item__title">
-                        Название статьи
-                    </a>
-                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях</p>
-                </div>
-            </li>
-            <li>
-                <div class="index-card-item">
-                    <div class="index-card-item__img">
-                        <img src="img/helpful.jpg" alt="">
-                    </div>
-                    <a href="" class="index-card-item__title">
-                        Название статьи
-                    </a>
-                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях</p>
-                </div>
-            </li>
-            <li>
-                <div class="index-card-item">
-                    <div class="index-card-item__img">
-                        <img src="img/helpful.jpg" alt="">
-                    </div>
-                    <a href="" class="index-card-item__title">
-                        Название статьи
-                    </a>
-                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях</p>
-                </div>
-            </li>
+                </li>
+            @endforeach
         </ul>
     </div>
     <div class="index-card-container__inner">
         <div class="title">
-            <h2 class="title-item">полезная информация</h2>
+            <h2 class="title-item">{{ $translator->getTrans('news') }}</h2>
         </div>
         <ul class="index-card-list">
-            <li>
-                <div class="index-card-item">
-                    <div class="index-card-item__img">
-                        <img src="img/helpful.jpg" alt="">
+            @foreach ($news as $a)
+                <li>
+                    <div class="index-card-item">
+                        @if ($a->photo)
+                            <div class="index-card-item__img">
+                                <img src="{{ $a->photo }}" alt="" style='width: 100%;'>
+                            </div>
+                        @else
+                            <div class="index-card-item__img">
+                                <img src="/img/helpful.jpg" alt="">
+                            </div>
+                        @endif
+                        <a href="/show/{{ $a->alias }}" class="index-card-item__title">
+                            {{ $a->title_trans }}
+                        </a>
+                        {!! $a->short_note_trans !!}
                     </div>
-                    <a href="" class="index-card-item__title">
-                        Название статьи
-                    </a>
-                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях</p>
-                </div>
-            </li>
-            <li>
-                <div class="index-card-item">
-                    <div class="index-card-item__img">
-                        <img src="img/helpful.jpg" alt="">
-                    </div>
-                    <a href="" class="index-card-item__title">
-                        Название статьи
-                    </a>
-                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях</p>
-                </div>
-            </li>
-            <li>
-                <div class="index-card-item">
-                    <div class="index-card-item__img">
-                        <img src="img/helpful.jpg" alt="">
-                    </div>
-                    <a href="" class="index-card-item__title">
-                        Название статьи
-                    </a>
-                    <p>Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях</p>
-                </div>
-            </li>
+                </li>
+            @endforeach
         </ul>
 
         <div class="index-seo-text">

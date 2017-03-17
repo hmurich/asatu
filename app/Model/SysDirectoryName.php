@@ -22,4 +22,8 @@ class SysDirectoryName extends Model{
         $key = static::prefix.$this->id;
         TransLib::generateNew($key, $this->name);
     }
+
+    static function getTransKey($id){
+		return static::prefix.$id;
+	}
 }

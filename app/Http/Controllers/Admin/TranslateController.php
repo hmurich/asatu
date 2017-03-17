@@ -5,6 +5,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\TransLib;
+use App\Model\Generators\Translator;
 
 class TranslateController extends Controller{
     function getIndex (Request $request){
@@ -60,6 +61,8 @@ class TranslateController extends Controller{
         $item->trans_kz =  $request->input('trans_kz');
         $item->trans_en =  $request->input('trans_en');
         $item->save();
+
+        Translator::destroiArCache();
 
         return redirect()->action('Admin\TranslateController@getIndex')->with('success', 'Сохранено');
     }

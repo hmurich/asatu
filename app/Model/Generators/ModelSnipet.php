@@ -118,7 +118,7 @@ class ModelSnipet {
 		$file->move($path, $file_name);
 
         if ($image_wight && $image_height){
-            $img = Image::make(public_path().'/'.$path.'/'.$file_name);
+            $img = \Intervention\Image\Facades\Image::make(public_path().'/'.$path.'/'.$file_name);
             $img->resize($image_wight, $image_height);
             $img->save();
         }

@@ -2,6 +2,8 @@
 
 
 Route::get('/', 'Front\IndexController@getIndex');
+Route::get('/show/{name}', 'Front\PageController@getShowPage');
+
 
 // Auth controllers
 Route::post('login', 'Auth\AuthController@postLogin');

@@ -1,6 +1,6 @@
 <div class="header-top-line">
     <div class="header-top-line__inner">
-        <a href="" class="header-logo">
+        <a href="/" class="header-logo">
             <img src="/img/logo.png" alt="">
         </a>
         <div class="header-lang">

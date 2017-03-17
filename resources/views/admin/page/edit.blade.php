@@ -9,7 +9,7 @@
 			<div class="admin-edit-card__title">
 				{{ $title }}
 			</div>
-            <form action='{{ $action }}' method='post'>
+            <form action='{{ $action }}' method='post' enctype="multipart/form-data">
                 <div class="admin-edit-card__item">
     				<div class="admin-edit-card__item-left">
     					Тип:
@@ -28,13 +28,16 @@
     			</div>
 
                 <div class="admin-edit-card__item">
-    				<div class="admin-edit-card__item-left">
-    					Альяс:
-    				</div>
-    				<div class="admin-edit-card__item__right">
-    					<input type="text" name='alias' placeholder="Системный код" value='{{ isset($item) ? $item->alias : null }}' >
-    				</div>
-    			</div>
+					<div class="admin-edit-card__item-left">
+						Фото
+					</div>
+					<div class="admin-edit-card__item__right">
+						<div class="admin-edit-card__input-file">
+							<input type="file" id="logo" name='photo' class="input-file">
+							<label for="logo"  class="name-file">Выберите файл</label>
+						</div>
+					</div>
+				</div>
 
     			<div class="admin-edit-card__item">
     				<div class="admin-edit-card__item-left">

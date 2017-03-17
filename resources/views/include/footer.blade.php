@@ -2,13 +2,13 @@
     <div class="footer-inner">
         <ul class="footer-nav">
             <li>
-                <a href="">О компании</a>
+                <a href="">{{ $translator->getTrans('about') }}</a>
             </li>
             <li>
-                <a href="">Как мы работаем</a>
+                <a href="">{{ $translator->getTrans('how_we_work') }}</a>
             </li>
             <li>
-                <a href="">Регистрация заведений</a>
+                <a href="">{{ $translator->getTrans('registr_restoran') }}</a>
             </li>
         </ul>
         <ul class="footer-soc-seti">
@@ -28,17 +28,17 @@
                 </a>
             </li>
         </ul>
-        <a href="" class="footer-logo">
+        <a href="/" class="footer-logo">
             <img src="/img/footer-logo.png" alt="">
         </a>
         <div class="footer-copyright">
-            Все права защищены © 2017 год
+            {{ $translator->getTrans('copyright') }}
         </div>
         <a href="" class="footer-confidentiality">
-            Политика конфидециальности
+            {{ $translator->getTrans('private_policy') }}
         </a>
         <a href="" class="footer-agreement">
-            Пользовательское соглашение
+            {{ $translator->getTrans('user_agreement') }}
         </a>
     </div>
 </footer>

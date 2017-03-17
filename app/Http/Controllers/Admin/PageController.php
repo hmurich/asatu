@@ -74,11 +74,14 @@ class PageController extends Controller{
         else
             $item->alias = mb_strtolower(ModelSnipet::translitString($item->title));
 
+
         if (Page::where('alias', $item->alias)->where('id', '<>', $id)->count())
             return redirect()->back()->with('error', 'Альяс уже есть');
 
-        $item->save();
+        if ($request->hasFile('photo'))
+            $item->photo = ModelSnipet::setImage($request->file('photo'), 'photo', 1000, 519);
 
+        $item->save();
 
         return redirect()->action('Admin\PageController@getIndex')->with('success', 'Сохранено');
     }
