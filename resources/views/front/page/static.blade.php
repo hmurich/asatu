@@ -1,6 +1,15 @@
 @extends('layout')
 @section('title', $title)
+
+@section('top_block')
+    @include('include.top_block_def')
+@endsection
+
 @section('content')
+<div class="middle-icon position-absolute">
+    @include('front.index.include.middle_icon')
+</div>
+
 <div class="index-card-container">
     <div class="index-card-container__inner">
         <div class="index-seo-text">

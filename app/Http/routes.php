@@ -3,7 +3,7 @@
 
 Route::get('/', 'Front\IndexController@getIndex');
 Route::get('/show/{name}', 'Front\PageController@getShowPage');
-
+Route::get('/page/{name}', 'Front\PageController@getShowStatPage');
 
 // Auth controllers
 Route::post('login', 'Auth\AuthController@postLogin');
