@@ -22,7 +22,7 @@
 			</select>
 		</div>
         <div class="admin-search-form__item input-search">
-            <input type='text' name='filter[sys_key]' value='{{ $ar_input["filter"]["sys_key"] or null }}' placeholder="Системный код">
+            <input type='text' name='filter[alias]' value='{{ $ar_input["filter"]["alias"] or null }}' placeholder="Альяс">
 		</div>
         <div class="admin-search-form__item input-search">
             <input type='text' name='filter[title]' value='{{ $ar_input["filter"]["title"] or null }}' placeholder="Заголовок">

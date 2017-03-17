@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Page;
-use App\Model\Generators\ModelSnipet;
+use App\Model\SiteSetting;
 
-class PageController extends Controller{
+class SiteSettingController extends Controller{
     function getIndex (Request $request){
         $items = Page::where('id', '>', 0);
 
@@ -32,25 +31,7 @@ class PageController extends Controller{
 
         //echo '<pre>'; print_r($ar['ar_input']); echo '</pre>'; exit();
 
-        return view('admin.page.index', $ar);
-    }
-
-    function getEdit(Request $request, $id = 0){
-        $item = Page::find($id);
-
-        $ar = array();
-        if (!$item){
-            $ar['title'] = 'Добавление страницы';
-            $ar['action'] = action('Admin\PageController@postEdit');
-        }
-        else {
-            $ar['title'] = 'Изменение страницы';
-            $ar['action'] = action('Admin\PageController@postEdit', $item->id);
-            $ar['item'] = $item;
-        }
-        $ar['ar_type'] = Page::getTypeAr();
-
-        return view('admin.page.edit', $ar);
+        return view('admin.site_setting.index', $ar);
     }
 
     function postEdit(Request $request, $id = 0){
@@ -80,23 +61,8 @@ class PageController extends Controller{
         $item->save();
 
 
-        return redirect()->action('Admin\PageController@getIndex')->with('success', 'Сохранено');
+
+        return redirect()->back()->with('success', 'Сохранено');
     }
 
-    function getDelete($id){
-        $item = Page::findOrFail($id);
-        $item->delete();
-
-        return redirect()->back()->with('success', 'Удалено');
-    }
-
-    function getShow($id){
-        $item = Page::findOrFail($id);
-
-        $ar = array();
-        $ar['title'] = 'Просмотр данных "'.$item->title.'"';
-        $ar['item'] = $item;
-
-        return view('admin.page.show', $ar);
-    }
 }

@@ -69,8 +69,6 @@ class StaticPageController extends Controller{
         $item->note_en = $request->input('note_en');
         $item->save();
 
-        DB::commit();
-
         return redirect()->action('Admin\StaticPageController@getIndex')->with('success', 'Сохранено');
     }
 
