@@ -2,7 +2,7 @@
     <li>
         <a href="">заказы</a>
     </li>
-    <li><a href="">рестораны</a></li>
+    <li><a href="{{ action('Admin\RestoranController@getIndex') }}">рестораны</a></li>
     <li><a href="">промо коды</a></li>
     <li><a href="">трекинг</a></li>
     <li><a href="">клиенты</a></li>
