@@ -10,16 +10,23 @@ use App\Model\SysDirectoryName;
 
 class EditController extends Controller{
     function getIndex (Request $request, $id = 0){
-        $items = Restoran::where('id', '>', 0);
+        $item = Restoran::find($id);
 
         $ar = array();
-        $ar['title'] = 'Рестораны';
-        $ar['ar_input'] = $request->all();
-        $ar['items'] = $items->orderBy('id', 'desc')->paginate(25);
+        if ($item){
+            $ar['title'] = 'Изменение ресторана';
+            $ar['item'] = $item;
+            $ar['action'] = action('Admin\Restoran\EditController@postIndex', $item->id);
+        }
+        else {
+            $ar['title'] = 'Добавление ресторана';
+            $ar['action'] = action('Admin\Restoran\EditController@postIndex');
+        }
+
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
 
-        return view('admin.restoran.index', $ar);
+        return view('admin.restoran.edit', $ar);
     }
 
     function postIndex(Request $request, $id = 0){
