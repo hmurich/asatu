@@ -8,7 +8,6 @@ class IndexController extends Controller{
         $ar = array();
         $ar['title'] = 'Админка';
 
-
         return view('admin.index.index', $ar);
     }
 }
