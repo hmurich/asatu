@@ -4,6 +4,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class RestoranKicthen extends Model{
     protected $table = 'restoran_kicthen';
-
+    public $timestamps = false;
 
 }

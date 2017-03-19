@@ -25,7 +25,7 @@
 			<button class="button">приминить фильтр</button>
 		</div>
         <div class="admin-search-form__item button-add">
-			<a href="{{ action("Admin\Restoran\EditController@getIndex") }}">
+			<a href="{{ action("Admin\Restoran\EditController@getItem") }}">
                 <button type='button' class="button">Добавить  заведение</button>
             </a>
 		</div>
@@ -37,7 +37,7 @@
     			<div class="zaka-list-name">
     				{{ $i->name }}
     			</div>
-    			<a href="{{ action("Admin\Restoran\EditController@getIndex", $i->id) }}" class="button zaka-list-button">
+    			<a href="{{ action("Admin\Restoran\EditController@getItem", $i->id) }}" class="button zaka-list-button">
     				Редактировать
     			</a>
     		</li>

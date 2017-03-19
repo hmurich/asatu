@@ -9,19 +9,23 @@ class Restoran extends Model{
         return round($this->raiting, 2);
     }
 
+    function relUser(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
     function relData(){
-        return $this->hasOne('App\Nodel\RestoranData', 'restoran_id');
+        return $this->hasOne('App\Model\RestoranData', 'restoran_id');
     }
 
     function relLocation(){
-        return $this->hasMany('App\Nodel\RestoranLocation', 'restoran_id');
+        return $this->hasMany('App\Model\RestoranLocation', 'restoran_id');
     }
 
     function relKitchens(){
-        return $this->hasMany('App\Nodel\RestoranKicthen', 'restoran_id');
+        return $this->hasMany('App\Model\RestoranKicthen', 'restoran_id');
     }
 
     function relReiting(){
-        return $this->hasOne('App\Nodel\RestoranRaiting', 'restoran_id');
+        return $this->hasOne('App\Model\RestoranRaiting', 'restoran_id');
     }
 }

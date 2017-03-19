@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Moderator;
 use App\User;
 use Hash;
+use App\Model\Generators\ModelSnipet;
 
 class ModeratorController extends Controller{
     function getIndex (Request $request){
