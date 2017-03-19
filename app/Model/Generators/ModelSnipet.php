@@ -2,6 +2,20 @@
 namespace App\Model\Generators;
 
 class ModelSnipet {
+    function distance($lat1, $lng1, $lat2, $lng2){
+        // Convert degrees to radians.
+        $lat1=deg2rad($lat1);
+        $lng1=deg2rad($lng1);
+        $lat2=deg2rad($lat2);
+        $lng2=deg2rad($lng2);
+
+        // Calculate delta longitude and latitude.
+        $delta_lat=($lat2 - $lat1);
+        $delta_lng=($lng2 - $lng1);
+
+        return round( 6378137 * acos( cos( $lat1 ) * cos( $lat2 ) * cos( $lng1 - $lng2 ) + sin( $lat1 ) * sin( $lat2 ) ) );
+    }
+
     static function getCanAddTimeStr($secunds){
         echo '<p> $secunds 1 '.$secunds.'</p>';
 		$days = floor($secunds / (60 * 60 * 24));
