@@ -20,7 +20,7 @@ class LocationController extends Controller{
         $ar = array();
         $ar['title'] = 'Зоны доставки "'.$item->name.'"';
         $ar['action'] = action('Admin\Restoran\LocationController@postItem', $item->id);
-        $ar['distance'] = RestoranDistance::where('restoran_id', $item->id)->paginate(25);
+        $ar['items'] = RestoranLocation::where('restoran_id', $item->id)->paginate(25);
 
         $ar['item'] = $item;
         $ar['ar_all_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
@@ -71,11 +71,11 @@ class LocationController extends Controller{
     }
 
     function getDelete(Request $request, $id = 0){
-        $item = Menu::find($id);
+        $item = RestoranLocation::find($id);
         $restoran = Restoran::findOrFail($item->restoran_id);
         $item->delete();
 
-        return redirect()->action('Admin\Restoran\LocationController@getIndex', $restoran->id)->with('success', 'Удалено');
+        return redirect()->action('Admin\Restoran\LocationController@getList', $restoran->id)->with('success', 'Удалено');
     }
 
 
