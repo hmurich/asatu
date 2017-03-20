@@ -15,6 +15,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
 
     Route::controller('adminka/restoran', 'Admin\RestoranController');
     Route::controller('adminka/restoran-edit', 'Admin\Restoran\EditController');
+    Route::controller('adminka/menu', 'Admin\Restoran\MenuController');
 
     Route::controller('adminka/moderator', 'Admin\ModeratorController');
     Route::controller('adminka/static-page', 'Admin\StaticPageController');
