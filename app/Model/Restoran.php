@@ -9,6 +9,10 @@ class Restoran extends Model{
         return round($this->raiting, 2);
     }
 
+    function relDistance(){
+        return $this->hasMany('App\Model\RestoranDistance', 'restoran_id');
+    }
+
     function relUser(){
         return $this->belongsTo('App\User', 'user_id');
     }

@@ -100,6 +100,7 @@ class EditController extends Controller{
         $r_data->contacts = $request->input('data.contacts');
         $r_data->director_name = $request->input('data.director_name');
         $r_data->director_contacts = $request->input('data.director_contacts');
+        $r_data->address = $request->input('data.address');
         $r_data->save();
 
         $raiting->restoran_id = $item->id;

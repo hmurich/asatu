@@ -6,7 +6,7 @@
     <li><a href="">промо коды</a></li>
     <li><a href="">трекинг</a></li>
     <li><a href="">клиенты</a></li>
-
+    
     <li><a href="{{ action('Admin\MenuTypeController@getIndex') }}">Виды блюд</a></li>
     <li><a href="{{ action('Admin\KitchenController@getIndex') }}">Кухни</a></li>
     <li><a href="{{ action('Admin\CityController@getIndex') }}">Города</a></li>

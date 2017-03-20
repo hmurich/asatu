@@ -58,6 +58,14 @@
                 </div>
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
+                        Адресс:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='data[address]' value='{{ $r_data ? $r_data->address : null }}'placeholder="Адресс">
+                    </div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
                         Кухня:
                     </div>
                     <div class="admin-edit-card__item__right">
