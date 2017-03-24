@@ -29,6 +29,8 @@ Array.prototype.forEach.call( inputs, function( input )
     });
 });
 
+   
+
 var height_h = $('.video-header').height();
 var height_i = $('.position-absolute').height();
 var width_h = $('.header').width();
@@ -60,6 +62,7 @@ $('.side-bar__show').click(function(){
 			}
 	
 });
+
 $(function(){
 	
 	$('#rating_1').rating({

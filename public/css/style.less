@@ -803,7 +803,8 @@ input:-ms-input-placeholder      {color:#000;}
     margin-right: 20px;
     background: #fff;
     padding: 15px;
-        font-size: 14px;
+    font-size: 14px;
+    overflow: hidden;
     color: #757575;
     &__img{
         height: 150px;
@@ -1744,7 +1745,7 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
 .admin-edit__item .admin-edit-card__item__right {
     margin-left: 25%;
     width: auto;
-    padding-right: 5px;
+    padding-right: 2px;
 
 }
 .admin-edit__bottom {
@@ -1774,6 +1775,77 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
 .reviews-item__head span {
     color: #008aff;
 }
+.button.l-cab-button {
+    margin-left: 15px;
+}
+.link {
+    color: #434343;
+    margin-bottom: 15px;
+    display: block;
+    margin-bottom: 25px;
+}
+.card-form_item  {
+    margin-right: 15px;
+    float:left;
+    input {
+        width: 230px;
+        height: 37px;
+        text-indent: 15px;
+        font-size: 12px;
+        border: 1px solid #eeeeee;
+        color: #727272;
+    }
+}
+
+.resiter-container {
+    padding: 14px 14px;
+    background: #fff;
+    margin-top: 30px;
+    p {
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 35px;
+    }
+}
+.form-register-container__item {
+    width: 48%;
+    display: inline-block;
+    float: left;
+}
+.form-register-container__title.restaurant-title {
+    margin-bottom: 35px;
+}
+.form-register-container__item-right{
+    float:right;
+}
+.form-register__right {
+    width: 64%;
+    float: right;
+    padding-right: 15px;
+}
+.form-register-container {
+    overflow: hidden;
+}
+.form-register__right input {
+    width: 100%;
+    height: 40px;
+    text-indent: 15px;
+    font-size: 14px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+}
+.button-contianer {
+    clear: both;
+    text-align: center;
+    margin-top: 25px;
+    float: left;
+    width: 100%;
+}
+.l-cab-button-add-container{
+    margin-left: 15px;
+    display: inline-block;
+}
+
 @media screen and (max-width: 1200px) {
     .header-top-line__inner,.header-inner,.middle-icon__inner,.index-card-container__inner,.footer-inner,.container-inner{
         width: auto;
@@ -1783,9 +1855,17 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     .index-card-container{
         overflow: hidden;
     }
+    .restaurant-img img {
+        display: block;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 1000px) {
+    .admin-edit-card__item__right {
+    margin-left: 31%;
+    width: 68%;
+}
     .side-bar {
         position: absolute;
         display: block;
@@ -1798,15 +1878,42 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
         transition-duration: 0.5s;
     }
     .side-bar.show {
-    width: 100%;
-}
+        width: 100%;
+    }
     .restaurants-box{
         margin-left: 0;
     }
     .side-bar__show {
         display: block;
-        width: 80%;
-        margin:0 auto 25px;
+        width: 100%;
+        margin: 0 auto 25px;
+        &:hover{
+            transform: scale(1);
+        }
+    }
+    .restaurant-info__item-second-page {
+        display: block;
+    }
+    .table-container {
+        width: 100%;
+        overflow-y: auto;
+        margin: 0 0 1em;
+    }
+    .checkout-form {
+        width: 100%;
+    }
+    .checkout-button {
+        width: 100%;
+        padding: 14px 0;
+    }
+    .checkout-body__titel {
+        font-size: 15px;
+    }
+    .checkout-content__left {
+        width: 65%;
+    }
+    .checkout-content__right {
+        width: 35%;
     }
 }
 @media screen and (max-width: 850px) {
@@ -1816,6 +1923,54 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     .index-card-item {
         margin-right: 35px;
     }
+    .product-list li {
+        width:50%;
+    }
+    .checkout-list-step-item {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    .basket-itog__item {
+        float: none;
+        display: block;
+    }
+    .basket-itog__button {
+        float: right;
+        margin-top: 15px;
+    }
+    .admin-edit__right {
+        width: 45%;
+    }
+    .admin-edit__left {
+        width: 45%;
+    }
+}
+@media screen and (max-width: 750px) {
+    .admin-content__item-left {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .admin-content__item-right {
+        width: 100%;
+        padding-left: 0;
+    }
+    .admin-edit__left {
+        width: 100%;
+    }
+    .admin-edit__right {
+        width: 100%;
+    }
+    .admin-edit__item .admin-edit-card__item__right {
+     margin-left: 0%; 
+    width: 68%;
+    padding-right: 2px;
+}
+}
+@media screen and (max-width: 730px) {
+    .admin-search-form__item {
+        margin-bottom: 15px;
+    }
+
 }
 @media screen and (max-width: 700px) {
     .header-form {
@@ -1865,6 +2020,15 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
         right: auto;
         left: 15px;
     }
+    .admin-edit__bottom .admin-edit-card__item {
+        width: 100%;
+    }
+    .l-cab-button-add-container {
+        margin-left: 0;
+        margin-top: 15px;
+        display: block;
+    }
+
 }
 
 @media screen and (max-width: 650px) {
@@ -1879,7 +2043,47 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     .restaurant-item {
         padding: 35px 15px 15px 15px;
     }
+    .restaurant-info {
+        width: 100%;
+    }
+    .restaurant-info__item-second-page {
+        display: inline-block;
+    }
+    .restaurant-reiting-status {
+        float: left;
+        width: 100%;
+    }
+    .product-item-count {
+        margin-bottom: 15px;
+    }
+    .product-item__button {
+        float: none;
+    }
+    .admin-edit-card__item {
+        margin-bottom: 8px;
+        float: left;
+        width: 100%;
+        overflow: visible;
+    }
+    .admin-edit-card__item__right {
+        width: 50%;
+        float: right;
+        margin-left: 0;
+    }
 }
+
+@media screen and (max-width: 610px) {
+    .checkout-content__left {
+        width: 100%;
+        padding: 0;
+    }
+    .checkout-content__right {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+}
+
+
 @media screen and (max-width: 560px) {
     .icon-item {
         width: 100%;
@@ -1894,6 +2098,27 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     .header-form__item {
         width: 100%;
     }
+    .admin-edit-card.add-promo-kod input {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .product-list li{
+        width: 100%;
+    }
+    .product-item__button {
+    float: right;
+}
+.admin-edit-card__item__right {
+    width: 100%;
+}
+.admin-edit-card__item-left {
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+.admin-edit-card__item {
+    margin-bottom: 15px;
+}
 }
 @media screen and (max-width: 460px) {
     .index-card-list li {
@@ -1913,6 +2138,22 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     .restaurant-name:after {
         right: 0;
     }
+    .button-add {
+        float: none;
+    }
+    .admin-search-form__item {
+        margin-bottom: 15px;
+    }
+    .admin-edit__item .admin-edit-card__item__right {
+        width: 100%;
+    }
+    .card-form_item {
+        margin-right: 0;
+        width: 100%;
+        float: left;
+        margin-bottom: 15px;
+    }
+
 }
 @media screen and (max-width: 415px) {
     .header-lang {
@@ -1929,6 +2170,65 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     }
     .restaurants-filtr__button {
         float: none;
+    }
+    .order-img {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px;
+        img{
+            width: 100%;
+        }
+    }
+    .order-text {
+        margin-left: 0;
+        clear: both;
+    }
+    .restaurants-filtr__item input {
+        margin-bottom: 15px;
+    }
+    .restaurants-filtr__item-city {
+        position: relative;
+        padding-right: 0;
+    }
+    .restaurants-filtr__item-city span {
+        float: none;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .restaurants-filtr__button--city {
+        position: relative;
+        right: auto;
+        top: auto;
+    }
+}
+@media screen and (max-width: 380px) {
+    .order-button-container {
+        text-align: left;
+        .button{
+            display: block;
+        }
+    }
+    .button.cancel {
+        background: #7d7d7d;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .admin-nav li {
+        display: block;
+        margin: 0;
+        margin-bottom: 7px;
+    }
+    .js-button-otmena {
+        margin-right: 0;
+        margin-bottom: 7px;
+    }
+    .js-reviews-otevet {
+        padding: 0px 5px;
+        text-align: left;
+    }
+    .button.l-cab-button {
+        margin-left: 0;
+        margin-top: 15px;
     }
 }
 @media screen and (max-width: 320px) {
