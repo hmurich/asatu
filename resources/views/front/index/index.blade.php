@@ -4,12 +4,13 @@
 
 @section('top_block')
     @include('front.index.include.top_block')
+	<div class="middle-icon position-absolute">
+		@include('front.index.include.middle_icon')
+	</div>
 @endsection
 
 @section('content')
-<div class="middle-icon position-absolute">
-    @include('front.index.include.middle_icon')
-</div>
+
 
 <div class="index-card-container">
     <div class="index-card-container__inner">
