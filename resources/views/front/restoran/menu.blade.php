@@ -16,7 +16,7 @@
         </div>
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
 
-        @include('front.restoran.include.side_bar')
+        @include('front.restoran.include.side_bar_menu')
 
         <div class="restaurants-box">
             <ul class="product-list">

@@ -26,7 +26,16 @@ class ReviewController extends Controller{
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
 
-        return view('front.restoran.menu', $ar);
+        return view('front.restoran.review', $ar);
+    }
+
+    function postList(Request $request, $restoran_id){
+        $location = UserLocation::getLocation();
+        if (!$location)
+            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+        $restoran = Restoran::findOrFail($restoran_id);
+        
+
     }
 
 }
