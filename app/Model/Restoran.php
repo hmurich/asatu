@@ -32,4 +32,16 @@ class Restoran extends Model{
     function relReiting(){
         return $this->hasOne('App\Model\RestoranRaiting', 'restoran_id');
     }
+
+    function generateHtmlStar(){
+        $html_star = '';
+        for ($i = 1; $i<=5; $i++){
+            if ($this->raiting > $i)
+                $html_star = $html_star.'<li></li>';
+            else
+                $html_star = $html_star.'<li class="empty"></li>';
+        }
+
+        return $html_star;
+    }
 }

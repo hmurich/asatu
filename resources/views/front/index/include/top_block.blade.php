@@ -3,23 +3,24 @@
         {{ $translator->getTrans('gave_with_love') }}
     </div>
     <div class="header-form">
-        <form action="">
+        <form action="{{ action('Front\CatalogController@postAddress') }}" method="post">
             <div class="header-form__item">
-                <select name="" id="">
+                <select name="city_id"  required="">
                     <option value="">{{ $translator->getTrans('city') }}</option>
                     @foreach ($ar_city as $id=>$name)
                         <option value="{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="header-form__item">
-                <input type="text" placeholder="{{ $translator->getTrans('street') }}">
+            <div class="header-form__item" >
+                <input type="text" name='address' required="" placeholder="{{ $translator->getTrans('street') }}">
             </div>
             <div class="header-form__item">
                 <button class="button">
                     {{ $translator->getTrans('want_eat') }}
                 </button>
             </div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
         </form>
     </div>
 </div>
