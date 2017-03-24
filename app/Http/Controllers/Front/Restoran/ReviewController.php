@@ -8,7 +8,7 @@ use App\Model\SysDirectoryName;
 use App\Model\Restoran;
 use App\Model\Menu;
 
-class MenuController extends Controller{
+class ReviewController extends Controller{
     function getList (Request $request, $restoran_id) {
         $location = UserLocation::getLocation();
         if (!$location)

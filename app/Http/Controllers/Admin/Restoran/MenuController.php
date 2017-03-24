@@ -38,7 +38,7 @@ class MenuController extends Controller{
         $item = new Menu();
 
         if ($request->hasFile('photo'))
-            $item->photo = ModelSnipet::setImage($request->file('photo'), 'logo', 1000, 519);
+            $item->photo = ModelSnipet::setImage($request->file('photo'), 'logo', 224, 151);
 
         $item->restoran_id = $restoran->id;
         $item->cat_id = $request->input('cat_id');

@@ -20,223 +20,43 @@
 
         <div class="restaurants-box">
             <ul class="product-list">
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
+                @foreach ($items as $i)
+                    <li>
+                        <div class="product-item">
+                            <div class="product-item__img">
+                                @if ($i->photo)
+                                    <img src="{{ $i->photo }}" alt="">
+                                @else
+                                    <img src="/img/restaurant.jpg" alt="">
+                                @endif
                             </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
+                            <div class="product-item__name">
+                                {{ $i->title }}
                             </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
+                            <div class="product-item__price">
+                                Цена: <span>{{ $i->cost_item }} тг</span>
                             </div>
-                        </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
+                            <div class="product-item__des">
+                                {!! $i->note !!}
                             </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
+                            <div class="product-item-count">
+                                <div class="product-item-count-item js-min hover-but">
+                                    -
+                                </div>
+                                <div class="product-item-count-item count">
+                                    <span class="js-count">1</span> шт
+                                    <input type="hidden" class="js-count-input"value="1">
+                                </div>
+                                <div class="product-item-count-item js-plus hover-but">
+                                    +
+                                </div>
                             </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
-                            </div>
+                            <button class="button product-item__button">
+                                заказать
+                            </button>
                         </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
-                            </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
-                            </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
-                            </div>
-                        </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
-                            </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
-                            </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
-                            </div>
-                        </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
-                            </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
-                            </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
-                            </div>
-                        </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
-                            </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
-                            </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
-                            </div>
-                        </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-item__img">
-                            <img src="img/restaurant.jpg" alt="">
-                        </div>
-                        <div class="product-item__name">
-                            Название блюда
-                        </div>
-                        <div class="product-item__price">
-                            Цена: <span>5.000тг</span>
-                        </div>
-                        <div class="product-item__des">
-                            Состав: название, название, название, название, название, название.
-                        </div>
-                        <div class="product-item-count">
-                            <div class="product-item-count-item js-min hover-but">
-                                -
-                            </div>
-                            <div class="product-item-count-item count">
-                                <span class="js-count">1</span> шт
-                                <input type="hidden" class="js-count-input"value="1">
-                            </div>
-                            <div class="product-item-count-item js-plus hover-but">
-                                +
-                            </div>
-                        </div>
-                        <button class="button product-item__button">
-                            заказать
-                        </button>
-                    </div>
-                </li>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>

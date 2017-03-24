@@ -1,7 +1,8 @@
 <ul class="admin-nav">
     <li>
-        <a href="">МЕНЮ</a>
+        <a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}">МЕНЮ</a>
     </li>
-    <li><a href="">ИНФО       </a></li>
-    <li><a href="">ОТЗЫВЫ</a></li>
+    <li>
+        <a href="{{ action('Front\Restoran\ReviewController@getList', $restoran->id) }}">ОТЗЫВЫ</a>
+    </li>
 </ul>
