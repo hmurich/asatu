@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "illuminate/html": "5.*",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "yandex/geo": "1.1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
