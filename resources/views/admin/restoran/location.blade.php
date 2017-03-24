@@ -31,6 +31,9 @@
             	        <td>{{ $i->address }}</td>
             	        <td>{{ $i->relDistance()->count() }}</td>
             	        <td>
+                            <a href="{{ action("Admin\Restoran\LocationController@getItem", array($item->id, $i->id)) }}" class="table-item edit edit-icon">
+                                edit
+            				</a>
                             <a href="{{ action("Admin\Restoran\LocationController@getDelete", $i->id) }}" class="table-item delete delete-icon">
                                 X
             				</a>
