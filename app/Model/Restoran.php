@@ -36,7 +36,7 @@ class Restoran extends Model{
     function generateHtmlStar(){
         $html_star = '';
         for ($i = 1; $i<=5; $i++){
-            if ($this->raiting > $i)
+            if ($this->raiting >= $i)
                 $html_star = $html_star.'<li></li>';
             else
                 $html_star = $html_star.'<li class="empty"></li>';

@@ -19,48 +19,40 @@
         @include('front.restoran.include.side_bar_review')
 
         <div class="restaurants-box">
+            @if ($auth->guest())
+                <p>Авторизуйтесь для выставления рэйтинга</p>
+            @else
+                <form action='{{ action('Front\Restoran\ReviewController@postList', $restoran->id) }}' method="post">
+                    <input type='text' name='name' required="" placeholder="Введите имя"/> <br/>
+                    <select name='raiting' required="">
+                        <option value="">Рэйтинг</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select><br/>
+                    <textarea name='note' required="" placeholder="Введите отзыв"></textarea><br/>
+                    <input type='submit' />
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
+            @endif
+
+            <br />
 			<ul class="reviews-item__container">
-				<li class="reviews-item">
-					<div class="reviews-item__head">
-					Имя Фамилия
-						<div class="reviews-item__date">
-							24.04.2017
-						</div>
-					</div>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores mollitia aliquid et molestias nesciunt quae, exercitationem totam cum commodi eaque! Reprehenderit quibusdam, error accusantium eveniet veritatis nesciunt voluptatibus dolor cupiditate.
-
-					</p>
-				</li>
-				<li class="reviews-item">
-					<div class="reviews-item__head">
-					Имя Фамилия
-						<div class="reviews-item__date">
-							24.04.2017
-						</div>
-					</div>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores mollitia aliquid et molestias nesciunt quae, exercitationem totam cum commodi eaque! Reprehenderit quibusdam, error accusantium eveniet veritatis nesciunt voluptatibus dolor cupiditate.
-
-					</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, perferendis? Inventore impedit culpa asperiores perspiciatis, minima eligendi libero eum labore aliquid officiis maxime molestias repellat itaque deserunt expedita, recusandae assumenda?</p>
-					<p>Velit, maxime dicta voluptates amet aliquam doloremque qui, optio fugiat omnis recusandae, modi. Quia a unde sit impedit culpa voluptatibus non ipsum eos, qui excepturi? Numquam reprehenderit quidem, cupiditate sint.</p>
-					<p>Dolores minima reiciendis optio officiis aspernatur impedit esse assumenda exercitationem, magnam, eos ad beatae velit molestias iusto sunt facilis debitis aliquam iure officia soluta quam tempora atque sequi consequatur. Aperiam.</p>
-					<p>Neque adipisci tempore, vero impedit culpa porro aut ratione magnam. Eligendi ex ipsa, fuga similique qui, maxime vero illo minus eos libero magni dolore aut reiciendis distinctio. Natus, praesentium at!</p>
-					<p>Quasi autem molestiae ab maxime architecto. Sequi cupiditate, quibusdam cumque similique officia alias veniam consequatur, iste corrupti ea ratione, fugit aperiam earum quae enim odio et assumenda! Repudiandae dicta, in!</p>
-				</li>
-				<li class="reviews-item">
-					<div class="reviews-item__head">
-					Имя Фамилия
-						<div class="reviews-item__date">
-							24.04.2017
-						</div>
-					</div>
-					<p>
-					   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores mollitia aliquid et molestias nesciunt quae, exercitationem totam cum commodi eaque! Reprehenderit quibusdam, error accusantium eveniet veritatis nesciunt voluptatibus dolor cupiditate.
-
-					</p>
-				</li>
+                @foreach ($items as $i)
+                    <li class="reviews-item">
+                        <div class="reviews-item__head">
+                            {{ $i->name }}
+                            <div class="reviews-item__date">
+                                {{ $i->created }}
+                            </div>
+                        </div>
+                        <p>
+                            {!! $i->note !!}
+                        </p>
+                    </li>
+                @endforeach
 			</ul>
 		</div>
     </div>
