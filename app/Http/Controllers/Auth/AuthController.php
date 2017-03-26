@@ -15,7 +15,7 @@ class AuthController extends Controller {
         if ($user->type_id == 1)
             return redirect()->action('Admin\IndexController@getIndex');
         else if ($user->type_id == 2)
-            return redirect()->action('Admin\IndexController@getIndex');
+            return redirect()->action('Restoran\OrderController@getList');
         else if ($user->type_id == 3)
             echo 'рестораны <br/>';
         else if ($user->type_id == 4)
