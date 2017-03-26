@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthController extends Controller {
-    function postLogin(Request $request){
+    function postLogin(Request $request, $from = false){
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
             return back()->with('error', 'Неверные данные для доступа');
 

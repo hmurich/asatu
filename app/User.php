@@ -36,4 +36,8 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    function relRestoran(){
+        return $this->hasOne('App\Model\Restoran', 'user_id');
+    }
 }

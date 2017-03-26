@@ -21,11 +21,11 @@ class OrderStatus {
     const CANCEL_CLIENT = 28;
     const CANCEL_OTHER = 29;
 
-    function getStatusAr(){
+    static function getStatusAr(){
         return SysDirectoryName::where('parent_id', OrderStatus::CAT_ORDER)->orderBy('id', 'asc')->lists('name', 'id');
     }
 
-    function getCloseAr(){
+    static function getCloseAr(){
         return SysDirectoryName::where('parent_id', OrderStatus::CAT_CANCEL)->orderBy('id', 'asc')->lists('name', 'id');
     }
 

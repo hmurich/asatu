@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth.moderator']], function () {
 // Restoran Controllers
 Route::group(['middleware' => ['auth.restoran']], function () {
     Route::controller('restoran/order', 'Restoran\OrderController');
+    Route::controller('restoran/info', 'Restoran\RestoranController');
+    Route::controller('restoran/menu', 'Restoran\MenuController');
 });
 
 // Customer Controllers
