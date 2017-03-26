@@ -17,7 +17,7 @@ class AuthController extends Controller {
         else if ($user->type_id == 2)
             return redirect()->action('Restoran\OrderController@getList');
         else if ($user->type_id == 3)
-            echo 'рестораны <br/>';
+            return redirect()->action('Restoran\OrderController@getList');
         else if ($user->type_id == 4)
             echo 'пользователи <br/>';
 
