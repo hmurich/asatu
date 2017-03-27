@@ -15,8 +15,6 @@ class OrderBusket {
         $this->restoran_id = $restoran_id;
 
         $this->calculateTotalCost();
-
-        return session('orders.'.$this->restoran_id);
     }
 
     static function getOrder($restoran_id = false){

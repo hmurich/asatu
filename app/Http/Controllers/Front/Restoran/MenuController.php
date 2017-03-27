@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Restoran;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Generators\UserLocation;
+use App\Model\Generators\OrderBusket;
 use App\Model\SysDirectoryName;
 use App\Model\Restoran;
 use App\Model\Menu;
@@ -36,8 +37,23 @@ class MenuController extends Controller{
         return view('front.restoran.menu', $ar);
     }
 
-    function postOrder(){
+    function postOrder(Request $request){
+        if (!$request->has('restoran_id') || !$request->has('menu_id') || !$request->has('count') || !$request->has('cost'))
+            return '0';
 
+        $restoran_id = $request->input('restoran_id');
+
+        $ar_menu = array();
+        $ar_menu['menu_id'] = $request->input('menu_id');
+        $ar_menu['count'] = $request->input('count');
+        $ar_menu['cost'] = $request->input('cost');
+
+        $order = new OrderBusket($restoran_id, $ar_menu);
+
+        if (!$order)
+            return '0';
+
+        return $order->total_cost;
     }
 
 }
