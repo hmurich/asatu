@@ -5,11 +5,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use App\Model\Restoran;
-use App\Model\Menu;
+use App\Model\Review;
 use App\Model\SysDirectoryName;
 
 
-class MenuController extends Controller{
+class ReviewController extends Controller{
     protected $auth;
 
     function __construct(Guard $auth) {
@@ -22,23 +22,22 @@ class MenuController extends Controller{
         if (!$restoran)
             abort(404);
 
-        $menu = Menu::where('restoran_id', $restoran->id);
+        $review = Review::where('restoran_id', $restoran->id);
 
         if ($request->has('kitchen') && count($request->input('kitchen')))
-            $menu = $menu->whereIn('cat_id', $request->input('kitchen'));
+            $review = $review->whereIn('cat_id', $request->input('kitchen'));
 
         if ($request->has('name') && $request->input('name'))
-            $menu = $menu->where('title', 'like', '%'.$request->input('name').'%');
+            $review = $review->where('title', 'like', '%'.$request->input('name').'%');
 
         $ar = array();
-        $ar['title'] = "Меню";
-        $ar['menu'] = $menu->orderBy('id', 'desc')->get();
+        $ar['title'] = "Отзывы";
+        $ar['review'] = $review->orderBy('id', 'desc')->get();
         $ar['restoran'] = $restoran;
 
         $ar['ar_input'] = $request->all();
-        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->orderBy('name', 'asc')->lists('name', 'id');
 
-        return view('restoran.menu.index', $ar);
+        return view('restoran.review.index', $ar);
     }
 
     function getOpen(Request $request, $menu_id){
