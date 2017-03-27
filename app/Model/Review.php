@@ -11,4 +11,9 @@ class Review extends Model{
         return ModelSnipet::formatDate($this->created_at, 'd.m.Y');
     }
 
+    function relAnswer(){
+        return $this->hasOne('App\Model\Review', 'parent_id');
+    }
+
+
 }
