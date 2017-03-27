@@ -8,28 +8,25 @@
                 блюдо:
             </div>
             <div class="side-bar-box">
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="pizza">
-                    <label for="pizza">Пицца (29)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="sushi">
-                    <label for="sushi">Суши (24)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="burger">
-                    <label for="burger">Бургеры и донеры (34)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="shashlik" checked>
-                    <label for="shashlik">Шашлыки (29)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="wok">
-                    <label for="wok">Wok Лапша (19)</label>
-                </div>
+                @foreach ($ar_kitchen as $id=>$name)
+                    <div class="side-bar-box__item">
+                        @if (isset($ar_input['kitchen']) && in_array($id, $ar_input['kitchen']))
+                            <input type="checkbox" name='kitchen[]' id="kitchen_{{ $id }}" value="{{ $id }}" checked="">
+                        @else
+                            <input type="checkbox" name='kitchen[]' id="kitchen_{{ $id }}" value="{{ $id }}">
+                        @endif
+
+                        <label for="kitchen_{{ $id }}">{{ $name }}</label>
+                    </div>
+                @endforeach
                 <div class="side-bar-box__item-search">
-                    <input type="text" placeholder="Поиск блюда...">
+                    <input type="text" name='name' placeholder="Поиск блюда..." value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
+                </div>
+                <br />
+                <div class="side-bar-box__item">
+                    <button class="button ">
+                        Фильтр
+                    </button>
                 </div>
             </div>
         </div>

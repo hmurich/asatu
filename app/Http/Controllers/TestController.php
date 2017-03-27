@@ -9,6 +9,24 @@ use Hash;
 use App\Model\SysDirectoryName;
 
 class TestController extends Controller{
+    function getOrderSession(){
+        session()->put('order.1.1.count', 100);
+        session()->put('order.1.1.cost', 300);
+        session()->put('order.1.1.cost', 40000);
+
+        session()->put('order.1.2.count', 100);
+        session()->put('order.1.2.cost', 300);
+
+        session()->put('order.1.3.count', 100);
+        session()->put('order.1.3.cost', 300);
+
+
+        session()->put('order.1.total_cost', 100);
+
+
+        echo '<pre>'; print_r(session('order.1')); echo '</pre>';
+    }
+
     function getGeoCoder(){
 
         $api = new \Yandex\Geo\Api();
@@ -30,7 +48,7 @@ class TestController extends Controller{
             $item->getLongitude(); // долгота
             $item->getData(); // необработанные данные
         }
-    
+
         /*
         $url = 'https://geocode-maps.yandex.ru/1.x/?format=json&geocode=%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F+6';
 

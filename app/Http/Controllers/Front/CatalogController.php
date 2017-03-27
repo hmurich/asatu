@@ -14,7 +14,7 @@ class CatalogController extends Controller{
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
 
-        $items = Restoran::where('id', '>', 0);
+        $items = Restoran::where('is_open', 1);
         if ($request->has('name'))
             $items = $items->where('name', 'like', '%'.$request->input('name').'%');
 
