@@ -9,11 +9,9 @@ class OrderBusket {
         if (!isset($ar_menu['menu_id']) || !isset($ar_menu['count']) || !isset($ar_menu['cost']))
             return false;
 
-        session()->put('orders.'.$restoran_id.'.'.$ar_menu['menu_id'].'.count', $ar_menu['count']);
-        session()->put('orders.'.$restoran_id.'.'.$ar_menu['menu_id'].'.cost', $ar_menu['cost']);
-
         $this->restoran_id = $restoran_id;
 
+        $this->addNewItem($ar_menu);
         $this->calculateTotalCost();
     }
 
@@ -28,7 +26,6 @@ class OrderBusket {
             return session('orders.'.$restoran_id);
         }
 
-
         return session('orders');
     }
 
@@ -37,6 +34,15 @@ class OrderBusket {
             session()->forget('orders.'.$restoran_id);
         else
             session()->forget('orders');
+    }
+
+    private function addNewItem($ar_menu){
+        if ($ar_menu['count'] > 0){
+            session()->put('orders.'.$this->restoran_id.'.'.$ar_menu['menu_id'].'.count', $ar_menu['count']);
+            session()->put('orders.'.$this->restoran_id.'.'.$ar_menu['menu_id'].'.cost', $ar_menu['cost']);
+        }
+        else
+            session()->forget('orders.'.$this->restoran_id.'.'.$ar_menu['menu_id']);
     }
 
     private function calculateTotalCost(){

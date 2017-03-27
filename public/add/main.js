@@ -27,12 +27,24 @@ $(document).ready(function() {
         var count = menu_item.val();
         console.log(restoran_id, menu_id, cost, count);
         $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:count, cost:cost}, function( data ) {
-            if (data != 'none')
+            if (data != 'none'){
+                $('.js_order_href').data('current', data);
                 $('.js_total_cost').html(data);
+            }
 
             console.log(data);
         });
+    });
 
+    $('.js_order_href').click(function(){
+        var min = parseInt($(this).data('min'));
+        var current = parseInt($(this).data('current'));
+        if (min > current)
+            return false;
+    });
+
+    $('.js_promo_key').change(function(){
+        $('.js_promo_key_val').html($(this).val());
     });
 
 });
