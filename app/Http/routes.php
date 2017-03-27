@@ -5,8 +5,10 @@ Route::get('/', 'Front\IndexController@getIndex');
 Route::get('/show/{name}', 'Front\PageController@getShowPage');
 Route::get('/page/{name}', 'Front\PageController@getShowStatPage');
 Route::controller('catalog', 'Front\CatalogController');
+Route::controller('order', 'Front\OrderController');
 Route::controller('restoran/menu', 'Front\Restoran\MenuController');
 Route::controller('restoran/review', 'Front\Restoran\ReviewController');
+
 // Auth controllers
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');

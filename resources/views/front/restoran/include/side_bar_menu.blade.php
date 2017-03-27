@@ -59,7 +59,7 @@
             <div class="side-bar-box">
                 <div class="side-bar-box__checkout">
                     <img src="/img/cards.png" alt="">
-                    <a href="" class="button side-bar-box__checkout-button">
+                    <a href="{{ action('Front\Restoran\MenuController@getIndex') }}" class="button side-bar-box__checkout-button js_order_href" data-min='{{ $restoran->relData-> }}'>
                         оформить заказ
                     </a>
                     Минимальная сумма доставки: <span>5.000 тг</span>
