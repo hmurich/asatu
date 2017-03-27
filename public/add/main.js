@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     // функии показа высплывающего окна
     if (($(".js_alert_mess_block").length > 0)){
 		$('.js_alert_mess_block .alert-exit').click(function(){
@@ -11,6 +17,22 @@ $(document).ready(function() {
 		}, 5000);
 	}
 
+    $('.js_add_menu_item').click(function(){
+        var id = $(this).data('id');
+        var menu_item = $('.js_menu_item_'+id);
 
+        var restoran_id = menu_item.data('restoran_id');
+        var menu_id = menu_item.data('id');
+        var cost = menu_item.data('cost');
+        var count = menu_item.val();
+        console.log(restoran_id, menu_id, cost, count);
+        $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:count, cost:cost}, function( data ) {
+            if (data != 'none')
+                $('.js_total_cost').html(data);
+
+            console.log(data);
+        });
+
+    });
 
 });

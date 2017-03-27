@@ -33,13 +33,15 @@ class MenuController extends Controller{
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
+        $ar['busket'] = OrderBusket::getOrder($restoran->id);
+
 
         return view('front.restoran.menu', $ar);
     }
 
     function postOrder(Request $request){
         if (!$request->has('restoran_id') || !$request->has('menu_id') || !$request->has('count') || !$request->has('cost'))
-            return '0';
+            return 'none';
 
         $restoran_id = $request->input('restoran_id');
 
@@ -51,7 +53,7 @@ class MenuController extends Controller{
         $order = new OrderBusket($restoran_id, $ar_menu);
 
         if (!$order)
-            return '0';
+            return 'none';
 
         return $order->total_cost;
     }

@@ -18,8 +18,16 @@ class OrderBusket {
     }
 
     static function getOrder($restoran_id = false){
-        if ($restoran_id)
+        if (!session()->has('orders'))
+            return false;
+
+        if ($restoran_id){
+            if (!session()->has('orders.'.$restoran_id))
+                return false;
+
             return session('orders.'.$restoran_id);
+        }
+
 
         return session('orders');
     }

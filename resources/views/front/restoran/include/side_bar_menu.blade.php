@@ -44,7 +44,14 @@
                             Ваш заказ
                         </div>
                         <div class="basket-info__item">
-                            Сумма: <span>15.000 тг</span>
+                            Сумма:
+                            <span class='js_total_cost'>
+                                @if ($busket)
+                                    {{ $busket['total_cost'] }}
+                                @else
+                                    0
+                                @endif
+                            </span> тг
                         </div>
                     </div>
                 </div>

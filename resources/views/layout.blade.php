@@ -8,7 +8,8 @@
     <meta name="keyword" content="@yield('keyword')">
     <meta name="description" content="@yield('description')">
     <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     @include('include.css_links')
 </head>
 <body class='@yield('body_class')'>
