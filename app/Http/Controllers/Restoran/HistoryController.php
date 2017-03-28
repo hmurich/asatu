@@ -37,7 +37,7 @@ class HistoryController extends Controller{
     }
 
     function getDownload(){
-
+        
     }
 
 
