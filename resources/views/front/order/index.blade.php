@@ -39,6 +39,7 @@
     			<div class="js-checkout-tab">
                     @include('front.order.include.step_3')
     			</div>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
             </form>
 			<div class="checkout-content__bottom">
 				<a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}" class="button back-button">назад к меню</a>

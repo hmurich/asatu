@@ -4,7 +4,7 @@
             Уже зарегистрированны ?
         </div>
         <div class="checkout-body__content">
-            <a href="" class="button checkout-button">
+            <a href="#modal_login" class="button checkout-button open_modal">
                 войти в личный кабинет
             </a>
         </div>

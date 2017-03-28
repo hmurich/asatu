@@ -40,4 +40,12 @@ class User extends Model implements AuthenticatableContract,
     function relRestoran(){
         return $this->hasOne('App\Model\Restoran', 'user_id');
     }
+
+    function relCustomer(){
+        return $this->hasOne('App\Model\Customer', 'user_id');
+    }
+
+    function sendPasswordToEmail($password){
+        
+    }
 }
