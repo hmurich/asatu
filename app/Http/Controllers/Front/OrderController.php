@@ -30,6 +30,9 @@ class OrderController extends Controller{
             $customer = false;
 
         $busket = OrderBusket::getOrder($restoran->id);
+        if (empty($busket) || count($busket) < 2)
+            return redirect()->action('Front\Restoran\MenuController@getList', $restoran->id);
+            
         $ar_busket_menu = array_keys($busket);
 
         $ar = array();
