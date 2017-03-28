@@ -10,31 +10,35 @@
         <div class="info-card">
             <div class="info-card__item">
                 <div class="order-client__name expectation">
-                    Аубакир Азамат
+                    {{ $order->relCustomer->name }}
                 </div>
             </div>
             <div class="info-card__item">
-                Счет на сумму:  <span>8.750тг</span>
+                Счет на сумму:  <span>{{ $order->total_sum }} тг</span>
             </div>
-            <div class="info-card__item">
-                Промокод:    <span> QWc37fPGcD4023slP$32</span>
-            </div>
+
+            @if ($order->promo_key)
+                <div class="info-card__item">
+                    Промокод:    <span>{{ $order->promo_key }}</span>
+                </div>
+            @endif
+
             <div class="info-card__item">
                 Способ оплаты:    <span>Онлайн оплата</span>
             </div>
             <div class="info-card__item">
-                Телефон:   <span>+7 (707) 149-11-27</span>
+                Телефон:   <span>{{ $order->relCustomer->phone }}</span>
             </div>
             <div class="info-card__item">
-                Адрес:   <span>ул. Женис, дом 17, подъезд #1, этаж 7, квартира 47</span>
+                Адрес:   <span>{{ $order->relCustomer->full_adress }}</span>
             </div>
             <div class="info-card__item order-button-container">
-            <a href="" class="button cancel">
-                отказать
-            </a>
-            <a href="" class="button">
-                одобрить заказ
-            </a>
+                <a href="" class="button cancel">
+                    отказать
+                </a>
+                <a href="" class="button">
+                    одобрить заказ
+                </a>
             </div>
         </div>
         <div class="info-card">

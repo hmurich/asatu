@@ -24,15 +24,30 @@ class OrderController extends Controller{
 
         $orders = Order::where('restoran_id', $restoran->id);
 
+        if ($request->has('order_id'))
+            $order = Order::where('restoran_id', $restoran->id)->where('id', $request->input('order_id'))->orderBy('id', 'desc')->first();
+        else
+            $order = Order::where('restoran_id', $restoran->id)->orderBy('id', 'desc')->first();
+
+        if (!$order)
+            abort(404);
+
         $ar = array();
         $ar['title'] = "Заказы";
-        $ar['orders'] = $orders;
+        $ar['orders'] = $orders->with('relCustomer')->orderBy('id', 'desc')->get();
         $ar['restoran'] = $restoran;
+        $ar['order'] = $order;
 
         $ar['ar_input'] = $request->all();
         $ar['ar_status'] = OrderStatus::getStatusAr();
         $ar['ar_close'] = OrderStatus::getCloseAr();
 
+        $ar['status_open'] = OrderStatus::OPEN;
+        $ar['status_accept'] = OrderStatus::ACCEPT;
+        $ar['status_missing'] = OrderStatus::MISSING;
+
         return view('restoran.order.index', $ar);
     }
+
+
 }

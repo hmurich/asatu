@@ -55,4 +55,5 @@ class MenuController extends Controller{
 
         return redirect()->back()->with('success', 'Сохранено');
     }
+
 }
