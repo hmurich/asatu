@@ -42,72 +42,30 @@
             </div>
         </div>
         <div class="info-card">
-            <div class="info-card__item">
-                <div class="order-img">
-                    <img src="img/order-img.jpg" alt="">
-                </div>
-                <div class="order-text">
-                    <div class="order-text__title-container	">
-                        <div class="order-text__title">Пеппероне</div>
-                        <div class="order-text__col">
-                            x2
-                        </div>
+            @foreach ($o->relItems as $i)
+                <div class="info-card__item">
+                    <div class="order-img">
+                        <img src="img/order-img.jpg" alt="">
                     </div>
-                    <div class="order-text__info-container">
-                        <div class="order-text__info">
-                            Цена: <span>310 тг</span>
-                            <p>Состав: название, название, название, название, название, название.</p>
+                    <div class="order-text">
+                        <div class="order-text__title-container	">
+                            <div class="order-text__title">Пеппероне</div>
+                            <div class="order-text__col">
+                                x2
+                            </div>
                         </div>
-                        <div class="order-text__col">
-                            3.800тг
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="info-card__item">
-                <div class="order-img">
-                    <img src="img/order-img.jpg" alt="">
-                </div>
-                <div class="order-text">
-                    <div class="order-text__title-container	">
-                        <div class="order-text__title">Пеппероне</div>
-                        <div class="order-text__col">
-                            x2
-                        </div>
-                    </div>
-                    <div class="order-text__info-container">
-                        <div class="order-text__info">
-                            Цена: <span>310 тг</span>
-                            <p>Состав: название, название, название, название, название, название.</p>
-                        </div>
-                        <div class="order-text__col">
-                            3.800тг
+                        <div class="order-text__info-container">
+                            <div class="order-text__info">
+                                Цена: <span>310 тг</span>
+                                <p>Состав: название, название, название, название, название, название.</p>
+                            </div>
+                            <div class="order-text__col">
+                                3.800тг
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="info-card__item">
-                <div class="order-img">
-                    <img src="img/order-img.jpg" alt="">
-                </div>
-                <div class="order-text">
-                    <div class="order-text__title-container	">
-                        <div class="order-text__title">Пеппероне</div>
-                        <div class="order-text__col">
-                            x2
-                        </div>
-                    </div>
-                    <div class="order-text__info-container">
-                        <div class="order-text__info">
-                            Цена: <span>310 тг</span>
-                            <p>Состав: название, название, название, название, название, название.</p>
-                        </div>
-                        <div class="order-text__col">
-                            3.800тг
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

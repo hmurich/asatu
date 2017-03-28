@@ -9,4 +9,8 @@ class Order extends Model{
         return $this->belongsTo('App\Model\Customer', 'customer_id');
     }
 
+    function relItems(){
+        return $this->hasMany('App\Model\OrderItem', 'order_id');
+    }
+    
 }
