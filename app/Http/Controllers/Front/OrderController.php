@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Generators\OrderBusket;
 use App\Model\Generators\UserLocation;
+use App\Model\Generators\OrderStatus;
 use App\Model\Restoran;
 use App\Model\Menu;
 use Auth;
@@ -49,10 +50,14 @@ class OrderController extends Controller{
         $restoran = Restoran::findOrFail($restoran_id);
 
         DB::beginTransaction();
+        $busket = OrderBusket::getOrder($restoran->id);
 
         $user = Auth::user();
         if (!$user){
             $password = rand(100000, 999999);
+
+            if (User::where('email', $request->input('email'))->count() > 0)
+                return back()->with('error', 'Почтовый адрес уже зарегистрирован');
 
             $user = new User();
             $user->email = $request->input('email');
@@ -65,6 +70,8 @@ class OrderController extends Controller{
             $customer = new Customer();
             $customer->user_id = $user->id;
             $customer->save();
+
+            Auth::loginUsingId($user->id);
         }
         else
             $customer = Customer::where('user_id', $user->id)->first();
@@ -84,11 +91,32 @@ class OrderController extends Controller{
         $customer->count_person = $request->input('count_person');
         $customer->save();
 
-        $order = new note
+        $order = new Order();
+        $order->customer_id = $customer->id;
+        $order->restoran_id = $restoran->id;
+        $order->status_id = OrderStatus::OPEN;
+        $order->total_sum = $busket['total_cost'];
+        $order->promo_key = $request->input('promo_key');
+        $order->count_person = $customer->count_person;
+        $order->note = $request->input('note');
+        $order->save();
 
+        foreach ($busket as $meni_id=>$ar_menu){
+            if ($meni_id == 'total_cost' || !isset($ar_menu['count']) || !isset($ar_menu['cost']))
+                continue;
 
+            $order_item = new OrderItem();
+            $order_item->order_id = $order->id;
+            $order_item->menu_id = $meni_id;
+            $order_item->count_item = $ar_menu['count'];
+            $order_item->cost_item = $ar_menu['cost'];
+            $order_item->cost_total = $ar_menu['cost'] * $ar_menu['count'];
+            $order_item->save();
+        }
         DB::commit();
 
-        echo '<pre>'; print_r($request->all()); echo '</pre>';
+        OrderBusket::forgetOrder($restoran->id);
+
+        return redirect()->action('Customer\CabinetController@getCabinet')->with('success', 'Заказ принят');
     }
 }
