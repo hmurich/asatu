@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth.restoran']], function () {
     Route::controller('cabinet/review', 'Restoran\ReviewController');
     Route::controller('cabinet/menu', 'Restoran\MenuController');
     Route::controller('cabinet/info', 'Restoran\RestoranController');
+    Route::controller('cabinet/history', 'Restoran\HistoryController');
 });
 
 // Customer Controllers

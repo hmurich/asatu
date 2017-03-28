@@ -11,5 +11,5 @@
             @endif
         </a>
     </li>
-    <li><a href="">ИСТОРИЯ</a></li>
+    <li><a href="{{ action('Restoran\HistoryController@getList') }}">ИСТОРИЯ</a></li>
 </ul>

@@ -42,25 +42,29 @@
             </div>
         </div>
         <div class="info-card">
-            @foreach ($o->relItems as $i)
+            @foreach ($order->relItems as $i)
                 <div class="info-card__item">
                     <div class="order-img">
-                        <img src="img/order-img.jpg" alt="">
+                        @if ($i->relMenu->photo)
+                            <img src="{{ $i->relMenu->photo }}" alt="" style='width: 100%;'>
+                        @else
+                            <img src="/img/order-img.jpg" alt="">
+                        @endif
                     </div>
                     <div class="order-text">
                         <div class="order-text__title-container	">
-                            <div class="order-text__title">Пеппероне</div>
+                            <div class="order-text__title">{{ $i->relMenu->title }}</div>
                             <div class="order-text__col">
-                                x2
+                                x{{ $i->count_item }}
                             </div>
                         </div>
                         <div class="order-text__info-container">
                             <div class="order-text__info">
-                                Цена: <span>310 тг</span>
-                                <p>Состав: название, название, название, название, название, название.</p>
+                                Цена: <span>{{ $i->cost_item }} тг</span>
+                                <p>{!! $i->relMenu->note !!}</p>
                             </div>
                             <div class="order-text__col">
-                                3.800тг
+                                {{ $i->cost_total }}тг
                             </div>
                         </div>
                     </div>

@@ -9,4 +9,8 @@ class Customer extends Model{
         return 'ул. Женис, дом 17, подъезд #1, этаж 7, квартира 47';
     }
 
+    function relUser(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
 }

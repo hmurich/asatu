@@ -12,5 +12,9 @@ class Order extends Model{
     function relItems(){
         return $this->hasMany('App\Model\OrderItem', 'order_id');
     }
-    
+
+
+    function getDurationAttribute(){
+        return '30 minute';
+    }
 }
