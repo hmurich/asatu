@@ -16,7 +16,7 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 // Admin Controllers
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
-    
+
     Route::controller('adminka/order', 'Admin\OrderController');
     Route::controller('adminka/history', 'Admin\HistoryController');
     Route::controller('adminka/promo', 'Admin\PromoController');
