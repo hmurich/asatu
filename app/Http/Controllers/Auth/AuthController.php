@@ -35,10 +35,8 @@ class AuthController extends Controller {
             return redirect()->action('Restoran\OrderController@getList');
         else if ($user->type_id == 3)
             return redirect()->action('Restoran\OrderController@getList');
-        else if ($user->type_id == 4){
-            //echo 'customers'; exit();
-            return redirect()->back();
-        }
+        else if ($user->type_id == 4)
+            return redirect()->action('Customer\CabinetController@getCabinet');
 
         abort(404);
     }
