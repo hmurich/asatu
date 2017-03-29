@@ -44,7 +44,6 @@ class CabinetController extends Controller {
 
         $ar = array();
         $ar['title'] = "Личный кабинет";
-        $ar['orders'] = $orders->with('relCustomer', 'relRestoran')->orderBy('id', 'desc')->paginate(24);
         $ar['customer'] = $customer;
 
         $ar['ar_input'] = $request->all();
@@ -55,7 +54,20 @@ class CabinetController extends Controller {
     }
 
     function postEdit(Request $request){
+        $customer = Customer::where('user_id', $this->auth->user()->id)->first();
+        if (!$customer)
+            abort(404);
 
+        $customer->name	= $request->input('name');
+        $customer->phone = $request->input('phone');
+        $customer->address = $request->input('address');
+        $customer->kvartira	= $request->input('kvartira');
+        $customer->podezd = $request->input('podezd');
+        $customer->etag	= $request->input('etag');
+        $customer->domofon = $request->input('domofon');
+        $customer->save();
+
+        return redirect()->action('Customer\CabinetController@getCabinet')->with('success', 'Сохранено');
     }
 
 }
