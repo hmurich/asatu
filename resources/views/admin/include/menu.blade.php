@@ -1,6 +1,6 @@
 <ul class="admin-nav">
     <li>
-        <a href="">заказы</a>
+        <a href="{{ action('Admin\OrderController@getList') }}">заказы</a>
     </li>
     <li><a href="{{ action('Admin\RestoranController@getIndex') }}">рестораны</a></li>
     <li><a href="{{ action('Admin\PromoController@getList') }}">промо коды</a></li>
