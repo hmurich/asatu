@@ -13,4 +13,8 @@ class Customer extends Model{
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    function relOrders(){
+        return $this->hasMany('App\Model\Order', 'customer_id');
+    }
+    
 }
