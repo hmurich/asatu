@@ -5,7 +5,7 @@
     <li><a href="{{ action('Admin\RestoranController@getIndex') }}">рестораны</a></li>
     <li><a href="{{ action('Admin\PromoController@getList') }}">промо коды</a></li>
     <li><a href="">трекинг</a></li>
-    <li><a href="">клиенты</a></li>
+    <li><a href="{{ action('Admin\ClientController@getList') }}">клиенты</a></li>
 
     <li><a href="{{ action('Admin\MenuTypeController@getIndex') }}">Виды блюд</a></li>
     <li><a href="{{ action('Admin\KitchenController@getIndex') }}">Кухни</a></li>
