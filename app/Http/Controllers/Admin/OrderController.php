@@ -46,6 +46,9 @@ class OrderController extends Controller{
     function getItem(Request $request, $order_id){
         $order = Order::findOrFail($order_id);
 
+        $order->status_id = 21;
+        $order->save();
+
         $ar = array();
         $ar['title'] = "Заказ";
         $ar['order'] = $order;

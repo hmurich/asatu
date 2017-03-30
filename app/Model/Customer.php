@@ -6,7 +6,19 @@ class Customer extends Model{
     protected $table = 'customers';
 
     function getFullAdressAttribute(){
-        return 'ул. Женис, дом 17, подъезд #1, этаж 7, квартира 47';
+        $text = '';
+        $text .= $this->address.',';
+
+        if ($this->podezd)
+            $text .= ' подъезд '.$this->podezd.',';
+        if ($this->etag)
+            $text .= ' этаж '.$this->etag.',';
+        if ($this->kvartira)
+            $text .= ' квартира '.$this->kvartira.'.';
+        if ($this->domofon)
+            $text .= 'Домофон '.$this->domofon.'.';
+
+        return $text;
     }
 
     function relUser(){
@@ -16,5 +28,5 @@ class Customer extends Model{
     function relOrders(){
         return $this->hasMany('App\Model\Order', 'customer_id');
     }
-    
+
 }
