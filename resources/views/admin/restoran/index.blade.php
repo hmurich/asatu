@@ -43,6 +43,8 @@
     		</li>
         @endforeach
 	</ul>
+
+    {!! $items->appends(Input::all())->render() !!}
 </div>
 
 @endsection

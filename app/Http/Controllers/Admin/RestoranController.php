@@ -12,7 +12,7 @@ class RestoranController extends Controller{
     function getIndex (Request $request){
         $items = Restoran::where('id', '>', 0);
 
-        if ($request->has('filter.city_id'))
+        if ($request->has('filter.city_id') && $request->input('filter.city_id'))
             $items = $items->where('city_id', $request->input('filter.city_id'));
 
         if ($request->has('filter.name'))
