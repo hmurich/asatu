@@ -13,9 +13,25 @@ class OrderController extends Controller{
     function getList (Request $request){
         $orders = Order::where('id', '>', 0);
 
+        if (($request->has('filter.city_id') && $request->input('filter.city_id')) || ($request->has('filter.r_name')))
+            $orders = $orders->whereHas('relRestoran', function($q) use ($request) {
+                if ($request->has('filter.city_id') && $request->input('filter.city_id'))
+                    $q = $q->where('city_id', $request->input('filter.city_id'));
+                if ($request->has('filter.r_name'))
+                    $q = $q->where('name', 'like', '%'.$request->input('filter.r_name').'%');
+            });
+
+        if ($request->has('filter.status_id') && $request->input('filter.status_id'))
+            $orders = $orders->where('status_id', $request->input('filter.status_id'));
+
+        if ($request->has('filter.customer_name'))
+            $orders = $orders->whereHas('relCustomer', function($q) use ($request){
+                $q->where('name', 'like', '%'.$request->input('filter.customer_name').'%');
+            });
+
         $ar = array();
         $ar['title'] = "Заказы";
-        $ar['orders'] = $orders->with('relCustomer', 'relRestoran')->orderBy('id', 'desc')->get();
+        $ar['orders'] = $orders->with('relCustomer', 'relRestoran')->orderBy('id', 'desc')->paginate(24);
 
         $ar['ar_input'] = $request->all();
         $ar['ar_status'] = OrderStatus::getStatusAr();

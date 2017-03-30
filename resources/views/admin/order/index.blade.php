@@ -7,28 +7,34 @@
 <div class="admin-content__body">
 	<form action="" class="admin-search-form">
 		<div class="admin-search-form__item select-search">
-			<select name="" id="">
-				<option value="">город</option>
-				<option value="">астана</option>
-				<option value="">алматы</option>
+			<select name="filter[city_id]">
+				<option value="0">Город</option>
+                @foreach($ar_city as $id=>$name)
+                    @if (isset($ar_input["filter"]["city_id"]) &&  $ar_input["filter"]["city_id"] == $id)
+                        <option value="{{ $id }}" selected="selected">{{ $name }}</option>
+                    @else
+                        <option value="{{ $id }}">{{ $name }}</option>
+                    @endif
+                @endforeach
 			</select>
 		</div>
 		<div class="admin-search-form__item select-search">
-			<select name="" id="">
-				<option value="">статус заказа</option>
-				<option value="">1</option>
-				<option value="">2</option>
-			</select>
-		</div>
-		<div class="admin-search-form__item select-search">
-			<select name="" id="">
-				<option value="">выбор доставки</option>
-				<option value="">выбор доставки</option>
-				<option value="">выбор доставки</option>
+			<select name="filter[status_id]">
+				<option value="0">статус заказа</option>
+                @foreach($ar_status as $id=>$name)
+                    @if (isset($ar_input["filter"]["status_id"]) &&  $ar_input["filter"]["status_id"] == $id)
+                        <option value="{{ $id }}" selected="selected">{{ $name }}</option>
+                    @else
+                        <option value="{{ $id }}">{{ $name }}</option>
+                    @endif
+                @endforeach
 			</select>
 		</div>
 		<div class="admin-search-form__item input-search">
-			<input type="search" placeholder="Поиск блюда...">
+			<input type='text' name='filter[customer_name]' value='{{ $ar_input["filter"]["customer_name"] or null }}' placeholder="ФИО">
+		</div>
+		<div class="admin-search-form__item input-search">
+			<input type='text' name='filter[r_name]' value='{{ $ar_input["filter"]["r_name"] or null }}' placeholder="Ресторан">
 		</div>
 		<div class="admin-search-form__item button-search">
 			<button class="button">приминить фильтр</button>
@@ -65,6 +71,9 @@
     				</td>
     		    </tr>
             @endforeach
+			<tr>
+				<td colspan=12>{!! $orders->appends(Input::all())->render() !!}</td>
+			</tr>
         </table>
 	</div>
 </div>
