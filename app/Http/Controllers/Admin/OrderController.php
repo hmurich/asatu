@@ -29,6 +29,8 @@ class OrderController extends Controller{
                 $q->where('name', 'like', '%'.$request->input('filter.customer_name').'%');
             });
 
+
+
         $ar = array();
         $ar['title'] = "Заказы";
         $ar['orders'] = $orders->with('relCustomer', 'relRestoran')->orderBy('id', 'desc')->paginate(24);
@@ -39,6 +41,7 @@ class OrderController extends Controller{
 
         return view('admin.order.index', $ar);
     }
+
 
     function getItem(Request $request, $order_id){
         $order = Order::findOrFail($order_id);

@@ -26,7 +26,7 @@ class HistoryController extends Controller{
 
         $ar = array();
         $ar['title'] = "Заказы";
-        $ar['orders'] = $orders->with('relCustomer')->orderBy('id', 'desc')->get();
+        $ar['orders'] = $orders->with('relCustomer')->orderBy('id', 'desc')->paginate(24);
         $ar['restoran'] = $restoran;
 
         $ar['ar_input'] = $request->all();
@@ -37,7 +37,7 @@ class HistoryController extends Controller{
     }
 
     function getDownload(){
-        
+
     }
 
 
