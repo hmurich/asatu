@@ -2,6 +2,7 @@
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Generators\OrderStatus;
+use App\Model\OrderHistory;
 
 class Order extends Model{
     protected $table = 'orders';
@@ -20,6 +21,8 @@ class Order extends Model{
     }
 
     function setStatusIdAttribute($status_id){
+        $this->createHistoryRow($this->attributes['status_id'], $status_id);
+
         $this->attributes['status_id'] = $status_id;
         if (in_array($status_id, array(OrderStatus::CANCEL, OrderStatus::CLOSE, OrderStatus::MISSING))){
             $finish_at = date('Y-m-d h:i:s');
@@ -32,6 +35,14 @@ class Order extends Model{
             $this->attributes['duration'] = $duration;
         }
 
+    }
+
+    function createHistoryRow($old_status, $new_status){
+        $history = new OrderHistory();
+        $history->order_id = $this->id;
+        $history->status_id = $new_status;
+        $history->old_status_id = $old_status;
+        $history->save();
     }
 
     function relCustomer(){

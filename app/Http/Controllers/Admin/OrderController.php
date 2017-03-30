@@ -39,6 +39,8 @@ class OrderController extends Controller{
         $ar['ar_status'] = OrderStatus::getStatusAr();
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
 
+        $ar['status_missing_id'] = OrderStatus::MISSING;
+
         return view('admin.order.index', $ar);
     }
 
@@ -53,6 +55,8 @@ class OrderController extends Controller{
         $ar['ar_input'] = $request->all();
         $ar['ar_status'] = OrderStatus::getStatusAr();
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
+
+        $ar['status_missing_id'] = OrderStatus::MISSING;
 
         return view('admin.order.item', $ar);
     }

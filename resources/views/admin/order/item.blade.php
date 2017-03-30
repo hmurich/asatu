@@ -97,7 +97,7 @@
 		</div>
 	</div>
 	<div class="admin-content-button-conitaner">
-		@if ($order->status_id != 22)
+		@if ($order->status_id != $status_missing_id)
 			<a href="{{ action('Admin\OrderController@getMissingOrder', $order->id) }}" class="button cancel">
 				Заказ не получен (клиентом)
 			</a>

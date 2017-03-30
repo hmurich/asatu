@@ -33,12 +33,25 @@
                 Адрес:   <span>{{ $order->relCustomer->full_adress }}</span>
             </div>
             <div class="info-card__item order-button-container">
-                <a href="" class="button cancel">
-                    отказать
-                </a>
-                <a href="" class="button">
-                    одобрить заказ
-                </a>
+                @if ($order->status_id == $status_open)
+                    <a href="#modal2222" class="button cancel open_modal">
+                        отказать
+                    </a>
+                    <a href="{{ action('Restoran\OrderController@getChangeStatus', array($order->id, $status_accept)) }}" class="button">
+                        принять в обработку
+                    </a>
+                @elseif ($order->status_id == $status_accept)
+                    <a href="#modal2222" class="button cancel open_modal">
+                        отказать
+                    </a>
+                    <a href="{{ action('Restoran\OrderController@getChangeStatus', array($order->id, $status_close)) }}" class="button">
+                        Закрыть заказ
+                    </a>
+                @elseif ($order->status_id == $status_close)
+                    <a href="#modal2222" class="button cancel open_modal">
+                        отказать
+                    </a>
+                @endif
             </div>
         </div>
         <div class="info-card">
@@ -74,5 +87,6 @@
     </div>
 </div>
 
+@include('restoran.order.include.cancel_dialog')
 
 @endsection

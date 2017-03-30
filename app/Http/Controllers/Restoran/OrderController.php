@@ -44,10 +44,29 @@ class OrderController extends Controller{
 
         $ar['status_open'] = OrderStatus::OPEN;
         $ar['status_accept'] = OrderStatus::ACCEPT;
+        $ar['status_cancel'] = OrderStatus::CANCEL;
+        $ar['status_close'] = OrderStatus::CLOSE;
         $ar['status_missing'] = OrderStatus::MISSING;
+
+        $ar['ar_close_ar'] = OrderStatus::getCloseAr(); 
 
         return view('restoran.order.index', $ar);
     }
 
+    function getChangeStatus(Request $request, $order_id, $status_id, $pod_status_id = 0){
+        $restoran = Restoran::where('user_id', $this->auth->user()->id)->first();
+        if (!$restoran)
+            abort(404);
+
+        $order = Order::where('restoran_id', $restoran->id)->where('id', $order_id)->orderBy('id', 'desc')->first();
+        if (!$order)
+            abort(404);
+
+        $order->status_id = $status_id;
+        $order->close_status_id = $pod_status_id;
+        $order->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
+    }
 
 }
