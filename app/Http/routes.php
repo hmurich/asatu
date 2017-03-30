@@ -1,4 +1,8 @@
 <?php
+App\Model\Generators\CloseOrderTime::checkOld();
+Route::get('check_old', function(){
+    App\Model\Generators\CloseOrderTime::checkOld();
+});
 
 Route::get('/', 'Front\IndexController@getIndex');
 Route::get('/show/{name}', 'Front\PageController@getShowPage');
