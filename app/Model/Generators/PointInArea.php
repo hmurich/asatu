@@ -1,12 +1,11 @@
 <?php
 namespace App\Model\Generators;
 
-
 class PointInArea {
     var $pointOnVertex = true; // Check if the point sits exactly on one of the vertices?
 
     function pointLocation() {
-        
+
     }
 
     function pointInPolygon($point, $polygon, $pointOnVertex = true) {
