@@ -6,10 +6,10 @@
 <div class="admin-content__body">
 	<form action="" class="admin-search-form add-form">
 		<div class="admin-search-form__item input-search">
-			<input type="search" placeholder="Поиск ...">
+			<input type='text' name='filter[name]' value='{{ $ar_input["filter"]["name"] or null }}' placeholder="Поиск ...">
 		</div>
 		<div class="admin-search-form__item button-add">
-			<a href="" class="button">Скачать историю</a>
+			<input type="submit" class='button' value="приминить фильтр">
 		</div>
 	</form>
 	<div class="table-container">
@@ -38,6 +38,9 @@
     		        <td>{{ $i->created_at }}</td>
     		    </tr>
             @endforeach
+			<tr>
+				<td colspan=12>{!! $items->appends(Input::all())->render() !!}</td>
+			</tr>
 		</table>
 	</div>
 </div>

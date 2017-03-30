@@ -10,7 +10,10 @@ use App\User;
 class ClientController extends Controller{
     function getList (Request $request){
         $items = Customer::where('id', '>', 0);
-        
+
+        if ($request->has('filter.name') && $request->input('filter.name'))
+            $items = $items->where('name', 'like', '%'.$request->input('filter.name').'%');
+
         $ar = array();
         $ar['title'] = 'Клиенты';
         $ar['ar_input'] = $request->all();
