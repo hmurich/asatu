@@ -44,7 +44,31 @@ $(document).ready(function() {
     });
 
     $('.js_promo_key').change(function(){
-        $('.js_promo_key_val').html($(this).val());
+        var promo_key = $(this).val();
+        var restoran_id = $(this).data('restoran_id');
+        var sum = $(this).data('sum');
+
+        console.log(promo_key, restoran_id, sum);
+
+        $.post( "/order/promo", {restoran_id:restoran_id, promo_key:promo_key, sum:sum}, function( data ) {
+            console.log(data, sum, promo_key);
+
+            if (data != 'none'){
+                $('.js_promo_key_val').html(' ');
+                $('.js_promo_total_sum').html(sum);
+            }
+
+            data = parseInt(data);
+            sum = parseInt(sum);
+
+
+
+            var total_sum_html = sum + ' - ' + (sum - data) + ' = ' + data;
+
+            $('.js_promo_key_val').html(promo_key);
+            $('.js_promo_total_sum').html(total_sum_html);
+        });
+
     });
 
 });

@@ -15,6 +15,7 @@ use App\Model\Order;
 use App\Model\OrderItem;
 use Hash;
 use DB;
+use App\Model\Promo;
 
 class OrderController extends Controller{
     function getForm (Request $request, $restoran_id){
@@ -32,7 +33,7 @@ class OrderController extends Controller{
         $busket = OrderBusket::getOrder($restoran->id);
         if (empty($busket) || count($busket) < 2)
             return redirect()->action('Front\Restoran\MenuController@getList', $restoran->id);
-            
+
         $ar_busket_menu = array_keys($busket);
 
         $ar = array();
@@ -99,7 +100,15 @@ class OrderController extends Controller{
         $order->restoran_id = $restoran->id;
         $order->status_id = OrderStatus::OPEN;
         $order->total_sum = $busket['total_cost'];
-        $order->promo_key = $request->input('promo_key');
+        if ($request->has('promo_key')){
+            $promo = Promo::getPromoSum($restoran->id, $request->input('promo_key'), $order->total_sum);
+            if (!($promo === false)){
+                $order->promo_key = $request->input('promo_key');
+                $order->sum_without_sale = $order->total_sum;
+                $order->total_sum = $promo;
+            }
+        }
+
         $order->count_person = $customer->count_person;
         $order->note = $request->input('note');
         $order->save();
@@ -121,5 +130,17 @@ class OrderController extends Controller{
         OrderBusket::forgetOrder($restoran->id);
 
         return redirect()->action('Customer\CabinetController@getCabinet')->with('success', 'Заказ принят');
+    }
+
+    function postPromo(Request $request){
+        if (!$request->has('restoran_id') || !$request->has('promo_key') || !$request->has('sum'))
+            return 'none';
+
+        $promo = Promo::getPromoSum($request->input('restoran_id'), $request->input('promo_key'), $request->input('sum'));
+
+        if ($promo === false)
+            return 'none';
+
+        return $promo;
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/', 'Front\IndexController@getIndex');
 Route::get('/show/{name}', 'Front\PageController@getShowPage');
 Route::get('/page/{name}', 'Front\PageController@getShowStatPage');
