@@ -16,9 +16,7 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
 
-    Route::controller('adminka/restoran-edit', 'Admin\Restoran\EditController');
-    Route::controller('adminka/menu', 'Admin\Restoran\MenuController');
-    Route::controller('adminka/location', 'Admin\Restoran\LocationController');
+
 
     Route::controller('adminka/moderator', 'Admin\ModeratorController');
     Route::controller('adminka/static-page', 'Admin\StaticPageController');
@@ -33,6 +31,11 @@ Route::group(['middleware' => ['auth.admin']], function () {
 // Moderator Controllers
 Route::group(['middleware' => ['auth.moderator']], function () {
     Route::controller('moderator', 'Moderator\CabinetController');
+
+    Route::controller('adminka/restoran-edit', 'Admin\Restoran\EditController');
+    Route::controller('adminka/menu', 'Admin\Restoran\MenuController');
+    Route::controller('adminka/location', 'Admin\Restoran\LocationController');
+    Route::controller('adminka/review', 'Admin\Restoran\ReviewController');
 
     Route::controller('adminka/order', 'Admin\OrderController');
     Route::controller('adminka/restoran', 'Admin\RestoranController');
