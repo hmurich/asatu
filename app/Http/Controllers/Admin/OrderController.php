@@ -46,9 +46,6 @@ class OrderController extends Controller{
     function getItem(Request $request, $order_id){
         $order = Order::findOrFail($order_id);
 
-        $order->status_id = 21;
-        $order->save();
-
         $ar = array();
         $ar['title'] = "Заказ";
         $ar['order'] = $order;
@@ -58,6 +55,22 @@ class OrderController extends Controller{
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
 
         return view('admin.order.item', $ar);
+    }
+
+    function getMissingOrder(Request $request, $order_id){
+        $order = Order::findOrFail($order_id);
+        $order->status_id = OrderStatus::MISSING;
+        $order->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
+    }
+
+    function getCloseOrder (Request $request, $order_id){
+        $order = Order::findOrFail($order_id);
+        $order->status_id = OrderStatus::CLOSE;
+        $order->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
     }
 
 }

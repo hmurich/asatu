@@ -97,12 +97,15 @@
 		</div>
 	</div>
 	<div class="admin-content-button-conitaner">
-		<a href="" class="button cancel">
-			отменить
-		</a>
-		<a href="" class="button">
-			сохранить
-		</a>
+		@if ($order->status_id != 22)
+			<a href="{{ action('Admin\OrderController@getMissingOrder', $order->id) }}" class="button cancel">
+				Заказ не получен (клиентом)
+			</a>
+		@else
+			<a href="{{ action('Admin\OrderController@getCloseOrder', $order->id) }}" class="button ">
+				Заказ обработан
+			</a>
+		@endif
 	</div>
 	<div class="info-card">
         @foreach ($order->relHistory()->orderBy('id', 'desc')->get() as $h)
