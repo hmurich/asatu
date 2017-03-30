@@ -12,5 +12,5 @@ class CityController extends DirectoryNameController{
     protected $title = 'Города';
     protected $parent_id = 3;
     protected $action_class = 'Admin\CityController';
-
+    
 }
