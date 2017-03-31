@@ -3,8 +3,8 @@ namespace App\Model\Generators;
 
 class UserRestoran {
 
-    static function setNewPoint(){
-
+    static function generateNewRestoran(){
+        
     }
 
     static function getRestoranArId(){
@@ -12,6 +12,6 @@ class UserRestoran {
     }
 
     private function findRestorans(){
-        
+
     }
 }

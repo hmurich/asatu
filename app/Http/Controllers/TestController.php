@@ -62,18 +62,17 @@ class TestController extends Controller{
         echo '<pre>'; print_r($collection); echo '</pre>'; exit();
         foreach ($collection as $item) {
             echo $item->getAddress()."<br />"; // вернет адрес
-            $item->getLatitude(); // широта
-            $item->getLongitude(); // долгота
-            $item->getData(); // необработанные данные
+            echo $item->getLatitude(); // широта
+            echo $item->getLongitude(); // долгота
+            echo $item->getData(); // необработанные данные
         }
+        exit();
 
-        /*
-        $url = 'https://geocode-maps.yandex.ru/1.x/?format=json&geocode=%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F+6';
+        $url = 'https://geocode-maps.yandex.ru/1.x/?geocode=Астана,+Ойтаган+улица,+дом+15&format=json';
 
         $response = file_get_contents($url);
         $response = (array) json_decode($response);
         echo '<pre>'; print_r($response); echo '</pre>'; exit();
-        */
     }
 
     function getModel(){
