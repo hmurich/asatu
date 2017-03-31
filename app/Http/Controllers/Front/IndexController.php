@@ -23,15 +23,17 @@ class IndexController extends Controller{
     }
 
     function postGeoCoder(Request $request){
-        if (!$request->has('name') !$request->has('city_id'))
+        if (!$request->has('name') || !$request->has('city_id'))
             return '0';
 
         $city = SysDirectoryName::find($request->input('city_id'));
         if (!$city)
             return '0';
-            
+
+        $query = 'Казахстан, '.$city->name.', '.$request->input('name');
+
         $api = new GeoLocator();
-        $api->setQuery($request->input('name'));
+        $api->setQuery($query);
         $api->load();
 
         $response = $api->getResponse();

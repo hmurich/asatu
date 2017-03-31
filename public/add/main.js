@@ -9,14 +9,26 @@ $(document).ready(function() {
     if ($(".js_find_address").length > 0){
         $( ".js_find_address" ).autocomplete({
             source: function( request, response ) {
-                var city_id = parseInt($('.js_find_address_city_id').val());
-                console.log('hello');
+                var city_id = $('.js_find_address_city_id').val();
+                if (city_id == '0' || city_id == 0){
+                    $(".js_find_address").val(' ');
+                    $('.js_find_address_city_id').addClass('error');
+                }
+                else
+                    $('.js_find_address_city_id').addClass('error');
+
                 $.ajax({
                     type: "POST",
                     url: "/geocoder?name=" + request.term + "&city_id=" + city_id,
                     dataType: "json",
                     success: function ( data ) {
-                        console.log(data)
+                        console.log(data);
+                        $('.js_find_address_lat').val('0');
+                        $('.js_find_address_lng').val('0');
+
+                        if (data == '0' || data == 0)
+                            $(".js_find_address").val(' ');
+
                         response (data);
                     },
                     error: function () {
@@ -27,8 +39,8 @@ $(document).ready(function() {
             select: function(event, ui) {
                 event.preventDefault();
                 $(this).val(ui.item.label);
-                console.log(ui.item);
-                console.log('selected');
+                $('.js_find_address_lat').val(ui.item.lat);
+                $('.js_find_address_lng').val(ui.item.lng);
             },
         });
     }
