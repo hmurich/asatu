@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Model\SysDirectoryName;
 use App\Model\Page;
 use App\Model\StaticPage;
+use App\Model\Generators\GeoLocator;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller{
     function getIndex (){
@@ -18,5 +20,31 @@ class IndexController extends Controller{
         //echo '<pre>'; print_r($ar['ar_city']); echo '</pre>'; exit();
 
         return view('front.index.index', $ar);
+    }
+
+    function postGeoCoder(Request $request){
+        if (!$request->has('name') !$request->has('city_id'))
+            return '0';
+
+        $city = SysDirectoryName::find($request->input('city_id'));
+        if (!$city)
+            return '0';
+            
+        $api = new GeoLocator();
+        $api->setQuery($request->input('name'));
+        $api->load();
+
+        $response = $api->getResponse();
+        $collection = $response->getList();
+
+        $ar = array();
+        foreach ($collection as $item) {
+            $ar['value'] = $item->getAddress();
+            $ar['label'] = $item->getAddress();
+            $ar['lat'] = $item->getLatitude();
+            $ar['lng'] = $item->getLongitude();
+        }
+
+        echo json_encode($ar);
     }
 }

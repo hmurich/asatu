@@ -5,7 +5,7 @@
     <div class="header-form">
         <form action="{{ action('Front\CatalogController@postAddress') }}" method="post">
             <div class="header-form__item">
-                <select name="city_id"  required="">
+                <select name="city_id" class='js_find_address_city_id' required="">
                     <option value="">{{ $translator->getTrans('city') }}</option>
                     @foreach ($ar_city as $id=>$name)
                         <option value="{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</option>
@@ -13,7 +13,7 @@
                 </select>
             </div>
             <div class="header-form__item" >
-                <input type="text" name='address' required="" placeholder="{{ $translator->getTrans('street') }}">
+                <input type="text" name='address' class="js_find_address" required="" placeholder="{{ $translator->getTrans('street') }}">
             </div>
             <div class="header-form__item">
                 <button class="button">

@@ -8,6 +8,7 @@ use App\User;
 use Hash;
 use App\Model\SysDirectoryName;
 use App\Model\Generators\PointInArea;
+use App\Model\Generators\GeoLocator;
 
 class TestController extends Controller{
     function getPointInArea () {
@@ -45,27 +46,35 @@ class TestController extends Controller{
         echo '<pre>'; print_r(session('order.1')); echo '</pre>';
     }
 
+    function getPhpInfo(){
+        phpinfo();
+    }
+
     function getGeoCoder(){
 
-        $api = new \Yandex\Geo\Api();
-        $api->setQuery('Тверская 6');
+        $api = new GeoLocator();
+        $api->setQuery('Абая 47');
 
         // Настройка фильтров
-        $api
-            ->setLang(\Yandex\Geo\Api::LANG_US) // локаль ответа
-            ->load();
+        $api->load();
 
         $response = $api->getResponse();
+        echo $response->getFoundCount()."<br />"; // кол-во найденных адресов
+        echo $response->getQuery()."<br />"; // исходный запрос
+        echo $response->getLatitude()."<br />";; // широта для исходного запроса
+        echo $response->getLongitude()."<br />";; // долгота для исходного запроса
 
         // Список найденных точек
         $collection = $response->getList();
-        echo '<pre>'; print_r($collection); echo '</pre>'; exit();
+        //cho '<pre>'; print_r($collection); echo '</pre>'; exit();
         foreach ($collection as $item) {
             echo $item->getAddress()."<br />"; // вернет адрес
-            echo $item->getLatitude(); // широта
-            echo $item->getLongitude(); // долгота
-            echo $item->getData(); // необработанные данные
+            echo $item->getLatitude()."<br />"; // широта
+            echo $item->getLongitude()."<br />"; // долгота
+            echo '<pre>'; print_r($item->getData()); echo "</pre>"; // необработанные данные
         }
+
+
         exit();
 
         $url = 'https://geocode-maps.yandex.ru/1.x/?geocode=Астана,+Ойтаган+улица,+дом+15&format=json';

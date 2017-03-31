@@ -5,6 +5,34 @@ $(document).ready(function() {
         }
     });
 
+    // autocompie js_find_address
+    if ($(".js_find_address").length > 0){
+        $( ".js_find_address" ).autocomplete({
+            source: function( request, response ) {
+                var city_id = parseInt($('.js_find_address_city_id').val());
+                console.log('hello');
+                $.ajax({
+                    type: "POST",
+                    url: "/geocoder?name=" + request.term + "&city_id=" + city_id,
+                    dataType: "json",
+                    success: function ( data ) {
+                        console.log(data)
+                        response (data);
+                    },
+                    error: function () {
+
+                    }
+                });
+            },
+            select: function(event, ui) {
+                event.preventDefault();
+                $(this).val(ui.item.label);
+                console.log(ui.item);
+                console.log('selected');
+            },
+        });
+    }
+
     // функии показа высплывающего окна
     if (($(".js_alert_mess_block").length > 0)){
 		$('.js_alert_mess_block .alert-exit').click(function(){
@@ -60,8 +88,6 @@ $(document).ready(function() {
 
             data = parseInt(data);
             sum = parseInt(sum);
-
-
 
             var total_sum_html = sum + ' - ' + (sum - data) + ' = ' + data;
 
