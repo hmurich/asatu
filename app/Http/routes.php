@@ -39,12 +39,14 @@ Route::group(['middleware' => ['auth.moderator']], function () {
     Route::controller('adminka/menu', 'Admin\Restoran\MenuController');
     Route::controller('adminka/location', 'Admin\Restoran\LocationController');
     Route::controller('adminka/review', 'Admin\Restoran\ReviewController');
+    Route::controller('adminka/area', 'Admin\Restoran\AreaController');
 
     Route::controller('adminka/order', 'Admin\OrderController');
     Route::controller('adminka/restoran', 'Admin\RestoranController');
     Route::controller('adminka/promo', 'Admin\PromoController');
     Route::controller('adminka/history', 'Admin\HistoryController');
     Route::controller('adminka/client', 'Admin\ClientController');
+
 });
 
 // Restoran Controllers
@@ -54,6 +56,7 @@ Route::group(['middleware' => ['auth.restoran']], function () {
     Route::controller('cabinet/menu', 'Restoran\MenuController');
     Route::controller('cabinet/info', 'Restoran\RestoranController');
     Route::controller('cabinet/history', 'Restoran\HistoryController');
+
 });
 
 // Customer Controllers

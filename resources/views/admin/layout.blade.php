@@ -38,5 +38,6 @@
     <script type="text/javascript" src="{{ URL::asset('add/admin/main.js') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU') }}" ></script>
     <script type="text/javascript" src="{{ URL::asset('add/admin/map.js') }}" ></script>
+    <script type="text/javascript" src="{{ URL::asset('add/admin/area_map.js') }}" ></script>
 </body>
 </html>
