@@ -29,7 +29,7 @@
             	        <td>{{ $i->id }}</td>
             	        <td>{{ $i->name }}</td>
             	        <td>{{ $i->address }}</td>
-            	        <td>{{ $i->relDistance()->count() }}</td>
+            	        <td>{{ $i->relArea()->count() }}</td>
             	        <td>
                             <a href="{{ action("Admin\Restoran\LocationController@getItem", array($item->id, $i->id)) }}" class="table-item edit edit-icon">
                                 edit

@@ -2,8 +2,8 @@
 namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
-class RestoranDistance extends Model{
-    protected $table = 'restoran_distance';
+class RestoranArea extends Model{
+    protected $table = 'restoran_area';
     public $timestamps = false;
-
+    
 }

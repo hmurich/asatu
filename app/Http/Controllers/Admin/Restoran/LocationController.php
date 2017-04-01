@@ -20,7 +20,7 @@ class LocationController extends Controller{
         $ar = array();
         $ar['title'] = 'Зоны доставки "'.$item->name.'"';
         $ar['action'] = action('Admin\Restoran\LocationController@postItem', $item->id);
-        $ar['items'] = RestoranLocation::where('restoran_id', $item->id)->paginate(25);
+        $ar['items'] = RestoranLocation::where('restoran_id', $item->id)->with('relArea')->paginate(25);
 
         $ar['item'] = $item;
         $ar['ar_all_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
@@ -45,6 +45,7 @@ class LocationController extends Controller{
 
         $ar['location'] = $location;
         $ar['item'] = $item;
+        $ar['city'] = SysDirectoryName::findOrFail($item->city_id);
 
         return view('admin.restoran.location_add', $ar);
     }

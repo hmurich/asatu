@@ -34,7 +34,7 @@
                         Широта:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='lng' value='{{ ($location ? $location->lng : null) }}' />
+                        <input type="text" name='lng' id='lng'  value='{{ ($location ? $location->lng : null) }}' />
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -42,11 +42,11 @@
                         Долгота:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='lat' value='{{ ($location ? $location->lat : null) }}' />
+                        <input type="text" name='lat' id='lat' value='{{ ($location ? $location->lat : null) }}' />
                     </div>
                 </div>
 
-                <div id="map" style="width:100%; height:500px"></div>
+                <div id="map" style="width:100%; height:500px" class='js_map_field_main' data-city_center="{{ $city->sys_key }}"></div>
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="admin-edit-card__item">
