@@ -38,4 +38,8 @@ class RestoranArea extends Model{
 
         return json_encode($res);
     }
+
+    function relRestoran(){
+        return $this->belongsTo('App\Model\Restoran', 'restoran_id');
+    }
 }

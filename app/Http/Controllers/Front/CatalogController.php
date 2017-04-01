@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use App\Model\Generators\UserLocation;
 use App\Model\SysDirectoryName;
 use App\Model\Restoran;
-
+use App\Model\Generators\UserRestoran;
 
 class CatalogController extends Controller{
     function getList (Request $request) {
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+        $ar_restoran = UserRestoran::getAr();
 
         $items = Restoran::where('is_open', 1);
+        $items = $items->whereIn('id', $ar_restoran);
         if ($request->has('name'))
             $items = $items->where('name', 'like', '%'.$request->input('name').'%');
 
@@ -44,6 +46,10 @@ class CatalogController extends Controller{
 
         $location = UserLocation::setLocation($city_id, $request->input('address'), $coords);
         if (!$location)
+            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+
+        $res_restoran = UserRestoran::generateAr($location->city_id, array($location->lat, $location->lng));
+        if (!$res_restoran)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
 
         return redirect()->action('Front\CatalogController@getList');
