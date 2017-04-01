@@ -28,18 +28,10 @@ class UserLocation {
 
     private function setCoords($coords){
         if (empty($coords) || !isset($coords['lng']) || !isset($coords['lat']))
-            $coords = $this->findCoords();
+            return false;
 
         $this->lat = $coords['lat'];
         $this->lng = $coords['lng'];
-    }
-
-    private function findCoords(){
-        $coords = array();
-        $coords['lat'] = 51;
-        $coords['lng'] = 52;
-
-        return $coords;
     }
 
     private function checkParam(){

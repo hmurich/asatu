@@ -4,6 +4,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class SysDirectory extends Model {
     protected $table = 'sys_directory';
-
+    
 
 }
