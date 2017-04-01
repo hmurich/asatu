@@ -40,10 +40,12 @@ class AreaController extends Controller{
         if ($area){
             $ar['title'] = 'Изменение зоны доставки "'.$location->name.'"';
             $ar['action'] = action('Admin\Restoran\AreaController@postItem', array($item->id, $location->id, $area->id));
+            $ar['poly_coords'] = $area->generateView();
         }
         else {
             $ar['title'] = 'Создание зоны доставки';
             $ar['action'] = action('Admin\Restoran\AreaController@postItem', array($item->id, $location->id));
+            $ar['poly_coords'] = 'none';
         }
 
         $ar['area'] = $area;
@@ -55,8 +57,7 @@ class AreaController extends Controller{
 
     function postItem(Request $request, $restoran_id, $location_id, $id = 0){
         $restoran = Restoran::findOrFail($restoran_id);
-        $location = RestoranLocation::findOrFail($id);
-
+        $location = RestoranLocation::findOrFail($location_id);
 
         DB::beginTransaction();
 
@@ -70,19 +71,19 @@ class AreaController extends Controller{
         $item->sort_index = $request->input('sort_index');
         $item->coords = $request->input('coords');
         $item->cost = $request->input('cost');
+        $item->find_coords = $item->generateToFind();
         $item->save();
 
         DB::commit();
 
-        return redirect()->action('Admin\Restoran\LocationController@getList', $restoran->id)->with('success', 'Сохранено');
+        return redirect()->action('Admin\Restoran\AreaController@getList', array($restoran->id, $location->id))->with('success', 'Сохранено');
     }
 
-    function getDelete(Request $request, $id = 0){
-        $item = RestoranLocation::find($id);
-        $restoran = Restoran::findOrFail($item->restoran_id);
+    function getDelete(Request $request, $id){
+        $item = RestoranArea::findOrFail($id);
         $item->delete();
 
-        return redirect()->action('Admin\Restoran\LocationController@getList', $restoran->id)->with('success', 'Удалено');
+        return redirect()->back()->with('success', 'Удалено');
     }
 
 

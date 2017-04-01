@@ -29,16 +29,23 @@
                         <input type="text" name='cost' value='{{ ($area ? $area->cost : null) }}' />
                     </div>
                 </div>
+
+                <div    id="map_area"
+                        style="width:100%; height:500px"
+                        class='js_map_field_main'
+                        data-city_center="{{ $location->lng }},{{ $location->lat }}"
+                        data-coords="{{ $poly_coords }}" >
+                </div>
+
+
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
                         Координаты:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <textarea name='coords'>{{ ($area ? $area->coords : null) }}</textarea>
+                        <textarea name='coords' class='js_area_coords'>{{ ($area ? $area->coords : null) }}</textarea>
                     </div>
                 </div>
-
-                <div id="map_area" style="width:100%; height:500px" class='js_map_field_main' data-city_center="{{ $location->lng }},{{ $location->lat }}"></div>
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="admin-edit-card__item">
