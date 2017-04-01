@@ -7,6 +7,7 @@ use App\Model\Page;
 use App\Model\StaticPage;
 use App\Model\Generators\GeoLocator;
 use Illuminate\Http\Request;
+use App\Model\RegistrRestoran;
 
 class IndexController extends Controller{
     function getIndex (){
@@ -50,5 +51,17 @@ class IndexController extends Controller{
         }
 
         echo json_encode($ar);
+    }
+
+    function postRegistrRestoran(Request $request){
+        $item = new RegistrRestoran();
+        $item->name = $request->input('name');
+        $item->city = $request->input('city');
+        $item->fio = $request->input('fio');
+        $item->phone = $request->input('phone');
+        $item->email = $request->input('email');
+        $item->save();
+
+        return redirect()->back()->with('success', 'Ваша заявка была принята');
     }
 }
