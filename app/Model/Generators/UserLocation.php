@@ -59,7 +59,7 @@ class UserLocation {
     static function setLocation($city_id, $address, $coords=array()){
         $location = new UserLocation();
         $location->setParam($city_id, $address, $coords);
-
+        
         if (!$location->checkParam())
             return false;
 

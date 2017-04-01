@@ -39,8 +39,13 @@ $(document).ready(function() {
             select: function(event, ui) {
                 event.preventDefault();
                 $(this).val(ui.item.label);
-                $('.js_find_address_lat').val(ui.item.lat);
-                $('.js_find_address_lng').val(ui.item.lng);
+                var coords = ui.item.value;
+                result= coords.split(' ');
+                console.log(result);
+                console.log(result[0], result[1]);
+                $('.js_find_address_lat').val(result[0]);
+                $('.js_find_address_lng').val(result[1]);
+                console.log($('.js_find_address_lat').val(), $('.js_find_address_lng').val());
             },
         });
     }

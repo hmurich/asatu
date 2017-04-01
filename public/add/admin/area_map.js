@@ -27,9 +27,9 @@ if (jQuery("#map_area").length > 0){
         // Создаем многоугольник без вершин.
         var poly_coords = jQuery('.js_map_field_main').data('coords');
         console.log(poly_coords);
-        if (poly_coords = 'none')
+        if (poly_coords == 'none')
             poly_coords = [];
-            
+
         var myPolygon = new ymaps.Polygon([
             poly_coords,
             []

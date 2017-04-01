@@ -40,11 +40,13 @@ class IndexController extends Controller{
         $collection = $response->getList();
 
         $ar = array();
+
         foreach ($collection as $item) {
-            $ar['value'] = $item->getAddress();
-            $ar['label'] = $item->getAddress();
-            $ar['lat'] = $item->getLatitude();
-            $ar['lng'] = $item->getLongitude();
+            $i = array();
+            $i['value'] = $item->getLatitude().' '.$item->getLongitude();
+            $i['label'] = $item->getAddress();
+
+            $ar[] = $i;
         }
 
         echo json_encode($ar);
