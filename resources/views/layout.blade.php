@@ -22,13 +22,14 @@
     @yield('content')
 
     <div id="overlay"></div>
-    
+
     @include('include.footer')
 
     @include('include.message')
 
     @include('modals.login')
     @include('modals.forgot_pass')
+    @include('modals.registr_restoran')
 
     @include('include.js_links')
 </body>
