@@ -9,7 +9,6 @@
 
 @section('content')
 
-@section('content')
 <div class="container">
     <div class="container-inner">
         <div class="restaurant">
