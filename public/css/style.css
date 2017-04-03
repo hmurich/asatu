@@ -243,12 +243,12 @@ body.second-page {
 }
 .header-lang__item.active:after,
 .header-lang__item:hover:after {
-  width: 0;
+  width: 100%;
 }
 .header-lang__item:after {
   content: '';
   height: 1px;
-  width: 100%;
+  width: 0;
   background: #fff;
   position: absolute;
   bottom: -1px;
@@ -770,7 +770,6 @@ a.side-bar-box:hover {
   width: 224px;
   height: 151px;
   float: left;
-  overflow: hidden; 
 }
 .restaurant-item-box {
   margin-left: 240px;
