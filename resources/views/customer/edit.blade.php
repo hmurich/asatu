@@ -6,9 +6,6 @@
 @endsection
 
 @section('content')
-<div class="middle-icon position-absolute">
-    @include('front.index.include.middle_icon')
-</div>
 
 <div class="container">
 	<div class="container-inner">
