@@ -12,6 +12,7 @@
                     <div class="order-client">
                         <div class="order-client__name ">
                             {{ $o->relCustomer->name }}
+                            <span>{{ $ar_status[$o->status_id] }}</span>
                         </div>
                         <div class="order-client__sum">
                             Счет на сумму: <span>{{ $o->total_sum }} тг</span>

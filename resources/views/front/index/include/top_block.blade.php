@@ -17,8 +17,8 @@
                 <input type='hidden' name='lat' class='js_find_address_lat' />
                 <input type='hidden' name='lng' class='js_find_address_lng' />
             </div>
-            <div class="header-form__item">
-                <button class="button">
+            <div class="header-form__item ">
+                <button class="button js_find_address_submit">
                     {{ $translator->getTrans('want_eat') }}
                 </button>
             </div>

@@ -13,8 +13,12 @@
     @include('include.css_links')
 </head>
 <body class='@yield('body_class')'>
+
 	<header class="header @yield('header_class')">
-		@include('include.top_panel')
+		@section('top_panel')
+            @include('include.top_panel')
+        @show
+		
         @section('top_block')
         @show
 	</header>
@@ -28,6 +32,7 @@
     @include('include.message')
 
     @include('modals.login')
+    @include('modals.registr')
     @include('modals.forgot_pass')
     @include('modals.registr_restoran')
 

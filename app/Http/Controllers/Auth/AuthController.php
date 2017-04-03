@@ -12,6 +12,9 @@ use App\Model\Customer;
 class AuthController extends Controller {
     function postLogin(Request $request, $from = false){
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
+            if ($request->has('login'))
+                return back()->with('error', 'Не правильный email/пароль');
+
             if (User::where('email', $request->input('email'))->count() > 0)
                 return back()->with('error', 'Почтовый адрес уже зарегистрирован');
 

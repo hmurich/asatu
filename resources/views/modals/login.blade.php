@@ -10,14 +10,16 @@
             <div class="modal-input__container ">
                 <input type="password" name="password" required="required" placeholder="Введите пароль..." class="modal-input ">
             </div>
-            <div class="modal-input__container ">
-                <input type="password" name="re_password" required="required" placeholder="Подтвердите пароль..." class="modal-input ">
-            </div>
             <a href="#modal_forgot_pass" class="modal-link open_modal">
                 Забыли пароль?
             </a>
+
+            <a href="#modal_registr" class="modal-link open_modal">
+                Зарегистрироваться
+            </a>
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="login" value="1">
         <div class="modal-button-container">
             <button class="modal-button button">
                 войти в личный кабинет

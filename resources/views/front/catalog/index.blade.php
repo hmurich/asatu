@@ -1,15 +1,12 @@
 @extends('layout')
 @section('title', $title)
+
 @section('body_class', 'second-page')
 @section('top_block')
     @include('include.top_block_def')
 @endsection
 
 @section('content')
-<div class="middle-icon ">
-    @include('front.index.include.middle_icon')
-</div>
-
 <div class="container">
 	<div class="container-inner">
         @include('front.catalog.include.side_bar')
@@ -27,7 +24,7 @@
                         </div>
     					<div class="restaurant-item-box">
     						<div class="restaurant-item-box__top">
-    							<div class="restaurant-name">
+    							<div class="restaurant-name {{ (!$i->is_open ? 'close' : null) }}">
     								{{ $i->name }}
     							</div>
     							<ul class="reiting restaurant-item-box__top-reiting">

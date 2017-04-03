@@ -1,14 +1,12 @@
 @extends('layout')
 @section('title', $title)
+
 @section('body_class', 'second-page')
 @section('top_block')
     @include('include.top_block_def')
 @endsection
 
 @section('content')
-<div class="middle-icon ">
-    @include('front.index.include.middle_icon')
-</div>
 <div class="container">
     <div class="container-inner">
         <div class="restaurant">
