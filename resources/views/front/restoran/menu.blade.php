@@ -44,14 +44,25 @@
                                     -
                                 </div>
                                 <div class="product-item-count-item count">
-                                    <span class="js-count">1</span> шт
-                                    <input type="hidden" class="js-count-input"value="1">
+                                    <span class="js-count">
+                                        @if ($busket && isset($busket[$i->id]))
+                                            {{ $busket[$i->id]['count'] }}
+                                        @else
+                                            0
+                                        @endif
+                                    </span> шт
+                                    <input  type="hidden"
+                                            class="js-count-input js_menu_item_{{ $i->id }}"
+                                            value="{{ ($busket && isset($busket[$i->id]) ? $busket[$i->id]['count'] : 0) }}"
+                                            data-id='{{ $i->id }}'
+                                            data-cost='{{ $i->cost_item }}'
+                                            data-restoran_id='{{ $i->restoran_id }}' />
                                 </div>
                                 <div class="product-item-count-item js-plus hover-but">
                                     +
                                 </div>
                             </div>
-                            <button class="button product-item__button">
+                            <button class="button product-item__button js_add_menu_item" data-id='{{ $i->id }}'>
                                 заказать
                             </button>
                         </div>

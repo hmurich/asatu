@@ -24,7 +24,7 @@ class ReviewController extends Controller{
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
         $restoran = Restoran::findOrFail($restoran_id);
-        $items = Review::where('restoran_id', $restoran->id);
+        $items = Review::where('restoran_id', $restoran->id)->where('parent_id', 0);
 
         $ar = array();
         $ar['title'] = $restoran->name;
@@ -56,6 +56,7 @@ class ReviewController extends Controller{
 
         $item = new Review();
         $item->user_id = $user_id;
+        $item->parent_id = 0;
         $item->restoran_id = $restoran->id;
         $item->raiting = $request->input('raiting');
         $item->name = $request->input('name');

@@ -8,7 +8,7 @@
                 <a href="/page/how-we-work/">{{ $translator->getTrans('how_we_work') }}</a>
             </li>
             <li>
-                <a href="/page/registr-restoran/">{{ $translator->getTrans('registr_restoran') }}</a>
+                <a href="#registr_restoran" class='open_modal'>{{ $translator->getTrans('registr_restoran') }}</a>
             </li>
         </ul>
         <ul class="footer-soc-seti">

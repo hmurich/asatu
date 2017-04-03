@@ -16,7 +16,7 @@ class ModeratorAuth {
         if ($this->auth->guest())
             return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
 
-        if ($this->auth->user()->type_id != 2)
+        if (!in_array($this->auth->user()->type_id, array(1, 2)))
             return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
 
         return $next($request);

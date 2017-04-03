@@ -8,28 +8,25 @@
                 блюдо:
             </div>
             <div class="side-bar-box">
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="pizza">
-                    <label for="pizza">Пицца (29)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="sushi">
-                    <label for="sushi">Суши (24)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="burger">
-                    <label for="burger">Бургеры и донеры (34)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="shashlik" checked>
-                    <label for="shashlik">Шашлыки (29)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="wok">
-                    <label for="wok">Wok Лапша (19)</label>
-                </div>
+                @foreach ($ar_kitchen as $id=>$name)
+                    <div class="side-bar-box__item">
+                        @if (isset($ar_input['kitchen']) && in_array($id, $ar_input['kitchen']))
+                            <input type="checkbox" name='kitchen[]' id="kitchen_{{ $id }}" value="{{ $id }}" checked="">
+                        @else
+                            <input type="checkbox" name='kitchen[]' id="kitchen_{{ $id }}" value="{{ $id }}">
+                        @endif
+
+                        <label for="kitchen_{{ $id }}">{{ $name }}</label>
+                    </div>
+                @endforeach
                 <div class="side-bar-box__item-search">
-                    <input type="text" placeholder="Поиск блюда...">
+                    <input type="text" name='name' placeholder="Поиск блюда..." value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
+                </div>
+                <br />
+                <div class="side-bar-box__item">
+                    <button class="button ">
+                        Фильтр
+                    </button>
                 </div>
             </div>
         </div>
@@ -47,7 +44,14 @@
                             Ваш заказ
                         </div>
                         <div class="basket-info__item">
-                            Сумма: <span>15.000 тг</span>
+                            Сумма:
+                            <span class='js_total_cost'>
+                                @if ($busket)
+                                    {{ $busket['total_cost'] }}
+                                @else
+                                    0
+                                @endif
+                            </span> тг
                         </div>
                     </div>
                 </div>
@@ -55,7 +59,10 @@
             <div class="side-bar-box">
                 <div class="side-bar-box__checkout">
                     <img src="/img/cards.png" alt="">
-                    <a href="" class="button side-bar-box__checkout-button">
+                    <a  href="{{ action('Front\OrderController@getForm', $restoran->id) }}"
+                        class="button side-bar-box__checkout-button js_order_href"
+                        data-min='{{ $restoran->relData->min_price }}'
+                        data-current='{{ ($busket ? $busket['total_cost'] : 0) }}'>
                         оформить заказ
                     </a>
                     Минимальная сумма доставки: <span>5.000 тг</span>

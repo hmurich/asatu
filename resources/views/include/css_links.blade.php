@@ -5,3 +5,4 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/jquery.fancybox.css') }}" >
 
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('add/alert/main.css') }}" >
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('add/jquery-ui-1.10.4.custom.min.css') }}" >

@@ -8,6 +8,7 @@
     <meta name="keyword" content="@yield('keyword')">
     <meta name="description" content="@yield('description')">
     <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('include.css_links')
 </head>
@@ -20,12 +21,15 @@
 
     @yield('content')
 
+    <div id="overlay"></div>
+
     @include('include.footer')
 
     @include('include.message')
 
     @include('modals.login')
     @include('modals.forgot_pass')
+    @include('modals.registr_restoran')
 
     @include('include.js_links')
 </body>

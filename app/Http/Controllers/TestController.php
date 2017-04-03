@@ -7,37 +7,81 @@ use Cache;
 use App\User;
 use Hash;
 use App\Model\SysDirectoryName;
+use App\Model\Generators\PointInArea;
+use App\Model\Generators\GeoLocator;
 
 class TestController extends Controller{
+    function getPointInArea () {
+        $pointLocation = new PointInArea();
+
+        $points = array("57.5321 38.2670", '57.5244 38.1008', '57.5557 38.1825', '57.6254 38.1461', '57.5257 38.3212');
+        $polygon = array("57.5465 38.2148","57.5834 38.2491","57.5867 38.3411",
+                        "57.5240 38.4276","57.4774 38.3665","57.4659 38.2175",
+                        "57.5229 38.1461", "57.5465 38.2148");
+        // The last point's coordinates must be the same as the first one's, to "close the loop"
+        foreach($points as $key => $point) {
+            if ($pointLocation->pointInPolygon($point, $polygon))
+                echo "point " . ($key+1) . " ($point): внутри <br/>";
+            else
+                echo "point " . ($key+1) . " ($point): снаружи  <br/>";
+        }
+
+    }
+
+    function getOrderSession(){
+        session()->put('order.1.1.count', 100);
+        session()->put('order.1.1.cost', 300);
+        session()->put('order.1.1.cost', 40000);
+
+        session()->put('order.1.2.count', 100);
+        session()->put('order.1.2.cost', 300);
+
+        session()->put('order.1.3.count', 100);
+        session()->put('order.1.3.cost', 300);
+
+
+        session()->put('order.1.total_cost', 100);
+
+
+        echo '<pre>'; print_r(session('order.1')); echo '</pre>';
+    }
+
+    function getPhpInfo(){
+        phpinfo();
+    }
+
     function getGeoCoder(){
 
-        $api = new \Yandex\Geo\Api();
-        $api->setQuery('Тверская 6');
+        $api = new GeoLocator();
+        $api->setQuery('Абая 47');
 
         // Настройка фильтров
-        $api
-            ->setLang(\Yandex\Geo\Api::LANG_US) // локаль ответа
-            ->load();
+        $api->load();
 
         $response = $api->getResponse();
+        echo $response->getFoundCount()."<br />"; // кол-во найденных адресов
+        echo $response->getQuery()."<br />"; // исходный запрос
+        echo $response->getLatitude()."<br />";; // широта для исходного запроса
+        echo $response->getLongitude()."<br />";; // долгота для исходного запроса
 
         // Список найденных точек
         $collection = $response->getList();
-        echo '<pre>'; print_r($collection); echo '</pre>'; exit();
+        //cho '<pre>'; print_r($collection); echo '</pre>'; exit();
         foreach ($collection as $item) {
             echo $item->getAddress()."<br />"; // вернет адрес
-            $item->getLatitude(); // широта
-            $item->getLongitude(); // долгота
-            $item->getData(); // необработанные данные
+            echo $item->getLatitude()."<br />"; // широта
+            echo $item->getLongitude()."<br />"; // долгота
+            echo '<pre>'; print_r($item->getData()); echo "</pre>"; // необработанные данные
         }
-    
-        /*
-        $url = 'https://geocode-maps.yandex.ru/1.x/?format=json&geocode=%D0%A2%D0%B2%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F+6';
+
+
+        exit();
+
+        $url = 'https://geocode-maps.yandex.ru/1.x/?geocode=Астана,+Ойтаган+улица,+дом+15&format=json';
 
         $response = file_get_contents($url);
         $response = (array) json_decode($response);
         echo '<pre>'; print_r($response); echo '</pre>'; exit();
-        */
     }
 
     function getModel(){
