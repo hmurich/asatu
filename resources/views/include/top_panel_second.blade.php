@@ -22,7 +22,7 @@
                 <a href="#modal_registr" class="header-enter__button-reg open_modal">Зарегистрироваться</a>
                 <a href="#modal_login" class="header-enter__button-enter open_modal">Войти</a>
             @else
-                <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter">
+                <a href="{{ action('Auth\AuthController@getLogout') }}" class=" header-enter__button-enter">
                     {{ $translator->getTrans('logout') }}
                 </a>
             @endif
