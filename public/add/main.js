@@ -48,6 +48,26 @@ $(document).ready(function() {
                 console.log($('.js_find_address_lat').val(), $('.js_find_address_lng').val());
             },
         });
+
+        $('.js_find_address_submit').click(function(){
+            var city_id = $('.js_find_address_city_id').val();
+            var find_address = $('.js_find_address').val();
+            var lat = $('.js_find_address_lat').val();
+            var lng = $('.js_find_address_lng').val();
+
+            console.log(city_id, find_address, lat, lng);
+            console.log('asdasd');
+
+            if (city_id == '0' || city_id == 0 || find_address == '')
+                return false;
+
+            if (lat == '' || lng == '' || lat == undefined || lng == undefined || lat == 0 || lat == '0' || lng == 0 || lng == '0'){
+                $( ".js_find_address" ).autocomplete("search");
+                return false;
+            }
+
+            return true;
+        })
     }
 
     // функии показа высплывающего окна
