@@ -13,10 +13,12 @@
     @include('include.css_links')
 </head>
 <body class='@yield('body_class')'>
-	<header class="header  @yield('header_class')">
-        @section('top_panel')
+
+	<header class="header @yield('header_class')">
+		@section('top_panel')
             @include('include.top_panel')
         @show
+		
         @section('top_block')
         @show
 	</header>

@@ -1,6 +1,4 @@
 <ul class="admin-nav">
-
-
     @if (Auth::user() && Auth::user()->type_id == 1)
         <li><a href="{{ action('Admin\MenuTypeController@getIndex') }}">Виды блюд</a></li>
         <li><a href="{{ action('Admin\KitchenController@getIndex') }}">Кухни</a></li>

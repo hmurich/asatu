@@ -1,13 +1,12 @@
 @extends('layout')
 @section('title', $title)
-@section('header_class', 'second-page-header')
 
-@section('top_panel')
-    @include('include.top_panel_second')
+@section('body_class', 'second-page')
+@section('top_block')
+    @include('include.top_block_def')
 @endsection
 
 @section('content')
-
 <div class="container">
 	<div class="container-inner">
         @include('front.catalog.include.side_bar')

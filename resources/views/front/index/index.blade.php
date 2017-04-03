@@ -5,12 +5,13 @@
 
 @section('top_block')
     @include('front.index.include.top_block')
+	<div class="middle-icon position-absolute">
+		@include('front.index.include.middle_icon')
+	</div>
 @endsection
 
 @section('content')
-<div class="middle-icon position-absolute">
-    @include('front.index.include.middle_icon')
-</div>
+
 
 <div class="index-card-container">
     <div class="index-card-container__inner">
@@ -69,6 +70,40 @@
             @include('front.index.include.about')
         </div>
     </div>
+    <div class="index-banner">
+                <div class="index-card-container__inner">
+                    <div class="index-banner__text">
+                        Какой то текст
+                    </div>
+                    <div class="index-banner__text">
+                        8 777 485 99 48
+                    </div>
+                </div>
+            </div>
+            <div class="index-card-container__inner"> 
+                <div class="index-soc-seti__container">
+                    <div class="index-soc-seti">
+                        <span>Мы в социальных сетях</span>
+                        <ul class="soc-seti-list">
+                            <li>
+                        <a href="" >
+                            <img src="img/vk.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            <img src="img/face.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            <img src="img/insta.png" alt="">
+                        </a>
+                    </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 </div>
 
 
