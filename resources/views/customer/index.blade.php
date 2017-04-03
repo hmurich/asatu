@@ -13,21 +13,22 @@
 				<div class="admin-edit-card__title">
 					{{ $customer->name }}
 				</div>
-				<div class="admin-edit-card__item">
-					<span>E-mail:</span> {{ $customer->relUser->email }}
+				<div class="customer-edit-card-container">
+					<div class="admin-edit-card__item">
+						<span>E-mail:</span> {{ $customer->relUser->email }}
+					</div>
+					<div class="admin-edit-card__item">
+						<span>Адрес:</span> {{ $customer->full_adress }}
+					</div>
+					<div class="admin-edit-card__item">
+						<span>Телефон:</span> {{ $customer->phone }}
+					</div>
+					<div class="admin-edit-card__item button-customer">
+						<a href="{{ action('Customer\CabinetController@getEdit') }}" class="button ">
+							Редактировать
+						</a>
+					</div>
 				</div>
-				<div class="admin-edit-card__item">
-					<span>Адрес:</span> {{ $customer->full_adress }}
-				</div>
-				<div class="admin-edit-card__item">
-					<span>Телефон:</span> {{ $customer->phone }}
-				</div>
-				<div class="admin-edit-card__item">
-					<a href="{{ action('Customer\CabinetController@getEdit') }}" class="button ">
-						Редактировать
-					</a>
-				</div>
-
 				<div class="admin-edit-card__title">
 					Заказы
 				</div>

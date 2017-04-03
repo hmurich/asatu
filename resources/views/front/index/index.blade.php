@@ -80,26 +80,28 @@
                     </div>
                 </div>
             </div>
-            <div class="index-card-container__inner">   
-                <div class="index-soc-seti">
-                    <span>Мы в социальных сетях</span>
-                    <ul class="soc-seti-list">
-                        <li>
-                    <a href="" >
-                        <img src="img/vk.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="" >
-                        <img src="img/face.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="" >
-                        <img src="img/insta.png" alt="">
-                    </a>
-                </li>
-                    </ul>
+            <div class="index-card-container__inner"> 
+                <div class="index-soc-seti__container">
+                    <div class="index-soc-seti">
+                        <span>Мы в социальных сетях</span>
+                        <ul class="soc-seti-list">
+                            <li>
+                        <a href="" >
+                            <img src="img/vk.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            <img src="img/face.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" >
+                            <img src="img/insta.png" alt="">
+                        </a>
+                    </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 </div>

@@ -1695,7 +1695,7 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     bottom: 0;
     border: 0;
     right: 0;
-    height: 350px;
+    height: 291px;
     top: 0;
     display: none;
     opacity: 0;
@@ -1706,6 +1706,9 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     overflow: auto;
+}
+#modal_registr {
+    height: 332px;
 }
 .modal_div.registar-zav {
     height: 450px;
@@ -1759,6 +1762,7 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     padding-top: 15px;
     padding-left: 25px;
     padding-right: 25px;
+    overflow: hidden;
 }
 .modal-input__container input {
     width: 100%;
@@ -1769,10 +1773,14 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     color: #727272;
     margin-bottom: 15px;
 }
+
 .modal-link {
     color: #727272;
     text-align: right;
-    display: block;
+    float: right;
+}
+.modal-link:nth-child(2n) {
+    float: left;
 }
 .modal-button-container {
     padding-bottom: 15px;
@@ -2152,19 +2160,45 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
     font-weight: bold;
     text-transform: uppercase;
 }
+.index-soc-seti__container {
+    text-align: center;
+}
 .index-soc-seti {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+    display: inline-block;
+    span{
+        float:left;
+        margin-right: 15px;
+    }
 }
 .soc-seti-list {
     padding: 0;
     margin: 0;
     list-style: none;
-    float: right;
+    float: left;
     li {
         display: inline-block;
     }
+}
+
+.static-text {
+    width: 48%;
+    float: left;
+}
+.static-img {
+    float: right;
+    width: 48%;
+}
+.static-block {
+    overflow: hidden;
+}
+.customer-edit-card-container {
+    margin: 0px 0 25px;
+}
+.admin-edit-card__item.button-customer {
+    margin-top: 25px;
 }
 @media screen and (max-width: 1200px) {
     .header-top-line__inner,.header-inner,.middle-icon__inner,.index-card-container__inner,.footer-inner,.container-inner{
