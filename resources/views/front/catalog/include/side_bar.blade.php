@@ -8,26 +8,17 @@
                 блюдо:
             </div>
             <div class="side-bar-box">
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="pizza">
-                    <label for="pizza">Пицца (29)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="sushi">
-                    <label for="sushi">Суши (24)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="burger">
-                    <label for="burger">Бургеры и донеры (34)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="shashlik" checked>
-                    <label for="shashlik">Шашлыки (29)</label>
-                </div>
-                <div class="side-bar-box__item">
-                    <input type="checkbox" id="wok">
-                    <label for="wok">Wok Лапша (19)</label>
-                </div>
+                @foreach ($ar_kitchen as $id=>$name)
+                    <div class="side-bar-box__item">
+                        @if (isset($ar_input['kitchen']) && in_array($id, $ar_input['kitchen']))
+                            <input type="checkbox" name='kitchen[]' id="kitchen_{{ $id }}" value="{{ $id }}" checked="">
+                        @else
+                            <input type="checkbox" name='kitchen[]' id="kitchen_{{ $id }}" value="{{ $id }}">
+                        @endif
+
+                        <label for="kitchen_{{ $id }}">{{ $name }}</label>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="side-bar-item">
@@ -37,7 +28,8 @@
             <div class="side-bar-form">
                 <div class="side-bar-box">
                     <div id="slider-range"></div>
-                    <input type="hidden" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    <input type="hidden" id="amount" name='amount_price' readonly style="border:0; color:#f6931f; font-weight:bold;"
+                        value='{{ (isset($ar_input["amount"]) ? $ar_input["amount"] : null) }}'>
 
                     <div class="min-price"></div>
                     <div class="max-price"></div>
@@ -51,15 +43,15 @@
             </div>
             <div  class="side-bar-box">
                 <div class="side-bar-box__item">
-                    <input type="checkbox" id="new">
+                    <input type="checkbox" id="new" name='restoran_new' value="1" {{ (isset($ar_input["restoran_new"]) ? "checked" : null) }}>
                     <label for="new">Новые</label>
                 </div>
                 <div class="side-bar-box__item">
-                    <input type="checkbox" id="promokod">
-                    <label for="promokod">С промокодом</label>
+                    <input type="checkbox" name='restoran_new_promo' id="promokod" {{ (isset($ar_input["restoran_new_promo"]) ? "checked" : null) }}>
+                    <label for="promokod" >С промокодом</label>
                 </div>
                 <div class="side-bar-box__item">
-                    <input type="checkbox" id="free">
+                    <input type="checkbox" name='restoran_free' id="free" {{ (isset($ar_input["restoran_free"]) ? "checked" : null) }}>
                     <label for="free">Бесплатная доставка</label>
                 </div>
             </div>

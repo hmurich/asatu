@@ -20,6 +20,29 @@ class CatalogController extends Controller{
         if ($request->has('name'))
             $items = $items->where('name', 'like', '%'.$request->input('name').'%');
 
+        if ($request->has('kitchen')){
+            if ($request->has('restoran_new')){
+                $week_before = date('Y-m-d', time() - (60 * 60 * 24 * 7));
+                $items = $items->where('created_at', $week_before);
+            }
+
+            if ($request->has('restoran_new_promo'))
+                $items = $items->whereHas('relPromo', function($q){
+                    $q->where('id', '>', 0);
+                });
+            if ($request->has('restoran_free'))
+                $items = $items->whereHas('relData', function($q){
+                    $q->where('delivery_price', 0);
+                });
+
+            if (count($request->input('kitchen')) > 0){
+                $ar_kitchen = $request->input('kitchen');
+                $items = $items->whereHas('relMenu', function($q) use ($ar_kitchen){
+                    $q->whereIn('cat_id', $ar_kitchen);
+                });
+            }
+        }
+
         $ar = array();
         $ar['title'] = $this->translator->getTrans('catalog_title');
         $ar['items'] = $items->with('relData')->orderBy('raiting', 'desc')->paginate(24);
@@ -27,6 +50,7 @@ class CatalogController extends Controller{
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
+        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
 
         return view('front.catalog.index', $ar);
     }
