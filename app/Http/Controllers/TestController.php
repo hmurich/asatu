@@ -9,8 +9,13 @@ use Hash;
 use App\Model\SysDirectoryName;
 use App\Model\Generators\PointInArea;
 use App\Model\Generators\GeoLocator;
+use App\Model\MailSend;
 
 class TestController extends Controller{
+    function getSendMail(){
+        MailSend::send('hmurich@mail.ru', 'Привет', 'Текст письма');
+    }
+
     function getPointInArea () {
         $pointLocation = new PointInArea();
 
