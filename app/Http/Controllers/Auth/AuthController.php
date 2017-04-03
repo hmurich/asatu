@@ -63,7 +63,7 @@ class AuthController extends Controller {
 
         $pass = new UserForgotPass();
         $pass->user_id = $user->id;
-        $pass->confirm = $confirm;
+        $pass->confirm_user = $confirm;
         $pass->save();
 
         $text = '<p>Для генерации нового пароля пройдите ';
@@ -86,7 +86,7 @@ class AuthController extends Controller {
         */
         $user = User::findOrFail($request->input('user_id'));
 
-        $for_pass = UserForgotPass::where('user_id', $user->id)->where('confirm', $request->input('confirm'))->first();
+        $for_pass = UserForgotPass::where('user_id', $user->id)->where('confirm_user', $request->input('confirm'))->first();
         if (!$for_pass)
             abort(404);
 
