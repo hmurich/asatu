@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('title', $title)
+@section('header_class', 'video-header')
 
 @section('top_block')
     @include('front.index.include.top_block')

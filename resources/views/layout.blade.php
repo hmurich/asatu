@@ -12,7 +12,7 @@
     @include('include.css_links')
 </head>
 <body class='@yield('body_class')'>
-	<header class="header video-header">
+	<header class="header @yield('header_class')">
 		@include('include.top_panel')
         @section('top_block')
         @show

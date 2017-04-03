@@ -660,6 +660,7 @@ input:-ms-input-placeholder {
   width: 224px;
   height: 151px;
   float: left;
+  overflow: hidden; 
 }
 .restaurant-item-box {
   margin-left: 240px;
