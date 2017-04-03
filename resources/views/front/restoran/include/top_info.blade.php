@@ -13,8 +13,8 @@
         {!! $restoran->generateHtmlStar() !!}
         <div class="reiting-text">{{ $restoran->raiting }}/5</div>
     </ul>
-    <div class="restaurant-status">
-        открыто
+    <div class="restaurant-status {{ ($restoran->is_open ? '' : 'close') }}">
+        {{ ($restoran->is_open ? 'открыто' : 'закрыто') }}
     </div>
 </div>
 <div class="restaurant-info ">

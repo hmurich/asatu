@@ -27,7 +27,7 @@
                         </div>
     					<div class="restaurant-item-box">
     						<div class="restaurant-item-box__top">
-    							<div class="restaurant-name">
+    							<div class="restaurant-name {{ (!$i->is_open ? 'close' : null) }}">
     								{{ $i->name }}
     							</div>
     							<ul class="reiting restaurant-item-box__top-reiting">
