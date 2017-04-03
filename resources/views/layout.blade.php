@@ -28,6 +28,7 @@
     @include('include.message')
 
     @include('modals.login')
+    @include('modals.registr')
     @include('modals.forgot_pass')
     @include('modals.registr_restoran')
 

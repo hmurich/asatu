@@ -1,6 +1,6 @@
-<div id="modal_login" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
+<div id="modal_registr" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
     <span class="modal_close"></span>
-    <div class="modal-title">Войти в личный кабинет ?</div>
+    <div class="modal-title">Зарегистрироваться</div>
 
     <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
         <div class="form-modal">
@@ -10,16 +10,11 @@
             <div class="modal-input__container ">
                 <input type="password" name="password" required="required" placeholder="Введите пароль..." class="modal-input ">
             </div>
-            <a href="#modal_forgot_pass" class="modal-link open_modal">
-                Забыли пароль?
-            </a>
-
-            <a href="#modal_registr" class="modal-link open_modal">
-                Зарегистрироваться
-            </a>
+            <div class="modal-input__container ">
+                <input type="password" name="re_password" required="required" placeholder="Подтвердите пароль..." class="modal-input ">
+            </div>
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="login" value="1">
         <div class="modal-button-container">
             <button class="modal-button button">
                 войти в личный кабинет
