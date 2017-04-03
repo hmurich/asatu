@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use App\Model\MailSend;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -46,6 +47,6 @@ class User extends Model implements AuthenticatableContract,
     }
 
     function sendPasswordToEmail($password){
-        
+        MailSend::send($this->email, 'Ваш пароль для входа в asakely.kz', $password);
     }
 }

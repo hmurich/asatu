@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<div>
-			{! $note !}
+			{!! $note !!}
 		</div>
 	</body>
 </html>

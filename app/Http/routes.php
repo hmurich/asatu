@@ -17,6 +17,8 @@ Route::post('registr-restoran', 'Front\IndexController@postRegistrRestoran');
 // Auth controllers
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
+Route::post('forgot-pass', 'Auth\AuthController@postForgotPass');
+Route::get('forgot-pass', 'Auth\AuthController@getForgotPass');
 
 // Admin Controllers
 Route::group(['middleware' => ['auth.admin']], function () {
