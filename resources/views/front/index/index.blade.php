@@ -1,15 +1,16 @@
 @extends('layout')
-@section('title', $title)
-@section('body_class', 'second-page')
-@section('header_class', 'second-page-header')
 
-@section('top_panel')
-    @include('include.top_panel_second')
+@section('title', $title)
+@section('header_class', 'video-header')
+
+@section('top_block')
+    @include('front.index.include.top_block')
+    <div class="middle-icon position-absolute">
+        @include('front.index.include.middle_icon')
+    </div>
 @endsection
 
 @section('content')
-
-
 <div class="index-card-container">
     <div class="index-card-container__inner">
         <div class="title">
