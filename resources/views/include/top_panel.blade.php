@@ -19,8 +19,8 @@
                 {{ $translator->getTrans('enter_registr') }}
             </a>
         @else
-            <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter">
-                {{ $translator->getTrans('logout') }}
+            <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter log-out">
+                Личный кабинет
             </a>
         @endif
 

@@ -719,6 +719,44 @@ a.side-bar-box:hover {
 .restaurants-box.full-width {
   margin-left: 0;
 }
+.admin-search-form__item.button-search {
+  margin-left: 25px;
+}
+.admin-edit-card__item__right select {
+  border: none;
+  width: 230px;
+  height: 40px;
+  padding-left: 15px;
+  border: 1px solid #eeeeee;
+  color: #727272;
+  font-size: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(../img/arrow-down.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+  text-transform: uppercase;
+}
+.admin-content__body table {
+  margin-top: 25px;
+}
+.log-out:hover {
+  font-size: 0;
+}
+.header-enter.log-out {
+  width: 86px;
+}
+.log-out:hover:before {
+  display: inline-block;
+  font-size: 12px;
+}
+.log-out:before {
+  content: "Выйти";
+  display: inline-block;
+  display: none;
+}
 .autor-review {
   padding: 14px 14px;
   background: #fff;
@@ -1162,6 +1200,28 @@ table td .table-item.edit-icon {
   right: auto;
   top: auto;
   margin-top: 0;
+  margin-bottom: 15px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+.table-item.show.show-icon {
+  padding: 0;
+  display: block;
+  float: none;
+  margin-bottom: 5px;
+  font-size: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/show.png);
+  border: none;
+}
+table tr th:last-child a {
+  font-size: 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-image: url(../images/add.png);
 }
 .select-search select {
   width: 230px;
@@ -2250,6 +2310,19 @@ textarea:focus:-ms-input-placeholder {
 }
 .title-item.static-page {
   background: #f4f0d9;
+}
+.delete-icon {
+  font-size: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/delete.png);
+  -o-background-size: cover;
+     background-size: cover;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  border: none;
 }
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,

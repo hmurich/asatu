@@ -703,6 +703,44 @@ margin-left: 290px;
 .restaurants-box.full-width {
     margin-left: 0;
 }
+.admin-search-form__item.button-search {
+    margin-left: 25px;
+}
+.admin-edit-card__item__right select {
+    border: none;
+    width: 230px;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/arrow-down.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    text-transform: uppercase;
+}
+.admin-content__body table {
+    margin-top: 25px;
+}
+.log-out:hover {
+    font-size: 0;
+}
+.header-enter.log-out {
+    width: 86px;
+}
+.log-out:hover:before {
+    display: inline-block;
+    font-size: 12px;
+}
+.log-out:before {
+    content: "Выйти";
+    display: inline-block;
+    display: none;
+}
 .autor-review {
     padding: 14px 14px;
     background: #fff;
@@ -1135,15 +1173,37 @@ table {
 
        }
        .table-item.edit-icon {
-            background-image: url(../img/edit-pencil.png);
-            background-repeat: no-repeat;
-            background-position: center center;
-            position: relative;
-           right: auto; 
-          top: auto;
-             margin-top: 0;
+    background-image: url(../img/edit-pencil.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 0;
+    margin-bottom: 15px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
         }
     }
+}
+.table-item.show.show-icon {
+    padding: 0;
+    display: block;
+    float: none;
+    margin-bottom: 5px;
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(../images/show.png);
+    border:none;
+}
+table tr th:last-child a {
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url(../images/add.png);
 }
 .select-search select {
     width: 230px;
@@ -2214,6 +2274,16 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder{opacity:
 }
 .title-item.static-page {
     background: rgb(244, 240, 217);
+}
+.delete-icon {
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/delete.png);
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 0;
+    border: none;
 }
 @media screen and (max-width: 1200px) {
     .header-top-line__inner,.header-inner,.middle-icon__inner,.index-card-container__inner,.footer-inner,.container-inner{
