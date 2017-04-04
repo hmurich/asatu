@@ -687,7 +687,7 @@ a.side-bar-box:hover {
   margin-right: 43px;
 }
 .restaurants-box {
-  margin-left: 285px;
+  margin-left: 290px;
 }
 .restaurants-filtr__button--city {
   position: absolute;
@@ -2515,6 +2515,9 @@ textarea:focus:-ms-input-placeholder {
   }
   .admin-edit-card__item {
     margin-bottom: 15px;
+  }
+  .index-inform {
+    display: none;
   }
 }
 @media screen and (max-width: 460px) {

@@ -14,7 +14,7 @@
 
 
 <div class="index-card-container">
-    <div class="index-card-container__inner">
+    <div class="index-card-container__inner index-inform">
         <div class="title">
             <h2 class="title-item">{{ $translator->getTrans('helpfull_info') }}</h2>
         </div>
@@ -40,7 +40,7 @@
             @endforeach
         </ul>
     </div>
-    <div class="index-card-container__inner">
+    <div class="index-card-container__inner index-inform">
         <div class="title">
             <h2 class="title-item">{{ $translator->getTrans('news') }}</h2>
         </div>
