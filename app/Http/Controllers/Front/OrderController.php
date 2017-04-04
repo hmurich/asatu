@@ -60,6 +60,10 @@ class OrderController extends Controller{
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
         $restoran = Restoran::findOrFail($restoran_id);
 
+        $area = UserArea::getCloser($restoran, $location);
+        if (!$area)
+            abort(404);
+
         DB::beginTransaction();
         $busket = OrderBusket::getOrder($restoran->id);
 
@@ -106,10 +110,12 @@ class OrderController extends Controller{
         $order->customer_id = $customer->id;
         $order->restoran_id = $restoran->id;
         $order->status_id = OrderStatus::OPEN;
-        $order->total_sum = $busket['total_cost'];
+        $order->delivery_price = $area->cost;
+        $order->total_sum = $busket['total_cost'] + $order->delivery_price;
         if ($request->has('promo_key')){
             $promo = Promo::getPromoSum($restoran->id, $request->input('promo_key'), $order->total_sum);
             if (!($promo === false)){
+                $order->is_promo = 1;
                 $order->promo_key = $request->input('promo_key');
                 $order->sum_without_sale = $order->total_sum;
                 $order->total_sum = $promo;
