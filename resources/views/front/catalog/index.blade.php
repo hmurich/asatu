@@ -1,9 +1,10 @@
 @extends('layout')
 @section('title', $title)
-
 @section('body_class', 'second-page')
-@section('top_block')
-    @include('include.top_block_def')
+@section('header_class', 'second-page-header')
+
+@section('top_panel')
+    @include('include.top_panel_second')
 @endsection
 
 @section('content')
@@ -39,14 +40,18 @@
     							<div class="restaurant-info__item">
     								Стомость доставки:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
     							</div>
-                                {!! $i->relData->short_note !!}
+                                <?php
+                                    $ar_kithen = $i->relKitchens()->select('kitchen_name')->get()->keyBy('kitchen_name')->toArray();
+                                    $ar_kithen = array_keys($ar_kithen);
+                                ?>
+                                {{ implode(', ', $ar_kithen) }}
                             </div>
     						<div class="restaurant-item-box__bottom">
     							<div class="delivery-time">
     								Время доставки <span>{{ $i->relData->delivery_duration }} минут</span>
     							</div>
     							<a href="{{ action('Front\Restoran\MenuController@getList', $i->id) }}" class="button restaurants-filtr__button">
-    								найти
+    								Покорми меня!
     							</a>
     						</div>
     					</div>

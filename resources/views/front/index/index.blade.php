@@ -1,13 +1,10 @@
 @extends('layout')
-
 @section('title', $title)
-@section('header_class', 'video-header')
+@section('body_class', 'second-page')
+@section('header_class', 'second-page-header')
 
-@section('top_block')
-    @include('front.index.include.top_block')
-	<div class="middle-icon position-absolute">
-		@include('front.index.include.middle_icon')
-	</div>
+@section('top_panel')
+    @include('include.top_panel_second')
 @endsection
 
 @section('content')
@@ -80,7 +77,7 @@
                     </div>
                 </div>
             </div>
-            <div class="index-card-container__inner"> 
+            <div class="index-card-container__inner">
                 <div class="index-soc-seti__container">
                     <div class="index-soc-seti">
                         <span>Мы в социальных сетях</span>

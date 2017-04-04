@@ -17,7 +17,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="modal-button-container">
             <button class="modal-button button">
-                войти в личный кабинет
+                зарегистрироваться
             </button>
         </div>
     </form>

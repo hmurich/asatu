@@ -52,6 +52,7 @@ class CatalogController extends Controller{
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
 
+        //echo '<pre>'; print($ar['ar_kitchen']); echo '</pre>'; exit();
         return view('front.catalog.index', $ar);
     }
 

@@ -25,7 +25,7 @@
                 <br />
                 <div class="side-bar-box__item">
                     <button class="button ">
-                        Фильтр
+                        Применить
                     </button>
                 </div>
             </div>
