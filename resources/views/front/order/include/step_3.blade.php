@@ -35,7 +35,7 @@
 </div>
 <div class="basket-itog">
     <div class="basket-itog__item">
-        Счет на сумму: <span class='js_promo_total_sum'>{{ $busket['total_cost'] }}тг</span>
+        Счет на сумму: <span class='js_promo_total_sum' data-delivery="{{ $area->cost }}">{{ ($busket['total_cost'] + $area->cost) }}тг</span>
     </div>
     <div class="basket-itog__item">
         Промокод: <span class='js_promo_key_val'></span>
