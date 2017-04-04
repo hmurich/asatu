@@ -21,7 +21,10 @@ class Order extends Model{
     }
 
     function setStatusIdAttribute($status_id){
-        $this->createHistoryRow($this->attributes['status_id'], $status_id);
+        if (isset($this->attributes['status_id']))
+            $this->createHistoryRow($this->attributes['status_id'], $status_id);
+        else
+            $this->createHistoryRow(0, $status_id);
 
         $this->attributes['status_id'] = $status_id;
         if (in_array($status_id, array(OrderStatus::CANCEL, OrderStatus::CLOSE, OrderStatus::MISSING))){

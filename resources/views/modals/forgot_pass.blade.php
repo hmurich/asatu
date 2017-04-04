@@ -2,10 +2,10 @@
     <span class="modal_close"></span>
     <div class="modal-title">Забыли пароль?</div>
 
-    <form  action="/login" method="post" >
+    <form  action="/forgot-pass" method="post" >
         <div class="form-modal">
             <div class="modal-input__container ">
-                <input type="email" name="" required="required" placeholder="Введите E-mail..." class="modal-input ">
+                <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input ">
             </div>
         </div>
         <div class="modal-button-container">
@@ -13,5 +13,6 @@
                 получить пароль
             </button>
         </div>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
 </div>
