@@ -2324,6 +2324,9 @@ textarea:focus:-ms-input-placeholder {
   padding: 0;
   border: none;
 }
+.button.next-step.hide {
+  display: none;
+}
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,
   .header-inner,

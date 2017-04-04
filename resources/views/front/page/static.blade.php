@@ -1,6 +1,5 @@
 @extends('layout')
 @section('title', $title)
-@section('body_class', 'second-page')
 @section('header_class', 'second-page-header')
 
 @section('top_panel')
@@ -13,7 +12,7 @@
     <div class="index-card-container__inner">
         <div class="index-seo-text">
             <div class="title">
-                <h2 class="title-item static-page">{{ $title }}</h2>
+                <h2 class="title-item ">{{ $title }}</h2>
             </div>
             {!! $el->note_trans !!}
         </div>
