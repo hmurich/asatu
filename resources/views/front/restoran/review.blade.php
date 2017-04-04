@@ -1,9 +1,10 @@
 @extends('layout')
 @section('title', $title)
-
 @section('body_class', 'second-page')
-@section('top_block')
-    @include('include.top_block_def')
+@section('header_class', 'second-page-header')
+
+@section('top_panel')
+    @include('include.top_panel_second')
 @endsection
 
 @section('content')
@@ -13,8 +14,6 @@
             @include('front.restoran.include.top_info')
         </div>
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
-
-        @include('front.restoran.include.side_bar_review')
 
         <div class="restaurants-box">
             @if ($auth->guest())

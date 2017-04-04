@@ -16,6 +16,8 @@ use App\Model\OrderItem;
 use Hash;
 use DB;
 use App\Model\Promo;
+use App\Model\Generators\UserArea;
+
 
 class OrderController extends Controller{
     function getForm (Request $request, $restoran_id){
@@ -36,6 +38,10 @@ class OrderController extends Controller{
 
         $ar_busket_menu = array_keys($busket);
 
+        $area = UserArea::getCloser($restoran, $location);
+        if (!$area)
+            abort(404);
+
         $ar = array();
         $ar['title'] = 'Форма заказа';
         $ar['restoran'] = $restoran;
@@ -43,6 +49,7 @@ class OrderController extends Controller{
         $ar['busket'] = $busket;
         $ar['user'] = $user;
         $ar['customer'] = $customer;
+        $ar['area'] = $area;
 
         return view('front.order.index', $ar);
     }

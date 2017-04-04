@@ -5,14 +5,12 @@
 
 @section('top_block')
     @include('front.index.include.top_block')
-	<div class="middle-icon position-absolute">
-		@include('front.index.include.middle_icon')
-	</div>
+    <div class="middle-icon position-absolute">
+        @include('front.index.include.middle_icon')
+    </div>
 @endsection
 
 @section('content')
-
-
 <div class="index-card-container">
     <div class="index-card-container__inner index-inform">
         <div class="title">
@@ -80,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <div class="index-card-container__inner"> 
+            <div class="index-card-container__inner">
                 <div class="index-soc-seti__container">
                     <div class="index-soc-seti">
                         <span>Мы в социальных сетях</span>

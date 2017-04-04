@@ -1,13 +1,29 @@
 <ul class="admin-nav">
     @if (Auth::user() && Auth::user()->type_id == 1)
-        <li><a href="{{ action('Admin\MenuTypeController@getIndex') }}">Виды блюд</a></li>
-        <li><a href="{{ action('Admin\KitchenController@getIndex') }}">Кухни</a></li>
-        <li><a href="{{ action('Admin\CityController@getIndex') }}">Города</a></li>
-        <li><a href="{{ action('Admin\PageController@getIndex') }}">Cтраницы</a></li>
-        <li><a href="{{ action('Admin\StaticPageController@getIndex') }}">Стат. страницы</a></li>
-        <li><a href="{{ action('Admin\ModeratorController@getIndex') }}">Модераторы</a></li>
-        <li><a href="{{ action('Admin\TranslateController@getIndex') }}">Переводы</a></li>
-        <li><a href="{{ action('Admin\SiteSettingController@getIndex') }}">Настройки</a></li>
+        <li class='{{ (Request::is('adminka/menu-type') ? "active" : null) }}'>
+            <a href="{{ action('Admin\MenuTypeController@getIndex') }}">Виды блюд</a>
+        </li>
+        <li class='{{ (Request::is('adminka/kitchen') ? "active" : null) }}'>
+            <a href="{{ action('Admin\KitchenController@getIndex') }}">Кухни</a>
+        </li>
+        <li class='{{ (Request::is('adminka/city') ? "active" : null) }}'>
+            <a href="{{ action('Admin\CityController@getIndex') }}">Города</a>
+        </li>
+        <li class='{{ (Request::is('adminka/page') ? "active" : null) }}'>
+            <a href="{{ action('Admin\PageController@getIndex') }}">Cтраницы</a>
+        </li>
+        <li class='{{ (Request::is('adminka/static-page') ? "active" : null) }}'>
+            <a href="{{ action('Admin\StaticPageController@getIndex') }}">Стат. страницы</a>
+        </li>
+        <li class='{{ (Request::is('adminka/moderator') ? "active" : null) }}'>
+            <a href="{{ action('Admin\ModeratorController@getIndex') }}">Модераторы</a>
+        </li>
+        <li class='{{ (Request::is('adminka/translator') ? "active" : null) }}'>
+            <a href="{{ action('Admin\TranslateController@getIndex') }}">Переводы</a>
+        </li>
+        <li class='{{ (Request::is('adminka/site-setting') ? "active" : null) }}'>
+            <a href="{{ action('Admin\SiteSettingController@getIndex') }}">Настройки</a>
+        </li>
     @elseif (Auth::user() && Auth::user()->type_id == 2)
         <li>
             <a href="{{ action('Admin\OrderController@getList') }}">заказы</a>
