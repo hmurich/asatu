@@ -2236,6 +2236,10 @@ textarea:focus:-ms-input-placeholder {
 .admin-edit-card__item.button-customer {
   margin-top: 25px;
 }
+#ui-id-1 {
+  background: #ffffff !important;
+  height: auto!important;
+}
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,
   .header-inner,
