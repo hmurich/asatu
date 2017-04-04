@@ -15,8 +15,6 @@
         </div>
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
 
-        @include('front.restoran.include.side_bar_review')
-
         <div class="restaurants-box">
             @if ($auth->guest())
                 <p>Авторизуйтесь для выставления рэйтинга</p>
