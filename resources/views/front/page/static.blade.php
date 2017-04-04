@@ -13,7 +13,7 @@
     <div class="index-card-container__inner">
         <div class="index-seo-text">
             <div class="title">
-                <h2 class="title-item">{{ $title }}</h2>
+                <h2 class="title-item static-page">{{ $title }}</h2>
             </div>
             {!! $el->note_trans !!}
         </div>

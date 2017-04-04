@@ -711,11 +711,19 @@ a.side-bar-box:hover {
 }
 .restaurants-filtr__button {
   float: right;
-  width: 126px;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 11px 34px;
+  padding: 11px 22px;
+}
+.restaurants-box.full-width {
+  margin-left: 0;
+}
+.autor-review {
+  padding: 14px 14px;
+  background: #fff;
+  font-weight: bold;
+  color: #00a3ff;
 }
 .restaurants-filtr__item-city {
   position: relative;
@@ -2239,6 +2247,9 @@ textarea:focus:-ms-input-placeholder {
 #ui-id-1 {
   background: #ffffff !important;
   height: auto!important;
+}
+.title-item.static-page {
+  background: #f4f0d9;
 }
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,

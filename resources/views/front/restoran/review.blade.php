@@ -15,9 +15,9 @@
         </div>
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
 
-        <div class="restaurants-box">
+        <div class="restaurants-box full-width">
             @if ($auth->guest())
-                <p>Авторизуйтесь для выставления рэйтинга</p>
+                <p class="autor-review">Авторизуйтесь для выставления рэйтинга</p>
             @else
                 <form action='{{ action('Front\Restoran\ReviewController@postList', $restoran->id) }}' method="post">
                     <input type='text' name='name' required="" placeholder="Введите имя"/> <br/>

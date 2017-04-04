@@ -73,9 +73,9 @@ class CatalogController extends Controller{
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
 
-        $res_restoran = UserRestoran::generateAr($location->city_id, array($location->lat, $location->lng));
+        /*$res_restoran = UserRestoran::generateAr($location->city_id, array($location->lat, $location->lng));
         if (!$res_restoran)
-            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');*/
         
         return redirect()->action('Front\CatalogController@getList');
     }

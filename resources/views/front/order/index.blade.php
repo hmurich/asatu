@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title', $title)
-
+@section('body_class', 'second-page')
 @section('header_class', 'second-page-header')
 
 @section('top_panel')
@@ -13,18 +13,15 @@
 	<div class="container-inner">
 		<div class="checkout-content">
 			<div class="checkout-content__top">
-				<div class="checkout-title">
-					Оформите заказ
-				</div>
 				<div class="checkout-list-step">
 					<div class="checkout-list-step-item active">
-						1 ШАГ
+						1 Шаг. Информация о клиенте
 					</div>
 					<div class="checkout-list-step-item">
-						2 ШАГ
+						2 Шаг. Выбрать оплату
 					</div>
 					<div class="checkout-list-step-item">
-						3 ШАГ
+						3 Шаг. Потверждение заказа
 					</div>
 				</div>
 			</div>
