@@ -39,6 +39,7 @@
             </form>
 			<div class="checkout-content__bottom">
 				<a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}" class="button back-button">назад к меню</a>
+			 <div class="button next-step">Далее</div>
 			</div>
 		</div>
 	</div>

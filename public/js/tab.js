@@ -42,5 +42,23 @@ $(function() {
 		createCookie('tabCookie' + ulIndex, $(this).index(), 365);
 	});
 
+	$('.next-step').on('click', function() {
+		if($('.checkout-list-step-item:first-child').hasClass("active")){
+			i = 1;
+			var test = $('.checkout-list-step-item active');
+			$('.checkout-list-step-item').removeClass('active').eq(i).addClass('active');
+			var test2 = $('.js-checkout-tab active');
+			$('.js-checkout-tab').removeClass('active').eq(i).addClass('active');
+		}else{
+			i = 2;
+			var test = $('.checkout-list-step-item active');
+			$('.checkout-list-step-item').removeClass('active').eq(i).addClass('active');
+			var test2 = $('.js-checkout-tab active');
+			$('.js-checkout-tab').removeClass('active').eq(i).addClass('active');
+			$(this).addClass('hide');
+		}
+	});
+
+	
 });
 })(jQuery);
