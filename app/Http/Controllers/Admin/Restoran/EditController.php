@@ -71,9 +71,9 @@ class EditController extends Controller{
         }
 
         if ($request->hasFile('logo'))
-            $item->logo = ModelSnipet::setImage($request->file('logo'), 'logo', 224, 151);
+            $item->logo = ModelSnipet::setImage($request->file('logo'), 'logo', 224, 150);
         if ($request->hasFile('photo'))
-            $item->photo = ModelSnipet::setImage($request->file('photo'), 'logo', 1170, 225);
+            $item->photo = ModelSnipet::setImage($request->file('photo'), 'logo', 1170, 250);
 
         $item->city_id = $request->input('city_id');
         $item->name = $request->input('name');

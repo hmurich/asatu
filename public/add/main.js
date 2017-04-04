@@ -118,9 +118,10 @@ $(document).ready(function() {
         $.post( "/order/promo", {restoran_id:restoran_id, promo_key:promo_key, sum:sum}, function( data ) {
             console.log(data, sum, promo_key);
 
-            if (data != 'none'){
+            if (data == 'none' || data == NaN){
                 $('.js_promo_key_val').html(' ');
                 $('.js_promo_total_sum').html(sum);
+                return true;
             }
 
             data = parseInt(data);
