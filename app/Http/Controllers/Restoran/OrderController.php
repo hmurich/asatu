@@ -29,8 +29,6 @@ class OrderController extends Controller{
         else
             $order = Order::where('restoran_id', $restoran->id)->orderBy('id', 'desc')->first();
 
-        if (!$order)
-            abort(404);
 
         $ar = array();
         $ar['title'] = "Заказы";
@@ -48,7 +46,7 @@ class OrderController extends Controller{
         $ar['status_close'] = OrderStatus::CLOSE;
         $ar['status_missing'] = OrderStatus::MISSING;
 
-        $ar['ar_close_ar'] = OrderStatus::getCloseAr(); 
+        $ar['ar_close_ar'] = OrderStatus::getCloseAr();
 
         return view('restoran.order.index', $ar);
     }
