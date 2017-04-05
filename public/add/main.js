@@ -89,13 +89,30 @@ $(document).ready(function() {
         var restoran_id = menu_item.data('restoran_id');
         var menu_id = menu_item.data('id');
         var cost = menu_item.data('cost');
+        var title = menu_item.data('title');
         var count = menu_item.val();
         console.log(restoran_id, menu_id, cost, count);
         $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:count, cost:cost}, function( data ) {
-            if (data != 'none'){
-                $('.js_order_href').data('current', data);
-                $('.js_total_cost').html(data);
+            if (data == 'none'){
+                $('.js_busket_item_li_'+menu_id).remove();
+                return false;
             }
+
+
+            $('.js_order_href').data('current', data);
+            $('.js_total_cost').html(data);
+
+            if (parseInt(count) == 0){
+                $('.js_busket_item_li_'+menu_id).remove();
+                return false;
+            }
+
+            if ($('.js_busket_item_li_'+menu_id).length == 0)
+                $('.js_busket_list').append('<li class="js_busket_item_li_' + menu_id + '"></li>');
+
+            $('.js_busket_item_li_'+menu_id).html( title + ' x' + count );
+
+
 
             console.log(data);
         });

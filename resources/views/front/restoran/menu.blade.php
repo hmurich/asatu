@@ -56,7 +56,8 @@
                                             value="{{ ($busket && isset($busket[$i->id]) ? $busket[$i->id]['count'] : 0) }}"
                                             data-id='{{ $i->id }}'
                                             data-cost='{{ $i->cost_item }}'
-                                            data-restoran_id='{{ $i->restoran_id }}' />
+                                            data-restoran_id='{{ $i->restoran_id }}'
+                                            data-title='{{ $i->title }}' />
                                 </div>
                                 <div class="product-item-count-item js-plus hover-but">
                                     +

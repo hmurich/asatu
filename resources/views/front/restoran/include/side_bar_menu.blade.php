@@ -54,6 +54,19 @@
                             </span> тг
                         </div>
                     </div>
+                    <div style='overflow: hidden; width: 100%;'>
+                        <ul class='js_busket_list'>
+                            @if ($busket)
+                                @foreach ($busket as $menu_id => $b)
+                                    @if (isset($b['count']) && isset($b['cost']))
+                                        <li class='js_busket_item_li_{{ $menu_id }}'>
+                                            {{ $ar_menu[$menu_id] }} x{{ $b['count'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="side-bar-box">
