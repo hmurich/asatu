@@ -127,8 +127,6 @@ body.second-page {
   background: #ffc713;
   display: inline-block;
   padding: 5px 15px;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
   border: 1px solid #ffc713;
   color: #000;
 }
@@ -154,8 +152,6 @@ body.second-page {
   border: 1px solid #fff;
   display: inline-block;
   padding: 5px 10px;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
   margin-right: 5px;
   font-size: 14px;
 }
@@ -690,9 +686,7 @@ a.side-bar-box:hover {
   margin-left: 290px;
 }
 .restaurants-filtr__button--city {
-  position: absolute;
-  right: 0;
-  top: 10px;
+  float:right;
   padding: 10px 34px;
 }
 .restaurants-filtr__item {
@@ -767,8 +761,10 @@ a.side-bar-box:hover {
   position: relative;
 }
 .restaurants-filtr__item-city span {
-  float: Left;
-  margin-top: 4px;
+    float: left;
+    margin-top: 4px;
+    display: block;
+    line-height: 28px;
 }
 .restaurants-filtr__item-city:after {
   content: '';
