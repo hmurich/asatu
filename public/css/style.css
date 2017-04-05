@@ -765,7 +765,6 @@ a.side-bar-box:hover {
 }
 .restaurants-filtr__item-city {
   position: relative;
-  padding-right: 130px;
 }
 .restaurants-filtr__item-city span {
   float: Left;
