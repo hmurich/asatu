@@ -13,7 +13,7 @@ Array.prototype.forEach.call( inputs, function( input )
 {
     var label    = input.nextElementSibling,
         labelVal = label.innerHTML;
- 
+
     input.addEventListener( 'change', function( e )
     {
         var fileName = '';
@@ -21,7 +21,7 @@ Array.prototype.forEach.call( inputs, function( input )
             fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
         else
             fileName = e.target.value.split( '\\' ).pop();
- 
+
         if( fileName )
             label.innerHTML = fileName;
         else
@@ -29,7 +29,7 @@ Array.prototype.forEach.call( inputs, function( input )
     });
 });
 
-   
+
 
 var height_h = $('.video-header').height();
 var height_i = $('.position-absolute').height();
@@ -42,16 +42,16 @@ $('.js-checkout-form__item span').click(function(){
 		}
 		else{
 			$(".js-checkout-form__item-textarea").addClass('active');
-			
+
 		}
 });
 $('.js-button').click(function(){
 			$(this).siblings(".js-reviews-otevet").css('display', 'block');
-	
+
 });
 $('.js-button-otmena').click(function(){
 			$(this).parents(".js-reviews-otevet").css('display', 'none');
-	
+
 });
 
 $('.side-bar__show').click(function(){
@@ -60,22 +60,22 @@ $('.side-bar__show').click(function(){
 			}else{
 				$('.side-bar').addClass('show');
 			}
-	
+
 });
 
 $(function(){
-	
+
 	$('#rating_1').rating({
 		fx: 'full',
         image: 'images/stars.png',
         loader: 'images/ajax-loader.gif',
         callback: function(responce){
-            
+
             this.vote_success.fadeOut(2000);
         }
 	});
-	
-	
+
+
 })
  $( function() {
     $( "#slider-range" ).slider({
@@ -87,17 +87,17 @@ $(function(){
         $( "#amount" ).val(  ui.values[ 0 ]+ "тг"  +   ui.values[ 1 ] + " - тг");
          $( ".min-price" ).html( ui.values[ 0 ] + "тг" );
          $( ".max-price" ).html( ui.values[ 1 ] + "тг" );
-         
+
       }
     });
-   
+
 	$(".min-price" ).html( $( "#slider-range" ).slider( "values", 0 ) + "тг" );
  	$(".max-price" ).html($( "#slider-range" ).slider( "values", 1 ) +"тг");
   } );
 
 //Увеличеие значение количество в корзине
  $(document).ready(function() {
- 	
+
 
       $('.js-min').click(function () {
       	var count = $(this).siblings('.count').children('.js-count').html();
@@ -156,40 +156,40 @@ $(document).ready(function() {
 		openEffect	: 'none',
 		closeEffect	: 'none'
 	});
-	
+
 	var overlay = $('#overlay');
-    var open_modal = $('.open_modal'); 
-    var close = $('.modal_close, #overlay'); 
-    var modal = $('.modal_div'); 
-	
-     open_modal.click( function(event){ 
-         event.preventDefault(); 
-         var div = $(this).attr('href'); 
+    var open_modal = $('.open_modal');
+    var close = $('.modal_close, #overlay');
+    var modal = $('.modal_div');
+
+     open_modal.click( function(event){
+         event.preventDefault();
+         var div = $(this).attr('href');
          overlay.fadeIn(400,
              function(){
-                 $(div) 
-                     .css('display', 'block') 
+                 $(div)
+                     .css('display', 'block')
                      .animate({opacity: 1, }, 200);
          });
      });
 
      close.click( function(){
-            modal.animate({opacity: 0, }, 200, 
-                 function(){ 
+            modal.animate({opacity: 0, }, 200,
+                 function(){
                      $(this).css('display', 'none');
-                     overlay.fadeOut(400); 
+                     overlay.fadeOut(400);
                  }
              );
      });
 });
 
-  
 
 
 
 
 
-    
+
+
      //menu
    $('.mob_start').click(function(e) {
     var $mob_part = $('.menu');
@@ -202,9 +202,7 @@ $(document).ready(function() {
          $mob_part.addClass('m_menu');
     };
      });
- 	
- }); 
+
+ });
 
      //end
-
-

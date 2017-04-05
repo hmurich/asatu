@@ -5,7 +5,7 @@
 @section('content')
 <div class="admin-content__body">
     @include('restoran.menu.include.side_bar')
-
+    <!--
 	<div class="restaurants-box">
 		<ul class="product-list">
             @foreach ($menu as $m)
@@ -36,6 +36,28 @@
                 </li>
             @endforeach
         </ul>
+	</div>
+    -->
+    <div class="restaurants-box">
+		<div class="admin-edit-card">
+			<div class="stop-list__title">
+				<span>Меню</span>
+			</div>
+			<ul class="stop-list">
+                @foreach ($menu as $m)
+    				<li>
+    					{{ $m->title }}
+                        <a href='{{ action('Restoran\MenuController@getOpen', [$m->id]) }}'>
+        					<span class="toggle-bg">
+        						<input type="radio" name="toggle1" value="off">
+        						<input type="radio" name="toggle1" value="on">
+        						<span class="switch"></span>
+        					</span>
+                        </a>
+    				</li>
+                @endforeach
+			</ul>
+		</div>
 	</div>
 
 </div>
