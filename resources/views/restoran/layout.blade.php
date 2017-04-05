@@ -29,12 +29,10 @@
         </div>
     </div>
 
-    @include('include.footer')
-
     @include('include.message')
 
     <div id="overlay"></div>
-    
+
     @include('include.js_links')
     <script src='//cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script type="text/javascript" src="{{ URL::asset('add/admin/main.js') }}" ></script>

@@ -25,14 +25,26 @@
             <a href="{{ action('Admin\SiteSettingController@getIndex') }}">Настройки</a>
         </li>
     @elseif (Auth::user() && Auth::user()->type_id == 2)
-        <li>
+        <li class='{{ (Request::is('adminka/order/list') ? "active" : null) }}'>
             <a href="{{ action('Admin\OrderController@getList') }}">заказы</a>
         </li>
-        <li><a href="{{ action('Admin\RestoranController@getIndex') }}">рестораны</a></li>
-        <li><a href="{{ action('Admin\PromoController@getList') }}">промо коды</a></li>
-        <li><a href="{{ action('Admin\HistoryController@getList') }}">трекинг</a></li>
-        <li><a href="{{ action('Admin\ClientController@getList') }}">клиенты</a></li>
-        <li><a href="{{ action('Admin\RegistrRestoranController@getList') }}">заявки</a></li>
-        <li><a href="{{ action('Moderator\CabinetController@getCabinet') }}">Кабинет</a></li>
+        <li class='{{ (Request::is('adminka/restoran') ? "active" : null) }}'>
+            <a href="{{ action('Admin\RestoranController@getIndex') }}">рестораны</a>
+        </li>
+        <li class='{{ (Request::is('adminka/promo/list') ? "active" : null) }}'>
+            <a href="{{ action('Admin\PromoController@getList') }}">промо коды</a>
+        </li>
+        <li class='{{ (Request::is('adminka/history/list') ? "active" : null) }}'>
+            <a href="{{ action('Admin\HistoryController@getList') }}">трекинг</a>
+        </li>
+        <li class='{{ (Request::is('adminka/client/list') ? "active" : null) }}'>
+            <a href="{{ action('Admin\ClientController@getList') }}">клиенты</a>
+        </li>
+        <li class='{{ (Request::is('adminka/registr-restoran/list') ? "active" : null) }}'>
+            <a href="{{ action('Admin\RegistrRestoranController@getList') }}">заявки</a>
+        </li>
+        <li class='{{ (Request::is('adminka/moderator/cabinet') ? "active" : null) }}'>
+            <a href="{{ action('Moderator\CabinetController@getCabinet') }}">Кабинет</a>
+        </li>
     @endif
 </ul>
