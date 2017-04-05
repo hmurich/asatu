@@ -2,9 +2,9 @@
     <form action='{{ action('Front\CatalogController@postAddress') }}' method="post">
         <div class="restaurants-filtr__item restaurants-filtr__item-city">
             <span>{{ $location->address }}</span>
-            <button class="button restaurants-filtr__button--city" type='button'>
+            <a href='#modal_change_address' class="button restaurants-filtr__button--city open_modal" type='button'>
                 изменить
-            </button>
+            </a>
         </div>
     </form>
 

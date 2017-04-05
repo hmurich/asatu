@@ -7,6 +7,8 @@
     @include('include.top_panel_second')
 @endsection
 
+@include('front.catalog.include.modal_change_address')
+
 @section('content')
 <div class="container">
 	<div class="container-inner">
