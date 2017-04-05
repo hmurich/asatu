@@ -36,7 +36,7 @@ class MenuController extends Controller{
         $ar['restoran'] = $restoran;
 
         $ar['ar_input'] = $request->all();
-        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->orderBy('name', 'asc')->lists('name', 'id');
+        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 4)->orderBy('name', 'asc')->lists('name', 'id');
 
         return view('restoran.menu.index', $ar);
     }

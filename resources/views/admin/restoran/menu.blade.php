@@ -15,12 +15,12 @@
             <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
-                        Кухня:
+                        Тип блюда:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <select name="cat_id" >
-                            <option value="">кухня</option>
-                            @foreach ($ar_sel_kitchen as $id=>$name)
+                        <select name="cat_id" required="">
+                            <option value="">Тип блюда</option>
+                            @foreach ($ar_menu_type as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
                             @endforeach
 						</select>
@@ -86,8 +86,8 @@
     	    <tr>
     	        <td>{{ $i->id }}</td>
     	        <td>
-                    @if (isset($ar_all_kitchen[$i->cat_id]))
-                        {{ $ar_all_kitchen[$i->cat_id] }}
+                    @if (isset($ar_menu_type[$i->cat_id]))
+                        {{ $ar_menu_type[$i->cat_id] }}
                     @else
                         не указано
                     @endif

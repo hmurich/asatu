@@ -26,6 +26,7 @@ class MenuController extends Controller{
         $ar['item'] = $item;
         $ar['ar_all_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
         $ar['ar_sel_kitchen'] = SysDirectoryName::whereIn('id', $item->relKitchens()->lists('kitchen_id'))->where('parent_id', 5)->lists('name', 'id');
+        $ar['ar_menu_type'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
 
         return view('admin.restoran.menu', $ar);
     }

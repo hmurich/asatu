@@ -32,7 +32,7 @@ class MenuController extends Controller{
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
-        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
+        $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
         $ar['busket'] = OrderBusket::getOrder($restoran->id);
 
 
