@@ -15,7 +15,7 @@
             <th>Электронная почта</th>
             <th>Создан</th>
 	        <th>
-                
+
             </th>
 	    </tr>
         @foreach($items as $i)
@@ -34,10 +34,8 @@
     			</td>
     	    </tr>
         @endforeach
-        <tr>
-            <td colspan=12>{!! $items->appends(Input::all())->render() !!}</td>
-        </tr>
     </table>
+	{!! $items->appends(Input::all())->render() !!}
 </div>
 
 @endsection

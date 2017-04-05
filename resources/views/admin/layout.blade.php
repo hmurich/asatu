@@ -29,8 +29,6 @@
         </div>
     </div>
 
-    @include('include.footer')
-
     @include('include.message')
 
     @include('include.js_links')

@@ -69,10 +69,8 @@
     		        <td>{{ $o->total_sum }}</td>
     		    </tr>
             @endforeach
-			<tr>
-				<td colspan=12>{!! $orders->appends(Input::all())->render() !!}</td>
-			</tr>
 		</table>
+		{!! $orders->appends(Input::all())->render() !!}
 	</div>
 </div>
 

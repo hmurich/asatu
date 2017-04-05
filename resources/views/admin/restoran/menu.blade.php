@@ -111,10 +111,8 @@
     			</td>
     	    </tr>
         @endforeach
-        <tr>
-            <td colspan=12>{!! $items->appends(Input::all())->render() !!}</td>
-        </tr>
     </table>
+    {!! $items->appends(Input::all())->render() !!}
 </div>
 
 @endsection
