@@ -3,6 +3,10 @@
 @section('title', $title)
 @section('header_class', 'video-header')
 
+@section('top_panel')
+    @include('include.top_panel_second')
+@endsection
+
 @section('top_block')
     @include('front.index.include.top_block')
     <div class="middle-icon position-absolute">
