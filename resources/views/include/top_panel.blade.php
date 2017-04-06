@@ -20,7 +20,7 @@
             </a>
         @else
             <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter log-out">
-                Личный кабинет
+                {{ $translator->getTrans('user_cabinet') }}
             </a>
         @endif
 

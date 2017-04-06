@@ -1,6 +1,6 @@
 <div class="checkout-body">
     <div class="checkout-body__titel">
-        Заказанные блюда
+        {{ $translator->getTrans('menu_order') }}
     </div>
     <div class="checkout-body__content">
         @foreach ($menu as $m)
@@ -21,7 +21,7 @@
                     </div>
                     <div class="order-text__info-container">
                         <div class="order-text__info">
-                            Цена: <span>{{ $m->cost_item }} тг</span>
+                            {{ $translator->getTrans('Price') }}: <span>{{ $m->cost_item }} тг</span>
                             <p>{!! $m->note !!}</p>
                         </div>
                         <div class="order-text__col">
@@ -35,15 +35,15 @@
 </div>
 <div class="basket-itog">
     <div class="basket-itog__item">
-        Счет на сумму: <span class='js_promo_total_sum' data-delivery="{{ $area->cost }}">{{ ($busket['total_cost'] + $area->cost) }}тг</span>
+        {{ $translator->getTrans('total_sum') }}: <span class='js_promo_total_sum' data-delivery="{{ $area->cost }}">{{ ($busket['total_cost'] + $area->cost) }}тг</span>
     </div>
     <div class="basket-itog__item">
-        Промокод: <span class='js_promo_key_val'></span>
+        {{ $translator->getTrans('promo_key') }}: <span class='js_promo_key_val'></span>
     </div>
     <div class="basket-itog__item">
-        Способ оплаты: <span>Наличным курьеру</span>
+        {{ $translator->getTrans('order_type') }}: <span>{{ $translator->getTrans('cash_to_curier') }}</span>
     </div>
     <button class="button basket-itog__button" type="submit">
-        покормить меня
+        {{ $translator->getTrans('eate_me') }}
     </button>
 </div>

@@ -43,7 +43,7 @@ class OrderController extends Controller{
             abort(404);
 
         $ar = array();
-        $ar['title'] = 'Форма заказа';
+        $ar['title'] = $this->translator->getTrans('order_form_title');
         $ar['restoran'] = $restoran;
         $ar['menu'] = Menu::where('restoran_id', $restoran->id)->whereIn('id', $ar_busket_menu)->orderBy('id', 'desc')->get();
         $ar['busket'] = $busket;

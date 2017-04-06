@@ -15,15 +15,15 @@
             </a>
         </div>
         <div class="header-slogan">
-			единый сервис доставки еды!
+			{{ $translator->getTrans('one_service_food') }}
 		</div>
         <div class="header-enter">
             @if (Auth::guest())
-                <a href="#modal_registr" class="header-enter__button-reg open_modal">Зарегистрироваться</a>
-                <a href="#modal_login" class="header-enter__button-enter open_modal">Войти</a>
+                <a href="#modal_registr" class="header-enter__button-reg open_modal">{{ $translator->getTrans('registr_button') }}</a>
+                <a href="#modal_login" class="header-enter__button-enter open_modal">{{ $translator->getTrans('enter_button') }}</a>
             @else
                 <a href="{{ action('Auth\AuthController@getLogout') }}" class=" header-enter__button-enter log-out">
-                    Личный кабинет 
+                    {{ $translator->getTrans('user_cabinet') }}
                 </a>
             @endif
         </div>

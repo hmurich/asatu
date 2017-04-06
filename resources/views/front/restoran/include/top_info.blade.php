@@ -14,17 +14,17 @@
         <div class="reiting-text">{{ $restoran->raiting }}/5</div>
     </ul>
     <div class="restaurant-status {{ ($restoran->is_open ? '' : 'close') }}">
-        {{ ($restoran->is_open ? 'открыто' : 'закрыто') }}
+        {{ ($restoran->is_open ? $translator->getTrans('open') : $translator->getTrans('close')) }}
     </div>
 </div>
 <div class="restaurant-info ">
     <div class="restaurant-info__item restaurant-info__item-second-page">
-        Стомость доставки: <span>{{ ( $restoran->relData->delivery_price ? $restoran->relData->delivery_price.' тг': "Бесплатно") }}</span>
+        {{ $translator->getTrans('del_cost') }}: <span>{{ ( $restoran->relData->delivery_price ? $restoran->relData->delivery_price.' тг': "Бесплатно") }}</span>
     </div>
     <div class="restaurant-info__item restaurant-info__item-second-page">
-        Время доставки:  <span>{{ $restoran->relData->delivery_duration }} минут </span>
+        {{ $translator->getTrans('del_time') }}:  <span>{{ $restoran->relData->delivery_duration }} минут </span>
     </div>
     <div class="restaurant-info__item restaurant-info__item-second-page">
-        Оплата: <span>Наличный, {{ ($restoran->epay ? 'онлайн' : null) }}</span>
+        {{ $translator->getTrans('pay_title') }}: <span>{{ $translator->getTrans('cash') }}, {{ ($restoran->epay ? 'онлайн' : null) }}</span>
     </div>
 </div>

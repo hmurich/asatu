@@ -15,13 +15,13 @@
 			<div class="checkout-content__top">
 				<div class="checkout-list-step">
 					<div class="checkout-list-step-item active">
-						1 Шаг. Информация о клиенте
+						{{ $translator->getTrans('order_step_1') }}
 					</div>
 					<div class="checkout-list-step-item">
-						2 Шаг. Выбрать оплату
+						{{ $translator->getTrans('order_step_2') }}
 					</div>
 					<div class="checkout-list-step-item">
-						3 Шаг. Потверждение заказа
+						{{ $translator->getTrans('order_step_3') }}
 					</div>
 				</div>
 			</div>
@@ -38,8 +38,8 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             </form>
 			<div class="checkout-content__bottom">
-				<a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}" class="button back-button">назад к меню</a>
-			 <div class="button next-step">Далее</div>
+				<a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}" class="button back-button">{{ $translator->getTrans('before_in_menu') }}</a>
+	             <div class="button next-step">{{ $translator->getTrans('dalee') }}</div>
 			</div>
 		</div>
 	</div>

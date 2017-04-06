@@ -1,6 +1,6 @@
 <div id="modal_change_address" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
     <span class="modal_close"></span>
-    <div class="modal-title">Сменить адресс?</div>
+    <div class="modal-title">{{ $translator->getTrans('change_address') }}</div>
 
     <form  action="{{ action('Front\CatalogController@postAddress') }}" method="post" >
         <div class="form-modal">
@@ -21,7 +21,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="modal-button-container">
             <button class="modal-button button js_find_address_submit">
-                сменить
+                {{ $translator->getTrans('change') }}
             </button>
         </div>
     </form>
