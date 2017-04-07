@@ -1,7 +1,11 @@
 @extends('layout')
 
 @section('title', $title)
-@section('header_class', 'video-header')
+@section('header_class', 'video-header second-page-header' )
+
+@section('top_panel')
+    @include('include.top_panel_second')
+@endsection
 
 
 @section('top_block')
