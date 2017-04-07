@@ -34,7 +34,7 @@
                                 {{ $i->title }}
                             </div>
                             <div class="product-item__price">
-                                Цена: <span>{{ $i->cost_item }} тг</span>
+                                {{ $translator->getTrans('Price') }}: <span>{{ $i->cost_item }} тг</span>
                             </div>
                             <div class="product-item__des">
                                 {!! $i->note !!}
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <button class="button product-item__button js_add_menu_item" data-id='{{ $i->id }}'>
-                                заказать
+                                {{ $translator->getTrans('zakaz') }}
                             </button>
                         </div>
                     </li>

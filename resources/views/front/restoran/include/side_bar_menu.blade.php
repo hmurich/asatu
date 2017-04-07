@@ -1,11 +1,11 @@
 <div class="side-bar__show button">
-    Фильтр
+    {{ $translator->getTrans('filter') }}
 </div>
 <div class="side-bar">
     <form action="" class="form">
         <div class="side-bar-item">
             <div class="side-bar-item__title">
-                блюдо:
+                {{ $translator->getTrans('menu_type') }}:
             </div>
             <div class="side-bar-box">
                 @foreach ($ar_kitchen as $id=>$name)
@@ -20,19 +20,19 @@
                     </div>
                 @endforeach
                 <div class="side-bar-box__item-search">
-                    <input type="text" name='name' placeholder="Поиск блюда..." value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
+                    <input type="text" name='name' placeholder="{{ $translator->getTrans('seach_menu') }}" value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
                 </div>
                 <br />
                 <div class="side-bar-box__item">
                     <button class="button ">
-                        Применить
+                        {{ $translator->getTrans('show') }}
                     </button>
                 </div>
             </div>
         </div>
         <div class="side-bar-item">
             <div class="side-bar-item__title">
-                корзина:
+                {{ $translator->getTrans('busket') }}:
             </div>
             <div class="side-bar-box ">
                 <div class="basket">
@@ -41,10 +41,10 @@
                     </div>
                     <div class="basket-info">
                         <div class="basket-info__title">
-                            Ваш заказ
+                            {{ $translator->getTrans('you_order') }}
                         </div>
                         <div class="basket-info__item">
-                            Сумма:
+                            {{ $translator->getTrans('summa') }}:
                             <span class='js_total_cost'>
                                 @if ($busket)
                                     {{ $busket['total_cost'] }}
@@ -76,9 +76,9 @@
                         class="button side-bar-box__checkout-button js_order_href"
                         data-min='{{ $restoran->relData->min_price }}'
                         data-current='{{ ($busket ? $busket['total_cost'] : 0) }}'>
-                        оформить заказ
+                        {{ $translator->getTrans('order_href') }}
                     </a>
-                    Минимальная сумма доставки: <span>5.000 тг</span>
+                    {{ $translator->getTrans('min_de_cost') }}: <span>5.000 тг</span>
                 </div>
             </div>
         </div>

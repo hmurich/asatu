@@ -7,6 +7,7 @@
     @include('include.top_panel_second')
 @endsection
 
+
 @section('top_block')
     @include('front.index.include.top_block')
     <div class="middle-icon position-absolute">
@@ -18,7 +19,7 @@
 <div class="index-card-container">
     <div class="index-card-container__inner index-inform">
         <div class="title">
-            <h2 class="title-item">{{ $translator->getTrans('helpfull_info') }}</h2>
+            <h2 class="title-item">{{ $translator->getTrans('week_offer') }}</h2>
         </div>
         <ul class="index-card-list">
             @foreach ($help_article as $a)
@@ -44,7 +45,7 @@
     </div>
     <div class="index-card-container__inner index-inform">
         <div class="title">
-            <h2 class="title-item">{{ $translator->getTrans('news') }}</h2>
+            <h2 class="title-item">{{ $translator->getTrans('sales') }}</h2>
         </div>
         <ul class="index-card-list">
             @foreach ($news as $a)
@@ -73,21 +74,21 @@
         </div>
     </div>
     <div class="index-banner">
-                <div class="index-card-container__inner">
-                    <div class="index-banner__text">
-                        Какой то текст
-                    </div>
-                    <div class="index-banner__text">
-                        8 777 485 99 48
-                    </div>
-                </div>
+        <div class="index-card-container__inner">
+            <div class="index-banner__text">
+                Какой то текст
             </div>
-            <div class="index-card-container__inner">
-                <div class="index-soc-seti__container">
-                    <div class="index-soc-seti">
-                        <span>Мы в социальных сетях</span>
-                        <ul class="soc-seti-list">
-                            <li>
+            <div class="index-banner__text">
+                8 777 485 99 48
+            </div>
+        </div>
+    </div>
+    <div class="index-card-container__inner">
+        <div class="index-soc-seti__container">
+            <div class="index-soc-seti">
+                <span>{{ $translator->getTrans('we_in_social') }}</span>
+                <ul class="soc-seti-list">
+                    <li>
                         <a href="" >
                             <img src="img/vk.png" alt="">
                         </a>
@@ -102,10 +103,10 @@
                             <img src="img/insta.png" alt="">
                         </a>
                     </li>
-                        </ul>
-                    </div>
-                </div>
+                </ul>
             </div>
+        </div>
+    </div>
 </div>
 
 

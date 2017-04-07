@@ -37,10 +37,10 @@
     						</div>
     						<div class="restaurant-item-box__info">
     							<div class="restaurant-info__item">
-    								Минимальный заказ: <span>{{ $i->relData->min_price }} тг</span>
+    								{{ $translator->getTrans('min_order') }}: <span>{{ $i->relData->min_price }} тг</span>
     							</div>
     							<div class="restaurant-info__item">
-    								Стомость доставки:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
+    								{{ $translator->getTrans('deliv_cost') }}:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
     							</div>
                                 <?php
                                     $ar_kithen = $i->relKitchens()->select('kitchen_name')->get()->keyBy('kitchen_name')->toArray();
@@ -50,10 +50,10 @@
                             </div>
     						<div class="restaurant-item-box__bottom">
     							<div class="delivery-time">
-    								Время доставки <span>{{ $i->relData->delivery_duration }} минут</span>
+    								{{ $translator->getTrans('deliv_time') }} <span>{{ $i->relData->delivery_duration }} минут</span>
     							</div>
     							<a href="{{ action('Front\Restoran\MenuController@getList', $i->id) }}" class="button restaurants-filtr__button">
-    								Покорми меня!
+    								{{ $translator->getTrans('eat_me') }}
     							</a>
     						</div>
     					</div>

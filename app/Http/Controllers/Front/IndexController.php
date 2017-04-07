@@ -31,7 +31,7 @@ class IndexController extends Controller{
         if (!$city)
             return '0';
 
-        $query = 'Казахстан, '.$city->name.', '.$request->input('name');
+        $query = $city->name.', '.$request->input('name');
 
         $api = new GeoLocator();
         $api->setQuery($query);

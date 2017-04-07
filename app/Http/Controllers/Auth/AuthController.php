@@ -28,7 +28,15 @@ class AuthController extends Controller {
 
             $customer = new Customer();
             $customer->user_id = $user->id;
+            $customer->name = $request->input('name');
+            $customer->phone = $request->input('phone');
             $customer->save();
+
+            $text = '<p>Ваш пароль - '.$request->input('password').'</p>';
+            $text .= '<p>Ваше имя - '.$customer->name.'</p>';
+            $text .= '<p>Ваше телефон - '.$customer->phone.'</p>';
+
+            //MailSend::send($user->email, 'Ваш пароль для входа в asakely.kz', $text);
 
             Auth::loginUsingId($user->id);
         }
