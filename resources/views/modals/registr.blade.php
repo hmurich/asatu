@@ -13,6 +13,12 @@
             <div class="modal-input__container ">
                 <input type="password" name="re_password" required="required" placeholder="Подтвердите пароль..." class="modal-input ">
             </div>
+            <div class="modal-input__container ">
+                <input type="text" name="name" required="required" placeholder="Введите имя..." class="modal-input ">
+            </div>
+            <div class="modal-input__container ">
+                <input type="tel" name="phone" required="required" placeholder="Введите телефон..." class="modal-input ">
+            </div>
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="modal-button-container">
