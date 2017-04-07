@@ -136,6 +136,10 @@ body.second-page {
   border: 1px solid #ffc713;
   color: #000;
 }
+.header-enter__button-enter.log-out {
+    width: 121px;
+    box-sizing: border-box;
+}
 .header.second-page-header .header-enter .header-enter__button-enter:hover {
   background-color: #ffaa00;
   border-color: #ffaa00;
@@ -176,6 +180,29 @@ body.second-page {
 .add-promo-kod.button {
   float: right;
   margin-bottom: 15px;
+}
+#modal_change_address {
+    height: 276px;
+}
+
+.modal-input__container select {
+    border: none;
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/arrow-down.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    text-transform: uppercase;
+    border-right: none;
+    margin-bottom: 25px;
 }
 .page {
   width: 100%;
@@ -497,6 +524,10 @@ input:-ms-input-placeholder {
   display: inline-block;
   margin-bottom: 7px;
 }
+.index-card-item__title:hover {
+    text-decoration: none;
+    color: #008aff;
+}
 .index-seo-text {
   margin-bottom: 35px;
 }
@@ -744,8 +775,8 @@ a.side-bar-box:hover {
   padding-right: 40px;
   text-transform: uppercase;
 }
-.admin-content__body table {
-  margin-top: 25px;
+.admin-content__body table { 
+/* margin-top: 25px; */ 
 }
 .log-out:hover {
   font-size: 0;
@@ -888,9 +919,10 @@ a.side-bar-box:hover {
   margin-left: 10px;
 }
 .restaurant-info__item {
-  color: #757575;
-  font-size: 14px;
-  line-height: 1.2;
+    color: #757575;
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 7px;
 }
 .restaurant-info__item span {
   font-weight: bold;
@@ -1892,6 +1924,9 @@ textarea:focus:-ms-input-placeholder {
   color: #727272;
   text-align: right;
   float: right;
+}
+.modal-link:hover {
+    text-decoration: none;
 }
 .modal-link:nth-child(2n) {
   float: left;
