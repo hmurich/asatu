@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Restoran;
 use App\Model\RestoranData;
 use App\Model\SysDirectoryName;
+use App\User;
 
 class RestoranController extends Controller{
     function getIndex (Request $request){
@@ -26,5 +27,21 @@ class RestoranController extends Controller{
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
 
         return view('admin.restoran.index', $ar);
+    }
+
+    function getDelete($id){
+        $item = Restoran::findOrFail($id);
+        $user = User::findOrFail($item->user_id);
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Удалено');
+    }
+
+    function getOpen($id){
+        $item = Restoran::findOrFail($id);
+        $item->is_open = ($item->is_open ? 0 : 1);
+        $item->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
     }
 }

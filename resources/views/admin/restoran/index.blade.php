@@ -37,6 +37,16 @@
     			<div class="zaka-list-name">
     				{{ $i->name }}
     			</div>
+                <a href="{{ action("Admin\RestoranController@getOpen", $i->id) }}" class="button zaka-list-button">
+                    @if ($i->is_open)
+                        Приостановить
+                    @else
+                        Возобновить
+                    @endif
+    			</a>
+                <a href="{{ action("Admin\RestoranController@getDelete", $i->id) }}" class="button zaka-list-button">
+    				Удалить
+    			</a>
     			<a href="{{ action("Admin\Restoran\EditController@getItem", $i->id) }}" class="button zaka-list-button">
     				Редактировать
     			</a>
