@@ -934,6 +934,7 @@ a.side-bar-box:hover {
   float: left;
   margin-top: 18px;
 }
+
 .delivery-time span {
   text-transform: uppercase;
   color: #008aff;
@@ -1096,6 +1097,10 @@ a.side-bar-box:hover {
 .admin-nav li {
   display: inline-block;
   margin: 0 9px;
+}
+.admin-nav li:hover a {
+    color: #008aff;
+    text-decoration: none;
 }
 .admin-nav li:first-child {
   margin-left: 0;
