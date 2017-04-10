@@ -48,7 +48,7 @@
                                         @if ($busket && isset($busket[$i->id]))
                                             {{ $busket[$i->id]['count'] }}
                                         @else
-                                            0
+                                            1
                                         @endif
                                     </span> шт
                                     <input  type="hidden"

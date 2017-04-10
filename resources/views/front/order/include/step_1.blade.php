@@ -33,19 +33,19 @@
                     <input type="text" name='address' placeholder="{{ $translator->getTrans('enter_adres') }}" value='{{ ($customer ? $customer->address : null ) }}' required="">
                 </div>
                 <div class="checkout-form__item checkout-form__item-left">
-                    <input type="text" name='kvartira' placeholder="{{ $translator->getTrans('enter_kv') }}" value='{{ ($customer ? $customer->kvartira : null ) }}' required="">
+                    <input type="text" name='kvartira' placeholder="{{ $translator->getTrans('enter_kv') }}" value='{{ ($customer ? $customer->kvartira : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-right">
-                    <input type="text" name='podezd' placeholder="{{ $translator->getTrans('enter_pd') }}" value='{{ ($customer ? $customer->podezd : null ) }}' required="">
+                    <input type="text" name='podezd' placeholder="{{ $translator->getTrans('enter_pd') }}" value='{{ ($customer ? $customer->podezd : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-left">
-                    <input type="text" name='etag' placeholder="{{ $translator->getTrans('enter_et') }}" value='{{ ($customer ? $customer->etag : null ) }}' required="">
+                    <input type="text" name='etag' placeholder="{{ $translator->getTrans('enter_et') }}" value='{{ ($customer ? $customer->etag : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-right">
-                    <input type="text" name='domofon' placeholder="{{ $translator->getTrans('enter_md') }}" value='{{ ($customer ? $customer->domofon : null ) }}' required="">
+                    <input type="text" name='domofon' placeholder="{{ $translator->getTrans('enter_md') }}" value='{{ ($customer ? $customer->domofon : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-left">
-                    <input type="text" name='count_person'  placeholder="{{ $translator->getTrans('enter_pr') }}" value='{{ ($customer ? $customer->count_person : null ) }}' required="">
+                    <input type="text" name='count_person'  placeholder="{{ $translator->getTrans('enter_pr') }}" value='{{ ($customer ? $customer->count_person : null ) }}' >
                 </div>
                 <div class="checkout-form__item js-checkout-form__item">
                     <span>{{ $translator->getTrans('add_comment_order') }}</span>
