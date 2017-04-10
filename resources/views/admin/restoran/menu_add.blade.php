@@ -12,42 +12,55 @@
             <div class="admin-edit-card__title">
                 {{ $title }}
             </div>
-            <form action="{{ $action }}" method="POST" >
+            <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
-                        Наименование точки:
+                        Тип блюда:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='name' value='{{ ($location ? $location->name : null) }}' />
+                        <select name="cat_id" required="">
+                            <option value="">Тип блюда</option>
+                            @foreach ($ar_menu_type as $id=>$name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                            @endforeach
+						</select>
+    				</div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Название блюда:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='title'  placeholder="Название блюда">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
-                        Адресс:
+                        Цена:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='address' value='{{ ($location ? $location->address : null) }}' />
+                        <input type="text" name='cost_item' placeholder="Цена">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
-                        Широта:
+                        Фото
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='lng' id='lng'  value='{{ ($location ? $location->lng : null) }}' />
+                        <div class="admin-edit-card__input-file">
+                            <input type="file" id="main_photo" class="input-file" name='photo'>
+                            <label for="main_photo"  class="name-file">Выберите файл</label>
+                        </div>
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
-                        Долгота:
+                        Описание:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='lat' id='lat' value='{{ ($location ? $location->lat : null) }}' />
+                        <textarea name='note' placeholder='Описание' class='js_redactor'></textarea>
                     </div>
                 </div>
-
-                <div id="map" style="width:100%; height:500px" class='js_map_field_main' data-city_center="{{ $city->sys_key }}"></div>
-
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
@@ -60,5 +73,4 @@
         </div>
     </div>
 </div>
-
 @endsection

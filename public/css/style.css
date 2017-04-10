@@ -1797,10 +1797,31 @@ table tr th:last-child a {
   display: none;
 }
 .stop {
-  background: #e01919;
+    padding: 0;
+    display: block;
+    float: none;
+    margin-bottom: 5px;
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/stop.png);
+    border: none;
+        display: block;
+    margin: 0 auto 5px;
 }
-.stop:hover {
-  background: #e01919;
+.save {
+    padding: 0;
+    display: block;
+    float: none;
+    margin-bottom: 5px;
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/ok.png);
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+        display: block;
+    margin: 0 auto 5px;
 }
 .admin-edit-card.add-promo-kod input {
   width: 40%;
@@ -2357,17 +2378,19 @@ textarea:focus:-ms-input-placeholder {
   background: #f4f0d9;
 }
 .delete-icon {
-  font-size: 0;
-  width: 24px;
-  height: 24px;
-  background-image: url(../img/delete.png);
-  -o-background-size: cover;
-     background-size: cover;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0;
-  border: none;
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/delete.png);
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    border: none;
+    display: block;
+    margin: 0 auto 5px;
 }
 .button.next-step.hide {
   display: none;
@@ -2424,6 +2447,102 @@ textarea:focus:-ms-input-placeholder {
 .product-add-list li:last-child{
   margin-bottom: 0;
 }
+<<<<<<< HEAD
+=======
+.table-container.add-food__form select {
+    border: none;
+    width: 180px;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/arrow-down.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    text-transform: uppercase;
+}
+.food-add-input {
+    width: 100%;
+    height: 37px;
+    text-indent: 15px;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+}
+.food-add-input.food-add-input--price {
+    width: 150px;
+}
+.table-container.add-food__form textarea {
+    text-indent: 15px;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    resize: none;
+    width: 100%;
+    padding: 5px;
+    height: 70px;
+    box-sizing: border-box;
+}
+.food-add__input-file label {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 15px;
+    font-size: 14px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    padding-left: 0;
+    display: block;
+        min-width: 200px;
+}
+.food-add__input-file input {
+    display: none;
+}
+.add-food__top {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.add-food__top--filter {
+    margin-top: 15px;
+}
+.add-food__top--filter__item {
+    display: inline-block;
+    margin-right: 15px;
+}
+.add-food__top--filter__item select {
+    border: none;
+    width: 180px;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/arrow-down.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    text-transform: uppercase;
+}
+.add-food__top--filter__item input {
+    width: 230px;
+    height: 37px;
+    text-indent: 15px;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+}
+.button.add-food__button:first-child {
+    margin-right: 15px;
+}
+>>>>>>> da4079439d9e3219133bdc6e9ef3052af85ad4c9
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,
   .header-inner,

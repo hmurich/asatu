@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="admin-content__body">
-    <div class="side-bar">
+    <div class="side-bar full-wight">
         @include('admin.restoran.include.menu', ['item'=>$item])
     </div>
-    <div class="restaurants-box">
+    <div class="restaurants-box full-wight">
         <div class="admin-edit-card">
             <div class="admin-edit-card__title">
                 {{ $title }}
@@ -186,6 +186,49 @@
                         <input type="text" name='data[director_contacts]' value='{{ $r_data ? $r_data->director_contacts : null }}' placeholder="Контакты директора">
                     </div>
                 </div>
+
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Время работы:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='data[for_admin_work_time]' value='{{ $r_data ? $r_data->for_admin_work_time : null }}' placeholder="Время работы">
+                    </div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Менеджер:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='data[for_admin_manager]' value='{{ $r_data ? $r_data->for_admin_manager : null }}' placeholder="Менеджер">
+                    </div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Процент/Тенге:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <select name="data[for_admin_select]" >
+                            <option value="">Процент/Тенге</option>
+                            @foreach ($ar_for_admin_select as $id=>$name)
+                                @if ($r_data && $r_data->for_admin_select == $id)
+                                    <option value="{{ $id }}" selected="selected">{{ $name }}</option>
+                                @else
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Количество:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='data[for_admin_count]' value='{{ $r_data ? $r_data->for_admin_count : null }}' placeholder="Количество">
+                    </div>
+                </div>
+
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
                         Краткое описание:
