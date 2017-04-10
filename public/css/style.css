@@ -2447,8 +2447,7 @@ textarea:focus:-ms-input-placeholder {
 .product-add-list li:last-child{
   margin-bottom: 0;
 }
-<<<<<<< HEAD
-=======
+
 .table-container.add-food__form select {
     border: none;
     width: 180px;
@@ -2542,7 +2541,18 @@ textarea:focus:-ms-input-placeholder {
 .button.add-food__button:first-child {
     margin-right: 15px;
 }
->>>>>>> da4079439d9e3219133bdc6e9ef3052af85ad4c9
+.side-bar.full-wight {
+    width: 100%;
+}
+.side-bar.full-wight .side-bar-box_info-edit a {
+    display: inline-block;
+    margin-right: 10px;
+}
+.restaurants-box.full-wight {
+    margin-left: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,
   .header-inner,

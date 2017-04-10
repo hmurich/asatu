@@ -7,8 +7,8 @@
     <div class="side-bar full-wight">
         @include('admin.restoran.include.menu', ['item'=>$item])
     </div>
-    <div class="restaurants-box full-wight" style="margin-left: 0px; width: 100%;">
-        <div class="admin-edit-card" style="width: 100%;">
+    <div class="restaurants-box full-wight" >
+        <div class="admin-edit-card" >
 			<div class="add-food">
 				<div class="add-food__top">
 					<a href="{{ action('Admin\MenuTypeController@getEdit') }}" class="button add-food__button">
