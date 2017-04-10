@@ -41,6 +41,9 @@
     	        <td>{{ $i->phone }}</td>
                 <td>{{ $i->created_at }}</td>
     	        <td>
+					<a href="{{ action("Admin\ModeratorController@getPassword", $i->id) }}" class="table-item password password-icon">
+                        пароль
+    				</a> 
                     <a href="{{ action("Admin\ModeratorController@getShow", $i->id) }}" class="table-item show show-icon">
                         show
     				</a>

@@ -35,6 +35,7 @@ class EditController extends Controller{
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
+        $ar['ar_for_admin_select'] = array('Процент'=>'Процент', 'Тенге'=>'Тенге');
 
         return view('admin.restoran.edit', $ar);
     }
@@ -101,6 +102,12 @@ class EditController extends Controller{
         $r_data->director_name = $request->input('data.director_name');
         $r_data->director_contacts = $request->input('data.director_contacts');
         $r_data->address = $request->input('data.address');
+
+        $r_data->for_admin_work_time = $request->input('data.for_admin_work_time');
+        $r_data->for_admin_manager = $request->input('data.for_admin_manager');
+        $r_data->for_admin_select = $request->input('data.for_admin_select');
+        $r_data->for_admin_count = $request->input('data.for_admin_count');
+
         $r_data->save();
 
         $raiting->restoran_id = $item->id;

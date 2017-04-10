@@ -36,6 +36,33 @@ class ModeratorController extends Controller{
         return view('admin.moderator.index', $ar);
     }
 
+    function getPassword (Request $request, $id){
+        $item = Moderator::findOrFail($id);
+        $user = User::findOrFail($item->user_id);
+
+        $ar = array();
+        $ar['title'] = 'Изменение логина пароля';
+        $ar['action'] = action('Admin\ModeratorController@postPassword', $item->id);
+        $ar['item'] = $item;
+        $ar['user'] = $user;
+
+        return view('admin.moderator.password', $ar);
+    }
+
+    function postPassword(Request $request, $id){
+        $item = Moderator::findOrFail($id);
+        $user = User::findOrFail($item->user_id);
+
+        if (User::where('email', $request->input('email'))->where('id', '<>', $user->id)->count() > 0)
+            return redirect()->back()->with('error', 'Email уже существует');
+
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return redirect()->action('Admin\ModeratorController@getIndex')->with('success', 'Сохранено');
+    }
+
     function getEdit(Request $request, $id = 0){
         $item = Moderator::find($id);
 
