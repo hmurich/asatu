@@ -4,114 +4,108 @@
 
 @section('content')
 <div class="admin-content__body">
-    <div class="side-bar">
+    <div class="side-bar full-wight">
         @include('admin.restoran.include.menu', ['item'=>$item])
     </div>
-    <div class="restaurants-box">
-        <div class="admin-edit-card">
-            <div class="admin-edit-card__title">
-                {{ $title }}
-            </div>
-            <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
-                <div class="admin-edit-card__item">
-                    <div class="admin-edit-card__item-left">
-                        Тип блюда:
-                    </div>
-                    <div class="admin-edit-card__item__right">
-                        <select name="cat_id" required="">
-                            <option value="">Тип блюда</option>
-                            @foreach ($ar_menu_type as $id=>$name)
-                                <option value="{{ $id }}">{{ $name }}</option>
-                            @endforeach
-						</select>
-    				</div>
-                </div>
-                <div class="admin-edit-card__item">
-                    <div class="admin-edit-card__item-left">
-                        Название блюда:
-                    </div>
-                    <div class="admin-edit-card__item__right">
-                        <input type="text" name='title'  placeholder="Название блюда">
-                    </div>
-                </div>
-                <div class="admin-edit-card__item">
-                    <div class="admin-edit-card__item-left">
-                        Цена:
-                    </div>
-                    <div class="admin-edit-card__item__right">
-                        <input type="text" name='cost_item' placeholder="Цена">
-                    </div>
-                </div>
-                <div class="admin-edit-card__item">
-                    <div class="admin-edit-card__item-left">
-                        Фото
-                    </div>
-                    <div class="admin-edit-card__item__right">
-                        <div class="admin-edit-card__input-file">
-                            <input type="file" id="main_photo" class="input-file" name='photo'>
-                            <label for="main_photo"  class="name-file">Выберите файл</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="admin-edit-card__item">
-                    <div class="admin-edit-card__item-left">
-                        Описание:
-                    </div>
-                    <div class="admin-edit-card__item__right">
-                        <textarea name='note' placeholder='Описание' class='js_redactor'></textarea>
-                    </div>
-                </div>
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="admin-edit-card__item">
-                    <div class="admin-edit-card__item-left">
-                        <button class="button">
-                            Добавить
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="restaurants-box full-wight" style="margin-left: 0px; width: 100%;">
+        <div class="admin-edit-card" style="width: 100%;">
+			<div class="add-food">
+				<div class="add-food__top">
+					<a href="{{ action('Admin\MenuTypeController@getEdit') }}" class="button add-food__button">
+                        Создать критерии
+                    </a>
+					<a href="{{ action('Admin\Restoran\MenuController@getAdd', $item->id) }}" class="button add-food__button">
+                        Добавить блюдо
+                    </a>
+					<div class="add-food__top--filter">
+                        <form action="" method="get">
+    						<div class="add-food__top--filter__item">
+    							<select name="cat_id" id="">
+    								<option value="0">Критерии</option>
+                                    @foreach ($ar_menu_type as $id=>$name)
+                                        @if (isset($ar_input['cat_id']) && $id == $ar_input['cat_id'])
+                                            <option value="{{ $id }}" selected="">{{ $name }}</option>
+                                        @else
+                                            <option value="{{ $id }}">{{ $name }}</option>
+                                        @endif
+                                    @endforeach
+    							</select>
+    						</div>
+    						<div class="add-food__top--filter__item">
+    							<input  type="text" name='title'
+                                        placeholder="Название блюдо"
+                                        value="{{ (isset($ar_input['title']) ? $ar_input['title'] : null)  }}">
+    						</div>
+    						<div class="add-food__top--filter__item">
+    							<button class="button">Поиск</button>
+    						</div>
+                        </form>
+					</div>
+				</div>
+			</div>
+			<div class="table-container add-food__form">
+				<table border="1">
+				    <tbody>
+                        <tr>
+					        <th>Название</th>
+					        <th>Название блюдо</th>
+					        <th>Цена</th>
+					        <th>Описание</th>
+					        <th>фото</th>
+					        <th>Статус</th>
+					    </tr>
+                        @foreach($items as $i)
+                            <tr>
+                                <form action="{{ action('Admin\Restoran\MenuController@postItem', array($item->id, $i->id)) }}"
+                                        method="POST" enctype="multipart/form-data">
+        					        <td>
+            					        <select name="cat_id" required="">
+                                           @foreach ($ar_menu_type as $id=>$name)
+                                                @if ($id == $i->cat_id)
+                                                    <option value="{{ $id }}" selected="">{{ $name }}</option>
+                                                @else
+                                                    <option value="{{ $id }}">{{ $name }}</option>
+                                                @endif
+                                           @endforeach
+            					        </select>
+        					        </td>
+        					        <td>
+                                        <input name='title' type="text" class="food-add-input" placeholder="Название блюдо" value="{{ $i->title }}">
+                                    </td>
+        					        <td>
+                                        <input name='cost_item' type="text" class="food-add-input food-add-input--price" placeholder="Цена"  value="{{ $i->cost_item }}">
+                                    </td>
+        					        <td>
+                                        <textarea name="note" id="" placeholder="Описание">{{ $i->note }}</textarea>
+                                    </td>
+        					        <td>
+                                        @if ($i->photo)
+                                            <a href='{{ $i->photo }}' target="_blank">
+                                                <img src="{{ $i->photo }}" style='max-width: 110px;' />
+                                            </a>
+                                        @else
+                                            не указано
+                                        @endif
+
+        								<div class="food-add__input-file">
+            								<input type="file" name='photo' id="foto1" class="input-file">
+            								<label for="foto1" class="name-file">Выберите файл</label>
+            							</div>
+        					        </td>
+        					        <td>
+        								<a href="{{ action("Admin\Restoran\MenuController@getDelete", $i->id) }}" class="delete-icon">x</a>
+        								<a href="{{ action("Admin\Restoran\MenuController@getOpen", $i->id) }}" class="stop"></a>
+        								<button class="save"></button>
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        					        </td>
+        					   </form>
+                             </tr>
+                        @endforeach
+				    </tbody>
+                </table>
+			</div>
+		</div>
     </div>
-    <table border="1">
-	    <tr>
-	        <th>id</th>
-	        <th>Кухня</th>
-	        <th>Название блюда</th>
-	        <th>Цена</th>
-            <th>Фото</th>
-            <th>Создан</th>
-	        <th></th>
-	    </tr>
-        @foreach($items as $i)
-    	    <tr>
-    	        <td>{{ $i->id }}</td>
-    	        <td>
-                    @if (isset($ar_menu_type[$i->cat_id]))
-                        {{ $ar_menu_type[$i->cat_id] }}
-                    @else
-                        не указано
-                    @endif
-                </td>
-    	        <td>{{ $i->title }}</td>
-    	        <td>{{ $i->cost_item }}</td>
-                <td>
-                    @if ($i->photo)
-                        <a href='{{ $i->photo }}' target="_blank">
-                            <img src="{{ $i->photo }}" style='max-width: 110px;' />
-                        </a>
-                    @else
-                        не указано
-                    @endif
-                </td>
-                <td>{{ $i->created_at }}</td>
-    	        <td>
-                    <a href="{{ action("Admin\Restoran\MenuController@getDelete", $i->id) }}" class="table-item delete delete-icon">
-                        X
-    				</a>
-    			</td>
-    	    </tr>
-        @endforeach
-    </table>
     {!! $items->appends(Input::all())->render() !!}
 </div>
 

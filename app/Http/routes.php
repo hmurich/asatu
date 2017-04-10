@@ -31,13 +31,15 @@ Route::group(['middleware' => ['auth.admin']], function () {
     Route::controller('adminka/translator', 'Admin\TranslateController');
     Route::controller('adminka/city', 'Admin\CityController');
     Route::controller('adminka/kitchen', 'Admin\KitchenController');
-    Route::controller('adminka/menu-type', 'Admin\MenuTypeController');
 });
 
 // Moderator Controllers
 Route::group(['middleware' => ['auth.moderator']], function () {
     Route::controller('moderator', 'Moderator\CabinetController');
 
+
+    Route::controller('adminka/menu-type', 'Admin\MenuTypeController');
+    
     Route::controller('adminka/restoran-edit', 'Admin\Restoran\EditController');
     Route::controller('adminka/menu', 'Admin\Restoran\MenuController');
     Route::controller('adminka/location', 'Admin\Restoran\LocationController');

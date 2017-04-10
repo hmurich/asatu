@@ -3,11 +3,11 @@
 @section('title', $title)
 
 @section('content')
-<div class="admin-content__body">
+<div class="admin-content__body full-wight">
     <div class="side-bar">
         @include('admin.restoran.include.menu', ['item'=>$item])
     </div>
-    <div class="restaurants-box">
+    <div class="restaurants-box full-wight">
         <div class="admin-edit-card">
             <div class="admin-edit-card__title">
                 {{ $title }}

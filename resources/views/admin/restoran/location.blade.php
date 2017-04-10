@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="admin-content__body">
-    <div class="side-bar">
+    <div class="side-bar full-wight">
         @include('admin.restoran.include.menu', ['item'=>$item])
     </div>
-    <div class="restaurants-box">
+    <div class="restaurants-box full-wight">
         <div class="admin-edit-card">
             <div class="admin-edit-card__title">
                 {{ $title }}
