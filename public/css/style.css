@@ -1584,15 +1584,20 @@ table tr th:last-child a {
   margin-bottom: 15px;
 }
 .checkout-list-step-item {
-  display: inline-block;
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 30px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    background-image: url(../img/arrow-step.png);
+    padding: 15px 30px 15px 15px;
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-right: 7px;
 }
-.checkout-list-step-item.active,
-.checkout-list-step-item:hover {
-  color: #008aff;
-  cursor: pointer;
+.checkout-list-step-item.active, .checkout-list-step-item:hover {
+    color: #fff;
+    cursor: pointer;
+    background-image: url(../img/arrow-spet-activ.png);
+    background-size: cover;
 }
 .checkout-form {
   padding: 0;
@@ -2485,6 +2490,10 @@ textarea:focus:-ms-input-placeholder {
   .admin-edit__left {
     width: 45%;
   }
+  #basket-side-bar {
+    position: static!important;
+    top: auto!important;
+}
 }
 @media screen and (max-width: 750px) {
   .admin-content__item-left {

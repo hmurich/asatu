@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="side-bar-item">
+        <div class="side-bar-item "id="basket-side-bar">
             <div class="side-bar-item__title">
                 {{ $translator->getTrans('busket') }}:
             </div>

@@ -30,7 +30,20 @@ Array.prototype.forEach.call( inputs, function( input )
 });
 
 
-
+function getTopOffset(e) { 
+	var y = 0;
+	do { y += e.offsetTop; } while (e = e.offsetParent);
+	return y;
+}
+var block = document.getElementById('basket-side-bar'); /* fixblock - значение атрибута id блока */
+if ( null != block ) {
+	var topPos = getTopOffset( block );
+	window.onscroll = function() {
+		var newcss = (topPos < window.pageYOffset) ? 
+			'top:0; position: fixed;width:270px;' : 'position:static;';
+		block.setAttribute( 'style', newcss );
+	}
+}
 var height_h = $('.video-header').height();
 var height_i = $('.position-absolute').height();
 var width_h = $('.header').width();
