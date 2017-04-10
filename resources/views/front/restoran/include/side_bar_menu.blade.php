@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div style='overflow: hidden; width: 100%;'>
-                        <ul class='js_busket_list'>
+                        <ul class='js_busket_list product-add-list'>
                             @if ($busket)
                                 @foreach ($busket as $menu_id => $b)
                                     @if (isset($b['count']) && isset($b['cost']))

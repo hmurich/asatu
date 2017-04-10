@@ -2410,6 +2410,20 @@ textarea:focus:-ms-input-placeholder {
     box-sizing: border-box;
     margin-bottom: 25px;
 }
+.product-add-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: #757575;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.product-add-list li {
+  margin-bottom: 7px;
+}
+.product-add-list li:last-child{
+  margin-bottom: 0;
+}
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,
   .header-inner,
