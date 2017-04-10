@@ -17,9 +17,11 @@
 					<div class="checkout-list-step-item active">
 						{{ $translator->getTrans('order_step_1') }}
 					</div>
+                    <!--
 					<div class="checkout-list-step-item">
 						{{ $translator->getTrans('order_step_2') }}
 					</div>
+                    -->
 					<div class="checkout-list-step-item">
 						{{ $translator->getTrans('order_step_3') }}
 					</div>
@@ -29,9 +31,11 @@
     			<div class="js-checkout-tab active">
                     @include('front.order.include.step_1')
                 </div>
-    			<div class="js-checkout-tab">
-    				@include('front.order.include.step_2')
-    			</div>
+                <!--
+        			<div class="js-checkout-tab">
+        				@include('front.order.include.step_2')
+        			</div>
+                -->
     			<div class="js-checkout-tab">
                     @include('front.order.include.step_3')
     			</div>
