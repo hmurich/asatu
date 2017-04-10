@@ -156,7 +156,7 @@ body.second-page {
   margin-top: 32px;
   margin-left: 134px;
 }
-.header-enter__button-reg {
+.header-top-line a.header-enter__button-reg {
   border: 1px solid #fff;
   display: inline-block;
   padding: 5px 10px;
@@ -2372,6 +2372,44 @@ textarea:focus:-ms-input-placeholder {
 .button.next-step.hide {
   display: none;
 }
+.restaurants-box.full-width select {
+    border: none;
+    width: 230px;
+    height: 40px;
+    padding-left: 15px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/arrow-down.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.restaurants-box.full-width input {
+    width: 230px;
+    height: 37px;
+    text-indent: 15px;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    margin-bottom: 15px;
+}
+.restaurants-box.full-width textarea {
+    resize: none;
+    width: 40%;
+    height: 127px;
+    text-indent: 15px;
+    font-size: 14px;
+    border: 1px solid #eeeeee;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+}
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,
   .header-inner,
@@ -2778,6 +2816,23 @@ textarea:focus:-ms-input-placeholder {
   .button.l-cab-button {
     margin-left: 0;
     margin-top: 15px;
+  }
+  .header.second-page-header .header-enter {
+      text-align: right;
+      float: right;
+      margin-top: 25px;
+  }
+   .header.second-page-header .header-top-line a.header-enter__button-reg {
+      margin-right: 0;
+      display: block;
+      margin-bottom: 10px;
+  }
+  .header-logo {
+      width: 120px;
+      margin-top: 8px;
+  }
+  .header-logo img {
+      width: 100%;
   }
 }
 @media screen and (max-width: 320px) {

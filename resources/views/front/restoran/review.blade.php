@@ -30,7 +30,7 @@
                         <option value="5">5</option>
                     </select><br/>
                     <textarea name='note' required="" placeholder="{{ $translator->getTrans('enter_review') }}"></textarea><br/>
-                    <input type='submit' />
+                    <button class="button" >Отправить</button>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
             @endif
