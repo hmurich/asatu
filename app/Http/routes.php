@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth.moderator']], function () {
 
 
     Route::controller('adminka/menu-type', 'Admin\MenuTypeController');
-    
+
     Route::controller('adminka/restoran-edit', 'Admin\Restoran\EditController');
     Route::controller('adminka/menu', 'Admin\Restoran\MenuController');
     Route::controller('adminka/location', 'Admin\Restoran\LocationController');

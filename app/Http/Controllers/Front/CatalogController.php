@@ -43,9 +43,23 @@ class CatalogController extends Controller{
             }
         }
 
+        $order_name = 'raiting';
+        $order_val = 'desc';
+        if ($request->has('sort_name') && $request->has('order_asc')){
+            if ($request->input('sort_name') == 'sort_asc')
+                $order_name = 'raiting';
+            else if ($request->input('sort_name') == 'count_view')
+                $order_name = 'count_view';
+            else if ($request->input('sort_name') == 'price')
+                $order_name = 'id';
+
+            if ($request->input('sort_asc') == '1')
+                $order_val = 'asc';
+        }
+
         $ar = array();
         $ar['title'] = $this->translator->getTrans('catalog_title');
-        $ar['items'] = $items->with('relData')->orderBy('raiting', 'desc')->paginate(24);
+        $ar['items'] = $items->with('relData')->orderBy($order_name, $order_val)->paginate(24);
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;

@@ -15,7 +15,11 @@ class MenuController extends Controller{
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
         $restoran = Restoran::findOrFail($restoran_id);
+        $restoran->count_view++;
+        $restoran->save();
+        
         $items = Menu::where('restoran_id', $restoran->id)->where('is_active', 1);
+
 
         if ($request->has('kitchen') && count($request->input('kitchen')))
             $items = $items->whereIn('cat_id', $request->input('kitchen'));
