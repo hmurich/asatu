@@ -45,7 +45,15 @@ class IndexController extends Controller{
         foreach ($collection as $item) {
             $i = array();
             $i['value'] = $item->getLatitude().' '.$item->getLongitude();
-            $i['label'] = $item->getAddress();
+            $address = $item->getAddress();
+            $address = explode(",", $address);
+            if (isset($address[0]))
+                unset($address[0]);
+            if (isset($address[1]) && count($address) > 1)
+                unset($address[1]);
+            $address = implode(',', $address);
+
+            $i['label'] = $address;
 
             $ar[] = $i;
         }
