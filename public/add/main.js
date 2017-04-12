@@ -21,8 +21,12 @@ $(document).ready(function() {
                     type: "POST",
                     url: "/geocoder?name=" + request.term + "&city_id=" + city_id,
                     dataType: "json",
+                    beforeSend: function(){
+                        $( ".js_find_address" ).addClass('ajax_loader');
+                    },
                     success: function ( data ) {
-                        console.log(data);
+                        $( ".js_find_address" ).removeClass('ajax_loader');
+
                         $('.js_find_address_lat').val('0');
                         $('.js_find_address_lng').val('0');
 
