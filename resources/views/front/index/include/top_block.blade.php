@@ -28,8 +28,5 @@
 </div>
 
 <div class="video-container">
-    <video autoplay loop poster="video/intro-4.jpg">
-       <source src="video/1.mp4" type='video/mp4"'>
-       <source src="video/2.webm" type='video/webm'>
-    </video>
+    
 </div>

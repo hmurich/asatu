@@ -15,12 +15,23 @@
         @include('front.catalog.include.side_bar')
         <div class="restaurants-box">
 			@include('front.catalog.include.top_filter')
-            Сортировать:    <a href='?order_name=raiting&sort_asc=1'>Рэйтингу, с малого</a>
-                            <a href='?order_name=raiting&sort_asc=0'>Рэйтингу, с большого</a>
-                            <a href='?order_name=count_view&sort_asc=1'>Просмотрам, с малого</a>
-                            <a href='?order_name=count_view&sort_asc=0'>Просмотрам, с большого</a>
-                            <a href='?order_name=price&sort_asc=1'>Цене, с малого</a>
+           <div class="sort-reiting">
+                Сортировка по рейтингу
+               <div class="sort-reiting__sub">
+                    <a href='?order_name=raiting&sort_asc=1'>Рэйтингу, с малого</a>
+                    <a href='?order_name=raiting&sort_asc=0'>Рэйтингу, с большого</a>
+                    <a href='?order_name=count_view&sort_asc=1'>Просмотрам, с малого</a>
+                    <a href='?order_name=count_view&sort_asc=0'>Просмотрам, с большого</a>
+                </div>
+           </div>
+           <div class="sort-reiting">
+                Сортировка по цене
+               <div class="sort-reiting__sub">
+                    <a href='?order_name=price&sort_asc=1'>Цене, с малого</a>
                             <a href='?order_name=price&sort_asc=0'>Цене, с большого</a>
+                </div>
+           </div>
+
 
 			<ul class="restaurant-list">
                 @foreach ($items as $i)

@@ -22,9 +22,9 @@
                 <a href="#modal_registr" class="header-enter__button-reg open_modal">{{ $translator->getTrans('registr_button') }}</a>
                 <a href="#modal_login" class="header-enter__button-enter open_modal">{{ $translator->getTrans('enter_button') }}</a>
             @else
-                <a href="{{ action('Auth\AuthController@getLogout') }}" class=" header-enter__button-enter log-out">
-                    {{ $translator->getTrans('user_cabinet') }}
-                </a>
+                <a href="#modal_registr" class="header-enter__button-reg ">Личный кабинет</a>
+                <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter__button-enter ">Выйти</a>
+                
             @endif
         </div>
     </div>

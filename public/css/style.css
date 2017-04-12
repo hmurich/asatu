@@ -75,7 +75,7 @@ body.second-page {
     -o-transform: translateX(-50%) translateY(-50%);
        transform: translateX(-50%) translateY(-50%);
   /* z-index: -1; */
-  background: url(../../video/intro.jpg) no-repeat;
+  background: url(../img/main.jpg) no-repeat;
   -o-background-size: cover;
      background-size: cover;
   border: 1px solid #eee;
@@ -1939,14 +1939,16 @@ textarea:focus:-ms-input-placeholder {
   overflow: hidden;
 }
 .modal-input__container input {
-  width: 100%;
-  height: 40px;
-  text-indent: 15px;
-  font-size: 14px;
-  border: 1px solid #eeeeee;
-  color: #727272;
-  margin-bottom: 15px;
+    width: 100%;
+    height: 40px;
+    text-indent: 15px;
+    font-size: 14px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    margin-bottom: 15px;
+    position: relative;
 }
+
 .modal-link {
   color: #727272;
   text-align: right;
@@ -2371,8 +2373,11 @@ textarea:focus:-ms-input-placeholder {
   margin-top: 25px;
 }
 #ui-id-1 {
-  background: #ffffff !important;
-  height: auto!important;
+    background: #fff!important;
+    height: auto!important;
+    z-index: 9999;
+    color: #000;
+    border:1px solid #eeeeee;
 }
 .title-item.static-page {
   background: #f4f0d9;
@@ -2552,6 +2557,46 @@ textarea:focus:-ms-input-placeholder {
     margin-left: 0;
     box-sizing: border-box;
     width: 100%;
+}
+.sort-reiting {
+    width: 230px;
+    height: 30px;
+    text-indent: 15px;
+    font-size: 16px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    background: #fff;
+    line-height: 30px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.sort-reiting__sub {
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    z-index: 9;
+    border-top: 1px solid #eeeeee;
+    display: none;
+
+}
+.sort-reiting.active {
+  background: #008aff;
+    color: #fff;
+}
+.sort-reiting__sub a {
+    display: block;
+    color: #727272;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+.sort-reiting__sub a:hover {
+    background: #008aff;
+    color: #fff;
+    cursor: pointer;
 }
 @media screen and (max-width: 1200px) {
   .header-top-line__inner,

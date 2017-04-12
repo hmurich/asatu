@@ -62,6 +62,20 @@ $('.js-button').click(function(){
 			$(this).siblings(".js-reviews-otevet").css('display', 'block');
 
 });
+$('.sort-reiting').click(function(){
+		if($(this).hasClass('active')){
+			$(this).children(".sort-reiting__sub").css('display', 'none');
+			$('.sort-reiting').removeClass('active');
+		}else{
+			$('.sort-reiting').removeClass('active');
+			$(".sort-reiting__sub").css('display', 'none');
+			$(this).addClass('active');
+			$(this).children(".sort-reiting__sub").css('display', 'block');	
+		}
+			
+
+});
+
 $('.js-button-otmena').click(function(){
 			$(this).parents(".js-reviews-otevet").css('display', 'none');
 
