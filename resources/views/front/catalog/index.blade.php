@@ -18,10 +18,8 @@
            <div class="sort-reiting">
                 Сортировка по рейтингу
                <div class="sort-reiting__sub">
-                    <a href='?order_name=raiting&sort_asc=1'>Рэйтингу, с малого</a>
-                    <a href='?order_name=raiting&sort_asc=0'>Рэйтингу, с большого</a>
-                    <a href='?order_name=count_view&sort_asc=1'>Просмотрам, с малого</a>
-                    <a href='?order_name=count_view&sort_asc=0'>Просмотрам, с большого</a>
+                    <a href='?order_name=raiting&sort_asc=0'>Рэйтингу</a>
+                    <a href='?order_name=count_view&sort_asc=0'>Просмотрам</a>
                 </div>
            </div>
            <div class="sort-reiting">

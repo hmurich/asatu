@@ -22,9 +22,18 @@
                 <a href="#modal_registr" class="header-enter__button-reg open_modal">{{ $translator->getTrans('registr_button') }}</a>
                 <a href="#modal_login" class="header-enter__button-enter open_modal">{{ $translator->getTrans('enter_button') }}</a>
             @else
-                <a href="#modal_registr" class="header-enter__button-reg ">Личный кабинет</a>
+                @if (Auth::user()->type_id == 1)
+                    <a href="{{ action('Admin\IndexController@getIndex') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                @elseif (Auth::user()->type_id == 2)
+                    <a href="{{ action('Moderator\CabinetController@getCabinet') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                @elseif (Auth::user()->type_id == 3)
+                    <a href="{{ action('Restoran\OrderController@getList') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                @elseif (Auth::user()->type_id == 4)
+                    <a href="{{ action('Customer\CabinetController@getCabinet') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                @endif
+
                 <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter__button-enter ">Выйти</a>
-                
+
             @endif
         </div>
     </div>
