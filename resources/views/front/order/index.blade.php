@@ -23,7 +23,7 @@
 					</div>
                     -->
 					<div class="checkout-list-step-item">
-						{{ $translator->getTrans('order_step_3') }}
+						2 Шаг. Потверждение заказа
 					</div>
 				</div>
 			</div>

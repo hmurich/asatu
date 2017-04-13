@@ -82,7 +82,6 @@ body.second-page {
 }
 .header.video-header.second-page-header {
     height: 100%;
-    max-height: 900px;
 }
 .header.video-header {
   /* background-image: url(../img/header-background.jpg); */
@@ -505,7 +504,6 @@ input:-ms-input-placeholder {
   font-size: 16px;
 }
 .index-card-item__img {
-  height: 185px;
   margin-bottom: 14px;
 }
 .index-card-item p {
@@ -2598,7 +2596,16 @@ textarea:focus:-ms-input-placeholder {
     color: #fff;
     cursor: pointer;
 }
-@media screen and (max-width: 1200px) {
+#basket-side-bar {
+    z-index: 9999;
+}
+.ajax_loader {
+    background-image: url(../img/load.gif);
+    background-position: right;
+    background-size: 55px;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width: 1280px) {
   .header-top-line__inner,
   .header-inner,
   .middle-icon__inner,
@@ -2749,9 +2756,7 @@ textarea:focus:-ms-input-placeholder {
   .header.second-page-header .header-slogan {
     display: none;
 }
-}
-@media screen and (max-width: 700px) {
-  .header-form {
+ .header-form {
     display: block;
     text-align: center;
   }
@@ -2762,6 +2767,9 @@ textarea:focus:-ms-input-placeholder {
   .header-form__item:last-child {
     margin-bottom: 0;
   }
+}
+@media screen and (max-width: 700px) {
+ 
   .icon-item {
     width: 50%;
     margin-bottom: 25px;
@@ -2769,10 +2777,16 @@ textarea:focus:-ms-input-placeholder {
   .icon-item:last-child {
     margin-bottom: 0;
   }
-  .middle-icon.position-absolute {
+ .middle-icon.position-absolute {
+    margin-bottom: 0;
     position: relative;
-    bottom: auto;
-  }
+    width: 100%;
+    bottom: 0;
+}
+
+.header.video-header.second-page-header {
+   height: auto; 
+}
   .header.video-header {
     height: auto;
   }
@@ -2827,6 +2841,9 @@ textarea:focus:-ms-input-placeholder {
     float: left;
     width: 100%;
   }
+   .header-form {
+    margin-bottom: 50px;
+  }
   .product-item-count {
     margin-bottom: 15px;
   }
@@ -2859,6 +2876,9 @@ textarea:focus:-ms-input-placeholder {
   }
 }
 @media screen and (max-width: 560px) {
+  .header.video-header.second-page-header {
+     height: auto; 
+}
   .icon-item {
     width: 100%;
     text-align: left;
