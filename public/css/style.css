@@ -2599,7 +2599,7 @@ textarea:focus:-ms-input-placeholder {
 #basket-side-bar {
     z-index: 9999;
 }
-.ajax_loader {
+.js_find_address.ui-autocomplete-input.ui-autocomplete-loading {
     background-image: url(../img/load.gif);
     background-position: right;
     background-size: 55px;
