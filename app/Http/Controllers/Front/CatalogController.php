@@ -13,12 +13,17 @@ class CatalogController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
-        //$ar_restoran = UserRestoran::getAr();
+        $ar_restoran = UserRestoran::getAr();
 
         $items = Restoran::where('id', '>', 0);
-        //$items = $items->whereIn('id', $ar_restoran);
-        if ($request->has('name'))
-            $items = $items->where('name', 'like', '%'.$request->input('name').'%');
+        $items = $items->whereIn('id', $ar_restoran);
+        if ($request->has('name')) {
+            $name = $request->input('name');
+            $items = $items->whereHas('relMenu', function($q) use ($name){
+                $q->whereIn('title', 'like', '%'.$name.'%');
+            });
+        }
+
 
         if ($request->has('kitchen')){
             if ($request->has('restoran_new')){
@@ -45,8 +50,8 @@ class CatalogController extends Controller{
 
         $order_name = 'raiting';
         $order_val = 'desc';
-        if ($request->has('sort_name') && $request->has('order_asc')){
-            if ($request->input('sort_name') == 'sort_asc')
+        if ($request->has('sort_name') && $request->has('sort_asc')){
+            if ($request->input('sort_name') == 'raiting')
                 $order_name = 'raiting';
             else if ($request->input('sort_name') == 'count_view')
                 $order_name = 'count_view';

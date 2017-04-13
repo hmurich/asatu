@@ -11,20 +11,22 @@
     <form action='{{ action('Front\CatalogController@getList') }}' method="get">
         <div class="restaurants-filtr__item restaurants-filtr__item--bot">
             <input type="text" name='name' value='{{ (isset($ar_input["name"]) ? $ar_input["name"] : null) }}' placeholder="Введите ресторан	" required="">
-            <div class="sort-reiting">
-                 Сортировка по рейтингу
-                <div class="sort-reiting__sub">
-                     <a href='?order_name=raiting&sort_asc=0'>Рэйтингу</a>
-                     <a href='?order_name=count_view&sort_asc=0'>Просмотрам</a>
-                 </div>
-            </div>
-            <div class="sort-reiting">
-                 Сортировка по цене
-                <div class="sort-reiting__sub">
-                     <a href='?order_name=price&sort_asc=1'>Цене, с малого</a>
-                             <a href='?order_name=price&sort_asc=0'>Цене, с большого</a>
-                 </div>
-            </div>
+            @if (isset($ar_input["name"]))
+                <div class="sort-reiting">
+                     Сортировка по рейтингу
+                    <div class="sort-reiting__sub">
+                         <a href='?name='.$ar_input["name"].'&sort_name=raiting&sort_asc=0'>Рэйтингу</a>
+                         <a href='?name='.$ar_input["name"].'&sort_name=count_view&sort_asc=0'>Просмотрам</a>
+                     </div>
+                </div>
+                <div class="sort-reiting">
+                     Сортировка по цене
+                    <div class="sort-reiting__sub">
+                         <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=1'>Цене, с малого</a>
+                         <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=0'>Цене, с большого</a>
+                     </div>
+                </div>
+            @endif
             <button class="button restaurants-filtr__button" type='submit'>
                 {{ $translator->getTrans('find') }}
             </button>

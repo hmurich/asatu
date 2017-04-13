@@ -9,7 +9,7 @@ class Translator {
     private $lang_id = false;
 
     private $def_lang_id = 'ru';
-    private $def_cache_time = 30;
+    private $def_cache_time = 1;
     private $def_name = 'Нет перевода';
 
     static function destroiArCache(){
