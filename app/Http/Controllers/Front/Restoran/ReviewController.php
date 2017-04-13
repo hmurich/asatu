@@ -26,14 +26,17 @@ class ReviewController extends Controller{
         $restoran = Restoran::findOrFail($restoran_id);
         $restoran->count_view++;
         $restoran->save();
-        
+
         $items = Review::where('restoran_id', $restoran->id)->where('parent_id', 0);
+
+        $sale = Sale::where('restoran_id', $restoran->id)->orderBy('id', 'desc')->first();
 
         $ar = array();
         $ar['title'] = $restoran->name;
         $ar['restoran'] = $restoran;
         $ar['location'] = $location;
         $ar['items'] = $items->orderBy('id', 'desc')->paginate(24);
+        $ar['sale'] = $sale;
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;

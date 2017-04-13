@@ -8,6 +8,7 @@ use App\Model\Generators\OrderBusket;
 use App\Model\SysDirectoryName;
 use App\Model\Restoran;
 use App\Model\Menu;
+use App\Model\Sale;
 
 class MenuController extends Controller{
     function getList (Request $request, $restoran_id) {
@@ -17,9 +18,8 @@ class MenuController extends Controller{
         $restoran = Restoran::findOrFail($restoran_id);
         $restoran->count_view++;
         $restoran->save();
-        
-        $items = Menu::where('restoran_id', $restoran->id)->where('is_active', 1);
 
+        $items = Menu::where('restoran_id', $restoran->id)->where('is_active', 1);
 
         if ($request->has('kitchen') && count($request->input('kitchen')))
             $items = $items->whereIn('cat_id', $request->input('kitchen'));
@@ -27,11 +27,14 @@ class MenuController extends Controller{
         if ($request->has('name') && $request->input('name'))
             $items = $items->where('title', 'like', '%'.$request->input('name').'%');
 
+        $sale = Sale::where('restoran_id', $restoran->id)->orderBy('id', 'desc')->first();
+
         $ar = array();
         $ar['title'] = $restoran->name;
         $ar['restoran'] = $restoran;
         $ar['location'] = $location;
         $ar['items'] = $items->orderBy('id', 'desc')->paginate(24);
+        $ar['sale'] = $sale;
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;

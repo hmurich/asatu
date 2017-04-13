@@ -14,6 +14,13 @@
         <div class="restaurant">
             @include('front.restoran.include.top_info')
         </div>
+
+        @if (isset($sale) && $sale)
+            <div class="">
+                @include('front.restoran.include.sale')
+            </div>
+        @endif
+
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
 
         @include('front.restoran.include.side_bar_menu')
