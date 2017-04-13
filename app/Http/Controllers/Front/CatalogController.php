@@ -20,7 +20,7 @@ class CatalogController extends Controller{
         if ($request->has('name')) {
             $name = $request->input('name');
             $items = $items->whereHas('relMenu', function($q) use ($name){
-                $q->whereIn('title', 'like', '%'.$name.'%');
+                $q->where('title', 'like', '%'.$name.'%');
             });
         }
 
