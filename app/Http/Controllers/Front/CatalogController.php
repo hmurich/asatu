@@ -13,10 +13,10 @@ class CatalogController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
-        $ar_restoran = UserRestoran::getAr();
+        //$ar_restoran = UserRestoran::getAr();
 
         $items = Restoran::where('id', '>', 0);
-        $items = $items->whereIn('id', $ar_restoran);
+        //$items = $items->whereIn('id', $ar_restoran);
         if ($request->has('name')) {
             $name = $request->input('name');
             $items = $items->whereHas('relMenu', function($q) use ($name){
