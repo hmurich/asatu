@@ -31,6 +31,9 @@
         <li class='{{ (Request::is('adminka/restoran') ? "active" : null) }}'>
             <a href="{{ action('Admin\RestoranController@getIndex') }}">рестораны</a>
         </li>
+        <li class='{{ (Request::is('adminka/sale') ? "active" : null) }}'>
+            <a href="{{ action('Admin\SaleController@getIndex') }}">акции</a>
+        </li>
         <li class='{{ (Request::is('adminka/promo/list') ? "active" : null) }}'>
             <a href="{{ action('Admin\PromoController@getList') }}">промо коды</a>
         </li>
