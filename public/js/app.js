@@ -31,7 +31,7 @@ Array.prototype.forEach.call( inputs, function( input )
 
 
 function getTopOffset(e) { 
-	var y = 0;
+	var y = 15;
 	do { y += e.offsetTop; } while (e = e.offsetParent);
 	return y;
 }
