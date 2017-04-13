@@ -9,7 +9,7 @@ use App\Model\SysDirectoryName;
 use App\Model\Restoran;
 use App\Model\Review;
 use Illuminate\Contracts\Auth\Guard;
-
+use App\Model\Sale;
 
 class ReviewController extends Controller{
     protected $auth;
