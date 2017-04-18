@@ -17,13 +17,8 @@ class CatalogController extends Controller{
 
         $items = Restoran::where('id', '>', 0);
         $items = $items->whereIn('id', $ar_restoran);
-        if ($request->has('name')) {
-            $name = $request->input('name');
-            $items = $items->whereHas('relMenu', function($q) use ($name){
-                $q->where('title', 'like', '%'.$name.'%');
-            });
-        }
-
+        if ($request->has('name'))
+            $items = $items->where('name', 'like', '%'.$request->input('name').'%');
 
         if ($request->has('kitchen')){
             if ($request->has('restoran_new')){
@@ -42,8 +37,10 @@ class CatalogController extends Controller{
 
             if (count($request->input('kitchen')) > 0){
                 $ar_kitchen = $request->input('kitchen');
-                $items = $items->whereHas('relMenu', function($q) use ($ar_kitchen){
-                    $q->whereIn('cat_id', $ar_kitchen);
+                $items = $items->whereHas('relMenu', function($q) use ($ar_kitchen, $request){
+                    $q = $q->whereIn('cat_id', $ar_kitchen);
+                    if ($request->has('k_name'))
+                        $q = $q->where('title', 'like', '%'.$name.'%');
                 });
             }
         }

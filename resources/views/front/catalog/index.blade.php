@@ -15,8 +15,6 @@
         @include('front.catalog.include.side_bar')
         <div class="restaurants-box">
 			@include('front.catalog.include.top_filter')
-           
-
 
 			<ul class="restaurant-list">
                 @foreach ($items as $i)

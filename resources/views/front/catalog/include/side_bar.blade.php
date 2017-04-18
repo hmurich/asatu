@@ -54,8 +54,14 @@
                     <input type="checkbox" name='restoran_free' id="free" {{ (isset($ar_input["restoran_free"]) ? "checked" : null) }}>
                     <label for="free">{{ $translator->getTrans('free_delivery') }}</label>
                 </div>
+                <div class="side-bar-box__item">
+
+                </div>
             </div>
             <div class="side-bar-item-button--container">
+
+                <input type='text' name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" placeholder="Имя блюда">
+
                 <button class="button">
                     {{ $translator->getTrans('show') }}
                 </button>
