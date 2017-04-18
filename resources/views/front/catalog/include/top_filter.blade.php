@@ -26,7 +26,12 @@
                          <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=0'>Цене, с большого</a>
                      </div>
                 </div>
+                
             @endif
+            <div class="akci-checkbox">
+                <input id="checkbox-akc" type="checkbox">
+                <label for="checkbox-akc">С акцией</label>     
+            </div>
             <button class="button restaurants-filtr__button" type='submit'>
                 {{ $translator->getTrans('find') }}
             </button>

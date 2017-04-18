@@ -16,7 +16,7 @@
         </div>
 
         @if (isset($sale) && $sale)
-            <div class="">
+            <div class="akci-second-page">
                 @include('front.restoran.include.sale')
             </div>
         @endif

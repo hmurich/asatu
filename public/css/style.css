@@ -777,8 +777,8 @@ a.side-bar-box:hover {
   width: 86px;
 }
 .log-out:hover:before {
-  display: inline-block;
-  font-size: 12px;
+    display: inline-block;
+    font-size: 12px;
 }
 .log-out:before {
   content: "Выйти";
@@ -2604,6 +2604,73 @@ textarea:focus:-ms-input-placeholder {
     background-position: right;
     background-size: 55px;
     background-repeat: no-repeat;
+}
+.akci-checkbox {
+    width: 141px;
+    height: 30px;
+    text-indent: 15px;
+    font-size: 16px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    background: #fff;
+    display: inline-block;
+    padding: 7px 15px;
+    box-sizing: border-box;
+    margin-left: 15px;
+    text-decoration: none;
+}
+.akci-checkbox input {
+    display: none;
+}
+.akci-checkbox label {
+    display: block;
+    padding-left: 15px;
+    position: relative;
+    font-size: 13px;
+    color: #008aff;
+    cursor: pointer;
+    line-height: 15px;
+}
+.akci-checkbox label:before {
+    content: "";
+    width: 13px;
+    height: 13px;
+    display: block;
+    border: 1px solid #cacac9;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 0;
+}
+.akci-checkbox input[type=checkbox]:checked + label:before {
+  background-image: url(../img/checked.jpg);
+}
+.akci-second-page {
+    padding: 14px 14px;
+    margin: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #eeeeee;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.akci-second-page h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #242626;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.akci-second-page p {
+    font-size: 14px;
+    overflow: hidden;
+    color: #757575;
+    line-height: 1.35;
 }
 @media screen and (max-width: 1280px) {
   .header-top-line__inner,
