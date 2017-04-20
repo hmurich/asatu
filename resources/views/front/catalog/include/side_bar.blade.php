@@ -23,6 +23,16 @@
         </div>
         <div class="side-bar-item">
             <div class="side-bar-item__title">
+                Поиск блюда
+            </div>
+            <div class="side-bar-box">
+                    <div class="side-bar-box__item-search">
+                       <input type="text" placeholder="Поиск блюда...">
+                    </div>
+            </div>
+        </div>
+        <div class="side-bar-item">
+            <div class="side-bar-item__title">
                 {{ $translator->getTrans('sum_order') }}:
             </div>
             <div class="side-bar-form">
