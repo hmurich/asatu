@@ -18,9 +18,14 @@
 
                         <label for="kitchen_{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</label>
                     </div>
+
                 @endforeach
+                <div class="side-bar-box__item-search">
+                       <input type="text" placeholder="Поиск блюда...">
+                    </div>
             </div>
         </div>
+      
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 {{ $translator->getTrans('sum_order') }}:

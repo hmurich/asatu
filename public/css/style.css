@@ -655,6 +655,7 @@ input:-ms-input-placeholder {
 .side-bar-box__item {
   margin-bottom: 10px;
 }
+
 .side-bar-box__item input {
   display: none;
 }
@@ -939,9 +940,7 @@ a.side-bar-box:hover {
 }
 /*Каталог ------------------------------------------------------------------------------------------------------------Конец*/
 /*Каталог 2 уровент------------------------------------------------------------------------------------------------------------*/
-.side-bar-box__item-search {
-  margin-top: 15px;
-}
+
 .side-bar-box__item-search input {
   width: 100%;
   height: 30px;
