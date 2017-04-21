@@ -2720,6 +2720,36 @@ textarea:focus:-ms-input-placeholder {
     font-size: 24px;
     line-height: 35px;
 }
+.restaurants-filtr__item__mobile--show.button {
+    float: right;
+    display: none;
+}
+.js_busket_item_li_del {
+    float: right;
+    font-size: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDQ0IDQ0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0NCA0NCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CiAgPHBhdGggZD0ibTIyLDBjLTEyLjIsMC0yMiw5LjgtMjIsMjJzOS44LDIyIDIyLDIyIDIyLTkuOCAyMi0yMi05LjgtMjItMjItMjJ6bTMuMiwyMi40bDcuNSw3LjVjMC4yLDAuMiAwLjMsMC41IDAuMywwLjdzLTAuMSwwLjUtMC4zLDAuN2wtMS40LDEuNGMtMC4yLDAuMi0wLjUsMC4zLTAuNywwLjMtMC4zLDAtMC41LTAuMS0wLjctMC4zbC03LjUtNy41Yy0wLjItMC4yLTAuNS0wLjItMC43LDBsLTcuNSw3LjVjLTAuMiwwLjItMC41LDAuMy0wLjcsMC4zLTAuMywwLTAuNS0wLjEtMC43LTAuM2wtMS40LTEuNGMtMC4yLTAuMi0wLjMtMC41LTAuMy0wLjdzMC4xLTAuNSAwLjMtMC43bDcuNS03LjVjMC4yLTAuMiAwLjItMC41IDAtMC43bC03LjUtNy41Yy0wLjItMC4yLTAuMy0wLjUtMC4zLTAuN3MwLjEtMC41IDAuMy0wLjdsMS40LTEuNGMwLjItMC4yIDAuNS0wLjMgMC43LTAuM3MwLjUsMC4xIDAuNywwLjNsNy41LDcuNWMwLjIsMC4yIDAuNSwwLjIgMC43LDBsNy41LTcuNWMwLjItMC4yIDAuNS0wLjMgMC43LTAuMyAwLjMsMCAwLjUsMC4xIDAuNywwLjNsMS40LDEuNGMwLjIsMC4yIDAuMywwLjUgMC4zLDAuN3MtMC4xLDAuNS0wLjMsMC43bC03LjUsNy41Yy0wLjIsMC4xLTAuMiwwLjUgMy41NTI3MWUtMTUsMC43eiIgZmlsbD0iIzAwOGFmZiIvPgo8L3N2Zz4K);
+}
+.admin-edit-card__item__right textarea {
+    width: 99%;
+    height: 90px;
+    text-indent: 15px;
+    font-size: 16px;
+    border: 1px solid #eeeeee;
+    color: #727272;
+    padding: 7px 5px;
+    box-sizing: border-box;
+}
+.add-icon-reviews-admin {
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url(../images/add.png);
+    background-size: contain;
+    margin: 0 auto;
+}
 @media screen and (max-width: 1280px) {
   .header-top-line__inner,
   .header-inner,
@@ -2747,6 +2777,9 @@ textarea:focus:-ms-input-placeholder {
     margin-left: 31%;
     width: 68%;
   }
+  .restaurants-filtr__item__mobile--show.button {
+    display: block;
+}
   .side-bar {
     display: block;
     position: absolute;
@@ -2765,14 +2798,41 @@ textarea:focus:-ms-input-placeholder {
   .side-bar.show {
     width: 100%;
   }
+  .restaurants-filtr__item.restaurants-filtr__item--bot {
+    position: absolute;
+    top: -65px;
+    width: 100%;
+}
+.restaurants-filtr__item__mobile {
+    position: absolute;
+    display: none;
+    top: 56px;
+    background: #fff;
+    padding: 10px;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.akci-checkbox {
+    display: none;
+}
   .restaurants-box {
     margin-left: 0;
+    position: relative;
   }
-  .side-bar__show {
-    display: block;
-    width: 100%;
+  .restaurants-filtr__item__mobile--show.button {
+    float: right;
+}
+  .restaurants-filtr__item input {
+    height: 34px;
+    width: 85%;
+}
+.side-bar__show {
+    display: inline-block;
+    width: 140px;
     margin: 0 auto 25px;
-  }
+    z-index: 999;
+}
   .side-bar__show:hover {
     -webkit-transform: scale(1);
        -moz-transform: scale(1);
@@ -2780,6 +2840,7 @@ textarea:focus:-ms-input-placeholder {
          -o-transform: scale(1);
             transform: scale(1);
   }
+
   .restaurant-info__item-second-page {
     display: block;
   }
@@ -2809,6 +2870,13 @@ textarea:focus:-ms-input-placeholder {
       margin-top: 37px;
       margin-left: 110px;
   }
+.restaurants-filtr__item.restaurants-filtr__item--bot {
+    position: absolute;
+    top: -65px;
+    width: 100%;
+    /* float: right; */
+    z-index: 5;
+}
 }
 @media screen and (max-width: 850px) {
   .index-card-list {

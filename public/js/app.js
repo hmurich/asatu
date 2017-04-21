@@ -89,6 +89,49 @@ $('.side-bar__show').click(function(){
 			}
 
 });
+$('.restaurants-filtr__item__mobile--show').click(function(){
+	var $mob_part = $('.restaurants-filtr__item__mobile');
+    if ($(this).hasClass('show-search')) {
+       	 $mob_part.hide(800);
+         $(this).removeClass('show-search');
+         $mob_part.removeClass('show-search-coontainer')
+     }
+    else{
+         $(this).addClass('show-search');
+         $mob_part.addClass('show-search-coontainer')
+         $mob_part.show(800);
+    };
+
+});
+jQuery(function($){
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+        var div = $(".restaurants-filtr__item__mobile "); // тут указываем ID элемента
+        if (!div.is(e.target) // если клик был не по нашему блоку
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
+            $('.show-search-coontainer').hide(800); // скрываем его
+            $('.restaurants-filtr__item__mobile--show').removeClass('show-search');
+        }
+    });
+});
+jQuery(function($){
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+        var div = $(".side-bar "); // тут указываем ID элемента
+        if (!div.is(e.target) // если клик был не по нашему блоку
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
+            $('.side-bar__show').removeClass('show'); // скрываем его
+            $('.side-bar').removeClass('show');
+        }
+    });
+});
+jQuery(function($){
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+        var div = $(".menu_display "); // тут указываем ID элемента
+        if (!div.is(e.target) // если клик был не по нашему блоку
+            && div.has(e.target).length === 0) { // и не по его дочерним элементам
+            $('.sb').removeClass('sub_show');; // скрываем его
+        }
+    });
+});
 
 $(function(){
 
