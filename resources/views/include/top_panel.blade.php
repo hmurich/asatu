@@ -1,7 +1,7 @@
 <div class="header-top-line">
     <div class="header-top-line__inner">
-        <a href="/" class="header-logo">
-            <img src="/img/logo.png" alt="">
+        <a href="/" class="header-logo  header-logo-admin">
+           Панель администрирование
         </a>
         <div class="header-lang">
             <a href="/kz" class="header-lang__item {{ session()->has('lang_id') && session()->get('lang_id') == 'kz' ? 'active' : null }}">

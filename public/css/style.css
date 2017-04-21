@@ -127,11 +127,12 @@ body.second-page {
   margin-top: 38px;
 }
 .header.second-page-header .header-enter .header-enter__button-enter {
-  background: #ffc713;
-  display: inline-block;
-  padding: 5px 15px;
-  border: 1px solid #ffc713;
-  color: #000;
+    background: #ffc713;
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #ffc713;
+    color: #000;
+    font-size: 14px;
 }
 .header-enter__button-enter.log-out {
     width: 121px;
@@ -790,22 +791,23 @@ a.side-bar-box:hover {
     margin-top: 15px;
     display: block;
     line-height: 31px;
-    padding-right: 35px;
+    padding-right: 23px;
     position: relative;
     line-height: 1.2;
-    color: #ffc713;
+    color: #008aff;
     text-transform: initial;
     font-weight: bold;
 }
 .restaurants-filtr__item-city span:after {
     content: '';
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     display: block;
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQzMC4xMTQgNDMwLjExNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMwLjExNCA0MzAuMTE0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IkZhY2Vib29rX1BsYWNlcyIgZD0iTTM1Ni4yMDgsMTA3LjA1MWMtMS41MzEtNS43MzgtNC42NC0xMS44NTItNi45NC0xNy4yMDVDMzIxLjc0NiwyMy43MDQsMjYxLjYxMSwwLDIxMy4wNTUsMCAgIEMxNDguMDU0LDAsNzYuNDYzLDQzLjU4Niw2Ni45MDUsMTMzLjQyN3YxOC4zNTVjMCwwLjc2NiwwLjI2NCw3LjY0NywwLjYzOSwxMS4wODljNS4zNTgsNDIuODE2LDM5LjE0Myw4OC4zMiw2NC4zNzUsMTMxLjEzNiAgIGMyNy4xNDYsNDUuODczLDU1LjMxNCw5MC45OTksODMuMjIxLDEzNi4xMDZjMTcuMjA4LTI5LjQzNiwzNC4zNTQtNTkuMjU5LDUxLjE3LTg3LjkzM2M0LjU4My04LjQxNSw5LjkwMy0xNi44MjUsMTQuNDkxLTI0Ljg1NyAgIGMzLjA1OC01LjM0OCw4LjktMTAuNjk2LDExLjU2OS0xNS42NzJjMjcuMTQ1LTQ5LjY5OSw3MC44MzgtOTkuNzgyLDcwLjgzOC0xNDkuMTA0di0yMC4yNjIgICBDMzYzLjIwOSwxMjYuOTM4LDM1Ni41ODEsMTA4LjIwNCwzNTYuMjA4LDEwNy4wNTF6IE0yMTQuMjQ1LDE5OS4xOTNjLTE5LjEwNywwLTQwLjAyMS05LjU1NC01MC4zNDQtMzUuOTM5ICAgYy0xLjUzOC00LjItMS40MTQtMTIuNjE3LTEuNDE0LTEzLjM4OHYtMTEuODUyYzAtMzMuNjM2LDI4LjU2LTQ4LjkzMiw1My40MDYtNDguOTMyYzMwLjU4OCwwLDU0LjI0NSwyNC40NzIsNTQuMjQ1LDU1LjA2ICAgQzI3MC4xMzgsMTc0LjcyOSwyNDQuODMzLDE5OS4xOTMsMjE0LjI0NSwxOTkuMTkzeiIgZmlsbD0iIzAwOGFmZiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 4px;
+    background-size: cover;
 }
 .restaurants-filtr__item-city:after {
   content: '';
@@ -2710,6 +2712,14 @@ textarea:focus:-ms-input-placeholder {
     color: #757575;
     line-height: 1.35;
 }
+.header-logo img {
+    height: 98px;
+    margin-top: 6px;
+}
+.header-logo.header-logo-admin {
+    font-size: 24px;
+    line-height: 35px;
+}
 @media screen and (max-width: 1280px) {
   .header-top-line__inner,
   .header-inner,
@@ -2981,8 +2991,9 @@ textarea:focus:-ms-input-placeholder {
   }
 }
 @media screen and (max-width: 560px) {
-  .header.video-header.second-page-header {
-     height: auto; 
+.header.video-header.second-page-header {
+    height: auto;
+    margin-bottom: 0;
 }
   .icon-item {
     width: 100%;
