@@ -45,6 +45,7 @@
 					        <th>Блюда</th>
 					        <th>Время оформления</th>
 					        <th>Статус</th>
+					        <th>Оставить отзыв</th>
 					    </tr>
                         @foreach ($orders as $o)
 						    <tr>
@@ -59,6 +60,7 @@
                                 </td>
 						        <td>{{ $o->duration }}</td>
 						        <td>{{ $ar_status[$o->status_id] }}</td>
+						        <td><a href="#">+</a></td>
 						    </tr>
                         @endforeach
                     </table>

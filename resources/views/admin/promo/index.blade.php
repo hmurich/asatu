@@ -14,7 +14,7 @@
 		        <th>Применим</th>
                 <th>Кол-во</th>
 		        <th>
-                    <a href="{{ action('Admin\PromoController@getItem') }}" class="button zaka-list-button">
+                    <a href="{{ action('Admin\PromoController@getItem') }}" >
 		        		Создать
 					</a>
                 </th>

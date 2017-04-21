@@ -31,28 +31,33 @@
     							<div class="restaurant-name {{ (!$i->is_open ? 'close' : null) }}">
     								{{ $i->name }}
     							</div>
+                                <div class="restaurant-info__item">
+                                    {{ $translator->getTrans('deliv_time') }} <span>{{ $i->relData->delivery_duration }} минут</span>
+                                </div>
     							<ul class="reiting restaurant-item-box__top-reiting">
     								{!! $i->generateHtmlStar() !!}
     								<div class="reiting-text">{{ $i->raiting }}/5</div>
     							</ul>
     						</div>
     						<div class="restaurant-item-box__info">
-    							<div class="restaurant-info__item">
-    								{{ $translator->getTrans('min_order') }}: <span>{{ $i->relData->min_price }} тг</span>
-    							</div>
-    							<div class="restaurant-info__item">
-    								{{ $translator->getTrans('deliv_cost') }}:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
-    							</div>
-                                <?php
+                                <span>Кухня</span>
+                                 <?php
                                     $ar_kithen = $i->relKitchens()->select('kitchen_name')->get()->keyBy('kitchen_name')->toArray();
                                     $ar_kithen = array_keys($ar_kithen);
                                 ?>
                                 {{ implode(', ', $ar_kithen) }}
                             </div>
     						<div class="restaurant-item-box__bottom">
-    							<div class="delivery-time">
-    								{{ $translator->getTrans('deliv_time') }} <span>{{ $i->relData->delivery_duration }} минут</span>
-    							</div>
+                                <div class="restaurant-info__item">
+                                    Мин.заказ <span>{{ $i->relData->min_price }} тг</span>
+                                </div>
+                                <div class="restaurant-info__item">
+                                    Доставка:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
+                                </div>
+                                <div class="restaurant-info__item">
+                                    Акция
+                                </div>
+    							
     							<a href="{{ action('Front\Restoran\MenuController@getList', $i->id) }}" class="button restaurants-filtr__button">
     								{{ $translator->getTrans('eat_me') }}
     							</a>
