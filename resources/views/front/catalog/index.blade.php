@@ -17,7 +17,7 @@
 			@include('front.catalog.include.top_filter')
 
 			<ul class="restaurant-list">
-                @foreach ($items as $i)
+                @forelse ($items as $i)
     				<li class="restaurant-item {{ ($i->is_gold ? 'gold' : null) }} {{ (!$i->is_gold && $i->is_platinum ? 'premium' : null) }}" >
     					<div class="restaurant-item__img">
                             @if ($i->logo)
@@ -59,7 +59,9 @@
     						</div>
     					</div>
     				</li>
-                @endforeach
+                @empty
+                	<p>По вашему запросу не найдено заведений</p>
+                @endforelse
 			</ul>
 		</div>
 	</div>

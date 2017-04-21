@@ -27,7 +27,7 @@
 
         <div class="restaurants-box">
             <ul class="product-list">
-                @foreach ($items as $i)
+                @forelse ($items as $i)
                     <li>
                         <div class="product-item">
                             <div class="product-item__img">
@@ -75,7 +75,9 @@
                             </button>
                         </div>
                     </li>
-                @endforeach
+                @empty
+                	<p>По вашему запросу не найдено блюд</p>
+                @endforelse
             </ul>
         </div>
     </div>
