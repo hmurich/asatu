@@ -60,7 +60,7 @@
                                 </td>
 						        <td>{{ $o->duration }}</td>
 						        <td>{{ $ar_status[$o->status_id] }}</td>
-						        <td><a href="{{ action('Customer\CabinetController@postReview', $o->restoran_id) }}">+</a></td>
+						        <td><a href="{{ action('Customer\CabinetController@postReview', $o->restoran_id) }}" class="add-icon-reviews-admin">+</a></td>
 						    </tr>
                         @endforeach
                     </table>

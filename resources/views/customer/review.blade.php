@@ -40,15 +40,16 @@
                                 <textarea name='note'></textarea>
     						</div>
     					</div>
-    				</div>
-    				<div class="admin-edit-card__item">
-    					<div class="admin-edit-card__item-left">
-    						<button class="button">
-    							Сохранить
-    						</button>
-    					</div>
-    				</div>
+                        <div class="admin-edit-card__item">
+                        <div class="admin-edit-card__item-left">
+                            <button class="button">
+                                Сохранить
+                            </button>
+                        </div>
+                    </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    				</div>
+    				
                 </form>
 			</div>
 		</div>
