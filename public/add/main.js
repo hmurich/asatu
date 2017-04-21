@@ -114,12 +114,23 @@ $(document).ready(function() {
             if ($('.js_busket_item_li_'+menu_id).length == 0)
                 $('.js_busket_list').append('<li class="js_busket_item_li_' + menu_id + '"></li>');
 
-            $('.js_busket_item_li_'+menu_id).html( title + ' x' + count );
+            $('.js_busket_item_li_'+menu_id).html( title + ' x' + count +' <a href="#del" class="js_busket_item_li_del" data-id="'+menu_id+'" data-restoran_id="'+restoran_id+'">x</a>');
 
 
 
             console.log(data);
         });
+    });
+
+    $( "body" ).on( "click", ".js_busket_item_li_del", function() {
+        var menu_id = $(this).data('id');
+        var restoran_id = $(this).data('restoran_id');
+        var li = $(this).parent();
+
+        $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:0, cost:0}, function( data ) {
+            li.remove();
+        });
+        console.log(menu_id, restoran_id);
     });
 
     $('.js_order_href').click(function(){

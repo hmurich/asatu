@@ -61,6 +61,7 @@
                                     @if (isset($b['count']) && isset($b['cost']))
                                         <li class='js_busket_item_li_{{ $menu_id }}'>
                                             {{ $ar_menu[$menu_id] }} x{{ $b['count'] }}
+                                            <a href='#del' class="js_busket_item_li_del" data-id='{{ $menu_id }}' data-restoran_id="{{ $restoran->id }}">x</a>
                                         </li>
                                     @endif
                                 @endforeach

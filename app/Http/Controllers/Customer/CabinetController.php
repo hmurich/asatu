@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Customer;
 
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
@@ -9,6 +10,8 @@ use App\Model\Customer;
 use App\Model\Generators\OrderStatus;
 use App\Model\SysDirectoryName;
 use App\Model\Order;
+use App\Model\Restoran;
+use App\Model\Review;
 
 class CabinetController extends Controller {
     protected $auth;
@@ -35,6 +38,47 @@ class CabinetController extends Controller {
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
 
         return view('customer.index', $ar);
+    }
+
+    function getReview(Request $request, $restoran_id){
+        $restoran = Restoran::findOrFail($restoran_id);
+
+        $ar = array();
+        $ar['title'] = "Личный кабинет";
+        $ar['action'] = action('Customer\CabinetController@postReview', $restoran->id);
+
+        return view('customer.review', $ar);
+    }
+
+    function postReview(Request $request, $restoran_id){
+        $restoran = Restoran::findOrFail($restoran_id);
+        $customer = Customer::where('user_id', $this->auth->user()->id)->first();
+        if (!$customer)
+            abort(404);
+
+        DB::beginTransaction();
+
+        $item = new Review();
+        $item->user_id = $customer->user_id;
+        $item->parent_id = 0;
+        $item->restoran_id = $restoran->id;
+        $item->raiting = $request->input('raiting');
+        $item->name = $customer->name;
+        $item->note = $request->input('note');
+        $item->save();
+
+        $raiting = $restoran->relReiting;
+        $raiting->vote_count = $raiting->vote_count + 1;
+        $raiting->vote_sum = $raiting->vote_sum + $item->raiting;
+        $raiting->vote_avg = $raiting->vote_sum/$raiting->vote_count;
+        $raiting->save();
+
+        $restoran->raiting = round($raiting->vote_avg, 2);
+        $restoran->save();
+
+        DB::commit();
+
+        return redirect()->action('Customer\CabinetController@getCabinet')->with('success', 'Сохранено');
     }
 
     function getEdit(Request $request){

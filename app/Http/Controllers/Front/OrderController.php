@@ -62,7 +62,7 @@ class OrderController extends Controller{
 
         $area = UserArea::getCloser($restoran, $location);
         if (!$area)
-            abort(404);
+            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Вне зоны доставки');
 
         DB::beginTransaction();
         $busket = OrderBusket::getOrder($restoran->id);
@@ -71,20 +71,27 @@ class OrderController extends Controller{
         if (!$user){
             $password = rand(100000, 999999);
 
-            if (User::where('email', $request->input('email'))->count() > 0)
-                return back()->with('error', 'Почтовый адрес уже зарегистрирован');
 
-            $user = new User();
-            $user->email = $request->input('email');
-            $user->password = Hash::make($password);
-            $user->type_id = 4;
-            $user->save();
+            $user = User::where('email', $request->input('email'))->first();
+            $customer = false;
+            if (!$user){
+                $user = new User();
+                $user->email = $request->input('email');
+                $user->password = Hash::make($password);
+                $user->type_id = 4;
+                $user->save();
 
-            $user->sendPasswordToEmail($password);
+                $user->sendPasswordToEmail($password);
+            }
 
-            $customer = new Customer();
-            $customer->user_id = $user->id;
-            $customer->save();
+            if (!$customer)
+                $customer = Customer::where('user_id', $user->id)->first();
+
+            if (!$customer){
+                $customer = new Customer();
+                $customer->user_id = $user->id;
+                $customer->save();
+            }
 
             Auth::loginUsingId($user->id);
         }

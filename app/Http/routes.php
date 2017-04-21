@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth.admin']], function () {
 // Moderator Controllers
 Route::group(['middleware' => ['auth.moderator']], function () {
     Route::controller('moderator', 'Moderator\CabinetController');
-    
+
     Route::controller('adminka/sale', 'Admin\SaleController');
 
     Route::controller('adminka/menu-type', 'Admin\MenuTypeController');
