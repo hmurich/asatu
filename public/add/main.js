@@ -150,6 +150,12 @@ $(document).ready(function() {
         var li = $(this).parent();
 
         $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:0, cost:0}, function( data ) {
+            if (data == 'none')
+                return false;
+
+            $('.js_order_href').data('current', data);
+            $('.js_total_cost').html(data);
+
             li.remove();
         });
         console.log(menu_id, restoran_id);
