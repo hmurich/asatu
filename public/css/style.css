@@ -771,21 +771,9 @@ a.side-bar-box:hover {
 .admin-content__body table { 
 /* margin-top: 25px; */ 
 }
-.log-out:hover {
-  font-size: 0;
-}
-.header-enter.log-out {
-  width: 86px;
-}
-.log-out:hover:before {
-    display: inline-block;
-    font-size: 12px;
-}
-.log-out:before {
-  content: "Выйти";
-  display: inline-block;
-  display: none;
-}
+
+
+
 .autor-review {
   padding: 14px 14px;
   background: #fff;
@@ -1181,6 +1169,17 @@ a.side-bar-box:hover {
   top: 50%;
   margin-top: -11px;
 }
+.table-item.password.password-icon {
+    padding: 0;
+    display: block;
+    float: none;
+    margin-bottom: 5px;
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDUxNi4zNzUgNTE2LjM3NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTE2LjM3NSA1MTYuMzc1OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTM1My44MTIsMEMyNjMuOTI1LDAsMTkxLjI1LDcyLjY3NSwxOTEuMjUsMTYyLjU2MmMwLDE5LjEyNSwzLjgyNSwzOC4yNSw5LjU2Miw1Ny4zNzVMMCw0MjAuNzV2OTUuNjI1aDk1LjYyNVY0NTlIMTUzICAgdi01Ny4zNzVoNTcuMzc1bDg2LjA2Mi04Ni4wNjJjMTcuMjEzLDUuNzM3LDM2LjMzOCw5LjU2Miw1Ny4zNzUsOS41NjJjODkuODg4LDAsMTYyLjU2Mi03Mi42NzUsMTYyLjU2Mi0xNjIuNTYyUzQ0My43LDAsMzUzLjgxMiwwICAgeiBNNDAxLjYyNSwxNzIuMTI1Yy0zMi41MTMsMC01Ny4zNzUtMjQuODYyLTU3LjM3NS01Ny4zNzVzMjQuODYyLTU3LjM3NSw1Ny4zNzUtNTcuMzc1UzQ1OSw4Mi4yMzcsNDU5LDExNC43NSAgIFM0MzQuMTM4LDE3Mi4xMjUsNDAxLjYyNSwxNzIuMTI1eiIgZmlsbD0iIzAwOGFmZiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+    border: none;
+}
 .table-body {
   overflow: hidden;
 }
@@ -1471,8 +1470,9 @@ table tr th:last-child a {
   float: left;
 }
 .zaka-list-button {
-  padding: 7px 12px;
-  float: right;
+    padding: 7px 12px;
+    float: right;
+    margin-left: 7px;
 }
 .checkout-content {
   width: 80%;
