@@ -721,8 +721,9 @@ a.side-bar-box:hover {
   margin-left: 290px;
 }
 .restaurants-filtr__button--city {
-  float:right;
-  padding: 10px 34px;
+    float: right;
+    padding: 10px 34px;
+    margin-bottom: 5px;
 }
 .restaurants-filtr__item {
   text-transform: uppercase;
@@ -782,12 +783,29 @@ a.side-bar-box:hover {
 }
 .restaurants-filtr__item-city {
   position: relative;
+  padding-bottom: 0;
 }
 .restaurants-filtr__item-city span {
     float: left;
-    margin-top: 4px;
+    margin-top: 15px;
     display: block;
-    line-height: 28px;
+    line-height: 31px;
+    padding-right: 35px;
+    position: relative;
+    line-height: 1.2;
+    color: #ffc713;
+    text-transform: initial;
+    font-weight: bold;
+}
+.restaurants-filtr__item-city span:after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQzMC4xMTQgNDMwLjExNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMwLjExNCA0MzAuMTE0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IkZhY2Vib29rX1BsYWNlcyIgZD0iTTM1Ni4yMDgsMTA3LjA1MWMtMS41MzEtNS43MzgtNC42NC0xMS44NTItNi45NC0xNy4yMDVDMzIxLjc0NiwyMy43MDQsMjYxLjYxMSwwLDIxMy4wNTUsMCAgIEMxNDguMDU0LDAsNzYuNDYzLDQzLjU4Niw2Ni45MDUsMTMzLjQyN3YxOC4zNTVjMCwwLjc2NiwwLjI2NCw3LjY0NywwLjYzOSwxMS4wODljNS4zNTgsNDIuODE2LDM5LjE0Myw4OC4zMiw2NC4zNzUsMTMxLjEzNiAgIGMyNy4xNDYsNDUuODczLDU1LjMxNCw5MC45OTksODMuMjIxLDEzNi4xMDZjMTcuMjA4LTI5LjQzNiwzNC4zNTQtNTkuMjU5LDUxLjE3LTg3LjkzM2M0LjU4My04LjQxNSw5LjkwMy0xNi44MjUsMTQuNDkxLTI0Ljg1NyAgIGMzLjA1OC01LjM0OCw4LjktMTAuNjk2LDExLjU2OS0xNS42NzJjMjcuMTQ1LTQ5LjY5OSw3MC44MzgtOTkuNzgyLDcwLjgzOC0xNDkuMTA0di0yMC4yNjIgICBDMzYzLjIwOSwxMjYuOTM4LDM1Ni41ODEsMTA4LjIwNCwzNTYuMjA4LDEwNy4wNTF6IE0yMTQuMjQ1LDE5OS4xOTNjLTE5LjEwNywwLTQwLjAyMS05LjU1NC01MC4zNDQtMzUuOTM5ICAgYy0xLjUzOC00LjItMS40MTQtMTIuNjE3LTEuNDE0LTEzLjM4OHYtMTEuODUyYzAtMzMuNjM2LDI4LjU2LTQ4LjkzMiw1My40MDYtNDguOTMyYzMwLjU4OCwwLDU0LjI0NSwyNC40NzIsNTQuMjQ1LDU1LjA2ICAgQzI3MC4xMzgsMTc0LjcyOSwyNDQuODMzLDE5OS4xOTMsMjE0LjI0NSwxOTkuMTkzeiIgZmlsbD0iIzAwOGFmZiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 .restaurants-filtr__item-city:after {
   content: '';
@@ -836,14 +854,25 @@ a.side-bar-box:hover {
   float: left;
 }
 .restaurant-item-box {
-  margin-left: 240px;
+    margin-left: 240px;
+    position: relative;
+    min-height: 151px;
+    box-sizing: border-box;
+    padding-bottom: 54px;
+}
+.restaurant-item-box__bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
 }
 .restaurant-item-box__top {
-  padding-right: 126px;
-  position: relative;
-  color: #000000;
-  font-size: 18px;
-  margin-bottom: 8px;
+    padding-right: 126px;
+    position: relative;
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 .restaurant-item-box__info {
   color: #757575;
@@ -906,10 +935,20 @@ a.side-bar-box:hover {
     font-size: 14px;
     line-height: 1.2;
     margin-bottom: 7px;
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+}
+.restaurant-item-box__top .restaurant-info__item {
+    float: right;
+    text-align: center;
+    margin-right: 25px;
 }
 .restaurant-info__item span {
   font-weight: bold;
   color: #008aff;
+  display: block;
+
 }
 .restaurant-info__item-second-page {
   display: inline-block;
@@ -2990,10 +3029,14 @@ textarea:focus:-ms-input-placeholder {
   .index-card-list li {
     width: 100%;
   }
-  .restaurant-item-box__top {
+.restaurant-item-box__top {
     padding-right: 0;
-    padding-bottom: 18px;
-  }
+    position: relative;
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 0;
+    overflow: hidden;
+}
   .restaurant-name {
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -3021,7 +3064,12 @@ textarea:focus:-ms-input-placeholder {
     float: left;
     margin-bottom: 15px;
   }
-
+.restaurant-item-box__top .restaurant-info__item {
+    float: right;
+    text-align: center;
+    margin-right: 0;
+    text-align: right;
+}
 }
 @media screen and (max-width: 415px) {
   .header-lang {
@@ -3047,6 +3095,13 @@ textarea:focus:-ms-input-placeholder {
   .order-img img {
     width: 100%;
   }
+  .restaurant-item-box__bottom {
+    position: relative;
+    bottom: auto;
+}
+.restaurant-item-box {
+    min-height: auto;
+}
   .order-text {
     margin-left: 0;
     clear: both;
