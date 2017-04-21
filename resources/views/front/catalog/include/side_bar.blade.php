@@ -5,7 +5,7 @@
     <form action="" class="form">
         <div class="side-bar-item">
             <div class="side-bar-item__title">
-                {{ $translator->getTrans('menu_type') }}:
+                Кухни:
             </div>
             <div class="side-bar-box">
                 @foreach ($ar_kitchen as $id=>$name)
@@ -25,10 +25,10 @@
                     </div>
             </div>
         </div>
-      
+
         <div class="side-bar-item">
             <div class="side-bar-item__title">
-                {{ $translator->getTrans('sum_order') }}:
+                Мин.сумма заказа:
             </div>
             <div class="side-bar-form">
                 <div class="side-bar-box">
@@ -68,7 +68,7 @@
                 <input type='text' name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" placeholder="Имя блюда">
 
                 <button class="button">
-                    {{ $translator->getTrans('show') }}
+                    применить
                 </button>
             </div>
         </div>
