@@ -35,12 +35,15 @@ class CatalogController extends Controller{
                     $q->where('delivery_price', 0);
                 });
 
+            if ($request->has('k_name') && trim($request->input('k_name')) != '')
+                $items = $items->whereHas('relMenu', function($q) use ($request){
+                    $q = $q->where('title', 'like', '%'.$request->input('k_name').'%');
+                });
+
             if (count($request->input('kitchen')) > 0){
                 $ar_kitchen = $request->input('kitchen');
-                $items = $items->whereHas('relMenu', function($q) use ($ar_kitchen, $request){
-                    $q = $q->whereIn('cat_id', $ar_kitchen);
-                    if ($request->has('k_name'))
-                        $q = $q->where('title', 'like', '%'.$name.'%');
+                $items = $items->whereHas('relKitchens', function($q) use ($ar_kitchen, $request){
+                    $q = $q->whereIn('kitchen_id', $ar_kitchen);
                 });
             }
         }
