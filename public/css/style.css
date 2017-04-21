@@ -2720,6 +2720,10 @@ textarea:focus:-ms-input-placeholder {
     font-size: 24px;
     line-height: 35px;
 }
+.restaurants-filtr__item__mobile--show.button {
+    float: right;
+    display: none;
+}
 @media screen and (max-width: 1280px) {
   .header-top-line__inner,
   .header-inner,
@@ -2747,6 +2751,9 @@ textarea:focus:-ms-input-placeholder {
     margin-left: 31%;
     width: 68%;
   }
+  .restaurants-filtr__item__mobile--show.button {
+    display: block;
+}
   .side-bar {
     display: block;
     position: absolute;
@@ -2765,14 +2772,41 @@ textarea:focus:-ms-input-placeholder {
   .side-bar.show {
     width: 100%;
   }
+  .restaurants-filtr__item.restaurants-filtr__item--bot {
+    position: absolute;
+    top: -65px;
+    width: 100%;
+}
+.restaurants-filtr__item__mobile {
+    position: absolute;
+    display: none;
+    top: 56px;
+    background: #fff;
+    padding: 10px;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.akci-checkbox {
+    display: none;
+}
   .restaurants-box {
     margin-left: 0;
+    position: relative;
   }
-  .side-bar__show {
-    display: block;
-    width: 100%;
+  .restaurants-filtr__item__mobile--show.button {
+    float: right;
+}
+  .restaurants-filtr__item input {
+    height: 34px;
+    width: 85%;
+}
+.side-bar__show {
+    display: inline-block;
+    width: 140px;
     margin: 0 auto 25px;
-  }
+    z-index: 999;
+}
   .side-bar__show:hover {
     -webkit-transform: scale(1);
        -moz-transform: scale(1);
@@ -2780,6 +2814,7 @@ textarea:focus:-ms-input-placeholder {
          -o-transform: scale(1);
             transform: scale(1);
   }
+
   .restaurant-info__item-second-page {
     display: block;
   }
@@ -2809,6 +2844,13 @@ textarea:focus:-ms-input-placeholder {
       margin-top: 37px;
       margin-left: 110px;
   }
+.restaurants-filtr__item.restaurants-filtr__item--bot {
+    position: absolute;
+    top: -65px;
+    width: 100%;
+    /* float: right; */
+    z-index: 5;
+}
 }
 @media screen and (max-width: 850px) {
   .index-card-list {

@@ -10,6 +10,8 @@
 
     <form action='{{ action('Front\CatalogController@getList') }}' method="get">
         <div class="restaurants-filtr__item restaurants-filtr__item--bot">
+            <div class="restaurants-filtr__item__mobile--show button">Пойск</div>
+            <div class="restaurants-filtr__item__mobile">
             <input type="text" name='name' value='{{ (isset($ar_input["name"]) ? $ar_input["name"] : null) }}' placeholder="Введите ресторан	" required="">
             @if (isset($ar_input["name"]))
                 <div class="sort-reiting">
@@ -35,6 +37,7 @@
             <button class="button restaurants-filtr__button" type='submit'>
                 {{ $translator->getTrans('find') }}
             </button>
+            </div>
         </div>
 
     </form>
