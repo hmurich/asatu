@@ -20,7 +20,7 @@
         <div class="header-enter">
             @if (Auth::guest())
                 <a href="#modal_registr" class="header-enter__button-reg open_modal">{{ $translator->getTrans('registr_button') }}</a>
-                <a href="#modal_login" class="header-enter__button-enter open_modal">{{ $translator->getTrans('enter_button') }}</a>
+                <a href="#modal_login" class="header-enter__button-enter open_modal js_open_modal_login">{{ $translator->getTrans('enter_button') }}</a>
             @else
                 @if (Auth::user()->type_id == 1)
                     <a href="{{ action('Admin\IndexController@getIndex') }}" class="header-enter__button-reg ">Личный кабинет</a>

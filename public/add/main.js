@@ -1,9 +1,31 @@
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 $(document).ready(function() {
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
+    //getUrlParameter open modal
+    if (getUrlParameter('login')){
+        $('#overlay').css('display', 'block');
+        $('#modal_login').css('display', 'block');
+        $('#modal_login').css('opacity', '1');
+    }
 
     // autocompie js_find_address
     if ($(".js_find_address").length > 0){
