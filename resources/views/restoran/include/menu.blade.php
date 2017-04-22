@@ -20,4 +20,7 @@
     <li class='{{ (Request::is('cabinet/history/list') ? "active" : null) }}'>
         <a href="{{ action('Restoran\HistoryController@getList') }}">ИСТОРИЯ</a>
     </li>
+    <li class='{{ (Request::is('cabinet/ticket/list') ? "active" : null) }}'>
+        <a href="{{ action('Restoran\TicketController@getList') }}">ТИКЕТЫ</a>
+    </li>
 </ul>

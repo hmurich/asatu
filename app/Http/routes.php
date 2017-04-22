@@ -63,6 +63,7 @@ Route::group(['middleware' => ['auth.restoran']], function () {
     Route::controller('cabinet/menu', 'Restoran\MenuController');
     Route::controller('cabinet/info', 'Restoran\RestoranController');
     Route::controller('cabinet/history', 'Restoran\HistoryController');
+    Route::controller('cabinet/ticket', 'Restoran\TicketController');
 
 });
 
