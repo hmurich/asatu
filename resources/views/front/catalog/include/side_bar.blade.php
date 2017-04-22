@@ -21,8 +21,8 @@
 
                 @endforeach
                 <div class="side-bar-box__item-search">
-                       <input type="text" placeholder="Поиск блюда...">
-                    </div>
+                   <input type="text" placeholder="Поиск блюда..." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
+                </div>
             </div>
         </div>
 
@@ -65,7 +65,7 @@
             </div>
             <div class="side-bar-item-button--container">
 
-                <input type='text' name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" placeholder="Имя блюда">
+
 
                 <button class="button">
                     применить
