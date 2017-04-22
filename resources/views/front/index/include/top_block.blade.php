@@ -6,7 +6,7 @@
         <form action="{{ action('Front\CatalogController@postAddress') }}" method="post">
             <div class="header-form__item">
                 <select name="city_id" class='js_find_address_city_id' required="">
-                    <option value="0">{{ $translator->getTrans('city') }}</option>
+                    <!-- <option value="0">{{ $translator->getTrans('city') }}</option> -->
                     @foreach ($ar_city as $id=>$name)
                         <option value="{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</option>
                     @endforeach
@@ -28,5 +28,5 @@
 </div>
 
 <div class="video-container">
-    
+
 </div>

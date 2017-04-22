@@ -37,9 +37,11 @@
     <div class="basket-itog__item">
         {{ $translator->getTrans('total_sum') }}: <span class='js_promo_total_sum' data-delivery="{{ $area->cost }}">{{ ($busket['total_cost'] + $area->cost) }}тг</span>
     </div>
+    <!--
     <div class="basket-itog__item">
         {{ $translator->getTrans('promo_key') }}: <span class='js_promo_key_val'></span>
     </div>
+    -->
     <div class="basket-itog__item">
         {{ $translator->getTrans('order_type') }}: <span>{{ $translator->getTrans('cash_to_curier') }}</span>
     </div>
