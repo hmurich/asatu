@@ -81,7 +81,7 @@ class OrderController extends Controller{
                 $user->type_id = 4;
                 $user->save();
 
-                $user->sendPasswordToEmail($password);
+                //$user->sendPasswordToEmail($password);
             }
 
             if (!$customer)

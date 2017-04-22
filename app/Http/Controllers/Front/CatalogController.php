@@ -8,12 +8,15 @@ use App\Model\SysDirectoryName;
 use App\Model\Restoran;
 use App\Model\Generators\UserRestoran;
 
+use App\Model\Generators\PointInArea;
+use App\Model\RestoranArea;
+
 class CatalogController extends Controller{
     function getList (Request $request) {
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
-        $ar_restoran = UserRestoran::getAr();
+        $ar_restoran = $this->getAr();
 
         $items = Restoran::where('id', '>', 0);
         $items = $items->whereIn('id', $ar_restoran);
@@ -92,7 +95,7 @@ class CatalogController extends Controller{
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
 
-        $res_restoran = UserRestoran::generateAr($location->city_id, array($location->lat, $location->lng));
+        $res_restoran = $this->generateAr($location->city_id, array($location->lat, $location->lng));
         if (!$res_restoran)
            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
 
@@ -101,5 +104,44 @@ class CatalogController extends Controller{
 
     function getAddress(){
         return redirect()->action('Front\CatalogController@getList');
+    }
+
+    function generateAr($city_id, $ar_coords){
+        if (!is_array($ar_coords) || count($ar_coords) != 2)
+            return false;
+
+        $pointLocation = new PointInArea();
+
+        $point = implode(" ", $ar_coords);
+
+        $ar_restoran_area = RestoranArea::whereHas('relRestoran', function($q) use ($city_id){
+                $q->where('city_id', $city_id);
+            })->lists('restoran_id', 'id');
+
+        $items = RestoranArea::whereHas('relRestoran', function($q) use ($city_id){
+                $q->where('city_id', $city_id);
+            })->lists('find_coords', 'id');
+
+        $ar_restoran = array();
+        foreach ($items as $area_id=>$coords) {
+            $polygon =  explode(",", $coords);
+            if ($pointLocation->pointInPolygon($point, $polygon))
+                $ar_restoran[] = $ar_restoran_area[$area_id];
+        }
+
+        session()->forget('ar_restoran');
+
+        foreach ($ar_restoran as $id){
+            session()->push('ar_restoran', $id);
+        }
+
+        return true;
+    }
+
+     function getAr(){
+        if (!session()->has('ar_restoran'))
+            return false;
+
+        return session()->get('ar_restoran');
     }
 }

@@ -10,8 +10,13 @@ use App\Model\SysDirectoryName;
 use App\Model\Generators\PointInArea;
 use App\Model\Generators\GeoLocator;
 use App\Model\MailSend;
+use App\Model\Generators\SmsSend;
 
 class TestController extends Controller{
+    function getSms(){
+        SmsSend::sendTest('77712714918');
+        //SmsSend::sendTest('+77750265836');
+    }
     function getSendMail(){
         MailSend::send('hmurich@mail.ru', 'Привет', 'Текст письма');
     }
