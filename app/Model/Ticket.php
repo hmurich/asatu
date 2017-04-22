@@ -16,8 +16,8 @@ class Ticket extends Model{
     static function getStatusAr(){
         return array(
             0 => 'Создан',
-            0 => 'В обработке',
-            0 => 'Закрыт',
+            1 => 'В обработке',
+            2 => 'Закрыт',
         );
     }
 }

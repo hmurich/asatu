@@ -46,6 +46,9 @@
         <li class='{{ (Request::is('adminka/registr-restoran/list') ? "active" : null) }}'>
             <a href="{{ action('Admin\RegistrRestoranController@getList') }}">заявки</a>
         </li>
+        <li class='{{ (Request::is('adminka/ticket/list') ? "active" : null) }}'>
+            <a href="{{ action('Admin\TicketController@getList') }}">тикеты</a>
+        </li>
         <li class='{{ (Request::is('moderator/cabinet') ? "active" : null) }}'>
             <a href="{{ action('Moderator\CabinetController@getCabinet') }}">Кабинет</a>
         </li>
