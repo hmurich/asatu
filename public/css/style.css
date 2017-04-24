@@ -30,11 +30,32 @@ body {
   height: 100%;
 }
 body.second-page {
-  background-color: #f4f0d9;
-  float: left;
-  width: 100%;
-  min-height: 100%;
-  height: auto;
+    background-color: #f4f0d9;
+    float: left;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -ms-flex: auto;
+    -webkit-box-flex: 1;
+    flex: auto;
+    /* background-color: #f2f2f2; */
+}
+body.second-page .container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    -ms-flex-positive: 1;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    box-sizing: border-box;
+    max-width: 1900px;
 }
 .add-bludo {
   float: right;
@@ -353,12 +374,12 @@ body.second-page {
   text-indent: 15px;
 }
 .header-form__item input {
-  width: 230px;
-  height: 37px;
-  text-indent: 15px;
-  font-size: 12px;
-  border: 1px solid #eeeeee;
-  color: #727272;
+    width: 230px;
+    height: 35px;
+    text-indent: 15px;
+    font-size: 12px;
+    border: 1px solid #eeeeee;
+    color: #727272;
 }
 input::-webkit-input-placeholder {
   color: #000;
@@ -1920,7 +1941,7 @@ textarea:focus:-ms-input-placeholder {
   overflow: auto;
 }
 #modal_registr {
-  height: 332px;
+    height: 450px;
 }
 .modal_div.registar-zav {
   height: 450px;
@@ -2667,9 +2688,12 @@ textarea:focus:-ms-input-placeholder {
     padding-left: 15px;
     position: relative;
     font-size: 13px;
-    color: #008aff;
+    color: #727272;
     cursor: pointer;
     line-height: 15px;
+}
+.side-bar-box__item-search {
+    margin-top: 15px;
 }
 .akci-checkbox label:before {
     content: "";
@@ -2749,6 +2773,26 @@ textarea:focus:-ms-input-placeholder {
     background-image: url(../images/add.png);
     background-size: contain;
     margin: 0 auto;
+}
+.pagination li {
+    display: inline-block;
+    margin: 15px 5px;
+}
+.pagination {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.pagination li.active span,.pagination li a:hover {
+    color: #008aff;
+    text-decoration: none;
+}
+.pagination li:last-child a,.pagination li:first-child a {
+    text-decoration: none;
+}
+.pagination li a {
+    color: #434343;
 }
 @media screen and (max-width: 1280px) {
   .header-top-line__inner,
