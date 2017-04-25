@@ -1,15 +1,19 @@
-<div class="checkout-content__right">
-    <div class="checkout-body">
-        <div class="checkout-body__titel">
-            {{ $translator->getTrans('alread_regstr') }}
-        </div>
-        <div class="checkout-body__content">
-            <a href="#modal_login" class="button checkout-button open_modal">
-                {{ $translator->getTrans('enter_cabinet') }}
-            </a>
+
+@if ($user)
+    <div class="checkout-content__right">
+        <div class="checkout-body">
+            <div class="checkout-body__titel">
+                {{ $translator->getTrans('alread_regstr') }}
+            </div>
+            <div class="checkout-body__content">
+                <a href="#modal_login" class="button checkout-button open_modal">
+                    {{ $translator->getTrans('enter_cabinet') }}
+                </a>
+            </div>
         </div>
     </div>
-</div>
+@endif
+
 <div class="checkout-content__left">
     <div class="checkout-body">
         <div class="checkout-body__titel">
