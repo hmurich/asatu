@@ -32,7 +32,13 @@
     								{{ $i->name }}
     							</div>
                                 <div class="restaurant-info__item">
-                                    {{ $translator->getTrans('deliv_time') }} <span>{{ $i->relData->delivery_duration }} минут</span>
+                                    {{ $translator->getTrans('deliv_time') }} <span>
+                                        @if (isset($ar_delivery[$i->id]) && $ar_delivery[$i->id])
+                                            {{ $ar_delivery[$i->id][0] }}
+                                        @else
+                                            30 минут
+                                        @endif
+                                    </span>
                                 </div>
     							<ul class="reiting restaurant-item-box__top-reiting">
     								{!! $i->generateHtmlStar() !!}
@@ -57,7 +63,7 @@
                                 <div class="restaurant-info__item">
                                     Акция
                                 </div>
-    							
+
     							<a href="{{ action('Front\Restoran\MenuController@getList', $i->id) }}" class="button restaurants-filtr__button">
     								{{ $translator->getTrans('eat_me') }}
     							</a>

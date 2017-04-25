@@ -67,21 +67,20 @@ class OrderController extends Controller{
         DB::beginTransaction();
         $busket = OrderBusket::getOrder($restoran->id);
 
+        $email = false;
+
         $user = Auth::user();
         if (!$user){
             $password = rand(100000, 999999);
-
 
             $user = User::where('email', $request->input('email'))->first();
             $customer = false;
             if (!$user){
                 $user = new User();
-                $user->email = $request->input('email');
+                $user->email = time().rand(1000000, 999999999).'@rand.rand';
                 $user->password = Hash::make($password);
                 $user->type_id = 4;
                 $user->save();
-
-                //$user->sendPasswordToEmail($password);
             }
 
             if (!$customer)
@@ -93,10 +92,14 @@ class OrderController extends Controller{
                 $customer->save();
             }
 
-            Auth::loginUsingId($user->id);
+            $email = $request->input('email');
+            //Auth::loginUsingId($user->id);
         }
-        else
+        else{
             $customer = Customer::where('user_id', $user->id)->first();
+            $email = $user->email;
+        }
+
 
         if (!$customer){
             DB::rollback();
@@ -128,7 +131,7 @@ class OrderController extends Controller{
                 $order->total_sum = $promo;
             }
         }
-
+        $order->email = $email;
         $order->count_person = $customer->count_person;
         $order->note = $request->input('note');
         $order->save();
@@ -149,7 +152,7 @@ class OrderController extends Controller{
 
         OrderBusket::forgetOrder($restoran->id);
 
-        return redirect()->action('Customer\CabinetController@getCabinet')->with('success', 'Заказ принят');
+        return redirect()->action('Front\IndexController@getIndex')->with('success', 'Заказ принят');
     }
 
     function postPromo(Request $request){

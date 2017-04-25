@@ -16,7 +16,10 @@ class CatalogController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+
         $ar_restoran = $this->getAr();
+        $ar_delivery = $this->getArDelivery();
+        //echo '<pre>'; print_r($ar_delivery); echo '</pre>'; exit();
 
         $items = Restoran::where('id', '>', 0);
         $items = $items->whereIn('id', $ar_restoran);
@@ -71,10 +74,10 @@ class CatalogController extends Controller{
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
+        $ar['ar_delivery'] = $ar_delivery;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
 
-        //echo '<pre>'; print($ar['ar_kitchen']); echo '</pre>'; exit();
         return view('front.catalog.index', $ar);
     }
 
@@ -119,17 +122,25 @@ class CatalogController extends Controller{
             })->lists('restoran_id', 'id');
 
         $items = RestoranArea::whereHas('relRestoran', function($q) use ($city_id){
-                $q->where('city_id', $city_id);
-            })->lists('find_coords', 'id');
+            $q->where('city_id', $city_id);
+        })->get();
 
         $ar_restoran = array();
-        foreach ($items as $area_id=>$coords) {
-            $polygon =  explode(",", $coords);
-            if ($pointLocation->pointInPolygon($point, $polygon))
-                $ar_restoran[] = $ar_restoran_area[$area_id];
+        $ar_delivery = array();
+        foreach ($items as $area_id=>$i) {
+            $polygon =  explode(",", $i->find_coords);
+            if ($pointLocation->pointInPolygon($point, $polygon)){
+                $ar_restoran[] = $ar_restoran_area[$i->id];
+                $ar_delivery[$i->restoran_id] = $i->delivery_time;
+            }
         }
 
         session()->forget('ar_restoran');
+        session()->forget('ar_delivery');
+
+        foreach ($ar_delivery as $restoran_id => $delivery_time){
+            session()->push('ar_delivery.'.$restoran_id, $delivery_time);
+        }
 
         foreach ($ar_restoran as $id){
             session()->push('ar_restoran', $id);
@@ -143,5 +154,12 @@ class CatalogController extends Controller{
             return false;
 
         return session()->get('ar_restoran');
+    }
+
+    function getArDelivery(){
+        if (!session()->has('ar_delivery'))
+            return false;
+
+        return session()->get('ar_delivery');
     }
 }
