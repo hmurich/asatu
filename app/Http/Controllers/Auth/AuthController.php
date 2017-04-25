@@ -15,7 +15,7 @@ class AuthController extends Controller {
     function postLogin(Request $request, $from = false){
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             $previousUrl = app('url')->previous();
-            
+
             if ($request->has('login'))
                 return redirect()->to($previousUrl.'?'. http_build_query(['login'=>'1']))->with('error', 'Не правильный email/пароль');
 
@@ -55,7 +55,7 @@ class AuthController extends Controller {
         else if ($user->type_id == 3)
             return redirect()->action('Restoran\OrderController@getList');
         else if ($user->type_id == 4)
-            return redirect()->action('Customer\CabinetController@getCabinet');
+            return back();
 
         abort(404);
     }
