@@ -12,8 +12,8 @@
         <div class="restaurants-filtr__item restaurants-filtr__item--bot">
             <div class="restaurants-filtr__item__mobile--show button">Пойск</div>
             <div class="restaurants-filtr__item__mobile">
-            <input type="text" name='name' value='{{ (isset($ar_input["name"]) ? $ar_input["name"] : null) }}' placeholder="Введите ресторан	" required="">
-            @if (isset($ar_input["name"]))
+            <input type="text" name='name' value='{{ (isset($ar_input["name"]) ? $ar_input["name"] : null) }}' placeholder="Введите ресторан	" >
+            @if (isset($ar_input["name"]) && $ar_input["name"])
                 <div class="sort-reiting">
                      Сортировка по рейтингу
                     <div class="sort-reiting__sub">
@@ -28,11 +28,11 @@
                          <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=0'>Цене, с большого</a>
                      </div>
                 </div>
-                
+
             @endif
             <div class="akci-checkbox">
-                <input id="checkbox-akc" type="checkbox">
-                <label for="checkbox-akc">С акцией</label>     
+                <input id="checkbox-akc" type="checkbox" value="1" name="with_sale" {{ (isset($ar_input["with_sale"]) ? 'checked' : null) }}>
+                <label for="checkbox-akc">С акцией</label>
             </div>
             <button class="button restaurants-filtr__button" type='submit'>
                 {{ $translator->getTrans('find') }}

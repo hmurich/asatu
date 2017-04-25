@@ -9,6 +9,10 @@ class Restoran extends Model{
         return round($this->raiting, 2);
     }
 
+    function relSale(){
+        return $this->hasMany('App\Model\Sale', 'restoran_id');
+    }
+
     function relMenu(){
         return $this->hasMany('App\Model\Menu', 'restoran_id');
     }

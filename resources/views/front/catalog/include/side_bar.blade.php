@@ -33,7 +33,7 @@
             <div class="side-bar-form">
                 <div class="side-bar-box">
                     <div id="slider-range"></div>
-                    <input type="hidden" id="amount" name='amount_price' readonly style="border:0; color:#f6931f; font-weight:bold;"
+                    <input type="hidden" id="amount" name='amount_price'  style="border:0; color:#f6931f; font-weight:bold;"
                         value='{{ (isset($ar_input["amount"]) ? $ar_input["amount"] : null) }}'>
 
                     <div class="min-price"></div>

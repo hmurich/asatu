@@ -56,6 +56,8 @@ class Order extends Model{
         return $this->belongsTo('App\Model\Restoran', 'restoran_id');
     }
 
+    
+
     function relItems(){
         return $this->hasMany('App\Model\OrderItem', 'order_id');
     }
