@@ -9,6 +9,13 @@ class Restoran extends Model{
         return round($this->raiting, 2);
     }
 
+    static function getDeliveryTypeAr(){
+        return array(
+            0 => 'Своя',
+            1 => 'От Асакелу'
+        );
+    }
+
     function relSale(){
         return $this->hasMany('App\Model\Sale', 'restoran_id');
     }

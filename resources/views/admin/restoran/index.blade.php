@@ -35,7 +35,7 @@
         @foreach($items as $i)
     		<li>
     			<div class="zaka-list-name">
-    				{{ $i->name }}
+    				{{ $i->name }}/{{ $ar_city[$i->city_id] }}/{{ $ar_delivery_type_ar[$i->delivery_type] }}
     			</div>
                 <a href="{{ action("Admin\RestoranController@getOpen", $i->id) }}" class="button zaka-list-button">
                     @if ($i->is_open)

@@ -50,6 +50,23 @@
                 </div>
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
+                        Тип доставки:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <select name="delivery_type" required="">
+                            @foreach ($ar_delivery_type_ar as $id=>$name)
+                                @if ($item && $item->delivery_type == $id)
+                                    <option value="{{ $id }}" selected="selected">{{ $name }}</option>
+                                @else
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                @endif
+                            @endforeach
+						</select>
+    				</div>
+                </div>
+
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
                         Время работы (начало):
                     </div>
                     <div class="admin-edit-card__item__right">

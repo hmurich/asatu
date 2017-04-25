@@ -36,6 +36,7 @@ class EditController extends Controller{
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
         $ar['ar_for_admin_select'] = array('Процент'=>'Процент', 'Тенге'=>'Тенге');
+        $ar['ar_delivery_type_ar'] = Restoran::getDeliveryTypeAr();
 
         return view('admin.restoran.edit', $ar);
     }
@@ -83,6 +84,7 @@ class EditController extends Controller{
         $item->is_platinum = $request->input('is_platinum');
         $item->betin_time = $request->input('betin_time');
         $item->end_time = $request->input('end_time');
+        $item->delivery_type = $request->input('delivery_type');
         $item->save();
 
         RestoranKicthen::where('restoran_id', $item->id)->delete();
