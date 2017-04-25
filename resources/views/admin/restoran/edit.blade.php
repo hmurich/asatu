@@ -19,7 +19,7 @@
                             Email:
                         </div>
                         <div class="admin-edit-card__item__right">
-                            <input type="email" name='email' placeholder="Email">
+                            <input type="email" name='email' placeholder="Email" required="">
                         </div>
                     </div>
                     <div class="admin-edit-card__item">
@@ -27,7 +27,7 @@
                             Пароль:
                         </div>
                         <div class="admin-edit-card__item__right">
-                            <input type="password" name='password' placeholder="Пароль">
+                            <input type="password" name='password' placeholder="Пароль" required="">
                         </div>
                     </div>
                 @endif
@@ -36,7 +36,7 @@
                         Город:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <select name="city_id" >
+                        <select name="city_id" required="">
                             <option value="">город</option>
                             @foreach ($ar_city as $id=>$name)
                                 @if ($item && $item->city_id == $id)
@@ -50,10 +50,36 @@
                 </div>
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
+                        Время работы (начало):
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="time" name='betin_time' value='{{ $item ? $item->betin_time : null }}' placeholder="Время работы (начало)" required="">
+                    </div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Время работы (окончания):
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="time" name='end_time' value='{{ $item ? $item->end_time : null }}' placeholder="Время работы (окончания)" required="">
+                    </div>
+                </div>
+
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
                         Название заведения:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='name' value='{{ $item ? $item->name : null }}' placeholder="Название заведения">
+                        <input type="text" name='name' value='{{ $item ? $item->name : null }}' placeholder="Название заведения" required="">
+                    </div>
+                </div>
+
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Название заведения:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='name' value='{{ $item ? $item->name : null }}' placeholder="Название заведения" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -61,7 +87,7 @@
                         Адресс:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[address]' value='{{ $r_data ? $r_data->address : null }}'placeholder="Адресс">
+                        <input type="text" name='data[address]' value='{{ $r_data ? $r_data->address : null }}' placeholder="Адресс" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -159,7 +185,7 @@
                         Минимальная цена:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[min_price]' value='{{ $r_data ? $r_data->min_price : null }}' placeholder="Минимальная цена">
+                        <input type="text" name='data[min_price]' value='{{ $r_data ? $r_data->min_price : null }}' placeholder="Минимальная цена" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -167,7 +193,7 @@
                         Контакты:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[contacts]' value='{{ $r_data ? $r_data->contacts : null }}' placeholder="Контакты">
+                        <input type="text" name='data[contacts]' value='{{ $r_data ? $r_data->contacts : null }}' placeholder="Контакты" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -175,7 +201,7 @@
                         Ф.И.О директора:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[director_name]' value='{{ $r_data ? $r_data->director_name : null }}' placeholder="Ф.И.О директора">
+                        <input type="text" name='data[director_name]' value='{{ $r_data ? $r_data->director_name : null }}' placeholder="Ф.И.О директора" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -183,7 +209,7 @@
                         Контакты директора:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[director_contacts]' value='{{ $r_data ? $r_data->director_contacts : null }}' placeholder="Контакты директора">
+                        <input type="text" name='data[director_contacts]' value='{{ $r_data ? $r_data->director_contacts : null }}' required="" placeholder="Контакты директора">
                     </div>
                 </div>
 
@@ -192,7 +218,7 @@
                         Время работы:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[for_admin_work_time]' value='{{ $r_data ? $r_data->for_admin_work_time : null }}' placeholder="Время работы">
+                        <input type="text" name='data[for_admin_work_time]' value='{{ $r_data ? $r_data->for_admin_work_time : null }}' required="" placeholder="Время работы">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -200,7 +226,7 @@
                         Менеджер:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[for_admin_manager]' value='{{ $r_data ? $r_data->for_admin_manager : null }}' placeholder="Менеджер">
+                        <input type="text" name='data[for_admin_manager]' value='{{ $r_data ? $r_data->for_admin_manager : null }}' required="" placeholder="Менеджер">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -208,7 +234,7 @@
                         Процент/Тенге:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <select name="data[for_admin_select]" >
+                        <select name="data[for_admin_select]" required="">
                             <option value="">Процент/Тенге</option>
                             @foreach ($ar_for_admin_select as $id=>$name)
                                 @if ($r_data && $r_data->for_admin_select == $id)
@@ -225,10 +251,10 @@
                         Количество:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[for_admin_count]' value='{{ $r_data ? $r_data->for_admin_count : null }}' placeholder="Количество">
+                        <input type="text" name='data[for_admin_count]' value='{{ $r_data ? $r_data->for_admin_count : null }}' required="" placeholder="Количество">
                     </div>
                 </div>
-
+                <!--
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">
                         Краткое описание:
@@ -245,6 +271,7 @@
                         <textarea name='data[note]' placeholder='Краткий текст' class='js_redactor'>{{ $r_data ? $r_data->note : null }}</textarea>
                     </div>
                 </div>
+                -->
 
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

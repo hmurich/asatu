@@ -60,7 +60,7 @@
                                     </span> шт
                                     <input  type="hidden"
                                             class="js-count-input js_menu_item_{{ $i->id }}"
-                                            value="{{ ($busket && isset($busket[$i->id]) ? $busket[$i->id]['count'] : 0) }}"
+                                            value="{{ ($busket && isset($busket[$i->id]) ? $busket[$i->id]['count'] : 1) }}"
                                             data-id='{{ $i->id }}'
                                             data-cost='{{ $i->cost_item }}'
                                             data-restoran_id='{{ $i->restoran_id }}'

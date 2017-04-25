@@ -14,7 +14,7 @@
             @include('front.restoran.include.top_info')
         </div>
 
-        @if (isset($sale) && sale)
+        @if (isset($sale) && $sale)
             <div class="akci-second-page">
                 @include('front.restoran.include.sale')
             </div>
@@ -23,7 +23,7 @@
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
 
         <div class="restaurants-box full-width">
-            
+
 			<ul class="reviews-item__container">
                 @foreach ($items as $i)
                     <li class="reviews-item">

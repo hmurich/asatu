@@ -81,6 +81,8 @@ class EditController extends Controller{
         $item->epay = $request->input('epay');
         $item->is_gold = $request->input('is_gold');
         $item->is_platinum = $request->input('is_platinum');
+        $item->betin_time = $request->input('betin_time');
+        $item->end_time = $request->input('end_time');
         $item->save();
 
         RestoranKicthen::where('restoran_id', $item->id)->delete();

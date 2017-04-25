@@ -18,8 +18,11 @@
 
 			<ul class="restaurant-list">
                 @forelse ($items as $i)
+                    @if (!(strtotime($i->betin_time) < strtotime(date('h:i:s')) && strtotime($i->end_time) > strtotime(date('h:i:s')) ) )
+                        <?php continue; ?>
+                    @endif
     				<li class="restaurant-item {{ ($i->is_gold ? 'gold' : null) }} {{ (!$i->is_gold && $i->is_platinum ? 'premium' : null) }}" >
-    					<div class="restaurant-item__img">
+    					<div class="restaurant-item__img"  {{ $i->betin_time }}  {{ date('h:i:s') }}  {{ $i->end_time }}>
                             @if ($i->logo)
                                 <img src="{{ $i->logo }}" alt="">
                             @else
