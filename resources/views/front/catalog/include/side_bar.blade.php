@@ -18,14 +18,19 @@
 
                         <label for="kitchen_{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</label>
                     </div>
-
                 @endforeach
-                <div class="side-bar-box__item-search">
-                   <input type="text" placeholder="Поиск блюда..." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
-                </div>
             </div>
         </div>
-
+        <div class="side-bar-item">
+            <div class="side-bar-item__title">
+                Поиск блюд:
+            </div>
+            <div class="side-bar-box">
+                <div class="side-bar-box__item-search">
+                   <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
+                </div>
+            </div>
+        </div>        
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 Мин.сумма заказа:

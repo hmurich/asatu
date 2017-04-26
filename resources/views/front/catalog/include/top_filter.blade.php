@@ -17,18 +17,11 @@
                 <div class="sort-reiting">
                      Сортировка по рейтингу
                     <div class="sort-reiting__sub">
-                         <a href='?name='.$ar_input["name"].'&sort_name=raiting&sort_asc=0'>Рэйтингу</a>
-                         <a href='?name='.$ar_input["name"].'&sort_name=count_view&sort_asc=0'>Просмотрам</a>
+                         <a href='?name='.$ar_input["name"].'&sort_name=raiting&sort_asc=0'>по рейтингу</a>
+                         <a href='?name='.$ar_input["name"].'&sort_name=count_view&sort_asc=0'>По просмотрам</a>
+                         <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=1'>По цене</a>
                      </div>
                 </div>
-                <div class="sort-reiting">
-                     Сортировка по цене
-                    <div class="sort-reiting__sub">
-                         <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=1'>Цене, с малого</a>
-                         <a href='?name='.$ar_input["name"].'&sort_name=price&sort_asc=0'>Цене, с большого</a>
-                     </div>
-                </div>
-
             @endif
             <div class="akci-checkbox">
                 <input id="checkbox-akc" type="checkbox" value="1" name="with_sale" {{ (isset($ar_input["with_sale"]) ? 'checked' : null) }}>

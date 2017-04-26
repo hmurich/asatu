@@ -739,6 +739,7 @@ a.side-bar-box:hover {
   font-size: 16px;
   border: 1px solid #eeeeee;
   color: #727272;
+  margin-right:10px;
 }
 .restaurants-filtr__button {
   float: right;
@@ -788,7 +789,7 @@ a.side-bar-box:hover {
 }
 .restaurants-filtr__item-city span {
     float: left;
-    margin-top: 15px;
+    margin-top: 8px;
     display: block;
     line-height: 31px;
     padding-right: 23px;
@@ -806,7 +807,7 @@ a.side-bar-box:hover {
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQzMC4xMTQgNDMwLjExNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMwLjExNCA0MzAuMTE0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IkZhY2Vib29rX1BsYWNlcyIgZD0iTTM1Ni4yMDgsMTA3LjA1MWMtMS41MzEtNS43MzgtNC42NC0xMS44NTItNi45NC0xNy4yMDVDMzIxLjc0NiwyMy43MDQsMjYxLjYxMSwwLDIxMy4wNTUsMCAgIEMxNDguMDU0LDAsNzYuNDYzLDQzLjU4Niw2Ni45MDUsMTMzLjQyN3YxOC4zNTVjMCwwLjc2NiwwLjI2NCw3LjY0NywwLjYzOSwxMS4wODljNS4zNTgsNDIuODE2LDM5LjE0Myw4OC4zMiw2NC4zNzUsMTMxLjEzNiAgIGMyNy4xNDYsNDUuODczLDU1LjMxNCw5MC45OTksODMuMjIxLDEzNi4xMDZjMTcuMjA4LTI5LjQzNiwzNC4zNTQtNTkuMjU5LDUxLjE3LTg3LjkzM2M0LjU4My04LjQxNSw5LjkwMy0xNi44MjUsMTQuNDkxLTI0Ljg1NyAgIGMzLjA1OC01LjM0OCw4LjktMTAuNjk2LDExLjU2OS0xNS42NzJjMjcuMTQ1LTQ5LjY5OSw3MC44MzgtOTkuNzgyLDcwLjgzOC0xNDkuMTA0di0yMC4yNjIgICBDMzYzLjIwOSwxMjYuOTM4LDM1Ni41ODEsMTA4LjIwNCwzNTYuMjA4LDEwNy4wNTF6IE0yMTQuMjQ1LDE5OS4xOTNjLTE5LjEwNywwLTQwLjAyMS05LjU1NC01MC4zNDQtMzUuOTM5ICAgYy0xLjUzOC00LjItMS40MTQtMTIuNjE3LTEuNDE0LTEzLjM4OHYtMTEuODUyYzAtMzMuNjM2LDI4LjU2LTQ4LjkzMiw1My40MDYtNDguOTMyYzMwLjU4OCwwLDU0LjI0NSwyNC40NzIsNTQuMjQ1LDU1LjA2ICAgQzI3MC4xMzgsMTc0LjcyOSwyNDQuODMzLDE5OS4xOTMsMjE0LjI0NSwxOTkuMTkzeiIgZmlsbD0iIzAwOGFmZiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
     position: absolute;
     right: 0;
-    bottom: 4px;
+    bottom: 2px;
     background-size: cover;
 }
 .restaurants-filtr__item-city:after {
@@ -882,6 +883,9 @@ a.side-bar-box:hover {
   line-height: 1.2;
   margin-bottom: 10px;
 }
+.restaurant-item-box__info span{
+  font-weight:bold;
+}
 .restaurant-item-box__info p {
   margin-top: 10px;
 }
@@ -889,6 +893,7 @@ a.side-bar-box:hover {
   display: inline-block;
   position: relative;
   padding-right: 65px;
+  font-size: 20px;
 }
 .restaurant-name:after {
   content: "";
@@ -954,7 +959,7 @@ a.side-bar-box:hover {
 }
 .restaurant-info__item-second-page {
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 22px;
 }
 .delivery-time {
   font-size: 14px;
@@ -2370,6 +2375,7 @@ textarea:focus:-ms-input-placeholder {
   margin-bottom: 35px;
   font-weight: bold;
   text-transform: uppercase;
+  display:none;
 }
 .index-soc-seti__container {
   text-align: center;
@@ -2600,9 +2606,10 @@ textarea:focus:-ms-input-placeholder {
     width: 230px;
     height: 30px;
     text-indent: 15px;
-    font-size: 16px;
+    font-size: 13px;
     border: 1px solid #eeeeee;
     color: #727272;
+    text-transform:uppercase;
     background: #fff;
     line-height: 30px;
     position: relative;
@@ -2610,6 +2617,17 @@ textarea:focus:-ms-input-placeholder {
     margin-bottom: 15px;
     margin-right: 15px;
     cursor: pointer;
+}
+.sort-reiting:after{
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 7px 0 7px;
+    border-color: rgba(85, 85, 85, 0.73) transparent transparent transparent;
 }
 .sort-reiting__sub {
     position: absolute;
@@ -2656,7 +2674,6 @@ textarea:focus:-ms-input-placeholder {
     display: inline-block;
     padding: 7px 15px;
     box-sizing: border-box;
-    margin-left: 15px;
     text-decoration: none;
 }
 .akci-checkbox input {
@@ -2666,8 +2683,8 @@ textarea:focus:-ms-input-placeholder {
     display: block;
     padding-left: 15px;
     position: relative;
-    font-size: 13px;
-    color: #008aff;
+    font-size: 13px;    
+    color: #757575;
     cursor: pointer;
     line-height: 15px;
 }
