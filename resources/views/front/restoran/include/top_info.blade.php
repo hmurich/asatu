@@ -33,8 +33,10 @@
     <div class="restaurant-info__item restaurant-info__item-second-page">
         {{ $translator->getTrans('pay_title') }}: <span>{{ $translator->getTrans('cash') }}, {{ ($restoran->epay ? 'онлайн' : null) }}</span>
     </div>
-    <div class="restaurant-info__item restaurant-info__item-second-page">
-        Акция:
-        <span>Какая-то акция</span>
-    </div>    
+    @if (isset($sale) && $sale)
+        <div class="restaurant-info__item restaurant-info__item-second-page">
+            Акция:
+            <span>{!! $sale->note_trans !!}</span>
+        </div>
+    @endif
 </div>

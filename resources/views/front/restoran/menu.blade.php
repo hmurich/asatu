@@ -15,11 +15,6 @@
             @include('front.restoran.include.top_info')
         </div>
 
-        @if (isset($sale) && $sale)
-            <div class="akci-second-page">
-                @include('front.restoran.include.sale')
-            </div>
-        @endif
 
         <div class="admin-content__top">@include('front.restoran.include.nav')</div>
 

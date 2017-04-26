@@ -36,7 +36,7 @@
                    <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
                 </div>
             </div>
-        </div>          
+        </div>
         <div class="side-bar-item "id="basket-side-bar">
             <div class="side-bar-item__title">
                 {{ $translator->getTrans('busket') }}:
@@ -86,7 +86,7 @@
                         data-current='{{ ($busket ? $busket['total_cost'] : 0) }}'>
                         {{ $translator->getTrans('order_href') }}
                     </a>
-                    {{ $translator->getTrans('min_de_cost') }}: <span>5.000 тг</span>
+                    {{ $translator->getTrans('min_de_cost') }}: <span>{{ $restoran->relData->min_price }} тг</span>
                 </div>
             </div>
         </div>

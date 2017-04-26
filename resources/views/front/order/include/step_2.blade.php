@@ -1,5 +1,5 @@
 
-@if ($user)
+@if (!$user)
     <div class="checkout-content__right">
         <div class="checkout-body">
             <div class="checkout-body__titel">
