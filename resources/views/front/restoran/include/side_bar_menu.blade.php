@@ -19,10 +19,7 @@
                         <label for="kitchen_{{ $id }}">{{ $name }}</label>
                     </div>
                 @endforeach
-                <div class="side-bar-box__item-search">
-                    <input type="text" name='name' placeholder="{{ $translator->getTrans('seach_menu') }}" value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
-                </div>
-                <br />
+                <br>
                 <div class="side-bar-box__item">
                     <button class="button ">
                         {{ $translator->getTrans('show') }}
@@ -30,6 +27,16 @@
                 </div>
             </div>
         </div>
+        <div class="side-bar-item">
+            <div class="side-bar-item__title">
+                Поиск блюд:
+            </div>
+            <div class="side-bar-box">
+                <div class="side-bar-box__item-search">
+                   <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
+                </div>
+            </div>
+        </div>          
         <div class="side-bar-item "id="basket-side-bar">
             <div class="side-bar-item__title">
                 {{ $translator->getTrans('busket') }}:
