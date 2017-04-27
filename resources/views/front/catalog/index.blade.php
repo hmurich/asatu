@@ -26,7 +26,7 @@
                             @if ($i->logo)
                                 <img src="{{ $i->logo }}" alt="">
                             @else
-                                <img src="/img/restaurant.jpg" alt="">
+                                <img src="/images/restaurant.png" alt="">
                             @endif
                         </div>
     					<div class="restaurant-item-box">

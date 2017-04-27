@@ -9,7 +9,7 @@
                     @if ($m->photo)
                         <img src="{{ $m->photo }}" alt="" style="width: 100%;">
                     @else
-                        <img src="/img/order-img.jpg" alt="">
+                        <img src="/images/restaurant.png" alt="">
                     @endif
                 </div>
                 <div class="order-text">

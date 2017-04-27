@@ -29,7 +29,7 @@
                                 @if ($i->photo)
                                     <img src="{{ $i->photo }}" alt="">
                                 @else
-                                    <img src="/img/restaurant.jpg" alt="">
+                                    <img src="/images/restaurant.png" alt="">
                                 @endif
                             </div>
                             <div class="product-item__name">
