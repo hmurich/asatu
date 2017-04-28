@@ -19,7 +19,8 @@ class CatalogController extends Controller{
 
         $ar_restoran = $this->getAr();
         $ar_delivery = $this->getArDelivery();
-        //echo '<pre>'; print_r($ar_delivery); echo '</pre>'; exit();
+        $ar_delivery_price = $this->getArDeliveryPrice();
+        //echo '<pre>'; print_r($ar_delivery_price); echo '</pre>'; exit();
 
         $items = Restoran::where('id', '>', 0);
         $items = $items->whereIn('id', $ar_restoran);
@@ -97,6 +98,7 @@ class CatalogController extends Controller{
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
         $ar['ar_delivery'] = $ar_delivery;
+        $ar['ar_delivery_price'] = $ar_delivery_price;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
 
@@ -149,19 +151,26 @@ class CatalogController extends Controller{
 
         $ar_restoran = array();
         $ar_delivery = array();
+        $ar_price_delivery = array();
         foreach ($items as $area_id=>$i) {
             $polygon =  explode(",", $i->find_coords);
             if ($pointLocation->pointInPolygon($point, $polygon)){
                 $ar_restoran[] = $ar_restoran_area[$i->id];
                 $ar_delivery[$i->restoran_id] = $i->delivery_time;
+                $ar_price_delivery[$i->restoran_id] = $i->cost;
             }
         }
 
         session()->forget('ar_restoran');
         session()->forget('ar_delivery');
+        session()->forget('ar_delivery_price');
 
         foreach ($ar_delivery as $restoran_id => $delivery_time){
             session()->push('ar_delivery.'.$restoran_id, $delivery_time);
+        }
+
+        foreach ($ar_price_delivery as $restoran_id => $price){
+            session()->push('ar_delivery_price.'.$restoran_id, $price);
         }
 
         foreach ($ar_restoran as $id){
@@ -183,5 +192,12 @@ class CatalogController extends Controller{
             return false;
 
         return session()->get('ar_delivery');
+    }
+
+    function getArDeliveryPrice(){
+        if (!session()->has('ar_delivery_price'))
+            return false;
+
+        return session()->get('ar_delivery_price');
     }
 }

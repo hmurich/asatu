@@ -61,7 +61,14 @@
                                     Мин.заказ <span>{{ $i->relData->min_price }} тг</span>
                                 </div>
                                 <div class="restaurant-info__item">
-                                    Доставка:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
+                                    Доставка:
+                                    <span>
+                                        @if (isset($ar_delivery_price[$i->id][0]) && $ar_delivery_price[$i->id][0])
+                                            {{ $ar_delivery_price[$i->id][0] }} тг
+                                        @else
+                                            Бесплатно
+                                        @endif
+                                    </span>
                                 </div>
                                 <div class="restaurant-info__item">
                                     Акция

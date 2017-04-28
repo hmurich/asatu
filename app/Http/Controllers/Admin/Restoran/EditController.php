@@ -85,6 +85,7 @@ class EditController extends Controller{
         $item->betin_time = $request->input('betin_time');
         $item->end_time = $request->input('end_time');
         $item->delivery_type = $request->input('delivery_type');
+
         $item->save();
 
         RestoranKicthen::where('restoran_id', $item->id)->delete();
@@ -106,6 +107,7 @@ class EditController extends Controller{
         $r_data->director_name = $request->input('data.director_name');
         $r_data->director_contacts = $request->input('data.director_contacts');
         $r_data->address = $request->input('data.address');
+        $r_data->delivery_price = $request->input('data.delivery_price');
 
         $r_data->for_admin_work_time = $request->input('data.for_admin_work_time');
         $r_data->for_admin_manager = $request->input('data.for_admin_manager');
