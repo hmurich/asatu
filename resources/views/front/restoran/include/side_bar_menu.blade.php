@@ -2,7 +2,7 @@
     {{ $translator->getTrans('filter') }}
 </div>
 <div class="side-bar">
-    <form action="" class="form">
+    <form action="" class="form js_change_form">
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 {{ $translator->getTrans('menu_type') }}:

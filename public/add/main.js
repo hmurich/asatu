@@ -20,6 +20,13 @@ $(document).ready(function() {
         }
     });
 
+    console.log('main js');
+    //change form and send
+    $('.js_change_form input').change(function(){
+        //console.log('changed checkbox');
+        $(this).closest('form').submit();
+    });
+
     //getUrlParameter open modal
     if (getUrlParameter('login')){
         $('#overlay').css('display', 'block');

@@ -80,8 +80,17 @@ class EditController extends Controller{
         $item->city_id = $request->input('city_id');
         $item->name = $request->input('name');
         $item->epay = $request->input('epay');
-        $item->is_gold = $request->input('is_gold');
-        $item->is_platinum = $request->input('is_platinum');
+
+        if ($request->input('is_special') == 'is_gold')
+            $item->is_gold = 1;
+        else
+            $item->is_gold = 0;
+
+        if ($request->input('is_special') == 'is_platinum')
+            $item->is_platinum = 1;
+        else
+            $item->is_platinum = 0;
+
         $item->betin_time = $request->input('betin_time');
         $item->end_time = $request->input('end_time');
         $item->delivery_type = $request->input('delivery_type');

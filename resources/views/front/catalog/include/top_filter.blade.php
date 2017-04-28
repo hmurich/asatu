@@ -1,7 +1,7 @@
 <div class="restaurants-filtr">
     <form action='{{ action('Front\CatalogController@postAddress') }}' method="post">
         <div class="restaurants-filtr__item restaurants-filtr__item-city">
-            <span>Ваше местоположение: {{ $location->address }}</span>
+            <span>Ваше местоположение: {{ (isset($ar_city[$location->city_id]) ? $ar_city[$location->city_id].',' : null) }} {{ $location->address }}</span>
             <a href='#modal_change_address' class="button restaurants-filtr__button--city open_modal" >
                 {{ $translator->getTrans('change_2') }}
             </a>

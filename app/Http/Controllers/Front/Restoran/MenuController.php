@@ -15,6 +15,7 @@ class MenuController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+            
         $restoran = Restoran::findOrFail($restoran_id);
         $restoran->count_view++;
         $restoran->save();
@@ -24,8 +25,8 @@ class MenuController extends Controller{
         if ($request->has('kitchen') && count($request->input('kitchen')))
             $items = $items->whereIn('cat_id', $request->input('kitchen'));
 
-        if ($request->has('name') && $request->input('name'))
-            $items = $items->where('title', 'like', '%'.$request->input('name').'%');
+        if ($request->has('k_name') && $request->input('k_name'))
+            $items = $items->where('title', 'like', '%'.$request->input('k_name').'%');
 
         $sale = Sale::where('restoran_id', $restoran->id)->orderBy('id', 'desc')->first();
 
