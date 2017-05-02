@@ -20,6 +20,13 @@ use App\Model\Generators\UserArea;
 
 
 class OrderController extends Controller{
+    function getThanks($order_id){
+        $ar = array();
+        $ar['title'] = $this->translator->getTrans('order_form_title');
+
+        return view('front.order.thanks', $ar);
+    }
+
     function getForm (Request $request, $restoran_id){
         $location = UserLocation::getLocation();
         if (!$location)

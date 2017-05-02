@@ -18,6 +18,14 @@
                 Зарегистрироваться
             </a>
         </div>
+
+        @if (Session::has('login_error'))
+            <div class="asdas">
+                Не удается войти. <br />
+                Пожалуйста, проверьте правильность написания логина и пароля.
+            </div>
+        @endif
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="login" value="1">
         <div class="modal-button-container">

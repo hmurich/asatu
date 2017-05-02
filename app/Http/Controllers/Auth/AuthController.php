@@ -12,12 +12,22 @@ use App\Model\UserForgotPass;
 use App\Model\MailSend;
 
 class AuthController extends Controller {
+    function postCheckNewEmail(Request $request){
+        if (!$request->has('email'))
+            abort(404);
+
+        if (User::where('email', $request->input('email'))->count() > 0)
+            return '1';
+
+        return '0';
+    }
+
     function postLogin(Request $request, $from = false){
         if (!Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             $previousUrl = app('url')->previous();
 
             if ($request->has('login'))
-                return redirect()->to($previousUrl.'?'. http_build_query(['login'=>'1']))->with('error', 'Не правильный email/пароль');
+                return redirect()->to($previousUrl.'?'. http_build_query(['login'=>'1']))->withInput($request->all())->with('login_error', 'Не правильный email/пароль');
 
             if (User::where('email', $request->input('email'))->count() > 0)
                 return back()->with('error', 'Почтовый адрес уже зарегистрирован');

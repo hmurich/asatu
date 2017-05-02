@@ -21,6 +21,18 @@ $(document).ready(function() {
     });
 
     console.log('main js');
+    // check new email
+    $('.js_check_new_email').change(function(){
+        $.post( "/check-email", {email:$(this).val()}, function( data ) {
+            if (data == '1' || data == 1){
+                $('.js_check_new_email_message').show();
+            }
+            else {
+                $('.js_check_new_email_message').hide();
+            }
+        });
+    });
+
     //change form and send
     $('.js_change_form input').change(function(){
         //console.log('changed checkbox');

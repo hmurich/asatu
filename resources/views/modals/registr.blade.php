@@ -5,7 +5,8 @@
     <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
         <div class="form-modal">
             <div class="modal-input__container ">
-                <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input ">
+                <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input js_check_new_email">
+                <span class='js_check_new_email_message' style="display:none">Этот почтовый адресс уже используеться</span>
             </div>
             <div class="modal-input__container ">
                 <input type="password" name="password" required="required" placeholder="Введите пароль..." class="modal-input ">
