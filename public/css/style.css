@@ -2552,6 +2552,9 @@ textarea:focus:-ms-input-placeholder {
 .thank p{
   margin-bottom:12px;
 }
+.back-link{
+  color:#008aff;
+}
 .order-number{
     background-color: #008aff;
     color: #fff;
