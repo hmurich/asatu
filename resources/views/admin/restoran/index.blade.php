@@ -44,8 +44,12 @@
                         Возобновить
                     @endif
     			</a>
-                <a href="{{ action("Admin\RestoranController@getDelete", $i->id) }}" class="button zaka-list-button">
-    				Удалить
+                <a href="{{ action("Admin\RestoranController@getModerate", $i->id) }}" class="button zaka-list-button">
+                    @if ($i->is_moderate)
+                        Удалить
+                    @else
+    				    Воскресить
+                    @endif
     			</a>
     			<a href="{{ action("Admin\Restoran\EditController@getItem", $i->id) }}" class="button zaka-list-button">
     				Редактировать

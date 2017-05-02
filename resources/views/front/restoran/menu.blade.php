@@ -20,14 +20,22 @@
 
         @include('front.restoran.include.side_bar_menu')
 
-        
+
     <div class="restaurants-box">
         <div class="pr-category">
-            <span class="pr-category__heading">Пицца</span>
-            <ul class="product-list">
-                @forelse ($items as $i)
+            <?php $cat_id = 0; ?>
+            @forelse ($items as $i)
+                @if ($cat_id != $i->cat_id)
+                    @if ($cat_id != 0)
+                        </ul>
+                    @endif
+                    <span class="pr-category__heading">{{ $ar_menu_type[$i->cat_id] }}</span>
+                    <ul class="product-list">
+                    <?php $cat_id = $i->cat_id; ?>
+                @endif
                     <li>
                         <div class="product-item">
+
                             <div class="product-item__img">
                                 @if ($i->photo)
                                     <img src="{{ $i->photo }}" alt="">
@@ -74,9 +82,9 @@
                         </div>
                     </li>
                 @empty
-                	<p>По вашему запросу не найдено блюд</p>
+                    <p>По вашему запросу не найдено блюд</p>
                 @endforelse
-            </ul>
+                </ul>
             </div>
         </div>
     </div>

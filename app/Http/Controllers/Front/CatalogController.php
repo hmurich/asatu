@@ -22,7 +22,7 @@ class CatalogController extends Controller{
         $ar_delivery_price = $this->getArDeliveryPrice();
         //echo '<pre>'; print_r($ar_delivery_price); echo '</pre>'; exit();
 
-        $items = Restoran::where('id', '>', 0);
+        $items = Restoran::where('is_moderate', 1);
         $items = $items->whereIn('id', $ar_restoran);
 
         if ($request->has('name'))

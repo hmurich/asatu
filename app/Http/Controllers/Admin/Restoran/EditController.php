@@ -22,7 +22,7 @@ class EditController extends Controller{
         if ($item){
             $ar['title'] = 'Изменение ресторана';
             $ar['action'] = action('Admin\Restoran\EditController@postItem', $item->id);
-            $ar['kitchens'] = $item->relKitchens()->lists('kitchen_name', 'kitchen_id');
+            $ar['kitchens'] = (array)$item->relKitchens()->select('kitchen_id')->get()->keyBy('kitchen_id')->toArray();
             $ar['r_data'] = $item->relData;
         }
         else {
@@ -37,6 +37,8 @@ class EditController extends Controller{
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
         $ar['ar_for_admin_select'] = array('Процент'=>'Процент', 'Тенге'=>'Тенге');
         $ar['ar_delivery_type_ar'] = Restoran::getDeliveryTypeAr();
+
+        //echo '<pre>'; print_r($ar['kitchens']); echo '</pre>'; exit();
 
         return view('admin.restoran.edit', $ar);
     }
@@ -98,15 +100,18 @@ class EditController extends Controller{
         $item->save();
 
         RestoranKicthen::where('restoran_id', $item->id)->delete();
-        foreach ($request->input('kitchen') as $k_id){
-            if (!isset($ar_kitchen[$k_id]))
-                continue;
-            $kitchen = new RestoranKicthen();
-            $kitchen->restoran_id = $item->id;
-            $kitchen->kitchen_id = $k_id;
-            $kitchen->kitchen_name = $ar_kitchen[$k_id];
-            $kitchen->save();
+        if ($request->has('kitchen')){
+            foreach ($request->input('kitchen') as $k_id){
+                if (!isset($ar_kitchen[$k_id]))
+                    continue;
+                $kitchen = new RestoranKicthen();
+                $kitchen->restoran_id = $item->id;
+                $kitchen->kitchen_id = $k_id;
+                $kitchen->kitchen_name = $ar_kitchen[$k_id];
+                $kitchen->save();
+            }
         }
+
 
         $r_data->restoran_id = $item->id;
         $r_data->short_note = $request->input('data.short_note');
