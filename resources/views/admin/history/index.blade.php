@@ -32,6 +32,14 @@
 		<div class="admin-search-form__item input-search">
 			<input type='text' name='filter[r_name]' value='{{ $ar_input["filter"]["r_name"] or null }}' placeholder="Ресторан">
 		</div>
+
+		<div class="admin-search-form__item input-search">
+			<input type='date' name='filter[b_date]' value='{{ $ar_input["filter"]["b_date"] or null }}' placeholder="Дата начала">
+		</div>
+		<div class="admin-search-form__item input-search">
+			<input type='date' name='filter[e_date]' value='{{ $ar_input["filter"]["e_date"] or null }}' placeholder="Дата окончания">
+		</div>
+
 		<div class="admin-search-form__item button-search">
 			<input type='submit' name='download' class='button' value="скачать">
 		</div>

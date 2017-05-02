@@ -30,7 +30,10 @@ class HistoryController extends Controller{
                 $q->where('name', 'like', '%'.$request->input('filter.customer_name').'%');
             });
 
-
+        if ($request->has('filter.b_date') && $request->input('filter.b_date')!='')
+            $orders = $orders->where('created_at', '>=', $request->input('filter.b_date'));
+        if ($request->has('filter.e_date') && $request->input('filter.e_date')!='')
+            $orders = $orders->where('created_at', '<=', $request->input('filter.e_date'));
 
         $ar = array();
         $ar['title'] = "Трекинг";
