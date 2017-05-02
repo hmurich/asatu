@@ -105,7 +105,7 @@
                     <div class="admin-edit-card__item__right">
                         @foreach ($ar_kitchen as $id=>$name)
                             <div class="admin-edit-card__checkbox">
-                                @if (isset($kitchens) && count($kitchens) > 1 && isset($kitchens[$id]))
+                                @if (isset($kitchens) && count($kitchens) > 0 && isset($kitchens[$id]))
                                     <input type="checkbox" name='kitchen[]' class="checkbox" id="kitchen_{{ $id }}" value='{{ $id }}' checked='checked'>
                                 @else
                                     <input type="checkbox" name='kitchen[]' class="checkbox" id="kitchen_{{ $id }}" value='{{ $id }}' >

@@ -15,7 +15,7 @@ class MenuController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
-            
+
         $restoran = Restoran::findOrFail($restoran_id);
         $restoran->count_view++;
         $restoran->save();
@@ -34,13 +34,14 @@ class MenuController extends Controller{
         $ar['title'] = $restoran->name;
         $ar['restoran'] = $restoran;
         $ar['location'] = $location;
-        $ar['items'] = $items->orderBy('id', 'desc')->paginate(24);
+        $ar['items'] = $items->orderBy('cat_id', 'desc')->paginate(24);
         $ar['sale'] = $sale;
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
+        $ar['ar_menu_type'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
         $ar['ar_menu'] = Menu::where('restoran_id', $restoran->id)->lists('title', 'id');
         $ar['busket'] = OrderBusket::getOrder($restoran->id);
         $ar['ar_delivery'] = $this->getArDelivery();
