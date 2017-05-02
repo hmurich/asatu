@@ -45,6 +45,11 @@
 		</div>
 	</div>
 	<div class="info-card">
+		@if ($order->is_pre_order)
+			<div class="info-card__item">
+				Предзаказ (время): <span>{{ $order->pre_order_time }}</span>
+			</div>
+		@endif
 		<div class="info-card__item">
 			Приборов для персон: <span>{{ $order->count_person }}</span>
 		</div>

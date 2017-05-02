@@ -44,6 +44,7 @@
 		<table border="1">
 		    <tr>
 		        <th>Код</th>
+				<th>Предзаказ (время)</th>
 		        <th>Город</th>
 		        <th>Ф.И.О.</th>
 		        <th>Способ оплаты</th>
@@ -57,6 +58,13 @@
             @foreach ($orders as $o)
     		    <tr>
     		        <td>{{ $o->sys_key }}</td>
+					<td>
+						@if ($o->is_pre_order)
+							{{ $o->pre_order_time }}
+						@else
+							обычный заказ
+						@endif
+					</td>
     		        <td>{{ $ar_city[$o->relRestoran->city_id] }}</td>
     		        <td>{{ $o->relCustomer->name }}</td>
     		        <td>Наличными курьеру</td>
