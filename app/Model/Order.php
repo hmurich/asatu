@@ -28,7 +28,7 @@ class Order extends Model{
 
         $this->attributes['status_id'] = $status_id;
         if (in_array($status_id, array(OrderStatus::CANCEL, OrderStatus::CLOSE, OrderStatus::MISSING))){
-            $finish_at = date('Y-m-d h:i:s');
+            $finish_at = Carbon\Carbon::now()->toDateTimeString();
             $this->attributes['finish_at'] = $finish_at;
 
             $created_at = strtotime ($this->created_at);
@@ -56,7 +56,7 @@ class Order extends Model{
         return $this->belongsTo('App\Model\Restoran', 'restoran_id');
     }
 
-    
+
 
     function relItems(){
         return $this->hasMany('App\Model\OrderItem', 'order_id');
