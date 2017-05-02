@@ -38,6 +38,14 @@ class RestoranController extends Controller{
         return redirect()->back()->with('success', 'Удалено');
     }
 
+    function getModerate($id){
+        $item = Restoran::findOrFail($id);
+        $item->is_moderate = ($item->is_moderate ? 0 : 1);
+        $item->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
+    }
+
     function getOpen($id){
         $item = Restoran::findOrFail($id);
         $item->is_open = ($item->is_open ? 0 : 1);

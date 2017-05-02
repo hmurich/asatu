@@ -162,8 +162,8 @@
                     <div class="admin-edit-card__item__right">
                         <select name="is_special" required="">
                             <option value="normal">Обычный</option>
-                            <option value="is_gold" {{ ($item->is_gold ? 'selected' : null) }}>Gold</option>
-                            <option value="is_platinum" {{ ($item->is_platinum ? 'selected' : null) }}>Platinum</option>
+                            <option value="is_gold" {{ (isset($item) && $item->is_gold ? 'selected' : null) }}>Gold</option>
+                            <option value="is_platinum" {{ (isset($item) && $item->is_platinum ? 'selected' : null) }}>Platinum</option>
 						</select>
     				</div>
                 </div>
