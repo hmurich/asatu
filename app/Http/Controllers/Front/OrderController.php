@@ -21,8 +21,11 @@ use App\Model\Generators\UserArea;
 
 class OrderController extends Controller{
     function getThanks($order_id){
+        $order = Order::findOrFail($order_id);
+
         $ar = array();
-        $ar['title'] = $this->translator->getTrans('order_form_title');
+        $ar['title'] = 'Заказ успешно принят';
+        $ar['order'] = $order;
 
         return view('front.order.thanks', $ar);
     }
@@ -138,6 +141,12 @@ class OrderController extends Controller{
                 $order->total_sum = $promo;
             }
         }
+
+        if ($request->has('is_pre_order')){
+            $order->is_pre_order = 1;
+            $order->pre_order_time = $request->input('pre_order_time');
+        }
+
         $order->email = $email;
         $order->count_person = $customer->count_person;
         $order->note = $request->input('note');
@@ -159,7 +168,7 @@ class OrderController extends Controller{
 
         OrderBusket::forgetOrder($restoran->id);
 
-        return redirect()->action('Front\IndexController@getIndex')->with('success', 'Заказ принят');
+        return redirect()->action('Front\OrderController@getThanks', $order->id);
     }
 
     function postPromo(Request $request){

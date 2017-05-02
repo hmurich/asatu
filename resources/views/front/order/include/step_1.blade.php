@@ -26,6 +26,13 @@
                     </div>
                 @endif
                 <div class="checkout-form__item">
+                    Предзаказ <input type="checkbox" name='is_pre_order' value="1" />
+                </div>
+                <div class="checkout-form__item">
+                    <input type="time" name='pre_order_time' placeholder="Время предзаказа" />
+                </div>
+
+                <div class="checkout-form__item">
                     <input type="text" name='name' placeholder="{{ $translator->getTrans('enter_fio') }}" value='{{ ($customer ? $customer->name : null ) }}' required="">
                 </div>
                 <div class="checkout-form__item">
