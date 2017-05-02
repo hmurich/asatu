@@ -72,6 +72,7 @@
                                 </div>
                                 <div class="restaurant-info__item">
                                     Акция
+                                    <span class="akcia-thump"></span>
                                 </div>
 
     							<a href="{{ action('Front\Restoran\MenuController@getList', $i->id) }}" class="button restaurants-filtr__button">
