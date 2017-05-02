@@ -20,7 +20,10 @@
 
         @include('front.restoran.include.side_bar_menu')
 
-        <div class="restaurants-box">
+        
+    <div class="restaurants-box">
+        <div class="pr-category">
+            <span class="pr-category__heading">Пицца</span>
             <ul class="product-list">
                 @forelse ($items as $i)
                     <li>
@@ -74,6 +77,7 @@
                 	<p>По вашему запросу не найдено блюд</p>
                 @endforelse
             </ul>
+            </div>
         </div>
     </div>
 </div>
