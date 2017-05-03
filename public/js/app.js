@@ -115,7 +115,19 @@ $('.js-time-order-button ').click(function(){
     };
 
 });
+$('.back-button').click(function(){
+	window.onbeforeunload = function (evt) {  
+  var message = "Куда пошел, посидим еще, я чай поставил";  
+  if (typeof evt == "undefined") {  
+  evt = window.event;  
+  }  
+  if (evt) {  
+  evt.returnValue = message;  
+  }  
+  return message;  
+  } 
 
+});
 jQuery(function($){
     $(document).mouseup(function (e){ // событие клика по веб-документу
         var div = $(".restaurants-filtr__item__mobile "); // тут указываем ID элемента
