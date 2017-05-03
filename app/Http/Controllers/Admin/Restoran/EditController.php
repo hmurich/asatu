@@ -55,7 +55,7 @@ class EditController extends Controller{
             $item = new Restoran();
             if (!$request->has('email') || !$request->has('password') || User::where('email', $request->input('email'))->count()){
                 DB::rollback();
-                return redirect()->back()->with('error', 'Email уже существует');
+                return redirect()->back()->with('error', 'Email уже существует')->withInput();
             }
 
             $user = new User();

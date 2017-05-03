@@ -19,7 +19,7 @@
                             Email:
                         </div>
                         <div class="admin-edit-card__item__right">
-                            <input type="email" name='email' placeholder="Email" required="">
+                            <input type="email" name='email' placeholder="Email" required="" value="{{ old('email') }}">
                         </div>
                     </div>
                     <div class="admin-edit-card__item">
@@ -39,7 +39,7 @@
                         <select name="city_id" required="">
                             <option value="">город</option>
                             @foreach ($ar_city as $id=>$name)
-                                @if ($item && $item->city_id == $id)
+                                @if (($item && $item->city_id == $id) || old('city_id') == $id)
                                     <option value="{{ $id }}" selected="selected">{{ $name }}</option>
                                 @else
                                     <option value="{{ $id }}">{{ $name }}</option>
@@ -55,7 +55,7 @@
                     <div class="admin-edit-card__item__right">
                         <select name="delivery_type" required="">
                             @foreach ($ar_delivery_type_ar as $id=>$name)
-                                @if ($item && $item->delivery_type == $id)
+                                @if (($item && $item->delivery_type == $id) || old('delivery_type') == $id)
                                     <option value="{{ $id }}" selected="selected">{{ $name }}</option>
                                 @else
                                     <option value="{{ $id }}">{{ $name }}</option>
@@ -70,7 +70,7 @@
                         Время работы (начало):
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="time" name='betin_time' value='{{ $item ? $item->betin_time : null }}' placeholder="Время работы (начало)" required="">
+                        <input type="time" name='betin_time' value='{{ $item ? $item->betin_time : old('betin_time') }}' placeholder="Время работы (начало)" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -78,7 +78,7 @@
                         Время работы (окончания):
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="time" name='end_time' value='{{ $item ? $item->end_time : null }}' placeholder="Время работы (окончания)" required="">
+                        <input type="time" name='end_time' value='{{ $item ? $item->end_time : old('end_time') }}' placeholder="Время работы (окончания)" required="">
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@
                         Название заведения:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='name' value='{{ $item ? $item->name : null }}' placeholder="Название заведения" required="">
+                        <input type="text" name='name' value='{{ $item ? $item->name : old('name') }}' placeholder="Название заведения" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -95,7 +95,7 @@
                         Адресс:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[address]' value='{{ $r_data ? $r_data->address : null }}' placeholder="Адресс" required="">
+                        <input type="text" name='data[address]' value='{{ $r_data ? $r_data->address : old('data.address') }}' placeholder="Адресс" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -144,7 +144,7 @@
                     <div class="admin-edit-card__item__right">
                         @foreach ($ar_boolen_view as $id=>$name)
                             <div class="admin-edit-card__checkbox">
-                                @if ($item && $item->epay == $id)
+                                @if (($item && $item->epay == $id) || old('epay') == $id)
                                     <input type="radio" name="epay" class="checkbox" value='{{ $id }}' id="epay_{{ $id }}" checked>
                                 @else
                                     <input type="radio" name="epay" class="checkbox" value='{{ $id }}' id="epay_{{ $id }}" >
@@ -172,7 +172,7 @@
                         Минимальная цена:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[min_price]' value='{{ $r_data ? $r_data->min_price : null }}' placeholder="Минимальная цена" required="">
+                        <input type="text" name='data[min_price]' value='{{ $r_data ? $r_data->min_price : old('data.min_price') }}' placeholder="Минимальная цена" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -180,7 +180,7 @@
                         Контакты:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[contacts]' value='{{ $r_data ? $r_data->contacts : null }}' placeholder="Контакты" required="">
+                        <input type="text" name='data[contacts]' value='{{ $r_data ? $r_data->contacts : old('data.contacts') }}' placeholder="Контакты" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -188,7 +188,7 @@
                         Ф.И.О директора:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[director_name]' value='{{ $r_data ? $r_data->director_name : null }}' placeholder="Ф.И.О директора" required="">
+                        <input type="text" name='data[director_name]' value='{{ $r_data ? $r_data->director_name : old('data.director_name') }}' placeholder="Ф.И.О директора" required="">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -196,7 +196,7 @@
                         Контакты директора:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[director_contacts]' value='{{ $r_data ? $r_data->director_contacts : null }}' required="" placeholder="Контакты директора">
+                        <input type="text" name='data[director_contacts]' value='{{ $r_data ? $r_data->director_contacts : old('data.director_contacts') }}' required="" placeholder="Контакты директора">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -204,7 +204,7 @@
                         Менеджер:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="text" name='data[for_admin_manager]' value='{{ $r_data ? $r_data->for_admin_manager : null }}' required="" placeholder="Менеджер">
+                        <input type="text" name='data[for_admin_manager]' value='{{ $r_data ? $r_data->for_admin_manager : old('data.for_admin_manager') }}' required="" placeholder="Менеджер">
                     </div>
                 </div>
                 <div class="admin-edit-card__item">
@@ -215,7 +215,7 @@
                         <select name="data[for_admin_select]" required="">
                             <option value="">Процент/Тенге</option>
                             @foreach ($ar_for_admin_select as $id=>$name)
-                                @if ($r_data && $r_data->for_admin_select == $id)
+                                @if (($r_data && $r_data->for_admin_select == $id) || old('data.for_admin_select') == $id)
                                     <option value="{{ $id }}" selected="selected">{{ $name }}</option>
                                 @else
                                     <option value="{{ $id }}">{{ $name }}</option>
@@ -229,7 +229,7 @@
                         Количество:
                     </div>
                     <div class="admin-edit-card__item__right">
-                        <input type="number" name='data[for_admin_count]' value='{{ $r_data ? $r_data->for_admin_count : null }}' required="" placeholder="Количество">
+                        <input type="number" name='data[for_admin_count]' value='{{ $r_data ? $r_data->for_admin_count : old('data.for_admin_count') }}' required="" placeholder="Количество">
                     </div>
                 </div>
                 <!--
