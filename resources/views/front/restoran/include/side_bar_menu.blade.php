@@ -2,7 +2,7 @@
     {{ $translator->getTrans('filter') }}
 </div>
 <div class="side-bar">
-    <form action="" class="form">
+    <form action="" class="form js_change_form">
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 {{ $translator->getTrans('menu_type') }}:
@@ -19,14 +19,21 @@
                         <label for="kitchen_{{ $id }}">{{ $name }}</label>
                     </div>
                 @endforeach
-                <div class="side-bar-box__item-search">
-                    <input type="text" name='name' placeholder="{{ $translator->getTrans('seach_menu') }}" value="{{ (isset($ar_input['name']) ? $ar_input['name'] : null) }}">
-                </div>
-                <br />
+                <br>
                 <div class="side-bar-box__item">
                     <button class="button ">
                         {{ $translator->getTrans('show') }}
                     </button>
+                </div>
+            </div>
+        </div>
+        <div class="side-bar-item">
+            <div class="side-bar-item__title">
+                Поиск блюд:
+            </div>
+            <div class="side-bar-box">
+                <div class="side-bar-box__item-search">
+                   <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
                 </div>
             </div>
         </div>
@@ -79,7 +86,7 @@
                         data-current='{{ ($busket ? $busket['total_cost'] : 0) }}'>
                         {{ $translator->getTrans('order_href') }}
                     </a>
-                    {{ $translator->getTrans('min_de_cost') }}: <span>5.000 тг</span>
+                    {{ $translator->getTrans('min_de_cost') }}: <span>{{ $restoran->relData->min_price }} тг</span>
                 </div>
             </div>
         </div>

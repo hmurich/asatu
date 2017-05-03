@@ -240,8 +240,11 @@ body.second-page .container {
   margin: 0 auto;
 }
 .header-inner {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: table-cell;
   vertical-align: middle;
 }
@@ -343,7 +346,12 @@ body.second-page .container {
 }
 .header-form {
     display: block;
-    margin-top: 11.5%;
+    top: 50%;
+    z-index:2;
+    position: absolute;
+    margin-top: -20px;
+    left: 50%;
+    margin-left: -301px;
 }
 .header-form form {
   display: inline-block;
@@ -372,6 +380,7 @@ body.second-page .container {
 }
 .header-form__item select option {
   text-indent: 15px;
+  height:20px;
 }
 .header-form__item input {
     width: 230px;
@@ -720,6 +729,10 @@ input:-ms-input-placeholder {
 a.side-bar-box:hover {
   background: #eae9e9;
 }
+.inner{
+  width:1200px;
+  margin:0 auto;
+}
 .min-price {
   display: inline-block;
   float: left;
@@ -760,6 +773,7 @@ a.side-bar-box:hover {
   font-size: 16px;
   border: 1px solid #eeeeee;
   color: #727272;
+  margin-right:10px;
 }
 .restaurants-filtr__button {
   float: right;
@@ -809,7 +823,7 @@ a.side-bar-box:hover {
 }
 .restaurants-filtr__item-city span {
     float: left;
-    margin-top: 15px;
+    margin-top: 8px;
     display: block;
     line-height: 31px;
     padding-right: 23px;
@@ -827,7 +841,7 @@ a.side-bar-box:hover {
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQzMC4xMTQgNDMwLjExNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMwLjExNCA0MzAuMTE0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IkZhY2Vib29rX1BsYWNlcyIgZD0iTTM1Ni4yMDgsMTA3LjA1MWMtMS41MzEtNS43MzgtNC42NC0xMS44NTItNi45NC0xNy4yMDVDMzIxLjc0NiwyMy43MDQsMjYxLjYxMSwwLDIxMy4wNTUsMCAgIEMxNDguMDU0LDAsNzYuNDYzLDQzLjU4Niw2Ni45MDUsMTMzLjQyN3YxOC4zNTVjMCwwLjc2NiwwLjI2NCw3LjY0NywwLjYzOSwxMS4wODljNS4zNTgsNDIuODE2LDM5LjE0Myw4OC4zMiw2NC4zNzUsMTMxLjEzNiAgIGMyNy4xNDYsNDUuODczLDU1LjMxNCw5MC45OTksODMuMjIxLDEzNi4xMDZjMTcuMjA4LTI5LjQzNiwzNC4zNTQtNTkuMjU5LDUxLjE3LTg3LjkzM2M0LjU4My04LjQxNSw5LjkwMy0xNi44MjUsMTQuNDkxLTI0Ljg1NyAgIGMzLjA1OC01LjM0OCw4LjktMTAuNjk2LDExLjU2OS0xNS42NzJjMjcuMTQ1LTQ5LjY5OSw3MC44MzgtOTkuNzgyLDcwLjgzOC0xNDkuMTA0di0yMC4yNjIgICBDMzYzLjIwOSwxMjYuOTM4LDM1Ni41ODEsMTA4LjIwNCwzNTYuMjA4LDEwNy4wNTF6IE0yMTQuMjQ1LDE5OS4xOTNjLTE5LjEwNywwLTQwLjAyMS05LjU1NC01MC4zNDQtMzUuOTM5ICAgYy0xLjUzOC00LjItMS40MTQtMTIuNjE3LTEuNDE0LTEzLjM4OHYtMTEuODUyYzAtMzMuNjM2LDI4LjU2LTQ4LjkzMiw1My40MDYtNDguOTMyYzMwLjU4OCwwLDU0LjI0NSwyNC40NzIsNTQuMjQ1LDU1LjA2ICAgQzI3MC4xMzgsMTc0LjcyOSwyNDQuODMzLDE5OS4xOTMsMjE0LjI0NSwxOTkuMTkzeiIgZmlsbD0iIzAwOGFmZiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
     position: absolute;
     right: 0;
-    bottom: 4px;
+    bottom: 2px;
     background-size: cover;
 }
 .restaurants-filtr__item-city:after {
@@ -903,6 +917,9 @@ a.side-bar-box:hover {
   line-height: 1.2;
   margin-bottom: 10px;
 }
+.restaurant-item-box__info span{
+  font-weight:bold;
+}
 .restaurant-item-box__info p {
   margin-top: 10px;
 }
@@ -910,6 +927,7 @@ a.side-bar-box:hover {
   display: inline-block;
   position: relative;
   padding-right: 65px;
+  font-size: 20px;
 }
 .restaurant-name:after {
   content: "";
@@ -975,7 +993,7 @@ a.side-bar-box:hover {
 }
 .restaurant-info__item-second-page {
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 22px;
 }
 .delivery-time {
   font-size: 14px;
@@ -1376,6 +1394,15 @@ table tr th:last-child a {
   position: relative;
   margin-bottom: 5px;
 }
+.pr-category__heading {
+    display: block;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    text-transform: uppercase;
+}
 .order-client__name span {
   display: block;
   position: absolute;
@@ -1535,6 +1562,14 @@ table tr th:last-child a {
     padding: 7px 12px;
     float: right;
     margin-left: 7px;
+}
+.akcia-thump {
+  background-image: url(../img/akcia.svg);
+  width: 13px;
+  height: 13px;
+  margin-top: 2px;
+  margin-left: 14px;
+  background-size: cover;
 }
 .checkout-content {
   width: 80%;
@@ -2375,10 +2410,12 @@ textarea:focus:-ms-input-placeholder {
   height: 400px;
   background-image: url(../img/bg-banner.jpg);
   padding-top: 80px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   margin-bottom: 25px;
+  max-width: 1900px;
+  margin: 0 auto 20px auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .index-banner__text {
   padding: 15px;
@@ -2391,6 +2428,7 @@ textarea:focus:-ms-input-placeholder {
   margin-bottom: 35px;
   font-weight: bold;
   text-transform: uppercase;
+  display:none;
 }
 .index-soc-seti__container {
   text-align: center;
@@ -2511,7 +2549,41 @@ textarea:focus:-ms-input-placeholder {
 .product-add-list li:last-child{
   margin-bottom: 0;
 }
-
+.thank{
+  background-color:#fff;
+  padding:25px;
+  width:800px;
+  margin:0 auto;
+}
+.thank-up{
+  overflow:hidden;
+  border-bottom:1px solid #ccc;
+  padding-bottom:12px;
+  margin-bottom:12px;
+}
+.thank__heading{
+  font-weight:bold;
+  text-transform:uppercase;
+  font-size:21px;
+  display:block;
+  margin-bottom:10px;
+  float:left;
+  line-height:38px;
+}
+.thank p{
+  margin-bottom:12px;
+}
+.back-link{
+  color:#008aff;
+}
+.order-number{
+    background-color: #008aff;
+    color: #fff;
+    display: inline-block;
+    float: right;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+}
 .table-container.add-food__form select {
     border: none;
     width: 180px;
@@ -2621,9 +2693,10 @@ textarea:focus:-ms-input-placeholder {
     width: 230px;
     height: 30px;
     text-indent: 15px;
-    font-size: 16px;
+    font-size: 13px;
     border: 1px solid #eeeeee;
     color: #727272;
+    text-transform:uppercase;
     background: #fff;
     line-height: 30px;
     position: relative;
@@ -2631,6 +2704,17 @@ textarea:focus:-ms-input-placeholder {
     margin-bottom: 15px;
     margin-right: 15px;
     cursor: pointer;
+}
+.sort-reiting:after{
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 7px 0 7px;
+    border-color: rgba(85, 85, 85, 0.73) transparent transparent transparent;
 }
 .sort-reiting__sub {
     position: absolute;
@@ -2677,7 +2761,6 @@ textarea:focus:-ms-input-placeholder {
     display: inline-block;
     padding: 7px 15px;
     box-sizing: border-box;
-    margin-left: 15px;
     text-decoration: none;
 }
 .akci-checkbox input {
@@ -2687,8 +2770,13 @@ textarea:focus:-ms-input-placeholder {
     display: block;
     padding-left: 15px;
     position: relative;
+<<<<<<< HEAD
     font-size: 13px;
     color: #727272;
+=======
+    font-size: 13px;    
+    color: #757575;
+>>>>>>> 477f20d983848644e73a0670c50e1433f3da887e
     cursor: pointer;
     line-height: 15px;
 }
@@ -2706,9 +2794,13 @@ textarea:focus:-ms-input-placeholder {
     background-repeat: no-repeat;
     left: 0;
 }
+.checkout-form__item  input[type=checkbox]:checked + label:before {
+  background-image: url(../img/checked.jpg);
+}
 .akci-checkbox input[type=checkbox]:checked + label:before {
   background-image: url(../img/checked.jpg);
 }
+
 .akci-second-page {
     padding: 14px 14px;
     margin: 0;
@@ -2793,6 +2885,25 @@ textarea:focus:-ms-input-placeholder {
 }
 .pagination li a {
     color: #434343;
+}
+.pred-zakaz {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+#pred-zakaz {
+    display: none;
+}
+.pred-zakaz .checkout-form__item-left{
+  margin-bottom: 0;
+}
+.js-time-order-button.show-time-order {
+    margin-top: 11px;
+}
+.checkout-form__item.checkout-form__item-right.time-oreder {
+    display: none;
+}
+#time {
+    width: 140px;
 }
 @media screen and (max-width: 1280px) {
   .header-top-line__inner,

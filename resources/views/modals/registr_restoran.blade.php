@@ -17,7 +17,8 @@
                 <input type="text" name="phone" required="required" placeholder="Телефон:" class="modal-input ">
             </div>
             <div class="modal-input__container ">
-                <input type="text" name="email" required="required" placeholder="Электронная почта:" class="modal-input ">
+                <input type="text" name="email" required="required" placeholder="Электронная почта:" class="modal-input js_check_new_email">
+                <span class='js_check_new_email_message' style="display:none">Этот почтовый адресс уже используеться</span>
             </div>
         </div>
         <div class="modal-button-container">

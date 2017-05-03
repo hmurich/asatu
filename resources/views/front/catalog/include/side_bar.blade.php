@@ -2,7 +2,7 @@
     {{ $translator->getTrans('filter') }}
 </div>
 <div class="side-bar">
-    <form action="" class="form">
+    <form action="" class="form js_change_form">
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 Кухни:
@@ -18,14 +18,19 @@
 
                         <label for="kitchen_{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</label>
                     </div>
-
                 @endforeach
+            </div>
+        </div>
+        <div class="side-bar-item">
+            <div class="side-bar-item__title">
+                Поиск блюд:
+            </div>
+            <div class="side-bar-box">
                 <div class="side-bar-box__item-search">
-                   <input type="text" placeholder="Поиск блюда..." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
+                   <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
                 </div>
             </div>
         </div>
-
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 Мин.сумма заказа:
@@ -33,7 +38,7 @@
             <div class="side-bar-form">
                 <div class="side-bar-box">
                     <div id="slider-range"></div>
-                    <input type="hidden" id="amount" name='amount_price' readonly style="border:0; color:#f6931f; font-weight:bold;"
+                    <input type="hidden" id="amount" name='amount_price'  style="border:0; color:#f6931f; font-weight:bold;"
                         value='{{ (isset($ar_input["amount"]) ? $ar_input["amount"] : null) }}'>
 
                     <div class="min-price"></div>

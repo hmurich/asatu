@@ -4,6 +4,7 @@
 
     <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
         <div class="form-modal">
+            <img src="/img/modal-logo.png">
             <div class="modal-input__container ">
                 <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input ">
             </div>
@@ -18,6 +19,14 @@
                 Зарегистрироваться
             </a>
         </div>
+
+        @if (Session::has('login_error'))
+            <div class="asdas">
+                Не удается войти. <br />
+                Пожалуйста, проверьте правильность написания логина и пароля.
+            </div>
+        @endif
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="login" value="1">
         <div class="modal-button-container">

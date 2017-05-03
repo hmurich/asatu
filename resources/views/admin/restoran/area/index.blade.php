@@ -17,6 +17,7 @@
         	        <th>id</th>
         	        <th>Индекс сортировки</th>
         	        <th>Стоимость</th>
+                    <th>Время доставки</th>
         	        <th>
                         <a href="{{ action("Admin\Restoran\AreaController@getItem", array($item->id, $location->id)) }}" class="table-item add add-icon">
                             +
@@ -28,6 +29,7 @@
             	        <td>{{ $i->id }}</td>
             	        <td>{{ $i->sort_index }}</td>
             	        <td>{{ $i->cost }}</td>
+                        <td>{{ $i->delivery_time }}</td>
             	        <td>
                             <a href="{{ action("Admin\Restoran\AreaController@getItem", array($item->id, $location->id, $i->id)) }}" class="table-item edit edit-icon">
                                 edit

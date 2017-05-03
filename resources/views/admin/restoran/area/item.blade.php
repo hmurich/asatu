@@ -29,6 +29,14 @@
                         <input type="text" name='cost' value='{{ ($area ? $area->cost : null) }}' />
                     </div>
                 </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Время доставки:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='delivery_time' value='{{ ($area ? $area->delivery_time : null) }}' />
+                    </div>
+                </div>
 
                 <div    id="map_area"
                         style="width:100%; height:500px"

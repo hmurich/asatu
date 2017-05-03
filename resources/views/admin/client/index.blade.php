@@ -29,7 +29,13 @@
     		    <tr>
     		        <td>{{ $i->id }}</td>
                     <td>{{ $i->name }}</td>
-    		        <td>{{ $i->relUser->email }}</td>
+    		        <td>
+						@if (strpos($i->relUser->email, '@rand.rand') !== false)
+							не зарегистрирован
+						@else
+							{{ $i->relUser->email }}
+						@endif
+					</td>
     		        <td>{{ $i->phone }}</td>
     		        <td>{{ $i->full_address }}</td>
     		        <td>{{ $i->relOrders()->sum('total_sum') }}</td>

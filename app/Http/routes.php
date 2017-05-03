@@ -20,6 +20,8 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 Route::post('forgot-pass', 'Auth\AuthController@postForgotPass');
 Route::get('forgot-pass', 'Auth\AuthController@getForgotPass');
 
+Route::post('check-email', 'Auth\AuthController@postCheckNewEmail');
+
 // Admin Controllers
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');

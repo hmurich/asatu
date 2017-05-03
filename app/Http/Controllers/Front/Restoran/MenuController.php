@@ -15,6 +15,7 @@ class MenuController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
+
         $restoran = Restoran::findOrFail($restoran_id);
         $restoran->count_view++;
         $restoran->save();
@@ -24,8 +25,8 @@ class MenuController extends Controller{
         if ($request->has('kitchen') && count($request->input('kitchen')))
             $items = $items->whereIn('cat_id', $request->input('kitchen'));
 
-        if ($request->has('name') && $request->input('name'))
-            $items = $items->where('title', 'like', '%'.$request->input('name').'%');
+        if ($request->has('k_name') && $request->input('k_name'))
+            $items = $items->where('title', 'like', '%'.$request->input('k_name').'%');
 
         $sale = Sale::where('restoran_id', $restoran->id)->orderBy('id', 'desc')->first();
 
@@ -33,15 +34,17 @@ class MenuController extends Controller{
         $ar['title'] = $restoran->name;
         $ar['restoran'] = $restoran;
         $ar['location'] = $location;
-        $ar['items'] = $items->orderBy('id', 'desc')->paginate(24);
+        $ar['items'] = $items->orderBy('cat_id', 'desc')->paginate(24);
         $ar['sale'] = $sale;
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
+        $ar['ar_menu_type'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
         $ar['ar_menu'] = Menu::where('restoran_id', $restoran->id)->lists('title', 'id');
         $ar['busket'] = OrderBusket::getOrder($restoran->id);
+        $ar['ar_delivery'] = $this->getArDelivery();
         //echo '<pre>'; print_r($ar['busket']); echo '</pre>'; exit();
 
 
@@ -65,6 +68,13 @@ class MenuController extends Controller{
             return 'none';
 
         return $order->total_cost;
+    }
+
+    function getArDelivery(){
+        if (!session()->has('ar_delivery'))
+            return false;
+
+        return session()->get('ar_delivery');
     }
 
 }

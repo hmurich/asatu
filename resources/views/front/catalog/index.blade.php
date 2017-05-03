@@ -16,14 +16,17 @@
         <div class="restaurants-box">
 			@include('front.catalog.include.top_filter')
 
-			<ul class="restaurant-list">
+			<ul class="restaurant-list" >
                 @forelse ($items as $i)
+                    @if (!(strtotime($i->betin_time) <= strtotime(Carbon\Carbon::now()->toTimeString()) && strtotime($i->end_time) > strtotime(Carbon\Carbon::now()->toTimeString()) ) )
+                        <?php continue; ?>
+                    @endif
     				<li class="restaurant-item {{ ($i->is_gold ? 'gold' : null) }} {{ (!$i->is_gold && $i->is_platinum ? 'premium' : null) }}" >
-    					<div class="restaurant-item__img">
+    					<div class="restaurant-item__img"  {{ $i->betin_time }}  {{ date('h:i:s') }}  {{ $i->end_time }}>
                             @if ($i->logo)
                                 <img src="{{ $i->logo }}" alt="">
                             @else
-                                <img src="/img/restaurant.jpg" alt="">
+                                <img src="/images/restaurant.png" alt="">
                             @endif
                         </div>
     					<div class="restaurant-item-box">
@@ -32,7 +35,13 @@
     								{{ $i->name }}
     							</div>
                                 <div class="restaurant-info__item">
-                                    {{ $translator->getTrans('deliv_time') }} <span>{{ $i->relData->delivery_duration }} минут</span>
+                                    {{ $translator->getTrans('deliv_time') }} <span>
+                                        @if (isset($ar_delivery[$i->id]) && $ar_delivery[$i->id])
+                                            {{ $ar_delivery[$i->id][0] }}
+                                        @else
+                                            30 минут
+                                        @endif
+                                    </span>
                                 </div>
     							<ul class="reiting restaurant-item-box__top-reiting">
     								{!! $i->generateHtmlStar() !!}
@@ -52,12 +61,20 @@
                                     Мин.заказ <span>{{ $i->relData->min_price }} тг</span>
                                 </div>
                                 <div class="restaurant-info__item">
-                                    Доставка:  <span>{{ ( $i->relData->delivery_price ? $i->relData->delivery_price.' тг': "Бесплатно") }}</span>
+                                    Доставка:
+                                    <span>
+                                        @if (isset($ar_delivery_price[$i->id][0]) && $ar_delivery_price[$i->id][0])
+                                            {{ $ar_delivery_price[$i->id][0] }} тг
+                                        @else
+                                            Бесплатно
+                                        @endif
+                                    </span>
                                 </div>
                                 <div class="restaurant-info__item">
                                     Акция
+                                    <span class="akcia-thump"></span>
                                 </div>
-    							
+
     							<a href="{{ action('Front\Restoran\MenuController@getList', $i->id) }}" class="button restaurants-filtr__button">
     								{{ $translator->getTrans('eat_me') }}
     							</a>

@@ -16,39 +16,65 @@ class CatalogController extends Controller{
         $location = UserLocation::getLocation();
         if (!$location)
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
-        $ar_restoran = $this->getAr();
 
-        $items = Restoran::where('id', '>', 0);
+        $ar_restoran = $this->getAr();
+        $ar_delivery = $this->getArDelivery();
+        $ar_delivery_price = $this->getArDeliveryPrice();
+        //echo '<pre>'; print_r($ar_delivery_price); echo '</pre>'; exit();
+
+        $items = Restoran::where('is_moderate', 1);
         $items = $items->whereIn('id', $ar_restoran);
+
         if ($request->has('name'))
             $items = $items->where('name', 'like', '%'.$request->input('name').'%');
 
-        if ($request->has('kitchen')){
-            if ($request->has('restoran_new')){
-                $week_before = date('Y-m-d', time() - (60 * 60 * 24 * 7));
-                $items = $items->where('created_at', $week_before);
-            }
 
-            if ($request->has('restoran_new_promo'))
-                $items = $items->whereHas('relPromo', function($q){
-                    $q->where('id', '>', 0);
-                });
-            if ($request->has('restoran_free'))
-                $items = $items->whereHas('relData', function($q){
-                    $q->where('delivery_price', 0);
-                });
+        if ($request->has('restoran_new')){
+            $week_before = date('Y-m-d', time() - (60 * 60 * 24 * 7));
+            $items = $items->where('created_at', '>', $week_before);
+        }
 
-            if ($request->has('k_name') && trim($request->input('k_name')) != '')
-                $items = $items->whereHas('relMenu', function($q) use ($request){
-                    $q = $q->where('title', 'like', '%'.$request->input('k_name').'%');
-                });
+        $begin_price = false;
+        $end_price = false;
 
-            if (count($request->input('kitchen')) > 0){
-                $ar_kitchen = $request->input('kitchen');
-                $items = $items->whereHas('relKitchens', function($q) use ($ar_kitchen, $request){
-                    $q = $q->whereIn('kitchen_id', $ar_kitchen);
+        if ($request->has('amount_price')){
+            $ar_prices = explode('тг', $request->input('amount_price'));
+            if (count($ar_prices) > 2){
+                $begin_price = intval($ar_prices[0]);
+                $end_price = intval($ar_prices[1]);
+
+                $items = $items->whereHas('relData', function($q) use ($begin_price, $end_price){
+                    $q->where('min_price', '>=', $begin_price)->where('min_price', '<=', $end_price);
                 });
             }
+        }
+
+        if ($request->has('with_sale')){
+            $items = $items->whereHas('relSale', function($q){
+                $q->where('id', '>', 0);
+            });
+        }
+
+        if ($request->has('restoran_new_promo'))
+            $items = $items->whereHas('relPromo', function($q){
+                $q->where('id', '>', 0);
+            });
+
+        if ($request->has('restoran_free'))
+            $items = $items->whereHas('relData', function($q){
+                $q->where('delivery_price', 0);
+            });
+
+        if ($request->has('k_name') )
+            $items = $items->whereHas('relMenu', function($q) use ($request){
+                $q = $q->where('title', 'like', '%'.$request->input('k_name').'%');
+            });
+
+        if (count($request->input('kitchen')) > 0){
+            $ar_kitchen = $request->input('kitchen');
+            $items = $items->whereHas('relKitchens', function($q) use ($ar_kitchen, $request){
+                $q = $q->whereIn('kitchen_id', $ar_kitchen);
+            });
         }
 
         $order_name = 'raiting';
@@ -71,10 +97,11 @@ class CatalogController extends Controller{
 
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
+        $ar['ar_delivery'] = $ar_delivery;
+        $ar['ar_delivery_price'] = $ar_delivery_price;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
 
-        //echo '<pre>'; print($ar['ar_kitchen']); echo '</pre>'; exit();
         return view('front.catalog.index', $ar);
     }
 
@@ -119,17 +146,32 @@ class CatalogController extends Controller{
             })->lists('restoran_id', 'id');
 
         $items = RestoranArea::whereHas('relRestoran', function($q) use ($city_id){
-                $q->where('city_id', $city_id);
-            })->lists('find_coords', 'id');
+            $q->where('city_id', $city_id);
+        })->get();
 
         $ar_restoran = array();
-        foreach ($items as $area_id=>$coords) {
-            $polygon =  explode(",", $coords);
-            if ($pointLocation->pointInPolygon($point, $polygon))
-                $ar_restoran[] = $ar_restoran_area[$area_id];
+        $ar_delivery = array();
+        $ar_price_delivery = array();
+        foreach ($items as $area_id=>$i) {
+            $polygon =  explode(",", $i->find_coords);
+            if ($pointLocation->pointInPolygon($point, $polygon)){
+                $ar_restoran[] = $ar_restoran_area[$i->id];
+                $ar_delivery[$i->restoran_id] = $i->delivery_time;
+                $ar_price_delivery[$i->restoran_id] = $i->cost;
+            }
         }
 
         session()->forget('ar_restoran');
+        session()->forget('ar_delivery');
+        session()->forget('ar_delivery_price');
+
+        foreach ($ar_delivery as $restoran_id => $delivery_time){
+            session()->push('ar_delivery.'.$restoran_id, $delivery_time);
+        }
+
+        foreach ($ar_price_delivery as $restoran_id => $price){
+            session()->push('ar_delivery_price.'.$restoran_id, $price);
+        }
 
         foreach ($ar_restoran as $id){
             session()->push('ar_restoran', $id);
@@ -143,5 +185,19 @@ class CatalogController extends Controller{
             return false;
 
         return session()->get('ar_restoran');
+    }
+
+    function getArDelivery(){
+        if (!session()->has('ar_delivery'))
+            return false;
+
+        return session()->get('ar_delivery');
+    }
+
+    function getArDeliveryPrice(){
+        if (!session()->has('ar_delivery_price'))
+            return false;
+
+        return session()->get('ar_delivery_price');
     }
 }

@@ -88,8 +88,8 @@
                                         @endif
 
         								<div class="food-add__input-file">
-            								<input type="file" name='photo' id="foto1" class="input-file">
-            								<label for="foto1" class="name-file">Выберите файл</label>
+            								<input type="file" name='photo' id="foto{{ $i->id }}" class="input-file">
+            								<label for="foto{{ $i->id }}" class="name-file">Выберите файл</label>
             							</div>
         					        </td>
         					        <td>

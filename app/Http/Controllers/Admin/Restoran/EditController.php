@@ -22,7 +22,7 @@ class EditController extends Controller{
         if ($item){
             $ar['title'] = 'Изменение ресторана';
             $ar['action'] = action('Admin\Restoran\EditController@postItem', $item->id);
-            $ar['kitchens'] = $item->relKitchens()->lists('kitchen_name', 'kitchen_id');
+            $ar['kitchens'] = (array)$item->relKitchens()->select('kitchen_id')->get()->keyBy('kitchen_id')->toArray();
             $ar['r_data'] = $item->relData;
         }
         else {
@@ -36,6 +36,9 @@ class EditController extends Controller{
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
         $ar['ar_for_admin_select'] = array('Процент'=>'Процент', 'Тенге'=>'Тенге');
+        $ar['ar_delivery_type_ar'] = Restoran::getDeliveryTypeAr();
+
+        //echo '<pre>'; print_r($ar['kitchens']); echo '</pre>'; exit();
 
         return view('admin.restoran.edit', $ar);
     }
@@ -79,20 +82,36 @@ class EditController extends Controller{
         $item->city_id = $request->input('city_id');
         $item->name = $request->input('name');
         $item->epay = $request->input('epay');
-        $item->is_gold = $request->input('is_gold');
-        $item->is_platinum = $request->input('is_platinum');
+
+        if ($request->input('is_special') == 'is_gold')
+            $item->is_gold = 1;
+        else
+            $item->is_gold = 0;
+
+        if ($request->input('is_special') == 'is_platinum')
+            $item->is_platinum = 1;
+        else
+            $item->is_platinum = 0;
+
+        $item->betin_time = $request->input('betin_time');
+        $item->end_time = $request->input('end_time');
+        $item->delivery_type = $request->input('delivery_type');
+
         $item->save();
 
         RestoranKicthen::where('restoran_id', $item->id)->delete();
-        foreach ($request->input('kitchen') as $k_id){
-            if (!isset($ar_kitchen[$k_id]))
-                continue;
-            $kitchen = new RestoranKicthen();
-            $kitchen->restoran_id = $item->id;
-            $kitchen->kitchen_id = $k_id;
-            $kitchen->kitchen_name = $ar_kitchen[$k_id];
-            $kitchen->save();
+        if ($request->has('kitchen')){
+            foreach ($request->input('kitchen') as $k_id){
+                if (!isset($ar_kitchen[$k_id]))
+                    continue;
+                $kitchen = new RestoranKicthen();
+                $kitchen->restoran_id = $item->id;
+                $kitchen->kitchen_id = $k_id;
+                $kitchen->kitchen_name = $ar_kitchen[$k_id];
+                $kitchen->save();
+            }
         }
+
 
         $r_data->restoran_id = $item->id;
         $r_data->short_note = $request->input('data.short_note');
@@ -102,6 +121,7 @@ class EditController extends Controller{
         $r_data->director_name = $request->input('data.director_name');
         $r_data->director_contacts = $request->input('data.director_contacts');
         $r_data->address = $request->input('data.address');
+        $r_data->delivery_price = $request->input('data.delivery_price');
 
         $r_data->for_admin_work_time = $request->input('data.for_admin_work_time');
         $r_data->for_admin_manager = $request->input('data.for_admin_manager');

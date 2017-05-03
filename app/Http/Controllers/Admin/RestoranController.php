@@ -25,6 +25,7 @@ class RestoranController extends Controller{
         $ar['items'] = $items->orderBy('id', 'desc')->paginate(25);
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
+        $ar['ar_delivery_type_ar'] = Restoran::getDeliveryTypeAr();
 
         return view('admin.restoran.index', $ar);
     }
@@ -35,6 +36,14 @@ class RestoranController extends Controller{
         $user->delete();
 
         return redirect()->back()->with('success', 'Удалено');
+    }
+
+    function getModerate($id){
+        $item = Restoran::findOrFail($id);
+        $item->is_moderate = ($item->is_moderate ? 0 : 1);
+        $item->save();
+
+        return redirect()->back()->with('success', 'Сохранено');
     }
 
     function getOpen($id){

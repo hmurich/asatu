@@ -103,6 +103,19 @@ $('.restaurants-filtr__item__mobile--show').click(function(){
     };
 
 });
+$('.js-time-order-button ').click(function(){
+	var $mob_part = $('.js-time-order');
+    if ($(this).hasClass('show-time-order')) {
+       	 $mob_part.hide(800);
+         $(this).removeClass('show-time-order');
+     }
+    else{
+         $(this).addClass('show-time-order');
+         $mob_part.show(800);
+    };
+
+});
+
 jQuery(function($){
     $(document).mouseup(function (e){ // событие клика по веб-документу
         var div = $(".restaurants-filtr__item__mobile "); // тут указываем ID элемента
@@ -112,6 +125,10 @@ jQuery(function($){
             $('.restaurants-filtr__item__mobile--show').removeClass('show-search');
         }
     });
+
+      $(function() {
+                   $('#time').timepicker({ 'timeFormat': 'H:i' });
+                });
 });
 jQuery(function($){
     $(document).mouseup(function (e){ // событие клика по веб-документу

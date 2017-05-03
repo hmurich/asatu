@@ -32,7 +32,7 @@
                     <td>{{ $ar_status[$o->status_id] }}</td>
     		        <td>{{ $ar_city[$restoran->city_id] }}</td>
     		        <td>{{ $o->relCustomer->name }}</td>
-    		        <td>{{ $o->relCustomer->relUser->email }}</td>
+    		        <td>{{ $o->email }}</td>
     		        <td>{{ $o->relCustomer->full_adress }}</td>
     		        <td>Наличными курьеру</td>
     		        <td>{{ $o->total_sum }}</td>

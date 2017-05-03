@@ -41,6 +41,7 @@ class ReviewController extends Controller{
         $ar['ar_input'] = $request->all();
         $ar['location'] = $location;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
+        $ar['ar_delivery'] = $this->getArDelivery();
 
         $ar['auth'] = $this->auth;
 
@@ -81,6 +82,13 @@ class ReviewController extends Controller{
         DB::commit();
 
         return redirect()->action('Front\Restoran\ReviewController@getList', $restoran->id)->with('success', 'Сохранено');
+    }
+
+    function getArDelivery(){
+        if (!session()->has('ar_delivery'))
+            return false;
+
+        return session()->get('ar_delivery');
     }
 
 }

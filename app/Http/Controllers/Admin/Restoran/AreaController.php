@@ -72,6 +72,7 @@ class AreaController extends Controller{
         $item->coords = $request->input('coords');
         $item->cost = $request->input('cost');
         $item->find_coords = $item->generateToFind();
+        $item->delivery_time = $request->input('delivery_time');
         $item->save();
 
         DB::commit();

@@ -32,6 +32,14 @@
                 <div class="info-card__item">
                     Адрес:   <span>{{ $order->relCustomer->full_adress }}</span>
                 </div>
+                @if ($order->is_pre_order)
+                    <div class="info-card__item">
+                        Предзаказ - время:   <span>{{ $order->pre_order_time }}</span>
+                    </div>
+                @endif
+                <div class="info-card__item">
+                    Статус:   <span>{{ $ar_status[$order->status_id] }}</span>
+                </div>
                 <div class="info-card__item order-button-container">
                     @if ($order->status_id == $status_open)
                         <a href="#modal2222" class="button cancel open_modal">

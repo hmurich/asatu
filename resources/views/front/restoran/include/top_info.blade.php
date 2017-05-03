@@ -22,9 +22,21 @@
         {{ $translator->getTrans('del_cost') }}: <span>{{ ( $restoran->relData->delivery_price ? $restoran->relData->delivery_price.' тг': "Бесплатно") }}</span>
     </div>
     <div class="restaurant-info__item restaurant-info__item-second-page">
-        {{ $translator->getTrans('del_time') }}:  <span>{{ $restoran->relData->delivery_duration }} минут </span>
+        {{ $translator->getTrans('del_time') }}:  <span>
+            @if (isset($ar_delivery[$restoran->id]) && $ar_delivery[$restoran->id])
+                {{ $ar_delivery[$restoran->id][0] }}
+            @else
+                30 минут
+            @endif
+            </span>
     </div>
     <div class="restaurant-info__item restaurant-info__item-second-page">
         {{ $translator->getTrans('pay_title') }}: <span>{{ $translator->getTrans('cash') }}, {{ ($restoran->epay ? 'онлайн' : null) }}</span>
     </div>
+    @if (isset($sale) && $sale)
+        <div class="restaurant-info__item restaurant-info__item-second-page">
+            Акция:
+            <span>{!! $sale->note_trans !!}</span>
+        </div>
+    @endif
 </div>

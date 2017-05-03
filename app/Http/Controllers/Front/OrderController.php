@@ -20,6 +20,16 @@ use App\Model\Generators\UserArea;
 
 
 class OrderController extends Controller{
+    function getThanks($order_id){
+        $order = Order::findOrFail($order_id);
+
+        $ar = array();
+        $ar['title'] = 'Заказ успешно принят';
+        $ar['order'] = $order;
+
+        return view('front.order.thanks', $ar);
+    }
+
     function getForm (Request $request, $restoran_id){
         $location = UserLocation::getLocation();
         if (!$location)
@@ -67,21 +77,20 @@ class OrderController extends Controller{
         DB::beginTransaction();
         $busket = OrderBusket::getOrder($restoran->id);
 
+        $email = false;
+
         $user = Auth::user();
         if (!$user){
             $password = rand(100000, 999999);
-
 
             $user = User::where('email', $request->input('email'))->first();
             $customer = false;
             if (!$user){
                 $user = new User();
-                $user->email = $request->input('email');
+                $user->email = time().rand(1000000, 999999999).'@rand.rand';
                 $user->password = Hash::make($password);
                 $user->type_id = 4;
                 $user->save();
-
-                //$user->sendPasswordToEmail($password);
             }
 
             if (!$customer)
@@ -93,10 +102,14 @@ class OrderController extends Controller{
                 $customer->save();
             }
 
-            Auth::loginUsingId($user->id);
+            $email = $request->input('email');
+            //Auth::loginUsingId($user->id);
         }
-        else
+        else{
             $customer = Customer::where('user_id', $user->id)->first();
+            $email = $user->email;
+        }
+
 
         if (!$customer){
             DB::rollback();
@@ -129,6 +142,12 @@ class OrderController extends Controller{
             }
         }
 
+        if ($request->has('is_pre_order')){
+            $order->is_pre_order = 1;
+            $order->pre_order_time = $request->input('pre_order_time');
+        }
+
+        $order->email = $email;
         $order->count_person = $customer->count_person;
         $order->note = $request->input('note');
         $order->save();
@@ -149,7 +168,7 @@ class OrderController extends Controller{
 
         OrderBusket::forgetOrder($restoran->id);
 
-        return redirect()->action('Customer\CabinetController@getCabinet')->with('success', 'Заказ принят');
+        return redirect()->action('Front\OrderController@getThanks', $order->id);
     }
 
     function postPromo(Request $request){
