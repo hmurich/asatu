@@ -16,9 +16,9 @@
         <div class="restaurants-box">
 			@include('front.catalog.include.top_filter')
 
-			<ul class="restaurant-list">
+			<ul class="restaurant-list" >
                 @forelse ($items as $i)
-                    @if (!(strtotime($i->betin_time) < strtotime(date('h:i:s')) && strtotime($i->end_time) > strtotime(date('h:i:s')) ) )
+                    @if (!(strtotime($i->betin_time) <= strtotime(Carbon\Carbon::now()->toTimeString()) && strtotime($i->end_time) > strtotime(Carbon\Carbon::now()->toTimeString()) ) )
                         <?php continue; ?>
                     @endif
     				<li class="restaurant-item {{ ($i->is_gold ? 'gold' : null) }} {{ (!$i->is_gold && $i->is_platinum ? 'premium' : null) }}" >

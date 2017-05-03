@@ -263,8 +263,9 @@ body.second-page {
   margin-top: -10px;
 }
 .header-lang {
-  margin-left: 35px;
-  float: right;
+    margin-left: 25px;
+    float: right;
+    margin-top: 2px;
 }
 .header-lang__item {
   margin-right: 7px;
@@ -1126,7 +1127,6 @@ a.side-bar-box:hover {
   width: 100%;
 }
 .admin-nav {
-  padding: 14px 14px;
   font-size: 14px;
   margin: 0;
   list-style: none;
@@ -1136,11 +1136,11 @@ a.side-bar-box:hover {
           box-sizing: border-box;
   text-transform: uppercase;
   background: #fff;
+  padding:0;
   border: 1px solid #eeeeee;
 }
 .admin-nav li {
   display: inline-block;
-  margin: 0 9px;
 }
 .admin-nav li:hover a {
     color: #008aff;
@@ -1153,16 +1153,20 @@ a.side-bar-box:hover {
   margin-right: 0;
 }
 .admin-nav li.active a {
-  color: #008aff;
+  background-color: #008aff;
   text-decoration: none;
+  color:#fff;
 }
 .admin-nav li a {
   color: #727272;
+  padding: 10px 12px;
+  display: block;
 }
 .info-card {
   border: 1px solid #eeeeee;
   background: #fff;
   font-size: 14px;
+  padding:10px 12px;
   margin-bottom: 15px;
 }
 .info-card__item {
@@ -1685,7 +1689,7 @@ table tr th:last-child a {
   height: 40px;
   text-indent: 15px;
   font-size: 14px;
-  border: 1px solid #eeeeee;
+  border: 1px solid #d4d4d4;
   color: #727272;
 }
 .checkout-form__item label {
@@ -1862,6 +1866,9 @@ table tr th:last-child a {
 }
 .admin-edit-card__input-file label:hover {
   text-decoration: underline;
+}
+.header-right {
+    overflow: hidden;
 }
 .admin-edit-card__input-file label:before {
   display: none;
@@ -2807,6 +2814,12 @@ textarea:focus:-ms-input-placeholder {
     float: right;
     display: none;
 }
+.call-center {
+    float: right;
+    font-size: 13px;
+    color: #fff;
+    margin-top: 2px;
+}
 .js_busket_item_li_del {
     float: right;
     font-size: 0;
@@ -2842,10 +2855,6 @@ textarea:focus:-ms-input-placeholder {
   .container-inner {
     width: auto;
     padding: 0 15px;
-  }
-  .header.second-page-header .header-lang {
-      position: absolute;
-      right: 15px;
   }
   .index-card-container {
     overflow: hidden;
