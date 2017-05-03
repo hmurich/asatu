@@ -28,6 +28,7 @@
             <div class="side-bar-box">
                 <div class="side-bar-box__item-search">
                    <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
+                    <button class="serach-button"></button>
                 </div>
             </div>
         </div>

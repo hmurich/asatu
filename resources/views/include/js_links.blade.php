@@ -5,6 +5,7 @@
 <script type="text/javascript" src="{{ URL::asset('js/jquery.rating-2.0.min.js') }}" ></script>
 <script type="text/javascript" src="{{ URL::asset('js/range.js') }}" ></script>
 <script type="text/javascript" src="{{ URL::asset('js/jquery.fancybox.pack.js') }}" ></script>
+<script type="text/javascript" src="{{ URL::asset('js/jquery.timepicker.js') }}" ></script>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}" ></script>
 <script type="text/javascript" src="{{ URL::asset('js/wow.min.js') }}" ></script>
 <script type="text/javascript" src="{{ URL::asset('js/tab.js') }}" ></script>

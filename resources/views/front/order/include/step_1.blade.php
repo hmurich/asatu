@@ -22,36 +22,45 @@
             <div class="checkout-form" style="width: 100%;">
                 @if (!$user)
                     <div class="checkout-form__item">
-                        <input type="text" name='email' placeholder="{{ $translator->getTrans('email_adres') }}" required="">
+                        <input type="text" name='email' placeholder="{{ $translator->getTrans('email_adres') }}" class="rfield"required="">
                     </div>
                 @endif
                 <div class="checkout-form__item">
-                    Предзаказ <input type="checkbox" name='is_pre_order' value="1" />
+                  
                 </div>
                 <div class="checkout-form__item">
-                    <input type="time" name='pre_order_time' placeholder="Время предзаказа" />
+                   
                 </div>
 
                 <div class="checkout-form__item">
-                    <input type="text" name='name' placeholder="{{ $translator->getTrans('enter_fio') }}" value='{{ ($customer ? $customer->name : null ) }}' required="">
+                    <input type="text" name='name' class="rfield" placeholder="{{ $translator->getTrans('enter_fio') }}" value='{{ ($customer ? $customer->name : null ) }}' required="">
                 </div>
                 <div class="checkout-form__item">
-                    <input type="text" name='phone' placeholder="{{ $translator->getTrans('enter_phone') }}" value='{{ ($customer ? $customer->phone : null ) }}' required="">
+                    <input type="text" name='phone' class="rfield" placeholder="{{ $translator->getTrans('enter_phone') }}" value='{{ ($customer ? $customer->phone : null ) }}' required="">
                 </div>
                 <div class="checkout-form__item">
-                    <input type="text" name='address' placeholder="{{ $translator->getTrans('enter_adres') }}" value='{{ ($customer ? $customer->address : null ) }}' required="">
+                    <input type="text" name='address' class="rfield" placeholder="{{ $translator->getTrans('enter_adres') }}" value='{{ ($customer ? $customer->address : null ) }}' required="">
                 </div>
+                <div class="pred-zakaz">
+                    <div class="checkout-form__item checkout-form__item-left ">
+                           <input type="checkbox" id="pred-zakaz"name='is_pre_order' value="1" />
+                           <label for="pred-zakaz" class="js-time-order-button ">Предзаказ</label>
+                    </div>
+                    <div class="checkout-form__item checkout-form__item-right time-oreder js-time-order">
+                        <input type="text" class="time" id="time" name='pre_order_time' placeholder="Время предзаказа" />
+                    </div>
+                </div>  
                 <div class="checkout-form__item checkout-form__item-left">
-                    <input type="text" name='kvartira' placeholder="{{ $translator->getTrans('enter_kv') }}" value='{{ ($customer ? $customer->kvartira : null ) }}' >
+                    <input type="text" name='kvartira'placeholder="{{ $translator->getTrans('enter_kv') }}" value='{{ ($customer ? $customer->kvartira : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-right">
-                    <input type="text" name='podezd' placeholder="{{ $translator->getTrans('enter_pd') }}" value='{{ ($customer ? $customer->podezd : null ) }}' >
+                    <input type="text" name='podezd'  placeholder="{{ $translator->getTrans('enter_pd') }}" value='{{ ($customer ? $customer->podezd : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-left">
                     <input type="text" name='etag' placeholder="{{ $translator->getTrans('enter_et') }}" value='{{ ($customer ? $customer->etag : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-right">
-                    <input type="text" name='domofon' placeholder="{{ $translator->getTrans('enter_md') }}" value='{{ ($customer ? $customer->domofon : null ) }}' >
+                    <input type="text" name='domofon' " placeholder="{{ $translator->getTrans('enter_md') }}" value='{{ ($customer ? $customer->domofon : null ) }}' >
                 </div>
                 <div class="checkout-form__item checkout-form__item-left">
                     <input type="text" name='count_person'  placeholder="{{ $translator->getTrans('enter_pr') }}" value='{{ ($customer ? $customer->count_person : null ) }}' >

@@ -27,7 +27,7 @@
 					</div>
 				</div>
 			</div>
-            <form action="{{ action('Front\OrderController@postForm', $restoran->id) }}" method="post">
+            <form action="{{ action('Front\OrderController@postForm', $restoran->id) }}" method="post" class="rf">
     			<div class="js-checkout-tab active">
                     @include('front.order.include.step_1')
                 </div>
