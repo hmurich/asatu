@@ -20,7 +20,7 @@ class EditController extends Controller{
 
         $ar = array();
         if ($item){
-            $ar['title'] = 'Изменение ресторана';
+            $ar['title'] = 'Изменение ресторана - '.$item->name;
             $ar['action'] = action('Admin\Restoran\EditController@postItem', $item->id);
             $ar['kitchens'] = (array)$item->relKitchens()->select('kitchen_id')->get()->keyBy('kitchen_id')->toArray();
             $ar['r_data'] = $item->relData;
