@@ -3,6 +3,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Generators\OrderStatus;
 use App\Model\OrderHistory;
+use Carbon\Carbon;
 
 class Order extends Model{
     protected $table = 'orders';
@@ -28,7 +29,7 @@ class Order extends Model{
 
         $this->attributes['status_id'] = $status_id;
         if (in_array($status_id, array(OrderStatus::CANCEL, OrderStatus::CLOSE, OrderStatus::MISSING))){
-            $finish_at = Carbon\Carbon::now()->toDateTimeString();
+            $finish_at = Carbon::now()->toDateTimeString();
             $this->attributes['finish_at'] = $finish_at;
 
             $created_at = strtotime ($this->created_at);
