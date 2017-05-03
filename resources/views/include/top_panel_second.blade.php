@@ -3,16 +3,21 @@
         <a href="/" class="header-logo">
             <img src="/img/logo.png" alt="">
         </a>
-        <div class="header-lang">
-            <a href="/kz" class="header-lang__item {{ session()->has('lang_id') && session()->get('lang_id') == 'kz' ? 'active' : null }}">
-                Каз
-            </a>
-            <a href="/ru" class="header-lang__item {{ !session()->has('lang_id') || session()->get('lang_id') == 'ru' ? 'active' : null }}">
-                Рус
-            </a>
-            <a href="/en" class="header-lang__item {{ session()->has('lang_id') && session()->get('lang_id') == 'en' ? 'active' : null }}">
-                Eng
-            </a>
+        <div class="header-right">  
+            <div class="header-lang">
+                <a href="/kz" class="header-lang__item {{ session()->has('lang_id') && session()->get('lang_id') == 'kz' ? 'active' : null }}">
+                    Каз
+                </a>
+                <a href="/ru" class="header-lang__item {{ !session()->has('lang_id') || session()->get('lang_id') == 'ru' ? 'active' : null }}">
+                    Рус
+                </a>
+                <a href="/en" class="header-lang__item {{ session()->has('lang_id') && session()->get('lang_id') == 'en' ? 'active' : null }}">
+                    Eng
+                </a>
+            </div>
+            <div class="call-center">
+                Колл центр: +7 (7172) 40 38 40
+            </div>            
         </div>
         <div class="header-slogan">
 			{{ $translator->getTrans('one_service_food') }}
