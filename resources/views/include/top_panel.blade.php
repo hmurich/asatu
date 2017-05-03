@@ -1,6 +1,6 @@
 <div class="header-top-line">
     <div class="header-top-line__inner">
-        <a href="/" class="header-logo  header-logo-admin">
+        <a href="/adminka/order/list" class="header-logo  header-logo-admin">
            Панель администрирование
         </a>
         <div class="header-lang">
