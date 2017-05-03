@@ -24,7 +24,7 @@ class TicketController extends Controller{
         $tickets = Ticket::where('restoran_id', $restoran->id);
 
         $ar = array();
-        $ar['title'] = "Тикеты";
+        $ar['title'] = "Запросы";
         $ar['tickets'] = $tickets->orderBy('id', 'desc')->get();
         $ar['restoran'] = $restoran;
 

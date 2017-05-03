@@ -20,7 +20,7 @@ class TicketController extends Controller{
         $tickets = Ticket::where('id', '>', 0);
 
         $ar = array();
-        $ar['title'] = "Тикеты";
+        $ar['title'] = "Запросы";
         $ar['tickets'] = $tickets->with('relUser', 'relRestoran')->orderBy('id', 'desc')->get();
 
         $ar['ar_input'] = $request->all();

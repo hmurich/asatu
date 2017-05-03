@@ -30,7 +30,7 @@
 
 <div id="modal_add_ticket" class="modal_div registar-zav"> <!-- скрытый див с уникальным id = modal1 -->
     <span class="modal_close"></span>
-    <div class="modal-title">Добавить тикет</div>
+    <div class="modal-title">Добавить запрос</div>
 
     <form  action="{{ $action }}" method="post" >
         <div class="form-modal">
