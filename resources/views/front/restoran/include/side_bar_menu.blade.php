@@ -34,6 +34,7 @@
             <div class="side-bar-box">
                 <div class="side-bar-box__item-search">
                    <input type="text" placeholder="Введите блюдо.." name='k_name' value="{{ (isset($ar_input["k_name"]) ? $ar_input["k_name"] : null) }}" />
+                    <button></button>
                 </div>
             </div>
         </div>
@@ -61,7 +62,10 @@
                             </span> тг
                         </div>
                     </div>
-                    <div style='overflow: hidden; width: 100%;'>
+
+                </div>
+            </div>
+             <div style='overflow: hidden; width: 100%;'>
                         <ul class='js_busket_list product-add-list'>
                             @if ($busket)
                                 @foreach ($busket as $menu_id => $b)
@@ -73,10 +77,24 @@
                                     @endif
                                 @endforeach
                             @endif
+                            <li>
+                                <div class="busket-item">
+                                    <div class="busket-item__name">
+                                        <div class="busket-item__name-category">
+                                            Лапша
+                                        </div>
+                                        Название
+                                    </div>
+                                    <div class="busket-item__count">
+                                        x55
+                                    </div>
+                                    <div class="busket-item__del">
+                                       
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                </div>
-            </div>
             <div class="side-bar-box">
                 <div class="side-bar-box__checkout">
                     <img src="/img/cards.png" alt="">

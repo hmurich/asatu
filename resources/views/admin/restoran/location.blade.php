@@ -31,7 +31,7 @@
             	        <td>{{ $i->address }}</td>
             	        <td>{{ $i->relArea()->count() }}</td>
             	        <td>
-                            <a href="{{ action("Admin\Restoran\AreaController@getList", array($item->id, $i->id)) }}" class="table-item edit edit-icon">
+                            <a href="{{ action("Admin\Restoran\AreaController@getList", array($item->id, $i->id)) }}" class="table-item edit edit-icon edit-zona-dostavki">
                                 зоны доставки
             				</a>
                             <a href="{{ action("Admin\Restoran\LocationController@getItem", array($item->id, $i->id)) }}" class="table-item edit edit-icon">

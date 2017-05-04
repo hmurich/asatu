@@ -1,9 +1,12 @@
 <div id="registr_restoran" class="modal_div registar-zav">
     <span class="modal_close"></span>
-    <div class="modal-title">Регистрация заведений</div>
 
     <form  action="{{ action('Front\IndexController@postRegistrRestoran') }}" method="post" >
         <div class="form-modal">
+            <img src="/img/modal-logo.png">
+            <div class="form-modal-min-title">
+              Регистрация заведений
+            </div>
             <div class="modal-input__container ">
                 <input type="text" name="name" required="required" placeholder="Название ресторана:" class="modal-input ">
             </div>
@@ -20,9 +23,7 @@
                 <input type="text" name="email" required="required" placeholder="Электронная почта:" class="modal-input js_check_new_email">
                 <span class='js_check_new_email_message' style="display:none">Этот почтовый адресс уже используеться</span>
             </div>
-        </div>
-        <div class="modal-button-container">
-            <button class="modal-button button">
+             <button class="modal-button button">
                 Отправить
             </button>
         </div>

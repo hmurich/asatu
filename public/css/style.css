@@ -1032,7 +1032,52 @@ a.side-bar-box:hover {
     width: 208px;
     border: none;
     text-indent: 15px;
-    height: 30px;
+    height: 28px;
+}
+.busket-item {
+    border-top: 1px solid #cecece;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+.busket-item__name {
+    display: inline-block;
+    color: #000000;
+    font-size: 16px;
+    float: left;
+    width: 178px;
+    padding: 7px 15px;
+    box-sizing: border-box;
+}
+.busket-item__name-category {
+    color: #757575;
+    font-size: 14px;
+}
+.busket-item__count {
+    display: inline-block;
+    line-height: 36px;
+    color: #008aff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 7px 0px;
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    float: left;
+    width: 47px;
+    text-align: center;
+}
+.busket-item__del {
+    display: inline-block;
+    padding: 7px 15px;
+    box-sizing: border-box;
+    background-image: url(../img/delete-button.png);
+    font-size: 0;
+    background-repeat: no-repeat;
+    width: 41px;
+    background-position: center;
+    background-size: 16px;
+    height: 50px;
+    float: left;
 }
 .basket {
   color: #000000;
@@ -1328,17 +1373,19 @@ table td:last-child {
   width: 32px;
 }
 table td .table-item.edit-icon {
-  background-image: url(../img/edit-pencil.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative;
-  right: auto;
-  top: auto;
-  margin-top: 0;
-  margin-bottom: 15px;
-  width: 24px;
-  height: 24px;
-  padding: 0;
+    background-image: url(../img/edit-pencil.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 0;
+    margin-bottom: 15px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+
+    font-size: 0;
 }
 .table-item.show.show-icon {
   padding: 0;
@@ -1352,11 +1399,18 @@ table td .table-item.edit-icon {
   border: none;
 }
 table tr th:last-child a {
-  font-size: 0;
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-image: url(../images/add.png);
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url(../images/add.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-position: center;
+}
+.table-item.edit.edit-icon.edit-zona-dostavki {
+    background-image: url(../img/map-location.png);
+    background-size: cover;
 }
 .select-search select {
   width: 230px;
@@ -1982,29 +2036,40 @@ textarea:focus:-ms-input-placeholder {
   opacity: 0;
 }
 .modal_div {
-  width: 335px;
-  background: #fff;
-  left: 0;
-  bottom: 0;
-  border: 0;
-  right: 0;
-  height: 291px;
-  top: 0;
-  display: none;
-  opacity: 0;
-  position: fixed;
-  margin: auto;
-  z-index: 1001;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow: auto;
+    width: 400px;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    border: 0;
+    right: 0;
+    height: 291px;
+    top: 0;
+    display: none;
+    width: 400px;
+    padding: 25px 40px;
+    height: 390px;
+    border-radius: 7px;
+    text-align: center;
+    opacity: 0;
+    position: fixed;
+    margin: auto;
+    z-index: 1001;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.modal_div img {
+    margin-bottom: 10px;
 }
 #modal_registr {
-    height: 450px;
+    height: 464px;
 }
 .modal_div.registar-zav {
-  height: 450px;
+    height: 468px;
+}
+#modal_forgot_pass {
+    height: 280px;
 }
 .modal_div form {
   margin: 0;
@@ -2019,10 +2084,11 @@ textarea:focus:-ms-input-placeholder {
   background: #008aff;
   padding-right: 25px;
 }
+
 .modal_close {
   position: absolute;
-  top: 4px;
-  right: 5px;
+top: 12px;
+    right: 14px;
   width: 20px;
   height: 20px;
   cursor: pointer;
@@ -2051,11 +2117,8 @@ textarea:focus:-ms-input-placeholder {
   display: none;
 }
 .form-modal {
-  padding-bottom: 15px;
-  padding-top: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
-  overflow: hidden;
+    overflow: hidden;
+    padding: 2px;
 }
 .modal-input__container input {
     width: 100%;
@@ -2069,7 +2132,7 @@ textarea:focus:-ms-input-placeholder {
     border-radius: 7px;
 
 }
-#modal_login .modal_close {
+.modal_close {
     position: absolute;
     top: 12px;
     right: 14px;
@@ -2305,16 +2368,33 @@ textarea:focus:-ms-input-placeholder {
   list-style: none;
 }
 .cancel-list li {
-  width: 48%;
-  display: inline-block;
-  font-size: 14px;
-  margin-bottom: 7px;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 10px;
+    padding-top: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #f14848;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+.cancel-list li:last-child{
+  margin-bottom: 0;
 }
 .cancel-list li a {
-  color: #757575;
+    color: #fff;
+    display: block;
+    text-decoration: none;
 }
-.cancel-list li:nth-child(even) {
-  float: right;
+#modal2222 {
+    height: 410px;
+    border-radius: 7px;
 }
 .menu-list-cabinet {
   padding: 0;
@@ -2590,7 +2670,7 @@ textarea:focus:-ms-input-placeholder {
     list-style: none;
     color: #757575;
     font-size: 14px;
-    margin: 10px 0;
+    margin: 10px 0 0;
 }
 .product-add-list li {
   margin-bottom: 7px;
@@ -2884,6 +2964,17 @@ textarea:focus:-ms-input-placeholder {
     font-size: 13px;
     color: #fff;
     margin-top: 2px;
+}
+.call-center:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    float: left;
+    background-image: url(../img/call-center.png);
+    background-size: cover;
+    margin-right: 5px;
+    margin-top: 0;
 }
 .js_busket_item_li_del {
     float: right;
