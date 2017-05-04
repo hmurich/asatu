@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="call-center">
-                Колл центр: +7 (7172) 40 38 40
+                Call Center: +7 (7172) <span>40 38 40</span>
             </div>            
         </div>
         <div class="header-slogan">

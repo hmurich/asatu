@@ -5,7 +5,7 @@
         <div class="form-modal">
             <img src="/img/modal-logo.png">
             <div class="form-modal-min-title">
-                Вход в личный кабинет
+               Зарегистрироваться
             </div>
             <div class="modal-input__container ">
                 <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input js_check_new_email">
@@ -23,12 +23,11 @@
             <div class="modal-input__container ">
                 <input type="tel" name="phone" required="required" placeholder="Введите телефон..." class="modal-input ">
             </div>
-        </div>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="modal-button-container">
             <button class="modal-button button">
                 зарегистрироваться
             </button>
         </div>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        
     </form>
 </div>

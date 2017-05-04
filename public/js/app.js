@@ -62,6 +62,13 @@ $('.js-button').click(function(){
 			$(this).siblings(".js-reviews-otevet").css('display', 'block');
 
 });
+
+$('.modal-link').click(function(){
+			$("#modal_login").css('display', 'none');
+
+});
+
+
 $('.sort-reiting').click(function(){
 		if($(this).hasClass('active')){
 			$(this).children(".sort-reiting__sub").css('display', 'none');
