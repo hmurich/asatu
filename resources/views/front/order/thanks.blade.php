@@ -27,14 +27,14 @@
 					Что с моим заказом?
 				</div>
 					<div class="thank-bottom__item first-icon">
-						1. Мы отправили ваш заказ в ресторан <a href="">“Burger king”,</a><br>
+						1. Мы отправили ваш заказ в ресторан <a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}">“{{ $restoran->name }}”,</a><br>
 	доставка будет в течении 60 мин.
 					</div>
 					<div class="thank-bottom__item second-icon">
 						2. Если вы хотите следить за вашим заказом,<br>
-то вы должны перейти по это ссылке: <a href="">статус заказа</a>
+то вы должны перейти по это ссылке: <a href="{{ action('Customer\CabinetController@getCabinet') }}">статус заказа</a>
 					</div>
-				</div>		
+				</div>
 			</div>
 			<div class="thank-right">
 				<img src="/img/th-page-logo.png">

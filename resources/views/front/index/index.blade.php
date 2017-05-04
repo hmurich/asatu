@@ -29,10 +29,6 @@
                             <div class="index-card-item__img">
                                 <img src="{{ $a->photo }}" alt="" style='width: 100%;'>
                             </div>
-                        @else
-                            <div class="index-card-item__img">
-                                <img src="/img/helpful.jpg" alt="">
-                            </div>
                         @endif
                         <a href="/show/{{ $a->alias }}" class="index-card-item__title">
                             {{ $a->title_trans }}
@@ -54,10 +50,6 @@
                         @if ($a->photo)
                             <div class="index-card-item__img">
                                 <img src="{{ $a->photo }}" alt="" style='width: 100%;'>
-                            </div>
-                        @else
-                            <div class="index-card-item__img">
-                                <img src="/img/helpful.jpg" alt="">
                             </div>
                         @endif
                         <a href="/show/{{ $a->alias }}" class="index-card-item__title">

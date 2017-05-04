@@ -22,10 +22,12 @@ use App\Model\Generators\UserArea;
 class OrderController extends Controller{
     function getThanks($order_id){
         $order = Order::findOrFail($order_id);
+        $restoran = Restoran::findOrFail($order->restoran_id);
 
         $ar = array();
         $ar['title'] = 'Заказ успешно принят';
         $ar['order'] = $order;
+        $ar['restoran'] = $restoran;
 
         return view('front.order.thanks', $ar);
     }
@@ -168,7 +170,10 @@ class OrderController extends Controller{
 
         OrderBusket::forgetOrder($restoran->id);
 
-        return redirect()->action('Front\OrderController@getThanks', $order->id);
+        if ($request->user())
+            return redirect()->action('Front\OrderController@getThanks', $order->id);
+        else
+            return redirect()->action('Front\IndexController@getIndex')->with('success', 'Сохранено');
     }
 
     function postPromo(Request $request){
