@@ -23,12 +23,13 @@ class OrderController extends Controller{
     function getThanks(Request $request, $order_id){
         $order = Order::findOrFail($order_id);
         $restoran = Restoran::findOrFail($order->restoran_id);
-
+        $user = $request->user();
 
         $ar = array();
         $ar['title'] = 'Заказ успешно принят';
         $ar['order'] = $order;
         $ar['restoran'] = $restoran;
+        $ar['user'] = $user;
 
         return view('front.order.thanks', $ar);
     }
@@ -180,11 +181,11 @@ class OrderController extends Controller{
         				<p>либо позвонив по номеру: <a href="tel:+7 707 555 00 17">+7 707 555 00 17</a></p>';
 
             MailSend::send($user->email, 'Благодарим за ваш заказ в asat.kz', $text);
-            
-            return redirect()->action('Front\OrderController@getThanks', $order->id);
+
+
         }
-        else
-            return redirect()->action('Front\IndexController@getIndex')->with('success', 'Сохранено');
+
+        return redirect()->action('Front\OrderController@getThanks', $order->id);
     }
 
     function postPromo(Request $request){
