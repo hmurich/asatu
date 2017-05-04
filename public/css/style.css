@@ -1032,7 +1032,52 @@ a.side-bar-box:hover {
     width: 208px;
     border: none;
     text-indent: 15px;
-    height: 30px;
+    height: 28px;
+}
+.busket-item {
+    border-top: 1px solid #cecece;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+.busket-item__name {
+    display: inline-block;
+    color: #000000;
+    font-size: 16px;
+    float: left;
+    width: 178px;
+    padding: 7px 15px;
+    box-sizing: border-box;
+}
+.busket-item__name-category {
+    color: #757575;
+    font-size: 14px;
+}
+.busket-item__count {
+    display: inline-block;
+    line-height: 36px;
+    color: #008aff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 7px 0px;
+    border-left: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+    float: left;
+    width: 47px;
+    text-align: center;
+}
+.busket-item__del {
+    display: inline-block;
+    padding: 7px 15px;
+    box-sizing: border-box;
+    background-image: url(../img/delete-button.png);
+    font-size: 0;
+    background-repeat: no-repeat;
+    width: 41px;
+    background-position: center;
+    background-size: 16px;
+    height: 50px;
+    float: left;
 }
 .basket {
   color: #000000;
@@ -2314,16 +2359,33 @@ textarea:focus:-ms-input-placeholder {
   list-style: none;
 }
 .cancel-list li {
-  width: 48%;
-  display: inline-block;
-  font-size: 14px;
-  margin-bottom: 7px;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 10px;
+    padding-top: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: #f14848;
+    color: #fff;
+    line-height: 1;
+    text-align: center;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+.cancel-list li:last-child{
+  margin-bottom: 0;
 }
 .cancel-list li a {
-  color: #757575;
+    color: #fff;
+    display: block;
+    text-decoration: none;
 }
-.cancel-list li:nth-child(even) {
-  float: right;
+#modal2222 {
+    height: 410px;
+    border-radius: 7px;
 }
 .menu-list-cabinet {
   padding: 0;
@@ -2599,7 +2661,7 @@ textarea:focus:-ms-input-placeholder {
     list-style: none;
     color: #757575;
     font-size: 14px;
-    margin: 10px 0;
+    margin: 10px 0 0;
 }
 .product-add-list li {
   margin-bottom: 7px;

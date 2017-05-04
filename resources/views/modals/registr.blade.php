@@ -1,9 +1,12 @@
 <div id="modal_registr" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
     <span class="modal_close"></span>
-    <div class="modal-title">Зарегистрироваться</div>
 
     <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
         <div class="form-modal">
+            <img src="/img/modal-logo.png">
+            <div class="form-modal-min-title">
+                Вход в личный кабинет
+            </div>
             <div class="modal-input__container ">
                 <input type="email" name="email" required="required" placeholder="Введите E-mail..." class="modal-input js_check_new_email">
                 <span class='js_check_new_email_message' style="display:none">Этот почтовый адресс уже используеться</span>
