@@ -71,28 +71,24 @@
                                 @foreach ($busket as $menu_id => $b)
                                     @if (isset($b['count']) && isset($b['cost']))
                                         <li class='js_busket_item_li_{{ $menu_id }}'>
-                                            {{ $ar_menu[$menu_id] }} x{{ $b['count'] }}
-                                            <a href='#del' class="js_busket_item_li_delete" data-id='{{ $menu_id }}' data-restoran_id="{{ $restoran->id }}">x</a>
+                                            <div class="busket-item">
+                                                <div class="busket-item__name">
+                                                    <div class="busket-item__name-category">
+                                                        {{ $ar_menu_type[$ar_menu_cat[$menu_id]['cat_id']] }}
+                                                    </div>
+                                                    {{ $ar_menu[$menu_id] }}
+                                                </div>
+                                                <div class="busket-item__count">
+                                                    x{{ $b['count'] }}
+                                                </div>
+                                                <div class="busket-item__del js_busket_item_li_delete" data-id='{{ $menu_id }}' data-restoran_id="{{ $restoran->id }}">
+
+                                                </div>
+                                            </div>
                                         </li>
                                     @endif
                                 @endforeach
                             @endif
-                            <li>
-                                <div class="busket-item">
-                                    <div class="busket-item__name">
-                                        <div class="busket-item__name-category">
-                                            Лапша
-                                        </div>
-                                        Название
-                                    </div>
-                                    <div class="busket-item__count">
-                                        x55
-                                    </div>
-                                    <div class="busket-item__del ">
-
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
             <div class="side-bar-box">

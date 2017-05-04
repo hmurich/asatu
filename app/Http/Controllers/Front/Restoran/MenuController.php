@@ -46,8 +46,8 @@ class MenuController extends Controller{
         $ar['busket'] = OrderBusket::getOrder($restoran->id);
         $ar['ar_delivery'] = $this->getArDelivery();
 
-        $ar['ar_menu_cat'] = Menu::where('restoran_id', $restoran->id)->select('cat_id')->keyBy('id')->get()->toArray();
-        echo '<pre>'; print_r($ar['ar_menu_cat']); echo '</pre>'; exit();
+        $ar['ar_menu_cat'] = Menu::where('restoran_id', $restoran->id)->select('cat_id', 'id')->get()->keyBy('id')->toArray();
+        //echo '<pre>'; print_r($ar['ar_menu_cat']); echo '</pre>'; exit();
 
 
         return view('front.restoran.menu', $ar);
