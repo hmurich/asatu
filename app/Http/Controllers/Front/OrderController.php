@@ -20,9 +20,10 @@ use App\Model\Generators\UserArea;
 
 
 class OrderController extends Controller{
-    function getThanks($order_id){
+    function getThanks(Request $request, $order_id){
         $order = Order::findOrFail($order_id);
         $restoran = Restoran::findOrFail($order->restoran_id);
+
 
         $ar = array();
         $ar['title'] = 'Заказ успешно принят';
@@ -170,8 +171,18 @@ class OrderController extends Controller{
 
         OrderBusket::forgetOrder($restoran->id);
 
-        if ($request->user())
+        if ($request->user()){
+            $user = $request->user();
+
+            $text = 'Благодарим за ваш заказ. Ваш номер заказа: <span>'.$order->sys_key.'</span> <br/>';
+            $text .= '	<p>Мы отправили данные о заказе на вашу почту: <a href="">abubakirov.azamat@gmail.com</a></p>
+        				<p>При возникновении вопросов, просим сообщить на почту:<a href="">info@asat.kz</a></p>
+        				<p>либо позвонив по номеру: <a href="tel:+7 707 555 00 17">+7 707 555 00 17</a></p>';
+
+            MailSend::send($user->email, 'Благодарим за ваш заказ в asat.kz', $text);
+            
             return redirect()->action('Front\OrderController@getThanks', $order->id);
+        }
         else
             return redirect()->action('Front\IndexController@getIndex')->with('success', 'Сохранено');
     }
