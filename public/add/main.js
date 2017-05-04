@@ -135,6 +135,7 @@ $(document).ready(function() {
         var menu_id = menu_item.data('id');
         var cost = menu_item.data('cost');
         var title = menu_item.data('title');
+        var cat = menu_item.data('cat');
         var count = menu_item.val();
         console.log(restoran_id, menu_id, cost, count);
         $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:count, cost:cost}, function( data ) {
@@ -155,7 +156,16 @@ $(document).ready(function() {
             if ($('.js_busket_item_li_'+menu_id).length == 0)
                 $('.js_busket_list').append('<li class="js_busket_item_li_' + menu_id + '"></li>');
 
-            $('.js_busket_item_li_'+menu_id).html( title + ' x' + count +' <a href="#del" class="js_busket_item_li_del" data-id="'+menu_id+'" data-restoran_id="'+restoran_id+'">x</a>');
+            var html_text =  '<div class="busket-item">'+
+                                    '<div class="busket-item__name">'+
+                                        '<div class="busket-item__name-category">'+
+                                            cat +
+                                        '</div>'+ title +
+                                    '</div>'+
+                                    '<div class="busket-item__count">x' + count + '</div>'+
+                                    '<div class="busket-item__del js_busket_item_li_delete" data-id="'+menu_id+'" data-restoran_id="'+restoran_id+'"></div>'+
+                                '</div>';
+            $('.js_busket_item_li_'+menu_id).html(html_text);
 
 
 
@@ -163,10 +173,10 @@ $(document).ready(function() {
         });
     });
 
-    $( "body" ).on( "click", ".js_busket_item_li_del", function() {
+    $( "body" ).on( "click", ".js_busket_item_li_delete", function() {
         var menu_id = $(this).data('id');
         var restoran_id = $(this).data('restoran_id');
-        var li = $(this).parent();
+        var li = $(this).parent().parent();
 
         $.post( "/restoran/menu/order", {restoran_id:restoran_id, menu_id:menu_id, count:0, cost:0}, function( data ) {
             if (data == 'none')

@@ -70,7 +70,8 @@
                                             data-id='{{ $i->id }}'
                                             data-cost='{{ $i->cost_item }}'
                                             data-restoran_id='{{ $i->restoran_id }}'
-                                            data-title='{{ $i->title }}' />
+                                            data-title='{{ $i->title }}'
+                                            data-cat='{{ $ar_menu_type[$i->cat_id] }}' />
                                 </div>
                                 <div class="product-item-count-item js-plus hover-but">
                                     +
