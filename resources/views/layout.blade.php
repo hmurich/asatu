@@ -9,6 +9,8 @@
     <meta name="description" content="@yield('description')">
     <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link id="png16favicon" rel="icon" href="/img/favicon16.png" sizes="16x16"> 
+    <link id="png32favicon" rel="icon" href="/img/favicon32.png" sizes="32x32">
 
     @include('include.css_links')
 </head>

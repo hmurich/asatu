@@ -1328,17 +1328,19 @@ table td:last-child {
   width: 32px;
 }
 table td .table-item.edit-icon {
-  background-image: url(../img/edit-pencil.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative;
-  right: auto;
-  top: auto;
-  margin-top: 0;
-  margin-bottom: 15px;
-  width: 24px;
-  height: 24px;
-  padding: 0;
+    background-image: url(../img/edit-pencil.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 0;
+    margin-bottom: 15px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+
+    font-size: 0;
 }
 .table-item.show.show-icon {
   padding: 0;
@@ -1352,11 +1354,18 @@ table td .table-item.edit-icon {
   border: none;
 }
 table tr th:last-child a {
-  font-size: 0;
-  width: 24px;
-  height: 24px;
-  display: block;
-  background-image: url(../images/add.png);
+    font-size: 0;
+    width: 24px;
+    height: 24px;
+    display: block;
+    background-image: url(../images/add.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-position: center;
+}
+.table-item.edit.edit-icon.edit-zona-dostavki {
+    background-image: url(../img/map-location.png);
+    background-size: cover;
 }
 .select-search select {
   width: 230px;
