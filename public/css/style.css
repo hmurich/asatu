@@ -152,7 +152,7 @@ body.second-page .container {
     padding: 25px 40px;
     height: 390px;
     border-radius: 7px;
-    text-align: center; 
+    text-align: center;
 
 }
 #modal_login img {
@@ -822,8 +822,8 @@ a.side-bar-box:hover {
   padding-right: 40px;
   text-transform: uppercase;
 }
-.admin-content__body table { 
-/* margin-top: 25px; */ 
+.admin-content__body table {
+/* margin-top: 25px; */
 }
 
 
@@ -1046,7 +1046,7 @@ a.side-bar-box:hover {
     font-size: 16px;
     float: left;
     width: 178px;
-    padding: 7px 15px;
+    padding: 6px 15px;
     box-sizing: border-box;
 }
 .busket-item__name-category {
@@ -1073,11 +1073,14 @@ a.side-bar-box:hover {
     background-image: url(../img/delete-button.png);
     font-size: 0;
     background-repeat: no-repeat;
-    width: 41px;
+    width: 38px;
     background-position: center;
     background-size: 16px;
-    height: 50px;
+    height: 49px;
     float: left;
+}
+.busket-item__del:hover{
+    cursor: pointer;
 }
 .basket {
   color: #000000;
@@ -2867,7 +2870,7 @@ top: 12px;
     position: relative;
 <<<<<<< HEAD
 <<<<<<< HEAD
-    font-size: 13px;    
+    font-size: 13px;
     color: #757575;
 =======
     font-size: 13px;
@@ -2875,7 +2878,7 @@ top: 12px;
 >>>>>>> ed8819047f0f9e053f06f105a32bb8dc57a7a7a1
 =======
 
-    font-size: 13px;    
+    font-size: 13px;
     color: #757575;
 
 >>>>>>> 474bfd7c5da57881c72b902b2270dca0458bf70b
@@ -3330,7 +3333,7 @@ top: 12px;
   }
 }
 @media screen and (max-width: 700px) {
- 
+
   .icon-item {
     width: 50%;
     margin-bottom: 25px;
@@ -3346,7 +3349,7 @@ top: 12px;
 }
 
 .header.video-header.second-page-header {
-   height: auto; 
+   height: auto;
 }
   .header.video-header {
     height: auto;
