@@ -168,6 +168,7 @@ $(document).ready(function() {
             $('.js_busket_item_li_'+menu_id).html(html_text);
 
 
+            $('.js_asdasdas').css('color', 'inherit');
 
             console.log(data);
         });
@@ -193,8 +194,12 @@ $(document).ready(function() {
     $('.js_order_href').click(function(){
         var min = parseInt($(this).data('min'));
         var current = parseInt($(this).data('current'));
-        if (min > current)
+        if (min > current){
+            $('.js_asdasdas').css('color', 'red');
+
             return false;
+        }
+
     });
 
     $('.js_promo_key').change(function(){

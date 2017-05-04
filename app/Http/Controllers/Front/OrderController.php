@@ -17,6 +17,7 @@ use Hash;
 use DB;
 use App\Model\Promo;
 use App\Model\Generators\UserArea;
+use App\Model\MailSend;
 
 
 class OrderController extends Controller{

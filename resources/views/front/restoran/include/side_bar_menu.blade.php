@@ -100,7 +100,7 @@
                         data-current='{{ ($busket ? $busket['total_cost'] : 0) }}'>
                         {{ $translator->getTrans('order_href') }}
                     </a>
-                    {{ $translator->getTrans('min_de_cost') }}: <span>{{ $restoran->relData->min_price }} тг</span>
+                    {{ $translator->getTrans('min_de_cost') }}: <span class="js_asdasdas">{{ $restoran->relData->min_price }} тг</span>
                 </div>
             </div>
         </div>
