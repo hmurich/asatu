@@ -11,7 +11,7 @@ Route::controller('catalog', 'Front\CatalogController');
 Route::controller('order', 'Front\OrderController');
 Route::controller('restoran/menu', 'Front\Restoran\MenuController');
 Route::controller('restoran/review', 'Front\Restoran\ReviewController');
-Route::any('geocoder', 'Front\IndexController@anyGeoCoder');
+Route::any('geocoder', 'Front\IndexController@postGeoCoder');
 Route::post('registr-restoran', 'Front\IndexController@postRegistrRestoran');
 
 // Auth controllers
