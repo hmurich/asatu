@@ -122,18 +122,22 @@ $('.js-time-order-button ').click(function(){
     };
 
 });
+$('.yes').click(function(){ 
+		$(this).addClass('ok');
+		 document.location.href=$('.back-button').attr('href');
+	});
+$('.no').click(function(){ 
+		$(this).addClass('ok');
+		$('.alert-block').css('display','none');
+	});
+$('.alert-block-close').click(function(){ 
+		$('.alert-block').css('display','none');
+	});
 $('.back-button').click(function(){
-	window.onbeforeunload = function (evt) {  
-  var message = "Куда пошел, посидим еще, я чай поставил";  
-  if (typeof evt == "undefined") {  
-  evt = window.event;  
-  }  
-  if (evt) {  
-  evt.returnValue = message;  
-  }  
-  return message;  
-  } 
-
+	$('.alert-block').css('display','block').css('opacity','1');
+			return false;
+			$('.alert-block').css('display','none');
+		
 });
 jQuery(function($){
     $(document).mouseup(function (e){ // событие клика по веб-документу

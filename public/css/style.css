@@ -57,6 +57,30 @@ body.second-page .container {
     box-sizing: border-box;
     max-width: 1900px;
 }
+.alert-block{
+      width: 400px;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    border: 0;
+    right: 0;
+    height: 291px;
+    top: 0;
+    display: none;
+    width: 400px;
+    padding: 25px 40px;
+    height: 390px;
+    border-radius: 7px;
+    text-align: center;
+    opacity: 0;
+    position: fixed;
+    margin: auto;
+    z-index: 1001;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: auto;
+}
 .add-bludo {
   float: right;
 }
@@ -148,7 +172,6 @@ body.second-page .container {
     margin-top: 27px;
 }
 #modal_login {
-    width: 400px;
     padding: 25px 40px;
     height: 390px;
     border-radius: 7px;
@@ -3151,6 +3174,11 @@ top: 12px;
   }
 }
 @media screen and (max-width: 1000px) {
+  .busket-item {
+    width: auto;
+    display: inline-block;
+    border-right: 1px solid #cecece;
+}
   .admin-edit-card__item__right {
     margin-left: 31%;
     width: 68%;
@@ -3481,6 +3509,8 @@ top: 12px;
    .restaurants-box.full-width textarea {
     width: 100%;
   }
+  .modal_div{
+    width: 90%;}
 }
 @media screen and (max-width: 460px) {
   .index-card-list li {
@@ -3526,6 +3556,13 @@ top: 12px;
     text-align: center;
     margin-right: 0;
     text-align: right;
+}
+.header.second-page-header .header-top-line {
+     height: auto; 
+}
+.call-center {
+    float: right;
+    clear: both;
 }
 }
 @media screen and (max-width: 415px) {
@@ -3614,6 +3651,7 @@ top: 12px;
     float: right;
     position: relative;
     margin-top: 23px;
+    text-align: right;
 }
    .header.second-page-header .header-top-line a.header-enter__button-reg {
       margin-right: 0;

@@ -36,10 +36,15 @@ $(function() {
 			// Функция проверки полей формы
 			function checkInput(){
 				form.find('.rfield').each(function(){
-					if($(this).val() != ''){
+					var test  = $(this).val().trim();
+					if(test ){
+					
+							
 						$(this).removeClass('empty_field');
+						
 					} else {
 						$(this).addClass('empty_field');
+
 					}
 				});
 			}
@@ -56,13 +61,15 @@ $(function() {
 				checkInput();
 				var sizeEmpty = form.find('.empty_field').size();
 				if(sizeEmpty > 0){
-					if(btn.hasClass('disabled')){
+					if(btn.hasClass('disabled') || btn.children().hasClass('disabled')){
 						return false
 					} else {
 						btn.addClass('disabled')
+						btn.children().addClass('disabled')
 					}
 				} else {
 					btn.removeClass('disabled')
+					btn.children().removeClass('disabled')
 				}
 			},500);
 
@@ -72,10 +79,10 @@ $(function() {
 					return false
 				} else {
 					if (cookie) {
-			$(this).find('div').removeClass('active').eq(cookie).addClass('active')
-				.closest('div.checkout-content').find('div.tabs-body__item ').removeClass('active').eq(cookie).addClass('active');
-		
-		}
+						$(this).find('div').removeClass('active').eq(cookie).addClass('active')
+							.closest('div.checkout-content').find('div.tabs-body__item ').removeClass('active').eq(cookie).addClass('active');
+					
+					}
 				}
 			});
 		
@@ -83,21 +90,24 @@ $(function() {
 
 	$('.checkout-list-step').on('click', 'div:not(.active)', function() {
 		var form = $(".rf"),
-				btn = $(this);
+			btn = $(this);
 			
-			form.find('.rfield').addClass('empty_field');
 			
 			// Функция проверки полей формы
-			function checkInput(){
+		function checkInput(){
 				form.find('.rfield').each(function(){
-					if($(this).val() != ''){
+					var test  = $(this).val().trim();
+					if(test ){
+					
+							
 						$(this).removeClass('empty_field');
+						
 					} else {
 						$(this).addClass('empty_field');
+
 					}
 				});
 			}
-			
 			// Функция подсветки незаполненных полей
 			function lightEmpty(){
 				form.find('.empty_field').css({'border-color':'#d8512d'});
@@ -110,48 +120,91 @@ $(function() {
 				checkInput();
 				var sizeEmpty = form.find('.empty_field').size();
 				if(sizeEmpty > 0){
-					if(btn.hasClass('disabled')){
+					if(btn.hasClass('disabled') || btn.children().hasClass('disabled')){
 						return false
 					} else {
 						btn.addClass('disabled')
+						btn.children().addClass('disabled')
 					}
 				} else {
 					btn.removeClass('disabled')
+					btn.children().removeClass('disabled')
 				}
 			},500);
 
-			btn.click(function(){
-				if($(this).hasClass('disabled')){
+			
+				if($(btn).hasClass('disabled')){
 					lightEmpty();
 					return false
 				} else {
-					$(this)
+					console.log('test');
+					$(btn)
 						.addClass('active').siblings().removeClass('active')
 						.closest('div.checkout-content').find('.js-checkout-tab').removeClass('active').eq($(this).index()).addClass('active');
 					var ulIndex = $('.checkout-list-step').index($(this).parents('ul.checkout-list-step'));
 					eraseCookie('tabCookie' + ulIndex);
 					createCookie('tabCookie' + ulIndex, $(this).index(), 365);
 				}
-			});
 		
-	});
-
-	$('.next-step').on('click', function() {
-
-
-
-		var form = $(".rf"),
+		
+			});
+$('.next-step').each(function(i) {
+			var form = $(".rf"),
 				btn = $(this);
+
 			
-			form.find('.rfield').addClass('empty_field');
+			// Функция проверки полей формы
+				function checkInput(){
+				form.find('.rfield').each(function(){
+					var test  = $(this).val().trim();
+					if(test ){
+					
+							
+						$(this).removeClass('empty_field');
+						
+					} else {
+						$(this).addClass('empty_field');
+
+					}
+				});
+			}
+			// Функция подсветки незаполненных полей
+			
+			
+			setInterval(function(){
+				checkInput();
+				var sizeEmpty = form.find('.empty_field').size();
+				if(sizeEmpty > 0){
+					if(btn.hasClass('disabled')){
+						return false
+					} else {
+						btn.addClass('disabled')
+					}
+				} else {
+					btn.removeClass('disabled')
+				}
+			},500);
+
+		
+
+				});	
+
+			$('.next-step').on('click', function() {
+			var form = $(".rf"),
+				btn = $(this);
 			
 			// Функция проверки полей формы
 			function checkInput(){
 				form.find('.rfield').each(function(){
-					if($(this).val() != ''){
+					var test  = $(this).val().trim();
+					if(test ){
+					
+							
 						$(this).removeClass('empty_field');
+						
 					} else {
 						$(this).addClass('empty_field');
+
 					}
 				});
 			}
@@ -178,23 +231,25 @@ $(function() {
 				}
 			},500);
 
-			btn.click(function(){
-				if($(this).hasClass('disabled')){
+	
+				if($(btn).hasClass('disabled')){
 					lightEmpty();
 					return false
 				} else {
 					i = 1;
-			var test = $('.checkout-list-step-item active');
-			$('.checkout-list-step-item').removeClass('active').eq(i).addClass('active');
-			var test2 = $('.js-checkout-tab active');
-			$('.js-checkout-tab').removeClass('active').eq(i).addClass('active');
-			$(this).addClass('hide');
+					var test = $('.checkout-list-step-item active');
+					$('.checkout-list-step-item').removeClass('active').eq(i).addClass('active');
+					var test2 = $('.js-checkout-tab active');
+					$('.js-checkout-tab').removeClass('active').eq(i).addClass('active');
+					$(this).addClass('hide');
 				}
-			});
-		if($('.checkout-list-step-item:first-child').hasClass("active")){
+	
+
+
+		});
 
 			
-		}
+
 		// else{
 		// 	i = 2;
 		// 	var test = $('.checkout-list-step-item active');
@@ -203,7 +258,7 @@ $(function() {
 		// 	$('.js-checkout-tab').removeClass('active').eq(i).addClass('active');
 			
 		// }
-	});
+	// });
 
 	
 });

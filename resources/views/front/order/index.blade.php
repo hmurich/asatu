@@ -13,7 +13,7 @@
 	<div class="container-inner">
 		<div class="checkout-content">
 			<div class="checkout-content__top">
-				<div class="checkout-list-step">
+				<div class="checkout-list-step ">
 					<div class="checkout-list-step-item active">
 						{{ $translator->getTrans('order_step_1') }}
 					</div>
@@ -22,7 +22,7 @@
 						{{ $translator->getTrans('order_step_2') }}
 					</div>
                     -->
-					<div class="checkout-list-step-item">
+					<div class="checkout-list-step-item ">
 						2 Шаг. Потверждение заказа
 					</div>
 				</div>
@@ -43,9 +43,18 @@
             </form>
 			<div class="checkout-content__bottom">
 				<a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}" class="button back-button">{{ $translator->getTrans('before_in_menu') }}</a>
-	             <div class="button next-step">{{ $translator->getTrans('dalee') }}</div>
+	             <div class="button next-step  disabled">{{ $translator->getTrans('dalee') }}</div>
 			</div>
 		</div>
+	</div>
+	<div class="alert-block">
+	 <span class="modal_close alert-block-close"></span>
+		<img src="/img/modal-logo.png">
+        <div class="form-modal-min-title">
+            Вы хотите покинуть страницу ?
+        </div>
+		<div class="yes button">ДА</div>
+		<div class="no button">нет</div>
 	</div>
 </div>
 

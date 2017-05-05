@@ -22,7 +22,7 @@
             <div class="checkout-form" style="width: 100%;">
                 @if (!$user)
                     <div class="checkout-form__item">
-                        <input type="text" name='email' placeholder="{{ $translator->getTrans('email_adres') }}" class="rfield"required="">
+                        <input type="text" name='email' placeholder="{{ $translator->getTrans('email_adres') }}" class=" rfield"required="">
                     </div>
                 @endif
                 <div class="checkout-form__item">
