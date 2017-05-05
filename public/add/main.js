@@ -71,8 +71,10 @@ $(document).ready(function() {
                         $('.js_find_address_lat').val('0');
                         $('.js_find_address_lng').val('0');
 
+                        /*
                         if (data == '0' || data == 0)
                             $(".js_find_address").val(' ');
+                        */
 
                         response (data);
                     },
@@ -82,10 +84,18 @@ $(document).ready(function() {
                 });
             },
             select: function(event, ui) {
-                event.preventDefault();
+                //event.preventDefault();
+                if (ui.item.value == 0 || ui.item.value == '0'){
+                    //
+                     event.preventDefault();
+                     return false;
+                }
+
                 $(this).val(ui.item.label);
                 var coords = ui.item.value;
                 result= coords.split(' ');
+
+
                 console.log(result);
                 console.log(result[0], result[1]);
                 $('.js_find_address_lat').val(result[0]);
@@ -95,10 +105,12 @@ $(document).ready(function() {
         });
 
         $('.js_find_address_submit').click(function(){
+
             var city_id = $('.js_find_address_city_id').val();
             var find_address = $('.js_find_address').val();
             var lat = $('.js_find_address_lat').val();
             var lng = $('.js_find_address_lng').val();
+
 
             console.log(city_id, find_address, lat, lng);
             console.log('asdasd');
@@ -168,6 +180,7 @@ $(document).ready(function() {
             $('.js_busket_item_li_'+menu_id).html(html_text);
 
 
+            $('.js_asdasdas').css('color', 'inherit');
 
             console.log(data);
         });
@@ -193,8 +206,12 @@ $(document).ready(function() {
     $('.js_order_href').click(function(){
         var min = parseInt($(this).data('min'));
         var current = parseInt($(this).data('current'));
-        if (min > current)
+        if (min > current){
+            $('.js_asdasdas').css('color', 'red');
+
             return false;
+        }
+
     });
 
     $('.js_promo_key').change(function(){

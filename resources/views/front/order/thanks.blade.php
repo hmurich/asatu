@@ -30,10 +30,12 @@
 						1. Мы отправили ваш заказ в ресторан <a href="{{ action('Front\Restoran\MenuController@getList', $restoran->id) }}">“{{ $restoran->name }}”,</a><br>
 	доставка будет в течении 60 мин.
 					</div>
-					<div class="thank-bottom__item second-icon">
-						2. Если вы хотите следить за вашим заказом,<br>
-то вы должны перейти по это ссылке: <a href="{{ action('Customer\CabinetController@getCabinet') }}">статус заказа</a>
-					</div>
+                    @if ($user)
+    					<div class="thank-bottom__item second-icon">
+    						2. Если вы хотите следить за вашим заказом,<br>
+    то вы должны перейти по это ссылке: <a href="{{ action('Customer\CabinetController@getCabinet') }}">статус заказа</a>
+    					</div>
+                    @endif
 				</div>
 			</div>
 			<div class="thank-right">
