@@ -163,17 +163,7 @@ jQuery(function($){
                    $('#time').timepicker({ 'timeFormat': 'H:i' });
                 });
 });
-jQuery(function($){
-    $(document).mouseup(function (e){ // событие клика по веб-документу
-        var div = $(".side-bar "); // тут указываем ID элемента
-        if (!div.is(e.target) // если клик был не по нашему блоку
-            && div.has(e.target).length === 0) { // и не по его дочерним элементам
-            $('.side-bar__show').removeClass('show'); // скрываем его
-            $('.side-bar').removeClass('show');
-            $('#overlay').css('display','none');
-        }
-    });
-});
+
 jQuery(function($){
     $(document).mouseup(function (e){ // событие клика по веб-документу
         var div = $(".menu_display "); // тут указываем ID элемента

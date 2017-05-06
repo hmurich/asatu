@@ -2171,7 +2171,10 @@ top: 12px;
     margin-bottom: 15px;
     position: relative;
     border-radius: 7px;
-
+    background: #fff;
+}
+*input{
+  background: #Fff;
 }
 .modal_close {
     position: absolute;
@@ -2330,6 +2333,7 @@ top: 12px;
   font-size: 14px;
   border: 1px solid #eeeeee;
   color: #727272;
+  background: #fff;
 }
 .reviews-item__head span {
   color: #008aff;
@@ -2354,6 +2358,7 @@ top: 12px;
   font-size: 12px;
   border: 1px solid #eeeeee;
   color: #727272;
+  background: #fff;
 }
 .resiter-container {
   padding: 14px 14px;
@@ -2391,6 +2396,7 @@ top: 12px;
   font-size: 14px;
   border: 1px solid #eeeeee;
   color: #727272;
+  background: #fff;
 }
 .button-contianer {
   clear: both;
@@ -2693,6 +2699,7 @@ top: 12px;
     border: 1px solid #eeeeee;
     color: #727272;
     margin-bottom: 15px;
+    background: #fff;
 }
 .restaurants-box.full-width textarea {
     resize: none;
@@ -2809,6 +2816,7 @@ top: 12px;
     font-size: 12px;
     border: 1px solid #eeeeee;
     color: #727272;
+    background: #fff;
 }
 .button.add-food__button:first-child {
     margin-right: 15px;
@@ -3250,6 +3258,7 @@ top: 12px;
 }
   .restaurants-filtr__item input {
     height: 34px;
+    background: #fff;
     width: 85%;
 }
 .side-bar__show {
