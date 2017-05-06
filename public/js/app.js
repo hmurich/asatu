@@ -296,7 +296,9 @@ $(document).ready(function() {
 
 
 
-
+ $('#overlay').click(function(e) {
+    $('.side-bar').removeClass('show');
+     });
 	setInterval(function(){
 				$('.modal_div__mask').each(function(i) {
 				   $(this).parent('.modal_div').css('height',   $(this).outerHeight() );

@@ -899,12 +899,7 @@ a.side-bar-box:hover {
     top: 0;
     background-size: cover;
 }
-.restaurants-filtr__button--city {
-    float: left;
-    padding: 10px 34px;
-    margin-bottom: 8px;
-    margin-top: 7px;
-}
+
 .restaurants-filtr__item-city:after {
   content: '';
   width: 100%;
@@ -2927,20 +2922,10 @@ top: 12px;
     display: block;
     padding-left: 15px;
     position: relative;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    font-size: 13px;
-    color: #757575;
-=======
-    font-size: 13px;
-    color: #727272;
->>>>>>> ed8819047f0f9e053f06f105a32bb8dc57a7a7a1
-=======
 
     font-size: 13px;
     color: #757575;
 
->>>>>>> 474bfd7c5da57881c72b902b2270dca0458bf70b
     cursor: pointer;
     line-height: 15px;
 }
@@ -3319,7 +3304,7 @@ top: 12px;
   }
 .restaurants-filtr__item.restaurants-filtr__item--bot {
     position: absolute;
-    top: -74px;
+    top: -65px;
     width: 100%;
     z-index: 5;
 }
@@ -3522,6 +3507,11 @@ top: 12px;
     height: auto;
     margin-bottom: 0;
 }
+.restaurants-filtr__button--city {
+    float: left;
+    margin-bottom: 8px;
+    margin-top: 7px;
+}
   .icon-item {
     width: 100%;
     text-align: left;
@@ -3620,7 +3610,17 @@ top: 12px;
     clear: both;
 }
 }
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 425px) {
+  .restaurants-filtr__item.restaurants-filtr__item--bot {
+    top: -74px;
+}
+.restaurant-item-box {
+    padding-bottom: 92px;
+}
+.restaurants-filtr__button {
+    clear: both;
+    float: left;
+}
   .header-lang {
     float: right;
     margin-bottom: 7px;
@@ -3633,9 +3633,7 @@ top: 12px;
     width: 100%;
     margin-bottom: 15px;
   }
-  .restaurants-filtr__button {
-    float: none;
-  }
+
   .order-img {
     float: left;
     width: 100%;
