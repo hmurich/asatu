@@ -88,6 +88,9 @@ body.second-page .container {
     box-sizing: border-box;
     overflow: auto;
 }
+.asdas {
+    color: red;
+}
 .add-bludo {
   float: right;
 }
@@ -257,6 +260,7 @@ body.second-page .container {
     color: #727272;
     font-size: 12px;
     -webkit-appearance: none;
+    background: #fff;
     -moz-appearance: none;
     appearance: none;
     background-image: url(../img/arrow-down.png);
@@ -416,6 +420,7 @@ body.second-page .container {
   border: 1px solid #eeeeee;
   color: #727272;
   font-size: 12px;
+  background: #fff;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -424,9 +429,11 @@ body.second-page .container {
   background-repeat: no-repeat;
   padding-right: 40px;
   text-transform: uppercase;
+  background: #fff;
 }
 .header-form__item select option {
   text-indent: 15px;
+  background: #fff;
   height:20px;
 }
 .header-form__item input {
@@ -843,6 +850,7 @@ a.side-bar-box:hover {
   border: 1px solid #eeeeee;
   color: #727272;
   font-size: 12px;
+  background: #fff;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1457,6 +1465,7 @@ table tr th:last-child a {
   text-indent: 15px;
   border: 1px solid #eeeeee;
   color: #727272;
+  background: #fff;
   font-size: 14px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1853,6 +1862,7 @@ table tr th:last-child a {
   height: 40px;
   text-indent: 15px;
   border: 1px solid #eeeeee;
+  background: #fff;
   border-right: none;
   color: #727272;
   font-size: 14px;
@@ -2681,6 +2691,7 @@ top: 12px;
     border: 1px solid #eeeeee;
     color: #727272;
     font-size: 12px;
+    background: #fff;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2730,6 +2741,7 @@ top: 12px;
 .table-container.add-food__form select {
     border: none;
     width: 180px;
+    background: #fff;
     height: 40px;
     padding-left: 15px;
     border: 1px solid #eeeeee;
@@ -2800,6 +2812,7 @@ top: 12px;
     border: 1px solid #eeeeee;
     color: #727272;
     font-size: 12px;
+    background: #fff;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
