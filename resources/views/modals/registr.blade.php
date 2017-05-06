@@ -1,5 +1,7 @@
 <div id="modal_registr" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
-    <span class="modal_close"></span>
+   <span class="modal_close"></span>
+   <div class="modal_div__mask">
+   
 
     <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
         <div class="form-modal">
@@ -30,4 +32,5 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         
     </form>
+    </div>
 </div>

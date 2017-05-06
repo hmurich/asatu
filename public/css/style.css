@@ -57,8 +57,15 @@ body.second-page .container {
     box-sizing: border-box;
     max-width: 1900px;
 }
-.alert-block{
-      width: 400px;
+.no.button {
+    margin-left: 15px;
+    background: #ff4848;
+}
+.yes.button {
+    margin-right: 15px;
+}
+.alert-block {
+    width: 400px;
     background: #fff;
     left: 0;
     bottom: 0;
@@ -69,7 +76,7 @@ body.second-page .container {
     display: none;
     width: 400px;
     padding: 25px 40px;
-    height: 390px;
+    height: 220px;
     border-radius: 7px;
     text-align: center;
     opacity: 0;
@@ -107,6 +114,7 @@ body.second-page .container {
 }
 .video-container {
   display: none\9;
+      background-position: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -121,8 +129,8 @@ body.second-page .container {
        transform: translateX(-50%) translateY(-50%);
   /* z-index: -1; */
   background: url(../img/main.jpg) no-repeat;
-  -o-background-size: cover;
-     background-size: cover;
+  background-position: center;
+  background-size: cover;
   border: 1px solid #eee;
 }
 .header.video-header.second-page-header {
@@ -172,7 +180,6 @@ body.second-page .container {
     margin-top: 27px;
 }
 #modal_login {
-    padding: 25px 40px;
     height: 390px;
     border-radius: 7px;
     text-align: center;
@@ -881,8 +888,14 @@ a.side-bar-box:hover {
     background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQzMC4xMTQgNDMwLjExNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDMwLjExNCA0MzAuMTE0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggaWQ9IkZhY2Vib29rX1BsYWNlcyIgZD0iTTM1Ni4yMDgsMTA3LjA1MWMtMS41MzEtNS43MzgtNC42NC0xMS44NTItNi45NC0xNy4yMDVDMzIxLjc0NiwyMy43MDQsMjYxLjYxMSwwLDIxMy4wNTUsMCAgIEMxNDguMDU0LDAsNzYuNDYzLDQzLjU4Niw2Ni45MDUsMTMzLjQyN3YxOC4zNTVjMCwwLjc2NiwwLjI2NCw3LjY0NywwLjYzOSwxMS4wODljNS4zNTgsNDIuODE2LDM5LjE0Myw4OC4zMiw2NC4zNzUsMTMxLjEzNiAgIGMyNy4xNDYsNDUuODczLDU1LjMxNCw5MC45OTksODMuMjIxLDEzNi4xMDZjMTcuMjA4LTI5LjQzNiwzNC4zNTQtNTkuMjU5LDUxLjE3LTg3LjkzM2M0LjU4My04LjQxNSw5LjkwMy0xNi44MjUsMTQuNDkxLTI0Ljg1NyAgIGMzLjA1OC01LjM0OCw4LjktMTAuNjk2LDExLjU2OS0xNS42NzJjMjcuMTQ1LTQ5LjY5OSw3MC44MzgtOTkuNzgyLDcwLjgzOC0xNDkuMTA0di0yMC4yNjIgICBDMzYzLjIwOSwxMjYuOTM4LDM1Ni41ODEsMTA4LjIwNCwzNTYuMjA4LDEwNy4wNTF6IE0yMTQuMjQ1LDE5OS4xOTNjLTE5LjEwNywwLTQwLjAyMS05LjU1NC01MC4zNDQtMzUuOTM5ICAgYy0xLjUzOC00LjItMS40MTQtMTIuNjE3LTEuNDE0LTEzLjM4OHYtMTEuODUyYzAtMzMuNjM2LDI4LjU2LTQ4LjkzMiw1My40MDYtNDguOTMyYzMwLjU4OCwwLDU0LjI0NSwyNC40NzIsNTQuMjQ1LDU1LjA2ICAgQzI3MC4xMzgsMTc0LjcyOSwyNDQuODMzLDE5OS4xOTMsMjE0LjI0NSwxOTkuMTkzeiIgZmlsbD0iIzAwOGFmZiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
     position: absolute;
     right: 0;
-    bottom: 2px;
+    top: 0;
     background-size: cover;
+}
+.restaurants-filtr__button--city {
+    float: left;
+    padding: 10px 34px;
+    margin-bottom: 8px;
+    margin-top: 7px;
 }
 .restaurants-filtr__item-city:after {
   content: '';
@@ -2061,6 +2074,9 @@ input:focus:-ms-input-placeholder,
 textarea:focus:-ms-input-placeholder {
   opacity: 0;
 }
+.modal_div__mask {
+    padding: 25px 40px;
+}
 .modal_div {
     width: 400px;
     background: #fff;
@@ -2072,7 +2088,6 @@ textarea:focus:-ms-input-placeholder {
     top: 0;
     display: none;
     width: 400px;
-    padding: 25px 40px;
     height: 390px;
     border-radius: 7px;
     text-align: center;
@@ -3189,7 +3204,7 @@ top: 12px;
   .restaurants-filtr__item__mobile--show.button {
     display: block;
 }
-  .side-bar {
+.side-bar {
     display: block;
     position: absolute;
     left: 0;
@@ -3197,13 +3212,14 @@ top: 12px;
     width: 0;
     background: #fff;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     -webkit-transition-duration: 0.5s;
-       -moz-transition-duration: 0.5s;
-         -o-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-  }
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    z-index: 9999999;
+}
   .side-bar.show {
     width: 100%;
   }
@@ -3281,9 +3297,8 @@ top: 12px;
   }
 .restaurants-filtr__item.restaurants-filtr__item--bot {
     position: absolute;
-    top: -65px;
+    top: -74px;
     width: 100%;
-    /* float: right; */
     z-index: 5;
 }
 }
@@ -3379,6 +3394,12 @@ top: 12px;
 .header.video-header.second-page-header {
    height: auto;
 }
+.header-inner.js-header-inner {
+    position: relative;
+    z-index: 1;
+    display: table-cell;
+    vertical-align: middle;
+}
   .header.video-header {
     height: auto;
   }
@@ -3433,9 +3454,16 @@ top: 12px;
     float: left;
     width: 100%;
   }
-   .header-form {
-    margin-bottom: 50px;
-  }
+.header-form {
+    margin-bottom: 0;
+    display: block;
+    text-align: center;
+    position: relative;
+    top: auto;
+    margin-top: 0;
+    margin-left: 0;
+    left: auto;
+}
   .product-item-count {
     margin-bottom: 15px;
   }
@@ -3527,12 +3555,13 @@ top: 12px;
     margin-bottom: 0;
     overflow: hidden;
 }
-  .restaurant-name {
+.restaurant-name {
     width: 100%;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-  }
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 7px;
+}
   .restaurant-item-box__top-reiting {
     top: -202px;
   }
@@ -3555,10 +3584,11 @@ top: 12px;
     margin-bottom: 15px;
   }
 .restaurant-item-box__top .restaurant-info__item {
-    float: right;
+  float: none;
     text-align: center;
     margin-right: 0;
-    text-align: right;
+    width: 100%;
+    text-align: left;
 }
 .header.second-page-header .header-top-line {
      height: auto; 

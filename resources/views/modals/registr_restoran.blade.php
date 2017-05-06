@@ -1,6 +1,6 @@
 <div id="registr_restoran" class="modal_div registar-zav">
     <span class="modal_close"></span>
-
+ <div class="modal_div__mask">
     <form  action="{{ action('Front\IndexController@postRegistrRestoran') }}" method="post" >
         <div class="form-modal">
             <img src="/img/modal-logo.png">
@@ -29,4 +29,5 @@
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
+    </div>
 </div>

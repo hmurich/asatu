@@ -248,7 +248,7 @@ $('.next-step').each(function(i) {
 
 		});
 
-			
+	
 
 		// else{
 		// 	i = 2;

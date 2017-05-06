@@ -1,5 +1,7 @@
 <div id="modal_login" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
-    <span class="modal_close"></span>
+      <span class="modal_close"></span>
+     <div class="modal_div__mask">
+   
 
 
     <form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" >
@@ -37,4 +39,5 @@
         <input type="hidden" name="login" value="1">
         
     </form>
+       </div>
 </div>

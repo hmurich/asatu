@@ -44,6 +44,7 @@ if ( null != block ) {
 		block.setAttribute( 'style', newcss );
 	}
 }
+
 var height_h = $('.video-header').height();
 var height_i = $('.position-absolute').height();
 var width_h = $('.header').width();
@@ -91,8 +92,10 @@ $('.js-button-otmena').click(function(){
 $('.side-bar__show').click(function(){
 			if($('.side-bar').hasClass('show')){
 				$('.side-bar').removeClass('show');
+				$('#overlay').css('display','none');
 			}else{
 				$('.side-bar').addClass('show');
+				$('#overlay').css('display','block');
 			}
 
 });
@@ -129,11 +132,18 @@ $('.yes').click(function(){
 $('.no').click(function(){ 
 		$(this).addClass('ok');
 		$('.alert-block').css('display','none');
+		$('#overlay').css('display','none');
 	});
 $('.alert-block-close').click(function(){ 
 		$('.alert-block').css('display','none');
+		$('#overlay').css('display','none');
+
 	});
+	$('#overlay').click(function(){ 
+		$('.alert-block').css('display','none');
+});
 $('.back-button').click(function(){
+	$('#overlay').css('display','block');
 	$('.alert-block').css('display','block').css('opacity','1');
 			return false;
 			$('.alert-block').css('display','none');
@@ -160,6 +170,7 @@ jQuery(function($){
             && div.has(e.target).length === 0) { // и не по его дочерним элементам
             $('.side-bar__show').removeClass('show'); // скрываем его
             $('.side-bar').removeClass('show');
+            $('#overlay').css('display','none');
         }
     });
 });
@@ -296,7 +307,11 @@ $(document).ready(function() {
 
 
 
-
+	setInterval(function(){
+				$('.modal_div__mask').each(function(i) {
+				   $(this).parent('.modal_div').css('height',   $(this).outerHeight() );
+				});		
+			},100);
 
 
 
