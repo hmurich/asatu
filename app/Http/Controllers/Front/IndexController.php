@@ -45,7 +45,7 @@ class IndexController extends Controller{
         foreach ($collection as $item) {
             //echo ' <br/><br/> item <br/><br/>';
             $i = array();
-            $i['value'] = $item->getLatitude().' '.$item->getLongitude();
+
             $address = $item->getAddress();
             //echo $address.'<br/>';
             //echo '<pre>'; print_r($item); echo '</pre>';
@@ -70,16 +70,18 @@ class IndexController extends Controller{
                 }
             }
             */
-
+            $i['value'] = $address;
             $i['label'] = $address;
+            $i['point_user'] = $item->getLatitude().' '.$item->getLongitude();
 
             $ar[] = $i;
 
 
         }
         if (count($ar) == 0){
-            $i['value'] = 0;
+            $i['value'] = 'Не найдено';
             $i['label'] = 'Не найдено';
+            $i['point_user'] = 0;
             $ar[] = $i;
         }
 

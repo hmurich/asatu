@@ -80,27 +80,36 @@ $(document).ready(function() {
                     },
                     error: function () {
 
+                    },
+                    focus: function (event, ui) {
+                        //this.value = ui.item.label;
+                        console.log('focus');
+                        $('#autocomplete-input').val(ui.item.label);
+
+                        // Prevent the default focus behavior.
+                        event.preventDefault();
+                        // or return false;
                     }
                 });
             },
             select: function(event, ui) {
-                //event.preventDefault();
-                if (ui.item.value == 0 || ui.item.value == '0'){
-                    //
-                     event.preventDefault();
-                     return false;
+                if (ui.item.point_user == 0 || ui.item.point_user == '0'){
+                    event.preventDefault();
+                    //console.log('empty');
+                    return false;
                 }
+                //alert('asdas');
+                event.preventDefault();
 
+                //console.log('point_user');
+                //console.log(ui.item.point_user);
                 $(this).val(ui.item.label);
-                var coords = ui.item.value;
-                result= coords.split(' ');
-
-
-                console.log(result);
-                console.log(result[0], result[1]);
-                $('.js_find_address_lat').val(result[0]);
-                $('.js_find_address_lng').val(result[1]);
-                console.log($('.js_find_address_lat').val(), $('.js_find_address_lng').val());
+                var coords = ui.item.point_user;
+                if (coords != 0 || coords != '0'){
+                    result= coords.split(' ');
+                    $('.js_find_address_lat').val(result[0]);
+                    $('.js_find_address_lng').val(result[1]);
+                }
             },
         });
 

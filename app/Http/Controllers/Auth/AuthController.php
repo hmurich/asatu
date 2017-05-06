@@ -48,7 +48,7 @@ class AuthController extends Controller {
             $text .= '<p>Ваше имя - '.$customer->name.'</p>';
             $text .= '<p>Ваше телефон - '.$customer->phone.'</p>';
 
-            //MailSend::send($user->email, 'Ваш пароль для входа в asakely.kz', $text);
+            MailSend::send($user->email, 'Ваш пароль для входа в asakely.kz', $text);
 
             Auth::loginUsingId($user->id);
         }
