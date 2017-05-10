@@ -33,6 +33,7 @@
 			<button class="button">приминить фильтр</button>
 		</div>
 	</form>
+	<div class="table-container">
 	<table border="1">
 	    <tr>
 	        <th>Код</th>
@@ -98,6 +99,7 @@
 	        <td></td>
 	    </tr>
 	</table>
+	</div>
 </div>
 
 @endsection
