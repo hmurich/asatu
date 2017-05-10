@@ -16,7 +16,7 @@
         <div class="restaurants-box">
 			@include('front.catalog.include.top_filter')
 
-			<ul class="restaurant-list" >
+			<ul class="restaurant-list js-catalog-list" >
                 @forelse ($items as $i)
                     @if (!(strtotime($i->betin_time) <= strtotime(Carbon\Carbon::now()->toTimeString()) && strtotime($i->end_time) > strtotime(Carbon\Carbon::now()->toTimeString()) ) )
                         <?php continue; ?>

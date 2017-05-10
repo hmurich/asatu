@@ -2,7 +2,7 @@
     {{ $translator->getTrans('filter') }}
 </div>
 <div class="side-bar">
-    <form action="" class="form js_change_form">
+    <form action="" class="form js_change_form_ajax">
         <div class="side-bar-item">
             <div class="side-bar-item__title">
                 Кухни:

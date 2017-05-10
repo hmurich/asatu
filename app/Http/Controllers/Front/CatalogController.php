@@ -105,6 +105,90 @@ class CatalogController extends Controller{
         return view('front.catalog.index', $ar);
     }
 
+    function anyAjax(Request $request){
+        $location = UserLocation::getLocation();
+        if (!$location)
+            return '0';
+
+        $ar_restoran = $this->getAr();
+        $ar_delivery = $this->getArDelivery();
+        $ar_delivery_price = $this->getArDeliveryPrice();
+        //echo '<pre>'; print_r($ar_delivery_price); echo '</pre>'; exit();
+
+        $items = Restoran::where('is_moderate', 1);
+        $items = $items->whereIn('id', $ar_restoran);
+
+        if ($request->has('name'))
+            $items = $items->where('name', 'like', '%'.$request->input('name').'%');
+
+        if ($request->has('restoran_new')){
+            $week_before = date('Y-m-d', time() - (60 * 60 * 24 * 7));
+            $items = $items->where('created_at', '>', $week_before);
+        }
+
+        $begin_price = false;
+        $end_price = false;
+
+        if ($request->has('amount_price')){
+            $ar_prices = explode('тг', $request->input('amount_price'));
+            if (count($ar_prices) > 2){
+                $begin_price = intval($ar_prices[0]);
+                $end_price = intval($ar_prices[1]);
+
+                $items = $items->whereHas('relData', function($q) use ($begin_price, $end_price){
+                    $q->where('min_price', '>=', $begin_price)->where('min_price', '<=', $end_price);
+                });
+            }
+        }
+
+        if ($request->has('with_sale')){
+            $items = $items->whereHas('relSale', function($q){
+                $q->where('id', '>', 0);
+            });
+        }
+
+        if ($request->has('restoran_new_promo'))
+            $items = $items->whereHas('relPromo', function($q){
+                $q->where('id', '>', 0);
+            });
+
+        if ($request->has('restoran_free'))
+            $items = $items->whereHas('relData', function($q){
+                $q->where('delivery_price', 0);
+            });
+
+        if ($request->has('k_name') )
+            $items = $items->whereHas('relMenu', function($q) use ($request){
+                $q = $q->where('title', 'like', '%'.$request->input('k_name').'%');
+            });
+
+        if (count($request->input('kitchen')) > 0){
+            $ar_kitchen = $request->input('kitchen');
+            $items = $items->whereHas('relKitchens', function($q) use ($ar_kitchen, $request){
+                $q = $q->whereIn('kitchen_id', $ar_kitchen);
+            });
+        }
+
+        $order_name = 'raiting';
+        $order_val = 'desc';
+        if ($request->has('sort_name') && $request->has('sort_asc')){
+            if ($request->input('sort_name') == 'raiting')
+                $order_name = 'raiting';
+            else if ($request->input('sort_name') == 'count_view')
+                $order_name = 'count_view';
+            else if ($request->input('sort_name') == 'price')
+                $order_name = 'id';
+
+            if ($request->input('sort_asc') == '1')
+                $order_val = 'asc';
+        }
+
+        $ar = array();
+        $ar['items'] = $items->with('relData')->orderBy($order_name, $order_val)->paginate(24);
+
+        return view('front.catalog.ajax', $ar);
+    }
+
     function postAddress(Request $request){
         $city_id = $request->input('city_id');
         $ar_city = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');

@@ -33,6 +33,20 @@ $(document).ready(function() {
         });
     });
 
+    //change form and ajax catalog
+    $('.js_change_form_ajax input').change(function(){
+        var form = $(this).closest('form');
+        var data = form.serialize();
+
+        $.post( "/catalog/ajax?"+data, function( data ) {
+            if (data == 0 || data == '0')
+                return false;
+
+            $('.js-catalog-list').html(data);
+        });
+
+    })
+
     //change form and send
     $('.js_change_form input').change(function(){
         //console.log('changed checkbox');
