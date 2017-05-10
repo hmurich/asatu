@@ -22,6 +22,7 @@
 			<button class="button">приминить фильтр</button>
 		</div>
 	</form>
+    <div class="table-container">
 	<table border="1">
 	    <tr>
 	        <th>id</th>
@@ -68,6 +69,7 @@
     	    </tr>
         @endforeach
     </table>
+    </div>
 	{!! $items->appends(Input::all())->render() !!}
 </div>
 

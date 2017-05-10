@@ -12,6 +12,7 @@
             <div class="admin-edit-card__title">
                 {{ $title }}
             </div>
+            <div class="table-container">
             <table border="1">
         	    <tr>
         	        <th>id</th>
@@ -44,6 +45,7 @@
                     <td colspan=12>{!! $items->appends(Input::all())->render() !!}</td>
                 </tr>
             </table>
+            </div>
         </div>
     </div>
 

@@ -144,6 +144,7 @@ $(function() {
 					var ulIndex = $('.checkout-list-step').index($(this).parents('ul.checkout-list-step'));
 					eraseCookie('tabCookie' + ulIndex);
 					createCookie('tabCookie' + ulIndex, $(this).index(), 365);
+					$('.next-step').addClass('hide');
 				}
 		
 		
