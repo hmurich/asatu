@@ -94,6 +94,9 @@ body.second-page .container {
 .add-bludo {
   float: right;
 }
+.ui-helper-hidden-accessible {
+    display: none;
+}
 .admin-edit-card__button {
   padding-bottom: 7px;
   border-bottom: 1px solid #cacac9;
@@ -107,6 +110,17 @@ body.second-page .container {
   margin-bottom: 10px;
   width: 100%;
   float: left;
+}
+.container_input {
+    background-color: #fff;
+    padding: 3px;
+    width: 522px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 17px;
+    text-align: left;
+    position: relative;
 }
 .menu-list li {
   float: left;
@@ -138,6 +152,24 @@ body.second-page .container {
 }
 .header.video-header.second-page-header {
     height: 100%;
+}
+#ui-id-1 {
+    position: absolute!important;
+    top: 32px!important;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding: 15px;
+    width: auto!important;
+}
+.ui-menu-item {
+    margin-bottom: 5px;
+}
+.ui-menu-item:last-child {
+    margin-bottom: 0;
 }
 .header.video-header {
   /* background-image: url(../img/header-background.jpg); */
@@ -250,6 +282,23 @@ body.second-page .container {
 #modal_change_address {
     height: 276px;
 }
+button, html [type="button"], [type="reset"], [type="submit"] {
+    background-color: #039be5;
+    border-radius: 10px;
+    line-height: 40px;
+    padding: 1px 15px;
+    color: #fff;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+
+
+
+
 
 .modal-input__container select {
     border: none;
@@ -488,6 +537,7 @@ input:-ms-input-placeholder {
   background-color: #fa0;
   border-color: #fa0;
 }
+
 .middle-icon {
   background: #008aff;
   color: #fff;

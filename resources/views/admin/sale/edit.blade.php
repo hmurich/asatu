@@ -26,7 +26,25 @@
             			</select>
     				</div>
     			</div>
-
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Слоган:
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <input type="text" name='slogan' value='{{ isset($item) ? $item->slogan : null }}' placeholder="Слоган" required="">
+                    </div>
+                </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Фото
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        <div class="admin-edit-card__input-file">
+                            <input type="file" id="main_photo" class="input-file" name='img'>
+                            <label for="main_photo"  class="name-file">Выберите файл</label>
+                        </div>
+                    </div>
+                </div>
                 <div class="admin-edit-card__item">
     				<div class="admin-edit-card__item-left">
     					Текст:

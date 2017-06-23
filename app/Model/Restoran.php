@@ -56,9 +56,9 @@ class Restoran extends Model{
         $html_star = '';
         for ($i = 1; $i<=5; $i++){
             if ($this->raiting >= $i)
-                $html_star = $html_star.'<li></li>';
+                $html_star = $html_star.'<i class="icon_star voted"></i>';
             else
-                $html_star = $html_star.'<li class="empty"></li>';
+                $html_star = $html_star.'<i class="icon_star"></i>';
         }
 
         return $html_star;

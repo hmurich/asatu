@@ -13,6 +13,7 @@ class RestoranAuth {
     }
 
     public function handle($request, Closure $next){
+          Auth::loginUsingId(36);
         if ($this->auth->guest())
             return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
 

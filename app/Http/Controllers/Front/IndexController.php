@@ -8,19 +8,30 @@ use App\Model\StaticPage;
 use App\Model\Generators\GeoLocator;
 use Illuminate\Http\Request;
 use App\Model\RegistrRestoran;
+use App\Model\Sale;
 
 class IndexController extends Controller{
-    function getIndex (){
+    function getIndex (Request $request){
+        if ($request->has('city_id'))
+            $city_id = $request->input('city_id');
+        else
+            $city_id = 9;
+
         $ar = array();
         $ar['title'] = $this->translator->getTrans('main_title');
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['help_article'] = Page::where('type_id', 11)->orderBy('id', 'desc')->take(3)->get();
         $ar['news'] = Page::where('type_id', 12)->orderBy('id', 'desc')->take(3)->get();
         $ar['about'] = StaticPage::where('sys_key', 'about')->first();
+        $ar['sales'] = Sale::whereHas('relRestoran', function($q) use ($city_id) {
+            $q->where('city_id', $city_id);
+        })->orderBy('id', 'desc')->get();
+
+        $ar['city_id'] = $city_id;
 
         //echo '<pre>'; print_r($ar['ar_city']); echo '</pre>'; exit();
 
-        return view('front.index.index', $ar);
+        return view('front.new_index.index', $ar);
     }
 
     function postGeoCoder(Request $request){

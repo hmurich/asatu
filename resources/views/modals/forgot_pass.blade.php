@@ -1,4 +1,4 @@
-<div id="modal_forgot_pass" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
+<div id="modal_forgot_pass" class="modal modal_div"> <!-- скрытый див с уникальным id = modal1 -->
    <span class="modal_close"></span>
     <div class="modal_div__mask">
     

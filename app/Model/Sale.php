@@ -14,4 +14,8 @@ class Sale extends Model{
 
 		return $text;
 	}
+
+    function relRestoran(){
+        return $this->belongsTo('App\Model\Restoran', 'restoran_id');
+    }
 }

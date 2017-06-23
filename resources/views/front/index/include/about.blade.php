@@ -1,6 +1,6 @@
 @if ($about)
-    <div class="title">
-        <h2 class="title-item">{{ $about->title_trans }}</h2>
-    </div>
-    {!! $about->short_note_trans !!}
+    <div class="container">
+        <h3>{{ $about->title_trans }}</h3>
+        <p>{!! $about->short_note_trans !!}</p>
+    </div><!-- End container -->
 @endif

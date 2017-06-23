@@ -20,6 +20,11 @@ $(document).ready(function() {
         }
     });
 
+    $('.js_asdkasd_hefasdasdasd ').click(function(){
+        window.location.replace($(this).val());
+        console.log('asd');
+    });
+
     console.log('main js');
     // check new email
     $('.js_check_new_email').change(function(){
@@ -145,9 +150,35 @@ $(document).ready(function() {
                 $( ".js_find_address" ).autocomplete("search");
                 return false;
             }
-
+            $(this).closest( "form" ).submit();
             return true;
         })
+
+        $('.js_self_remote').click(function(){
+            var city_id = $('.js_find_address_city_id').val();
+            var find_address = $('.js_find_address').val();
+            var lat = $('.js_find_address_lat').val();
+            var lng = $('.js_find_address_lng').val();
+
+            if (city_id == '0' || city_id == 0)
+                return false;
+
+            if (find_address == '' || find_address == undefined)
+                $('.js_find_address').val('Abai 58');
+            if (lat == '' || lat == undefined)
+                $('.js_find_address_lat').val('48.222131564');
+            if (lng == '' || lng == undefined)
+                $('.js_find_address_lng').val('48.222131564');
+
+            var form = $(this).closest( "form" );
+            form.append('<input type="hidden" value="1" name="self_remote" />');
+
+            form.submit();
+            return true;
+
+            console.log($('.js_find_address').val(), $('.js_find_address_lat').val(), $('.js_find_address_lng').val());
+            console.log('asat loh obelsa bloh v toalet poshel b zdoh');
+        });
     }
 
     // функии показа высплывающего окна

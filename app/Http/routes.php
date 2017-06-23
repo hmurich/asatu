@@ -101,3 +101,8 @@ Route::get('en', function(){
 
 // Test Controllers
 Route::controller('test', 'TestController');
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});

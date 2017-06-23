@@ -23,3 +23,10 @@
         </div>
     </div>
 </div>
+<div id="count" class="hidden">
+    <ul>
+        <li><span class="number">2650</span> Ресторанов</li>
+        <li><span class="number">5350</span> Заказов</li>
+        <li><span class="number">12350</span> Пользователей</li>
+    </ul>
+</div>

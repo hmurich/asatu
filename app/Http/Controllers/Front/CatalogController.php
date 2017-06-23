@@ -190,6 +190,7 @@ class CatalogController extends Controller{
     }
 
     function postAddress(Request $request){
+        echo '<pre>'; print_r($request->all()); echo '</pre>'; exit();
         $city_id = $request->input('city_id');
         $ar_city = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
 

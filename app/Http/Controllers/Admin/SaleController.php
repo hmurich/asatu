@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Sale;
 use App\Model\Restoran;
+use App\Model\Generators\ModelSnipet;
 
 class SaleController extends Controller{
     function getIndex (Request $request){
@@ -53,6 +54,10 @@ class SaleController extends Controller{
         $item->note =  $request->input('note');
         $item->note_kz =  $request->input('note_kz');
         $item->note_en =  $request->input('note_en');
+        $item->slogan =  $request->input('slogan');
+
+        if ($request->hasFile('img'))
+            $item->img = ModelSnipet::setImage($request->file('img'), 'img', 194, 260);
 
         $item->save();
 

@@ -1,32 +1,33 @@
-<div class="header-inner js-header-inner">
-  <!--   <div class="header-slogan">
-        {{ $translator->getTrans('gave_with_love') }}
-    </div> -->
-    <div class="header-form">
-        <form action="{{ action('Front\CatalogController@postAddress') }}" method="post">
-            <div class="header-form__item">
-                <select name="city_id" class='js_find_address_city_id' required="">
-                    <!-- <option value="0">{{ $translator->getTrans('city') }}</option> -->
-                    @foreach ($ar_city as $id=>$name)
-                        <option value="{{ $id }}">{{ $translator->getTrans('sys_directory_name_'.$id) }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="header-form__item" >
-                <input type="text" name='address' class="js_find_address" required="" placeholder="{{ $translator->getTrans('street') }}" />
-                <input type='hidden' name='lat' class='js_find_address_lat' />
-                <input type='hidden' name='lng' class='js_find_address_lng' />
-            </div>
-            <div class="header-form__item ">
-                <button class="button js_find_address_submit">
-                    {{ $translator->getTrans('want_eat') }}
-                </button>
-            </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        </form>
-    </div>
-</div>
-
-<div class="video-container">
-
+<img src="/new/img/video_fix.png" alt="" class="header-video--media" data-video-src="/new/video/intro" data-teaser-source="/new/video/intro" data-provider="html5" data-video-width="1920" data-video-height="960">
+<div id="hero_video">
+    <div id="sub_content">
+        <h1>{{ $translator->getTrans('gave_with_love') }}</h1>
+       
+        <div id="custom-search-input">
+            <form action="{{ action('Front\CatalogController@postAddress') }}" method="post">
+                <div class="form-inline">
+                    <div class="form-group">
+                       <div class="container_input">
+					<input type="text" name="city" placeholder="Город" class="first">
+					<input type="text" name="address" placeholder="Адрес">
+				</div>
+				<div class="submit">
+					<a href="#">
+						<p>Доставка</p>
+					</a>
+				</div>
+				<div class="or">
+					<p>или</p>
+				</div>
+				<div class="submit">
+					<a href="#">
+						<p>Самовывоз</p>
+					</a>
+				</div>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </div><!-- End sub_content -->
 </div>

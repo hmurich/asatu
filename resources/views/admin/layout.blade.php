@@ -9,7 +9,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
 
-    @include('include.css_links')
+    @include('include.css_links_admin')
 </head>
 <body class="second-page">
 	<header class="header header-admin">
