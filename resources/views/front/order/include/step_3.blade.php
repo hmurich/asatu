@@ -43,12 +43,12 @@
         </tr>
         <tr>
             <td>
-                Доставка <span class="pull-right">{{ $area->cost }} тг</span>
+                Доставка <span class="pull-right">{{ ($self_remote ? 'Самовывоз' : $area->cost) }} тг</span>
             </td>
         </tr>
         <tr>
             <td class="total">
-                ИТОГО <span class="pull-right">{{ ($busket['total_cost'] + $area->cost) }} тг</span>
+                ИТОГО <span class="pull-right">{{ ($busket['total_cost'] + ($self_remote ? 0 : $area->cost)) }} тг</span>
             </td>
         </tr>
         </tbody>

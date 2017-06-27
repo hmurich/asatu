@@ -54,8 +54,6 @@ class OrderController extends Controller{
         $ar_busket_menu = array_keys($busket);
 
         $area = UserArea::getCloser($restoran, $location);
-        if (!$area)
-            abort(404);
 
         $ar = array();
         $ar['title'] = $this->translator->getTrans('order_form_title');
@@ -66,6 +64,11 @@ class OrderController extends Controller{
         $ar['customer'] = $customer;
         $ar['area'] = $area;
 
+        if (session()->has('self_remote'))
+            $ar['self_remote'] = true;
+        else
+            $ar['self_remote'] = false;
+
         return view('front.order.index', $ar);
     }
 
@@ -75,9 +78,16 @@ class OrderController extends Controller{
             return redirect()->action('Front\IndexController@getIndex')->with('error', 'Не найден адресс. Повотрите ввод');
         $restoran = Restoran::findOrFail($restoran_id);
 
-        $area = UserArea::getCloser($restoran, $location);
-        if (!$area)
-            return redirect()->action('Front\IndexController@getIndex')->with('error', 'Вне зоны доставки');
+        $self_remote = false;
+        if (session()->has('self_remote')){
+            $self_remote = false;
+            $area = false;
+        }
+        else {
+            $area = UserArea::getCloser($restoran, $location);
+            if (!$area)
+                return redirect()->action('Front\IndexController@getIndex')->with('error', 'Вне зоны доставки');
+        }
 
         DB::beginTransaction();
         $busket = OrderBusket::getOrder($restoran->id);
@@ -135,7 +145,13 @@ class OrderController extends Controller{
         $order->customer_id = $customer->id;
         $order->restoran_id = $restoran->id;
         $order->status_id = OrderStatus::OPEN;
-        $order->delivery_price = $area->cost;
+        if ($area)
+            $order->delivery_price = $area->cost;
+        else{
+            $order->delivery_price = 0;
+            $order->self_remote = 1;
+        }
+
         $order->total_sum = $busket['total_cost'] + $order->delivery_price;
         if ($request->has('promo_key')){
             $promo = Promo::getPromoSum($restoran->id, $request->input('promo_key'), $order->total_sum);

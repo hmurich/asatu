@@ -13,7 +13,7 @@ class AdminAuth {
     }
 
     public function handle($request, Closure $next){
-      \Auth::loginUsingId(1);
+      //Auth::loginUsingId(1);
         if ($this->auth->guest())
             return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');
 

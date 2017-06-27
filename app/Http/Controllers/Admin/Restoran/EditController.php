@@ -37,6 +37,7 @@ class EditController extends Controller{
         $ar['ar_boolen_view'] = array(0=>'Нет', 1=>'Да');
         $ar['ar_for_admin_select'] = array('Процент'=>'Процент', 'Тенге'=>'Тенге');
         $ar['ar_delivery_type_ar'] = Restoran::getDeliveryTypeAr();
+        $ar['ar_self_remote'] = array(0=>'Нет', 1=>'Есть');
 
         //echo '<pre>'; print_r($ar['kitchens']); echo '</pre>'; exit();
 
@@ -82,6 +83,7 @@ class EditController extends Controller{
         $item->city_id = $request->input('city_id');
         $item->name = $request->input('name');
         $item->epay = $request->input('epay');
+        $item->self_remote = $request->input('self_remote');
 
         if ($request->input('is_special') == 'is_gold')
             $item->is_gold = 1;

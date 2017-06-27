@@ -164,7 +164,8 @@ $(document).ready(function() {
                 return false;
 
             if (find_address == '' || find_address == undefined)
-                $('.js_find_address').val('Abai 58');
+                $('.js_find_address').val('Самовывоз');
+                
             if (lat == '' || lat == undefined)
                 $('.js_find_address_lat').val('48.222131564');
             if (lng == '' || lng == undefined)

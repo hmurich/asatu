@@ -14,7 +14,7 @@ class ModeratorAuth {
     }
 
     public function handle($request, Closure $next){
-        Auth::loginUsingId(6);
+        //Auth::loginUsingId(6);
 
         if ($this->auth->guest())
             return redirect()->guest('/')->with('error', 'У Вас нет прав для просмотра');

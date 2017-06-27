@@ -154,6 +154,23 @@
                         @endforeach
                     </div>
                 </div>
+                <div class="admin-edit-card__item">
+                    <div class="admin-edit-card__item-left">
+                        Самовывоз
+                    </div>
+                    <div class="admin-edit-card__item__right">
+                        @foreach ($ar_self_remote as $id=>$name)
+                            <div class="admin-edit-card__checkbox">
+                                @if (($item && $item->self_remote == $id) || old('self_remote') == $id)
+                                    <input type="radio" name="self_remote" class="checkbox" value='{{ $id }}' id="self_remote{{ $id }}" checked>
+                                @else
+                                    <input type="radio" name="self_remote" class="checkbox" value='{{ $id }}' id="self_remote{{ $id }}" >
+                                @endif
+                                <label for="self_remote{{ $id }}">{{ $name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
 
                 <div class="admin-edit-card__item">
                     <div class="admin-edit-card__item-left">

@@ -23,7 +23,11 @@ class CatalogController extends Controller{
         //echo '<pre>'; print_r($ar_delivery_price); echo '</pre>'; exit();
 
         $items = Restoran::where('is_moderate', 1);
-        $items = $items->whereIn('id', $ar_restoran);
+        if (session()->has('self_remote')){
+            $items = $items->where('city_id', session()->get('user_city'))->where('self_remote', 1);
+        }
+        else
+            $items = $items->whereIn('id', $ar_restoran);
 
         if ($request->has('name'))
             $items = $items->where('name', 'like', '%'.$request->input('name').'%');
@@ -190,7 +194,12 @@ class CatalogController extends Controller{
     }
 
     function postAddress(Request $request){
-        echo '<pre>'; print_r($request->all()); echo '</pre>'; exit();
+        //echo '<pre>'; print_r($request->all()); echo '</pre>'; exit();
+        if ($request->has('self_remote'))
+            session()->push('self_remote', 1);
+        else
+            session()->forget('self_remote');
+
         $city_id = $request->input('city_id');
         $ar_city = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
 
