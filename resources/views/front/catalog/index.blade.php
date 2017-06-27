@@ -52,17 +52,14 @@
           <div id="tools">
 				<div class="row">
 					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="styled-select">
-							<select name="sort_rating" id="sort_rating">
-								<option value="" selected>Sort by ranking</option>
-								<option value="lower">Lowest ranking</option>
-								<option value="higher">Highest ranking</option>
-							</select>
-						</div>
+                        <a href='?sort_name=count_view&sort_asc=0'>По просмотрам</a>
 					</div>
-					<!--<div class="col-md-9 col-sm-9 hidden-xs">
-						<a href="grid_list.html" class="bt_filters"><i class="icon-th"></i></a>
-					</div> -->
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <a href='?sort_name=raiting&sort_asc=0'>по рейтингу</a>
+					</div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <a href='?sort_name=price&sort_asc=1'>По мин цене заказа</a>
+					</div>
 				</div>
 			</div><!--End tools -->
             @foreach ($items as $i)
@@ -118,6 +115,16 @@
                                                     {{ $ar_delivery_price[$i->id][0] }} тг
                                                 @else
                                                     Бесплатно
+                                                @endif
+                                            </span>
+                                        </li>
+                                        <li>
+                                            Самовывоз:
+                                            <span>
+                                                @if ($i->self_remote)
+                                                    есть
+                                                @else
+                                                    нет
                                                 @endif
                                             </span>
                                         </li>

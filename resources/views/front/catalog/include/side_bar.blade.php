@@ -17,7 +17,91 @@
                     @endforeach
                 </ul>
             </div>
-
+            <div class="filter_type">
+				<h6>Рэйтинг</h6>
+				<ul>
+					<li>
+                        <label class="">
+                            <div class="icheckbox_square-grey" style="position: relative;">
+                                <input {{ (isset($ar_input['ar_raiting']) && in_array(5, $ar_input['ar_raiting']) ? 'checked' : null) }} type="checkbox"
+                                        name='ar_raiting[]' value="5" class="icheck" style="position: absolute; opacity: 0;" >
+                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div>
+                            <span class="rating">
+        					     <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+        					</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="">
+                            <div class="icheckbox_square-grey" style="position: relative;">
+                                <input {{ (isset($ar_input['ar_raiting']) && in_array(4, $ar_input['ar_raiting']) ? 'checked' : null) }} type="checkbox"
+                                        name='ar_raiting[]' value="4" class="icheck" style="position: absolute; opacity: 0;">
+                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div>
+                            <span class="rating">
+        					     <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star "></i>
+        					</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="">
+                            <div class="icheckbox_square-grey" style="position: relative;">
+                                <input {{ (isset($ar_input['ar_raiting']) && in_array(3, $ar_input['ar_raiting']) ? 'checked' : null) }} type="checkbox"
+                                        name='ar_raiting[]' value="3" class="icheck" style="position: absolute; opacity: 0;">
+                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div>
+                            <span class="rating">
+        					     <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star "></i>
+                                 <i class="icon_star "></i>
+        					</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="">
+                            <div class="icheckbox_square-grey" style="position: relative;">
+                                <input {{ (isset($ar_input['ar_raiting']) && in_array(2, $ar_input['ar_raiting']) ? 'checked' : null) }} type="checkbox"
+                                        name='ar_raiting[]' value="2" class="icheck" style="position: absolute; opacity: 0;">
+                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div>
+                            <span class="rating">
+        					     <i class="icon_star voted"></i>
+                                 <i class="icon_star voted"></i>
+                                 <i class="icon_star "></i>
+                                 <i class="icon_star "></i>
+                                 <i class="icon_star "></i>
+        					</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="">
+                            <div class="icheckbox_square-grey" style="position: relative;">
+                                <input {{ (isset($ar_input['ar_raiting']) && in_array(1, $ar_input['ar_raiting']) ? 'checked' : null) }} type="checkbox"
+                                        name='ar_raiting[]' value="1" class="icheck" style="position: absolute; opacity: 0;">
+                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div>
+                            <span class="rating">
+        					     <i class="icon_star voted"></i>
+                                 <i class="icon_star "></i>
+                                 <i class="icon_star "></i>
+                                 <i class="icon_star "></i>
+                                 <i class="icon_star "></i>
+        					</span>
+                        </label>
+                    </li>
+				</ul>
+			</div>
             <div class="filter_type">
                 <h6>Поиск блюд:</h6>
                 <div class="side-bar-box">
@@ -66,4 +150,3 @@
         </form>
     </div>
 </div>
-

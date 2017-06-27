@@ -46,7 +46,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col--md-4 col-sm-4 col-xs-4">
-            <a href="index.html" id="logo">
+            <a href="/" id="logo">
                 <img src="/img/logo.png" width="150" height="97" alt="" data-retina="true" class="hidden-xs">
                 <img src="/img/logo_mobile.png" width="59" height="" alt="" data-retina="true" class="hidden-lg hidden-md hidden-sm">
             </a>

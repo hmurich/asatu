@@ -32,6 +32,8 @@ class CatalogController extends Controller{
         if ($request->has('name'))
             $items = $items->where('name', 'like', '%'.$request->input('name').'%');
 
+        if ($request->has('ar_raiting'))
+            $items = $items->whereIn('raiting', $request->input('ar_raiting'));
 
         if ($request->has('restoran_new')){
             $week_before = date('Y-m-d', time() - (60 * 60 * 24 * 7));
@@ -105,6 +107,8 @@ class CatalogController extends Controller{
         $ar['ar_delivery_price'] = $ar_delivery_price;
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 5)->lists('name', 'id');
+
+        //echo '<pre>'; print_r($ar['ar_input']); echo '</pre>'; exit();
 
         return view('front.catalog.index', $ar);
     }

@@ -330,8 +330,8 @@
 			<div class="modal-content modal-popup">
 				<form  action="{{ action('Auth\AuthController@postLogin') }}" method="post" class="popup-form">
 	               <h3>Войти в личный кабинет</h3>
-					<input type="text" class="form-control form-white" placeholder="EMAIL">
-					<input type="password" class="form-control form-white" placeholder="Пароль" id="password1">
+					<input type="text" name="email" class="form-control form-white" placeholder="EMAIL">
+					<input type="password" name="password" class="form-control form-white" placeholder="Пароль" id="password1">
 	                <div class="text-left">
 	                    <a href="#modal_forgot_pass" class="modal-link open_modal">
 	                        Забыли пароль?
@@ -366,18 +366,18 @@
 <div class="modal fade out" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content modal-popup">
-			<form action="#" class="popup-form" id="myRegister">
+			<form action="{{ action('Auth\AuthController@postLogin') }}" class="popup-form" id="myRegister">
               <h4>Регистрация</h4>
-				<input type="email" class="form-control form-white" placeholder="EMAIL">
-					<input type="password" class="form-control form-white" placeholder="ПАРОЛЬ" id="password2">
-                    <input type="text" class="form-control form-white" placeholder="ВАШЕ ИМЯ">
-                    <input type="tel" class="form-control form-white" placeholder="ТЕЛЕФОН">
-                     <button type="submit" class="btn btn-submit reg-btn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-                    <div class="text-reg">
-                        <a href="#login_2" class="open__modal-login_2">
-                            ВОЙТИ В ЛИЧНЫЙ КАБИНЕТ
-                        </a>
-                    </div>
+				<input type="email" name="email" class="form-control form-white" placeholder="EMAIL">
+				<input type="password" name="password" class="form-control form-white" placeholder="ПАРОЛЬ" id="password2">
+                <input type="text" name="name" class="form-control form-white" placeholder="ВАШЕ ИМЯ">
+                <input type="tel" name="phone" class="form-control form-white" placeholder="ТЕЛЕФОН">
+                 <button type="submit" class="btn btn-submit reg-btn">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                <div class="text-reg">
+                    <a href="#login_2" class="open__modal-login_2">
+                        ВОЙТИ В ЛИЧНЫЙ КАБИНЕТ
+                    </a>
+                </div>
 			</form>
           <div class="popup-form--reg-img hidden-xs">
                     <div class="popup-form--text">

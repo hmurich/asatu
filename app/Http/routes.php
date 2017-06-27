@@ -57,7 +57,6 @@ Route::group(['middleware' => ['auth.moderator']], function () {
     Route::controller('adminka/history', 'Admin\HistoryController');
     Route::controller('adminka/client', 'Admin\ClientController');
     Route::controller('adminka/registr-restoran', 'Admin\RegistrRestoranController');
-
 });
 
 // Restoran Controllers
