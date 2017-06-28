@@ -73,7 +73,9 @@
                             </table>
                             @endif
                             <h3>{{ $ar_menu_type[$i->cat_id] }}</h3>
-                            <table class="table table-striped cart-list">
+                            <p>{{ $ar_menu_type_sadasdas[$i->cat_id] }}</p>
+
+                            <table class="table table-striped cart-list" id='astaasdkalsjdkjahsd_{{ $i->cat_id }}'>
                                 <thead>
                                 <tr>
                                     <th>

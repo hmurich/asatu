@@ -25,7 +25,7 @@ Route::post('check-email', 'Auth\AuthController@postCheckNewEmail');
 // Admin Controllers
 Route::group(['middleware' => ['auth.admin']], function () {
     Route::get('adminka', 'Admin\IndexController@getIndex');
-
+    
     Route::controller('adminka/moderator', 'Admin\ModeratorController');
     Route::controller('adminka/static-page', 'Admin\StaticPageController');
     Route::controller('adminka/page', 'Admin\PageController');

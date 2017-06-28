@@ -82,16 +82,29 @@
 	                         </div>
 	                    </li>
 	                    <li>
-							<a href="#login_2" data-toggle="modal" data-target="#login_2" class="open_modal">
-		                        <div class="login">
-		                        	<div class="login__img">
-		                                <img src="/new_index/img/login.png" alt="">
-		                            </div>
-		                            <div class="login__text ">
-		                                Войти
-		                            </div>
-		                        </div>
-							</a>
+                            @if (Auth::guest())
+                                <a href="#login_2" data-toggle="modal" data-target="#login_2" class="open_modal">
+                                    <div class="login">
+                                        <div class="login__img">
+                                            <img src="/new_index/img/login.png" alt="">
+                                        </div>
+                                        <div class="login__text ">
+                                            Войти
+                                        </div>
+                                    </div>
+                                </a>
+                            @else
+                                @if (Auth::user()->type_id == 1)
+                                    <a href="{{ action('Admin\IndexController@getIndex') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                                @elseif (Auth::user()->type_id == 2)
+                                    <a href="{{ action('Moderator\CabinetController@getCabinet') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                                @elseif (Auth::user()->type_id == 3)
+                                    <a href="{{ action('Restoran\OrderController@getList') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                                @elseif (Auth::user()->type_id == 4)
+                                    <a href="{{ action('Customer\CabinetController@getCabinet') }}" class="header-enter__button-reg ">Личный кабинет</a>
+                                @endif
+                                <a href="{{ action('Auth\AuthController@getLogout') }}" class="header-enter__button-enter ">Выйти</a>
+                            @endif
 						</li>
 						  <li class="submenu hidden-xs">
 	                        <div class="select">

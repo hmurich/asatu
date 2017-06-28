@@ -27,6 +27,7 @@
 
 
 @section('content')
+    <!--
     <div id="position">
         <div class="container">
             <ul>

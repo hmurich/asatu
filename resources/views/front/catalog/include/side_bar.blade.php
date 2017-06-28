@@ -132,6 +132,13 @@
                             <input type="checkbox" id="new" class="icheck" name='restoran_new' value="1" {{ (isset($ar_input["restoran_new"]) ? "checked" : null) }}>
                             {{ $translator->getTrans('new') }}
                         </label></li>
+                    <li>
+                        <label>
+                            <input type="checkbox" id="epay" class="icheck" name='epay' value="1" {{ (isset($ar_input["epay"]) ? "checked" : null) }}>
+                            Оплата банкосвкой картой
+                        </label>
+                    </li>
+
                     <li><label>
                             <input type="checkbox" class="icheck" name='restoran_new_promo' id="promokod" {{ (isset($ar_input["restoran_new_promo"]) ? "checked" : null) }}>
                             {{ $translator->getTrans('with_promo') }}

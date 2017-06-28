@@ -22,8 +22,8 @@ class MenuController extends Controller{
 
         $items = Menu::where('restoran_id', $restoran->id)->where('is_active', 1);
 
-        if ($request->has('kitchen') && count($request->input('kitchen')))
-            $items = $items->whereIn('cat_id', $request->input('kitchen'));
+        if ($request->has('kitchen'))
+            $items = $items->where('cat_id', $request->input('kitchen'));
 
         if ($request->has('k_name') && $request->input('k_name'))
             $items = $items->where('title', 'like', '%'.$request->input('k_name').'%');
@@ -42,11 +42,15 @@ class MenuController extends Controller{
         $ar['ar_city'] = SysDirectoryName::where('parent_id', 3)->lists('name', 'id');
         $ar['ar_kitchen'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
         $ar['ar_menu_type'] = SysDirectoryName::where('parent_id', 4)->lists('name', 'id');
+        $ar['ar_menu_type_sadasdas'] = SysDirectoryName::where('parent_id', 4)->lists('note', 'id');
+
         $ar['ar_menu'] = Menu::where('restoran_id', $restoran->id)->lists('title', 'id');
         $ar['busket'] = OrderBusket::getOrder($restoran->id);
         $ar['ar_delivery'] = $this->getArDelivery();
 
         $ar['ar_menu_cat'] = Menu::where('restoran_id', $restoran->id)->select('cat_id', 'id')->get()->keyBy('id')->toArray();
+
+        $ar['is_menu_show'] = true;
         //echo '<pre>'; print_r($ar['ar_menu_cat']); echo '</pre>'; exit();
 
 

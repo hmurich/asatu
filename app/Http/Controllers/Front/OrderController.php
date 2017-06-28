@@ -128,7 +128,7 @@ class OrderController extends Controller{
 
         if (!$customer){
             DB::rollback();
-            abort(404);
+            return redirect()->action('Front\IndexController@getIndex')->with('error', 'У Вас нет прав для заказа');
         }
 
         $customer->name = $request->input('name');

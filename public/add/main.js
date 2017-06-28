@@ -163,13 +163,11 @@ $(document).ready(function() {
             if (city_id == '0' || city_id == 0)
                 return false;
 
-            if (find_address == '' || find_address == undefined)
+            if ((lat == '' || lat == undefined) || (lng == '' || lng == undefined)){
                 $('.js_find_address').val('Самовывоз');
-                
-            if (lat == '' || lat == undefined)
                 $('.js_find_address_lat').val('48.222131564');
-            if (lng == '' || lng == undefined)
                 $('.js_find_address_lng').val('48.222131564');
+            }
 
             var form = $(this).closest( "form" );
             form.append('<input type="hidden" value="1" name="self_remote" />');
@@ -177,8 +175,6 @@ $(document).ready(function() {
             form.submit();
             return true;
 
-            console.log($('.js_find_address').val(), $('.js_find_address_lat').val(), $('.js_find_address_lng').val());
-            console.log('asat loh obelsa bloh v toalet poshel b zdoh');
         });
     }
 

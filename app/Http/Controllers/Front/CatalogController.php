@@ -66,6 +66,9 @@ class CatalogController extends Controller{
                 $q->where('id', '>', 0);
             });
 
+        if ($request->has('epay'))
+            $items = $items->where('epay', 1);
+
         if ($request->has('restoran_free'))
             $items = $items->whereHas('relData', function($q){
                 $q->where('delivery_price', 0);
